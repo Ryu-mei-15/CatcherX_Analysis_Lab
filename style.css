@@ -1,0 +1,117 @@
+/* --------------------------------------
+   共通変数（テーマカラーなど）
+-------------------------------------- */
+:root {
+    --primary-color: #004b87;     /* 深みのある青（アカデミックブルー） */
+    --secondary-color: #e6f0fa;   /* 薄い青（背景・アクセント用） */
+    --accent-color: #e74c3c;      /* 警告・失敗などのインジケータ（赤） */
+    --text-color: #333333;
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+}
+
+/* --------------------------------------
+   ベーススタイル
+-------------------------------------- */
+body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* --------------------------------------
+   ヘッダー（全ページ共通で利用可能）
+-------------------------------------- */
+.main-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 3rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.main-header h1 {
+    margin: 0 0 1rem 0;
+    font-size: 1.8rem;
+}
+
+.main-header p.author {
+    margin: 0;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* --------------------------------------
+   レイアウト・コンポーネント
+-------------------------------------- */
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+/* サブページでも使い回せる汎用カード型セクション */
+.card {
+    background: var(--card-bg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.card h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+/* --------------------------------------
+   インタラクティブ要素・フォーム
+-------------------------------------- */
+.controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.control-group label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+    color: #555;
+}
+
+.control-group select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    min-width: 150px;
+    background-color: #fff;
+}
+
+/* --------------------------------------
+   グラフ描画エリア
+-------------------------------------- */
+.chart-container {
+    position: relative;
+    height: 500px;
+    width: 100%;
+}
+
+.chart-caption {
+    text-align: right;
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 0.5rem;
+}

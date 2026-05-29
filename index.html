@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EC2026 Data Appendix</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>VR Content CatcherX: における身体拡張とフレーミング技術のログ分析</h1>
+        <p class="author">山口 瑞悠（福知山公立大学 情報学部 情報学科）</p>
+    </header>
+
+    <div class="container">
+        <section id="abstract" class="card">
+            <h2>概要</h2>
+            <p>
+                本稿では，投手の投球軌道および捕手のミット操作に関するログデータを分析し，熟練度の違いによるフレーミング技術の差異を評価する．
+                本特設ページでは，論文紙面の都合上掲載できなかった全被験者の生データおよび，球種・投球コースごとの詳細な散布図をインタラクティブに公開する．
+                読者は任意のパラメータを選択することで，多角的な視点から本提案システムの妥当性を検証することが可能である．
+            </p>
+        </section>
+
+        <section id="dashboard" class="card">
+            <h2>インタラクティブ・データログ</h2>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <label for="userSelect">被験者ID</label>
+                    <select id="userSelect">
+                        <option value="all">全員</option>
+                        <option value="userA">被験者A (経験者)</option>
+                        <option value="userB">被験者B (未経験者)</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="pitchSelect">球種</label>
+                    <select id="pitchSelect">
+                        <option value="all">すべての球種</option>
+                        <option value="fastball">ストレート</option>
+                        <option value="slider">スライダー</option>
+                        <option value="curve">カーブ</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="courseSelect">投球コース</label>
+                    <select id="courseSelect">
+                        <option value="all">すべてのコース</option>
+                        <option value="inside">インコース</option>
+                        <option value="outside">アウトコース</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="pitchChart"></canvas>
+            </div>
+            <p class="chart-caption">※図中の枠線は仮想的なストライクゾーンを示す</p>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
