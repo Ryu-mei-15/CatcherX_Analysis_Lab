@@ -3,45 +3,39 @@ import glob
 import json
 import os
 
-# 先ほどのグラフ描画コードに合わせて，CSVがあるディレクトリを絶対パスで指定します
+# CSVがあるディレクトリを絶対パスで指定します
 DATA_DIR = '/Users/yamaguchimiyu/Downloads/Date'
 
 # 指定ディレクトリ内のCSVを取得
 csv_files = glob.glob(os.path.join(DATA_DIR, "*.csv"))
 combined_data = []
 
-speed_map = {
-    '0_100.csv': '100 km/h', '0_130.csv': '130 km/h', '0_158.csv': '158 km/h',
-    '1_100.csv': '100 km/h', '1_130.csv': '130 km/h', '1_158.csv': '158 km/h',
-    '2_100.csv': '100 km/h', '2_130.csv': '130 km/h', '2_158.csv': '158 km/h',
-    '3_100.csv': '100 km/h', '3_130.csv': '130 km/h', '3_158.csv': '158 km/h',
-    '4_100.csv': '100 km/h', '4_130.csv': '130 km/h', '4_158.csv': '158 km/h',
-    # 念のためテストログファイルも定義に入れておきます
-    'Log_Sub_Test01_20260529_165524.csv': '100 km/h',
-    'Log_Sub_Test01_20260529_165732.csv': '130 km/h',
-    'Log_Sub_Test01_20260529_165916.csv': '158 km/h'
-}
-
 print(f"探索先ディレクトリ: {DATA_DIR}")
 print(f"見つかったCSVファイル数: {len(csv_files)}\n")
 
 for file_path in csv_files:
-    file_name = os.path.basename(file_path) # パスからファイル名だけを抽出
+    file_name = os.path.basename(file_path)
     
-    if file_name not in speed_map:
-        print(f"[-] スキップ: {file_name} (speed_mapに定義がありません)")
+    # ファイル名から Dataset と 球速 を自動抽出
+    # 例: "0_100.csv" -> parts = ["0", "100"]
+    parts = file_name.replace(".csv", "").split("_")
+    
+    # "X_YYY.csv" の形式（アンダースコアで2つに分かれ，後半が数字）の場合
+    if len(parts) == 2 and parts[1].isdigit():
+        dataset_name = f"Dataset {parts[0]}"
+        speed = f"{parts[1]} km/h"
+    elif file_name.startswith('Log_Sub'):
+        # テストログ用のフォールバック処理
+        dataset_name = "Dataset Test"
+        if '100' in file_name: speed = '100 km/h'
+        elif '130' in file_name: speed = '130 km/h'
+        elif '158' in file_name: speed = '158 km/h'
+        else: speed = 'Unknown km/h'
+    else:
+        print(f"[-] スキップ: {file_name} (想定する命名規則 X_YYY.csv と異なります)")
         continue
         
-    print(f"[+] 読み込み中: {file_name}")
-    
-    # Dataset名の抽出（Log_Sub系と数字始まりで分岐）
-    if file_name.startswith('Log_Sub'):
-        dataset_name = "Dataset Test"
-    else:
-        parts = file_name.replace(".csv", "").split("_")
-        dataset_name = f"Dataset {parts[0]}"
-        
-    speed = speed_map[file_name]
+    print(f"[+] 読み込み中: {file_name} -> {dataset_name}, {speed}")
     
     try:
         df = pd.read_csv(file_path)
