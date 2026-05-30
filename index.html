@@ -4,57 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EC2026 Data Appendix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
     <header class="main-header">
-        <h1>VR Content CatcherX: における身体拡張とフレーミング技術のログ分析</h1>
+        <h1>CatcherX: 配球と捕球を統合したVRコンテンツ</h1>
         <p class="author">山口 瑞悠（福知山公立大学 情報学部 情報学科）</p>
         <p class="author">藤井 叙人（福知山公立大学 情報学部 情報学科）</p>
         <p class="author">橋田 光代（福知山公立大学 情報学部 情報学科）</p>
     </header>
 
     <div class="container">
-        <section id="abstract" class="card">
-            <h2>概要</h2>
-            <p>
-                本稿では，投手の投球軌道および捕手のミット操作に関するログデータを分析し，熟練度の違いによるフレーミング技術の差異を評価する．
-                本特設ページでは，論文紙面の都合上掲載できなかった全被験者の生データおよび，球種・投球コースごとの詳細な散布図をインタラクティブに公開する．
-                読者は任意のパラメータを選択することで，多角的な視点から本提案システムの妥当性を検証することが可能である．
-            </p>
-        </section>
-
         <section id="dashboard" class="card">
-            <h2>キャプチャ誤差 インタラクティブ分析</h2>
+            <h2>捕球時のミットの移動量分析</h2>
             
-            <div class="controls">
-                <div class="control-group">
-                    <label for="datasetSelect">被験者 (Dataset)</label>
-                    <select id="datasetSelect">
-                        <option value="all">全データセット</option>
-                        </select>
+            <div class="controls-grid">
+                <div class="filter-column">
+                    <div class="filter-section">
+                        <h3>プレイヤー (Player)</h3>
+                        <div id="playerCheckboxes" class="checkbox-group"></div>
+                    </div>
+                    <div class="filter-section" style="margin-top: 2rem;">
+                        <h3>球速</h3>
+                        <div id="speedCheckboxes" class="checkbox-group"></div>
+                    </div>
                 </div>
-                <div class="control-group">
-                    <label for="speedSelect">球速</label>
-                    <select id="speedSelect">
-                        <option value="all">すべての球速</option>
-                        </select>
-                </div>
-                <div class="control-group">
-                    <label for="planeSelect">投影平面</label>
-                    <select id="planeSelect">
-                        <option value="XY">XY平面 (水平 vs 垂直)</option>
-                        <option value="ZY">ZY平面 (深度 vs 垂直)</option>
-                    </select>
+
+                <div class="filter-section zone-section">
+                    <h3>投球コース（捕手目線・右打者）</h3>
+                    <div class="sz-wrapper">
+                        <div class="batter-box">
+                            <span class="batter-icon">👤</span>
+                            <span class="batter-label">右打者</span>
+                        </div>
+                        <div class="sz-grid-container">
+                            <div class="sz-strike-zone-border"></div>
+                            <div class="sz-grid" id="courseGrid"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="chart-container">
-                <canvas id="errorChart"></canvas>
+            <h3 style="color: var(--primary-color); border-bottom: 2px solid var(--primary-fade); padding-bottom: 0.5rem; margin-top: 2rem;">
+                分析1：捕球結果（成否）による分布
+            </h3>
+            <div class="charts-wrapper">
+                <div class="chart-box">
+                    <h3 class="chart-title">XY平面 (水平 vs 垂直)</h3>
+                    <div class="canvas-container">
+                        <canvas id="errorChartXY"></canvas>
+                    </div>
+                </div>
+                <div class="chart-box">
+                    <h3 class="chart-title">ZY平面 (深度 vs 垂直)</h3>
+                    <div class="canvas-container">
+                        <canvas id="errorChartZY"></canvas>
+                    </div>
+                </div>
             </div>
-            <p class="chart-caption">※ 誤差は ±0.38m でクリッピングして表示しています．〇: Perfect, □: Dropped, ×: Missed</p>
+            <div class="legend-box" style="margin-bottom: 4rem;">
+                <strong>【凡例】</strong> 
+                色: プレイヤーごと / 
+                形状: <span class="marker-sample">〇</span> Perfect (正常捕球) &nbsp; 
+                <span class="marker-sample">□</span> Dropped (パスボール) &nbsp; 
+                <span class="marker-sample">×</span> WildPitch (暴投) &nbsp;
+                <span class="marker-sample">△</span> Ignored (見逃し)
+            </div>
+
+            <h3 style="color: var(--primary-color); border-bottom: 2px solid var(--primary-fade); padding-bottom: 0.5rem;">
+                分析2：投球コースによる分布
+            </h3>
+            <div class="charts-wrapper">
+                <div class="chart-box">
+                    <h3 class="chart-title">XY平面 (コース別)</h3>
+                    <div class="canvas-container">
+                        <canvas id="errorChartCourseXY"></canvas>
+                    </div>
+                </div>
+                <div class="chart-box">
+                    <h3 class="chart-title">ZY平面 (コース別)</h3>
+                    <div class="canvas-container">
+                        <canvas id="errorChartCourseZY"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="legend-box" style="text-align: left; max-width: 600px; margin: 0 auto;">
+                <strong>【分析2プロットの見方】</strong><br>
+                マーカーの矢印の「向き」は，右打者から見た投球コースを示します．<br>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; color: #555;">
+                    <li><span style="font-weight:bold; color:var(--primary-color);">線の色</span>: プレイヤーごとの識別</li>
+                    <li><span style="font-weight:bold;">塗りつぶし太矢印</span>: 最終判定が <b>Strike</b> になった球</li>
+                    <li><span style="font-weight:bold;">白抜き細矢印</span>: 最終判定が <b>Ball / PassedBall / WildPitch</b> の球</li>
+                    <li><span style="font-weight:bold;">● (丸)</span>: ど真ん中（Center）の球</li>
+                </ul>
+            </div>
+            
+            <p class="chart-caption" style="margin-top: 2rem;">※ 誤差は ±0.38m でクリッピングして表示しています．</p>
         </section>
     </div>
 

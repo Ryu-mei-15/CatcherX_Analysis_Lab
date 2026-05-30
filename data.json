@@ -1,7 +1,8 @@
 [
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "158 km/h",
+    "course": "Low Inside Center Ball",
     "target_x": -0.146,
     "target_y": 0.526,
     "target_z": -19.679,
@@ -11,8 +12,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "158 km/h",
+    "course": "Low Center",
     "target_x": -0.038,
     "target_y": 0.908,
     "target_z": -19.76,
@@ -22,8 +24,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": -0.056,
     "target_y": 0.92,
     "target_z": -19.767,
@@ -33,8 +36,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": -0.044,
     "target_y": 0.923,
     "target_z": -19.792,
@@ -44,8 +48,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "158 km/h",
+    "course": "Low Center",
     "target_x": -0.052,
     "target_y": 0.887,
     "target_z": -19.779,
@@ -55,8 +60,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "158 km/h",
+    "course": "Low Center",
     "target_x": -0.044,
     "target_y": 0.882,
     "target_z": -19.842,
@@ -66,8 +72,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": -0.054,
     "target_y": 0.914,
     "target_z": -19.797,
@@ -77,8 +84,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "158 km/h",
+    "course": "Low Center",
     "target_x": -0.057,
     "target_y": 0.888,
     "target_z": -19.79,
@@ -88,8 +96,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "158 km/h",
+    "course": "Low Center",
     "target_x": -0.062,
     "target_y": 0.883,
     "target_z": -19.826,
@@ -99,8 +108,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "130 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.001,
     "target_y": 0.438,
     "target_z": -19.794,
@@ -110,8 +120,9 @@
     "catch_result": "Ball_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "130 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.042,
     "target_y": 0.608,
     "target_z": -19.82,
@@ -121,8 +132,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "130 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.051,
     "target_y": 0.676,
     "target_z": -19.829,
@@ -132,8 +144,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "130 km/h",
+    "course": "Low Inside Center Ball",
     "target_x": -0.093,
     "target_y": 0.656,
     "target_z": -19.812,
@@ -143,8 +156,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "130 km/h",
+    "course": "Low Inside Center Ball",
     "target_x": -0.075,
     "target_y": 0.606,
     "target_z": -19.808,
@@ -154,8 +168,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "130 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.068,
     "target_y": 0.574,
     "target_z": -19.831,
@@ -165,8 +180,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "130 km/h",
+    "course": "Low Center",
     "target_x": 0.027,
     "target_y": 0.734,
     "target_z": -19.865,
@@ -176,8 +192,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "130 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.027,
     "target_y": 0.552,
     "target_z": -19.8,
@@ -187,8 +204,9 @@
     "catch_result": "Ball_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "130 km/h",
+    "course": "Low Center Ball",
     "target_x": 0.017,
     "target_y": 0.646,
     "target_z": -19.84,
@@ -198,8 +216,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "130 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.058,
     "target_y": 0.651,
     "target_z": -19.816,
@@ -209,8 +228,9 @@
     "catch_result": "Ball_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "130 km/h",
+    "course": "Low Inside Center Ball",
     "target_x": -0.084,
     "target_y": 0.621,
     "target_z": -19.831,
@@ -220,8 +240,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "130 km/h",
+    "course": "Low Inside Center Ball",
     "target_x": -0.107,
     "target_y": 0.676,
     "target_z": -19.813,
@@ -231,8 +252,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "130 km/h",
+    "course": "Low Inside",
     "target_x": -0.087,
     "target_y": 0.904,
     "target_z": -19.739,
@@ -242,8 +264,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "130 km/h",
+    "course": "Low Center",
     "target_x": 0.0,
     "target_y": 0.875,
     "target_z": -19.757,
@@ -253,8 +276,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "130 km/h",
+    "course": "High Center",
     "target_x": -0.063,
     "target_y": 1.125,
     "target_z": -19.75,
@@ -264,8 +288,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "130 km/h",
+    "course": "Low Center",
     "target_x": -0.003,
     "target_y": 0.866,
     "target_z": -19.743,
@@ -275,8 +300,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "130 km/h",
+    "course": "Low Outside",
     "target_x": 0.095,
     "target_y": 0.868,
     "target_z": -19.771,
@@ -286,8 +312,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "130 km/h",
+    "course": "High Outside",
     "target_x": 0.142,
     "target_y": 1.106,
     "target_z": -19.755,
@@ -297,8 +324,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "130 km/h",
+    "course": "High Inside",
     "target_x": -0.106,
     "target_y": 1.141,
     "target_z": -19.759,
@@ -308,8 +336,9 @@
     "catch_result": "Ball_PassedBall"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "130 km/h",
+    "course": "High Inside",
     "target_x": -0.084,
     "target_y": 1.118,
     "target_z": -19.765,
@@ -319,8 +348,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "130 km/h",
+    "course": "Mid Outside",
     "target_x": 0.149,
     "target_y": 0.993,
     "target_z": -19.767,
@@ -330,8 +360,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "130 km/h",
+    "course": "Mid Center",
     "target_x": -0.04,
     "target_y": 1.022,
     "target_z": -19.755,
@@ -341,8 +372,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "130 km/h",
+    "course": "Low Center",
     "target_x": 0.006,
     "target_y": 0.844,
     "target_z": -19.771,
@@ -352,8 +384,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "130 km/h",
+    "course": "Mid Inside",
     "target_x": -0.144,
     "target_y": 1.03,
     "target_z": -19.77,
@@ -363,8 +396,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "130 km/h",
+    "course": "Low Inside",
     "target_x": -0.077,
     "target_y": 0.905,
     "target_z": -19.772,
@@ -374,8 +408,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "130 km/h",
+    "course": "Low Center",
     "target_x": 0.01,
     "target_y": 0.873,
     "target_z": -19.78,
@@ -385,8 +420,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "130 km/h",
+    "course": "Low Center",
     "target_x": 0.001,
     "target_y": 0.88,
     "target_z": -19.773,
@@ -396,8 +432,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "130 km/h",
+    "course": "Mid Outside",
     "target_x": 0.147,
     "target_y": 0.915,
     "target_z": -19.779,
@@ -407,8 +444,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "130 km/h",
+    "course": "Low Outside",
     "target_x": 0.106,
     "target_y": 0.879,
     "target_z": -19.77,
@@ -418,8 +456,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "130 km/h",
+    "course": "Low Outside",
     "target_x": 0.091,
     "target_y": 0.858,
     "target_z": -19.783,
@@ -429,8 +468,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "130 km/h",
+    "course": "High Center",
     "target_x": -0.032,
     "target_y": 1.135,
     "target_z": -19.765,
@@ -440,8 +480,2325 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Inside",
+    "target_x": -0.134,
+    "target_y": 1.204,
+    "target_z": -19.639,
+    "mitt_x": -0.298,
+    "mitt_y": 1.055,
+    "mitt_z": -19.603,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Inside",
+    "target_x": -0.157,
+    "target_y": 1.199,
+    "target_z": -19.631,
+    "mitt_x": -0.037,
+    "mitt_y": 1.116,
+    "mitt_z": -19.641,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Inside",
+    "target_x": -0.159,
+    "target_y": 1.206,
+    "target_z": -19.669,
+    "mitt_x": -0.113,
+    "mitt_y": 1.025,
+    "mitt_z": -19.662,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Inside",
+    "target_x": -0.148,
+    "target_y": 1.198,
+    "target_z": -19.641,
+    "mitt_x": -0.108,
+    "mitt_y": 1.14,
+    "mitt_z": -19.664,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Inside",
+    "target_x": -0.154,
+    "target_y": 1.209,
+    "target_z": -19.643,
+    "mitt_x": -0.031,
+    "mitt_y": 1.094,
+    "mitt_z": -19.595,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Inside",
+    "target_x": -0.158,
+    "target_y": 1.195,
+    "target_z": -19.642,
+    "mitt_x": -0.042,
+    "mitt_y": 1.047,
+    "mitt_z": -19.666,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Inside",
+    "target_x": -0.151,
+    "target_y": 1.172,
+    "target_z": -19.688,
+    "mitt_x": -0.152,
+    "mitt_y": 1.189,
+    "mitt_z": -19.701,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Inside",
+    "target_x": -0.148,
+    "target_y": 1.19,
+    "target_z": -19.702,
+    "mitt_x": -0.005,
+    "mitt_y": 1.2,
+    "mitt_z": -19.644,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Inside",
+    "target_x": -0.157,
+    "target_y": 1.207,
+    "target_z": -19.722,
+    "mitt_x": -0.171,
+    "mitt_y": 1.207,
+    "mitt_z": -19.68,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Inside",
+    "target_x": -0.117,
+    "target_y": 1.202,
+    "target_z": -19.703,
+    "mitt_x": -0.39,
+    "mitt_y": 1.194,
+    "mitt_z": -19.675,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.162,
+    "target_y": 1.09,
+    "target_z": -19.706,
+    "mitt_x": -0.158,
+    "mitt_y": 0.99,
+    "mitt_z": -19.699,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Inside",
+    "target_x": -0.163,
+    "target_y": 1.133,
+    "target_z": -19.712,
+    "mitt_x": -0.096,
+    "mitt_y": 1.165,
+    "mitt_z": -19.711,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.203,
+    "target_y": 1.076,
+    "target_z": -19.722,
+    "mitt_x": -0.03,
+    "mitt_y": 1.032,
+    "mitt_z": -19.683,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.172,
+    "target_y": 1.089,
+    "target_z": -19.701,
+    "mitt_x": -0.093,
+    "mitt_y": 0.836,
+    "mitt_z": -20.035,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Inside",
+    "target_x": -0.187,
+    "target_y": 1.151,
+    "target_z": -19.777,
+    "mitt_x": -0.158,
+    "mitt_y": 1.175,
+    "mitt_z": -19.773,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Inside",
+    "target_x": -0.18,
+    "target_y": 1.109,
+    "target_z": -19.728,
+    "mitt_x": -0.424,
+    "mitt_y": 1.146,
+    "mitt_z": -19.714,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.152,
+    "target_y": 1.104,
+    "target_z": -19.721,
+    "mitt_x": -0.422,
+    "mitt_y": 1.137,
+    "mitt_z": -19.695,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Inside",
+    "target_x": -0.136,
+    "target_y": 1.115,
+    "target_z": -19.721,
+    "mitt_x": -0.111,
+    "mitt_y": 1.038,
+    "mitt_z": -19.72,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Inside",
+    "target_x": -0.155,
+    "target_y": 1.129,
+    "target_z": -19.718,
+    "mitt_x": 0.012,
+    "mitt_y": 1.018,
+    "mitt_z": -19.741,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Inside",
+    "target_x": -0.168,
+    "target_y": 1.109,
+    "target_z": -19.712,
+    "mitt_x": -0.346,
+    "mitt_y": 1.112,
+    "mitt_z": -19.732,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.172,
+    "target_y": 1.045,
+    "target_z": -19.743,
+    "mitt_x": -0.299,
+    "mitt_y": 0.899,
+    "mitt_z": -19.754,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.173,
+    "target_y": 1.046,
+    "target_z": -19.754,
+    "mitt_x": -0.264,
+    "mitt_y": 0.972,
+    "mitt_z": -19.739,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.153,
+    "target_y": 1.067,
+    "target_z": -19.728,
+    "mitt_x": 0.001,
+    "mitt_y": 1.02,
+    "mitt_z": -19.733,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Inside",
+    "target_x": -0.178,
+    "target_y": 0.775,
+    "target_z": -19.877,
+    "mitt_x": -0.334,
+    "mitt_y": 0.781,
+    "mitt_z": -19.861,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Inside",
+    "target_x": -0.163,
+    "target_y": 0.912,
+    "target_z": -19.857,
+    "mitt_x": -0.262,
+    "mitt_y": 0.716,
+    "mitt_z": -19.93,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.183,
+    "target_y": 0.936,
+    "target_z": -19.942,
+    "mitt_x": -0.374,
+    "mitt_y": 0.755,
+    "mitt_z": -19.928,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.182,
+    "target_y": 0.975,
+    "target_z": -19.902,
+    "mitt_x": -0.142,
+    "mitt_y": 0.873,
+    "mitt_z": -19.963,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.173,
+    "target_y": 0.927,
+    "target_z": -19.939,
+    "mitt_x": 0.027,
+    "mitt_y": 0.925,
+    "mitt_z": -19.93,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.182,
+    "target_y": 0.962,
+    "target_z": -19.932,
+    "mitt_x": -0.029,
+    "mitt_y": 1.012,
+    "mitt_z": -19.936,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Inside",
+    "target_x": -0.203,
+    "target_y": 0.857,
+    "target_z": -19.967,
+    "mitt_x": -0.403,
+    "mitt_y": 0.903,
+    "mitt_z": -19.957,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.164,
+    "target_y": 0.927,
+    "target_z": -19.954,
+    "mitt_x": -0.244,
+    "mitt_y": 0.897,
+    "mitt_z": -20.0,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Inside",
+    "target_x": -0.184,
+    "target_y": 0.752,
+    "target_z": -20.049,
+    "mitt_x": -0.08,
+    "mitt_y": 0.764,
+    "mitt_z": -20.039,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Inside",
+    "target_x": -0.198,
+    "target_y": 0.814,
+    "target_z": -20.04,
+    "mitt_x": -0.135,
+    "mitt_y": 0.86,
+    "mitt_z": -20.054,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Inside",
+    "target_x": -0.191,
+    "target_y": 0.822,
+    "target_z": -20.054,
+    "mitt_x": -0.185,
+    "mitt_y": 0.744,
+    "mitt_z": -20.08,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Center",
+    "target_x": -0.007,
+    "target_y": 1.265,
+    "target_z": -19.727,
+    "mitt_x": 0.066,
+    "mitt_y": 1.074,
+    "mitt_z": -19.698,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Center",
+    "target_x": -0.012,
+    "target_y": 1.208,
+    "target_z": -19.706,
+    "mitt_x": -0.091,
+    "mitt_y": 1.077,
+    "mitt_z": -19.692,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Center",
+    "target_x": -0.025,
+    "target_y": 1.214,
+    "target_z": -19.716,
+    "mitt_x": 0.124,
+    "mitt_y": 1.12,
+    "mitt_z": -19.66,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Center",
+    "target_x": -0.027,
+    "target_y": 1.193,
+    "target_z": -19.683,
+    "mitt_x": 0.015,
+    "mitt_y": 1.276,
+    "mitt_z": -19.759,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Center",
+    "target_x": -0.027,
+    "target_y": 1.263,
+    "target_z": -19.698,
+    "mitt_x": 0.176,
+    "mitt_y": 1.174,
+    "mitt_z": -19.711,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Center",
+    "target_x": -0.016,
+    "target_y": 1.214,
+    "target_z": -19.661,
+    "mitt_x": 0.106,
+    "mitt_y": 1.033,
+    "mitt_z": -19.671,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Center",
+    "target_x": -0.025,
+    "target_y": 1.234,
+    "target_z": -19.699,
+    "mitt_x": -0.301,
+    "mitt_y": 1.066,
+    "mitt_z": -19.642,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Center",
+    "target_x": -0.022,
+    "target_y": 1.22,
+    "target_z": -19.689,
+    "mitt_x": -0.028,
+    "mitt_y": 1.24,
+    "mitt_z": -19.701,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Center",
+    "target_x": -0.014,
+    "target_y": 1.244,
+    "target_z": -19.702,
+    "mitt_x": 0.044,
+    "mitt_y": 1.252,
+    "mitt_z": -19.714,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Center",
+    "target_x": -0.001,
+    "target_y": 1.267,
+    "target_z": -19.681,
+    "mitt_x": 0.19,
+    "mitt_y": 1.239,
+    "mitt_z": -19.773,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Center",
+    "target_x": -0.016,
+    "target_y": 1.221,
+    "target_z": -19.68,
+    "mitt_x": -0.265,
+    "mitt_y": 1.235,
+    "mitt_z": -19.743,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Center",
+    "target_x": -0.016,
+    "target_y": 1.123,
+    "target_z": -19.745,
+    "mitt_x": -0.079,
+    "mitt_y": 1.009,
+    "mitt_z": -19.933,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Center",
+    "target_x": -0.024,
+    "target_y": 1.02,
+    "target_z": -19.936,
+    "mitt_x": -0.308,
+    "mitt_y": 1.09,
+    "mitt_z": -19.927,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Center",
+    "target_x": -0.008,
+    "target_y": 1.065,
+    "target_z": -19.917,
+    "mitt_x": -0.022,
+    "mitt_y": 0.985,
+    "mitt_z": -19.941,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Center",
+    "target_x": -0.005,
+    "target_y": 1.015,
+    "target_z": -19.95,
+    "mitt_x": -0.251,
+    "mitt_y": 1.085,
+    "mitt_z": -20.013,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Center",
+    "target_x": -0.026,
+    "target_y": 1.036,
+    "target_z": -19.979,
+    "mitt_x": 0.14,
+    "mitt_y": 0.968,
+    "mitt_z": -19.994,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Center",
+    "target_x": -0.026,
+    "target_y": 1.02,
+    "target_z": -19.99,
+    "mitt_x": 0.128,
+    "mitt_y": 1.01,
+    "mitt_z": -19.938,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Center",
+    "target_x": -0.013,
+    "target_y": 1.053,
+    "target_z": -19.938,
+    "mitt_x": -0.244,
+    "mitt_y": 1.009,
+    "mitt_z": -19.926,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Center",
+    "target_x": -0.004,
+    "target_y": 1.074,
+    "target_z": -19.936,
+    "mitt_x": -0.102,
+    "mitt_y": 1.16,
+    "mitt_z": -19.96,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Center",
+    "target_x": -0.008,
+    "target_y": 0.77,
+    "target_z": -19.968,
+    "mitt_x": 0.116,
+    "mitt_y": 0.851,
+    "mitt_z": -19.973,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Center",
+    "target_x": -0.021,
+    "target_y": 0.83,
+    "target_z": -19.945,
+    "mitt_x": -0.116,
+    "mitt_y": 0.779,
+    "mitt_z": -19.947,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Center",
+    "target_x": -0.018,
+    "target_y": 0.867,
+    "target_z": -19.931,
+    "mitt_x": -0.11,
+    "mitt_y": 0.7,
+    "mitt_z": -19.935,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Center",
+    "target_x": -0.027,
+    "target_y": 0.825,
+    "target_z": -19.955,
+    "mitt_x": -0.235,
+    "mitt_y": 0.762,
+    "mitt_z": -19.939,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Center",
+    "target_x": -0.033,
+    "target_y": 0.826,
+    "target_z": -19.928,
+    "mitt_x": 0.109,
+    "mitt_y": 0.827,
+    "mitt_z": -19.995,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Center",
+    "target_x": -0.018,
+    "target_y": 0.87,
+    "target_z": -19.994,
+    "mitt_x": 0.083,
+    "mitt_y": 0.804,
+    "mitt_z": -19.992,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Center",
+    "target_x": -0.011,
+    "target_y": 0.849,
+    "target_z": -19.993,
+    "mitt_x": -0.228,
+    "mitt_y": 0.993,
+    "mitt_z": -19.935,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Center",
+    "target_x": -0.019,
+    "target_y": 0.831,
+    "target_z": -20.025,
+    "mitt_x": -0.086,
+    "mitt_y": 0.869,
+    "mitt_z": -19.962,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Center",
+    "target_x": -0.02,
+    "target_y": 0.876,
+    "target_z": -19.981,
+    "mitt_x": -0.038,
+    "mitt_y": 0.839,
+    "mitt_z": -19.989,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Center",
+    "target_x": -0.022,
+    "target_y": 0.917,
+    "target_z": -19.982,
+    "mitt_x": 0.017,
+    "mitt_y": 0.927,
+    "mitt_z": -19.962,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Center",
+    "target_x": -0.031,
+    "target_y": 0.845,
+    "target_z": -19.933,
+    "mitt_x": 0.006,
+    "mitt_y": 0.911,
+    "mitt_z": -19.963,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Outside",
+    "target_x": 0.164,
+    "target_y": 1.194,
+    "target_z": -19.987,
+    "mitt_x": 0.334,
+    "mitt_y": 1.06,
+    "mitt_z": -20.118,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Outside",
+    "target_x": 0.168,
+    "target_y": 1.223,
+    "target_z": -19.975,
+    "mitt_x": -0.134,
+    "mitt_y": 1.095,
+    "mitt_z": -19.949,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid-High Outside Ball",
+    "target_x": 0.229,
+    "target_y": 1.174,
+    "target_z": -19.933,
+    "mitt_x": 0.33,
+    "mitt_y": 1.1,
+    "mitt_z": -19.959,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid-High Outside Ball",
+    "target_x": 0.249,
+    "target_y": 1.148,
+    "target_z": -19.946,
+    "mitt_x": 0.127,
+    "mitt_y": 1.102,
+    "mitt_z": -19.93,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Outside",
+    "target_x": 0.215,
+    "target_y": 1.118,
+    "target_z": -19.925,
+    "mitt_x": 0.32,
+    "mitt_y": 0.783,
+    "mitt_z": -20.176,
+    "catch_result": "Ball_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Outside",
+    "target_x": 0.208,
+    "target_y": 1.12,
+    "target_z": -19.926,
+    "mitt_x": 0.199,
+    "mitt_y": 1.222,
+    "mitt_z": -19.931,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid-High Outside Ball",
+    "target_x": 0.222,
+    "target_y": 1.124,
+    "target_z": -19.919,
+    "mitt_x": 0.225,
+    "mitt_y": 1.219,
+    "mitt_z": -19.978,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Outside",
+    "target_x": 0.195,
+    "target_y": 1.123,
+    "target_z": -19.925,
+    "mitt_x": 0.292,
+    "mitt_y": 1.193,
+    "mitt_z": -19.967,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Outside",
+    "target_x": 0.183,
+    "target_y": 1.094,
+    "target_z": -19.91,
+    "mitt_x": 0.252,
+    "mitt_y": 1.148,
+    "mitt_z": -19.938,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid-High Outside Ball",
+    "target_x": 0.242,
+    "target_y": 1.222,
+    "target_z": -19.954,
+    "mitt_x": 0.197,
+    "mitt_y": 1.151,
+    "mitt_z": -19.942,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid-High Outside Ball",
+    "target_x": 0.229,
+    "target_y": 1.143,
+    "target_z": -19.936,
+    "mitt_x": 0.061,
+    "mitt_y": 1.193,
+    "mitt_z": -19.957,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Outside",
+    "target_x": 0.166,
+    "target_y": 1.176,
+    "target_z": -19.98,
+    "mitt_x": 0.279,
+    "mitt_y": 1.14,
+    "mitt_z": -19.979,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Outside",
+    "target_x": 0.218,
+    "target_y": 1.137,
+    "target_z": -19.951,
+    "mitt_x": 0.172,
+    "mitt_y": 1.104,
+    "mitt_z": -19.932,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "High Outside",
+    "target_x": 0.216,
+    "target_y": 1.146,
+    "target_z": -19.956,
+    "mitt_x": 0.321,
+    "mitt_y": 1.107,
+    "mitt_z": -19.97,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Outside Ball",
+    "target_x": 0.23,
+    "target_y": 1.005,
+    "target_z": -20.003,
+    "mitt_x": 0.096,
+    "mitt_y": 1.079,
+    "mitt_z": -19.979,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Outside",
+    "target_x": 0.197,
+    "target_y": 1.014,
+    "target_z": -19.997,
+    "mitt_x": 0.072,
+    "mitt_y": 1.052,
+    "mitt_z": -19.967,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Outside",
+    "target_x": 0.187,
+    "target_y": 1.028,
+    "target_z": -19.995,
+    "mitt_x": 0.072,
+    "mitt_y": 1.059,
+    "mitt_z": -19.975,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Outside",
+    "target_x": 0.18,
+    "target_y": 1.026,
+    "target_z": -19.992,
+    "mitt_x": 0.049,
+    "mitt_y": 1.088,
+    "mitt_z": -19.989,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Outside",
+    "target_x": 0.182,
+    "target_y": 1.024,
+    "target_z": -19.999,
+    "mitt_x": 0.19,
+    "mitt_y": 0.943,
+    "mitt_z": -19.973,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Outside",
+    "target_x": 0.205,
+    "target_y": 1.029,
+    "target_z": -19.973,
+    "mitt_x": 0.197,
+    "mitt_y": 1.011,
+    "mitt_z": -19.984,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Outside",
+    "target_x": 0.176,
+    "target_y": 1.014,
+    "target_z": -19.959,
+    "mitt_x": -0.107,
+    "mitt_y": 1.036,
+    "mitt_z": -19.875,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Outside",
+    "target_x": 0.169,
+    "target_y": 1.001,
+    "target_z": -19.941,
+    "mitt_x": 0.328,
+    "mitt_y": 1.1,
+    "mitt_z": -19.96,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Outside Ball",
+    "target_x": 0.223,
+    "target_y": 1.041,
+    "target_z": -19.927,
+    "mitt_x": 0.082,
+    "mitt_y": 0.959,
+    "mitt_z": -19.882,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Outside",
+    "target_x": 0.177,
+    "target_y": 1.033,
+    "target_z": -19.903,
+    "mitt_x": 0.334,
+    "mitt_y": 0.895,
+    "mitt_z": -19.962,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Outside",
+    "target_x": 0.196,
+    "target_y": 0.998,
+    "target_z": -19.944,
+    "mitt_x": 0.277,
+    "mitt_y": 1.078,
+    "mitt_z": -19.948,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Outside",
+    "target_x": 0.216,
+    "target_y": 0.741,
+    "target_z": -19.939,
+    "mitt_x": 0.149,
+    "mitt_y": 0.807,
+    "mitt_z": -19.901,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Outside",
+    "target_x": 0.19,
+    "target_y": 0.804,
+    "target_z": -19.916,
+    "mitt_x": 0.337,
+    "mitt_y": 0.858,
+    "mitt_z": -19.946,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Outside",
+    "target_x": 0.19,
+    "target_y": 0.827,
+    "target_z": -19.9,
+    "mitt_x": 0.01,
+    "mitt_y": 0.935,
+    "mitt_z": -19.872,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Outside",
+    "target_x": 0.182,
+    "target_y": 0.886,
+    "target_z": -19.887,
+    "mitt_x": 0.151,
+    "mitt_y": 0.827,
+    "mitt_z": -19.9,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Outside",
+    "target_x": 0.182,
+    "target_y": 0.902,
+    "target_z": -19.885,
+    "mitt_x": 0.353,
+    "mitt_y": 0.938,
+    "mitt_z": -19.917,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Mid Outside",
+    "target_x": 0.209,
+    "target_y": 0.932,
+    "target_z": -19.906,
+    "mitt_x": 0.081,
+    "mitt_y": 0.85,
+    "mitt_z": -19.895,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Outside",
+    "target_x": 0.197,
+    "target_y": 0.849,
+    "target_z": -19.914,
+    "mitt_x": 0.062,
+    "mitt_y": 0.833,
+    "mitt_z": -19.927,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Outside",
+    "target_x": 0.207,
+    "target_y": 0.838,
+    "target_z": -19.978,
+    "mitt_x": 0.007,
+    "mitt_y": 0.824,
+    "mitt_z": -19.94,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Outside",
+    "target_x": 0.196,
+    "target_y": 0.878,
+    "target_z": -19.977,
+    "mitt_x": -0.016,
+    "mitt_y": 0.978,
+    "mitt_z": -19.927,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "158 km/h",
+    "course": "Low Outside",
+    "target_x": 0.203,
+    "target_y": 0.892,
+    "target_z": -19.965,
+    "mitt_x": 0.317,
+    "mitt_y": 1.03,
+    "mitt_z": -19.997,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Inside",
+    "target_x": -0.215,
+    "target_y": 1.109,
+    "target_z": -19.499,
+    "mitt_x": -0.385,
+    "mitt_y": 1.096,
+    "mitt_z": -19.46,
+    "catch_result": "Ball_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Inside",
+    "target_x": -0.218,
+    "target_y": 1.133,
+    "target_z": -19.466,
+    "mitt_x": -0.124,
+    "mitt_y": 1.109,
+    "mitt_z": -19.442,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid-High Inside Ball",
+    "target_x": -0.249,
+    "target_y": 1.131,
+    "target_z": -19.473,
+    "mitt_x": -0.237,
+    "mitt_y": 1.286,
+    "mitt_z": -19.471,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid-High Inside Ball",
+    "target_x": -0.226,
+    "target_y": 1.269,
+    "target_z": -19.53,
+    "mitt_x": -0.267,
+    "mitt_y": 1.356,
+    "mitt_z": -19.521,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid-High Inside Ball",
+    "target_x": -0.235,
+    "target_y": 1.274,
+    "target_z": -19.516,
+    "mitt_x": -0.331,
+    "mitt_y": 1.197,
+    "mitt_z": -19.53,
+    "catch_result": "Ball_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Inside",
+    "target_x": -0.218,
+    "target_y": 1.165,
+    "target_z": -19.59,
+    "mitt_x": -0.102,
+    "mitt_y": 1.046,
+    "mitt_z": -19.475,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid-High Inside Ball",
+    "target_x": -0.256,
+    "target_y": 1.137,
+    "target_z": -19.502,
+    "mitt_x": -0.318,
+    "mitt_y": 1.033,
+    "mitt_z": -19.498,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.186,
+    "target_y": 1.102,
+    "target_z": -19.56,
+    "mitt_x": -0.098,
+    "mitt_y": 1.219,
+    "mitt_z": -19.417,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Inside",
+    "target_x": -0.207,
+    "target_y": 1.204,
+    "target_z": -19.505,
+    "mitt_x": -0.156,
+    "mitt_y": 1.155,
+    "mitt_z": -19.413,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Inside",
+    "target_x": -0.197,
+    "target_y": 1.209,
+    "target_z": -19.518,
+    "mitt_x": -0.096,
+    "mitt_y": 1.14,
+    "mitt_z": -19.424,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Inside",
+    "target_x": -0.219,
+    "target_y": 1.162,
+    "target_z": -19.493,
+    "mitt_x": -0.279,
+    "mitt_y": 1.061,
+    "mitt_z": -19.43,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Inside Ball",
+    "target_x": -0.235,
+    "target_y": 1.043,
+    "target_z": -19.555,
+    "mitt_x": -0.422,
+    "mitt_y": 1.053,
+    "mitt_z": -19.505,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.168,
+    "target_y": 1.021,
+    "target_z": -19.55,
+    "mitt_x": -0.314,
+    "mitt_y": 1.024,
+    "mitt_z": -19.492,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.175,
+    "target_y": 1.016,
+    "target_z": -19.536,
+    "mitt_x": -0.143,
+    "mitt_y": 0.972,
+    "mitt_z": -19.486,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.166,
+    "target_y": 1.016,
+    "target_z": -19.519,
+    "mitt_x": -0.001,
+    "mitt_y": 1.027,
+    "mitt_z": -19.432,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.212,
+    "target_y": 1.013,
+    "target_z": -19.532,
+    "mitt_x": -0.292,
+    "mitt_y": 0.931,
+    "mitt_z": -19.497,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.183,
+    "target_y": 1.047,
+    "target_z": -19.524,
+    "mitt_x": -0.19,
+    "mitt_y": 1.055,
+    "mitt_z": -19.464,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.205,
+    "target_y": 1.021,
+    "target_z": -19.52,
+    "mitt_x": -0.169,
+    "mitt_y": 0.947,
+    "mitt_z": -19.483,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Inside Ball",
+    "target_x": -0.222,
+    "target_y": 0.983,
+    "target_z": -19.557,
+    "mitt_x": -0.159,
+    "mitt_y": 0.977,
+    "mitt_z": -19.471,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.166,
+    "target_y": 0.979,
+    "target_z": -19.51,
+    "mitt_x": -0.277,
+    "mitt_y": 0.891,
+    "mitt_z": -19.472,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.173,
+    "target_y": 1.004,
+    "target_z": -19.519,
+    "mitt_x": -0.075,
+    "mitt_y": 1.049,
+    "mitt_z": -19.432,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.173,
+    "target_y": 1.041,
+    "target_z": -19.507,
+    "mitt_x": -0.453,
+    "mitt_y": 1.079,
+    "mitt_z": -19.48,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Inside Ball",
+    "target_x": -0.25,
+    "target_y": 0.613,
+    "target_z": -19.669,
+    "mitt_x": -0.299,
+    "mitt_y": 0.675,
+    "mitt_z": -19.67,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Inside",
+    "target_x": -0.206,
+    "target_y": 0.747,
+    "target_z": -19.678,
+    "mitt_x": -0.33,
+    "mitt_y": 0.667,
+    "mitt_z": -19.67,
+    "catch_result": "Ball_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Inside",
+    "target_x": -0.214,
+    "target_y": 0.783,
+    "target_z": -19.656,
+    "mitt_x": -0.18,
+    "mitt_y": 0.738,
+    "mitt_z": -19.702,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Inside",
+    "target_x": -0.219,
+    "target_y": 0.775,
+    "target_z": -19.706,
+    "mitt_x": -0.024,
+    "mitt_y": 0.964,
+    "mitt_z": -19.694,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Inside",
+    "target_x": -0.214,
+    "target_y": 0.799,
+    "target_z": -19.743,
+    "mitt_x": -0.451,
+    "mitt_y": 0.822,
+    "mitt_z": -19.746,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Inside",
+    "target_x": -0.204,
+    "target_y": 0.843,
+    "target_z": -19.744,
+    "mitt_x": -0.248,
+    "mitt_y": 0.721,
+    "mitt_z": -19.768,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Inside",
+    "target_x": -0.215,
+    "target_y": 0.807,
+    "target_z": -19.785,
+    "mitt_x": -0.231,
+    "mitt_y": 0.81,
+    "mitt_z": -19.765,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid-Low Inside Ball",
+    "target_x": -0.229,
+    "target_y": 0.836,
+    "target_z": -19.768,
+    "mitt_x": -0.213,
+    "mitt_y": 0.932,
+    "mitt_z": -19.764,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid-Low Inside Ball",
+    "target_x": -0.222,
+    "target_y": 0.83,
+    "target_z": -19.795,
+    "mitt_x": -0.383,
+    "mitt_y": 0.792,
+    "mitt_z": -19.765,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Inside",
+    "target_x": -0.164,
+    "target_y": 0.835,
+    "target_z": -19.795,
+    "mitt_x": -0.121,
+    "mitt_y": 0.755,
+    "mitt_z": -19.782,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Center",
+    "target_x": -0.02,
+    "target_y": 1.211,
+    "target_z": -19.567,
+    "mitt_x": 0.149,
+    "mitt_y": 1.225,
+    "mitt_z": -19.444,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Center",
+    "target_x": -0.071,
+    "target_y": 1.284,
+    "target_z": -19.522,
+    "mitt_x": -0.072,
+    "mitt_y": 1.401,
+    "mitt_z": -19.507,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Center",
+    "target_x": -0.05,
+    "target_y": 1.275,
+    "target_z": -19.567,
+    "mitt_x": -0.067,
+    "mitt_y": 1.244,
+    "mitt_z": -19.56,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Center",
+    "target_x": -0.053,
+    "target_y": 1.294,
+    "target_z": -19.571,
+    "mitt_x": -0.062,
+    "mitt_y": 1.387,
+    "mitt_z": -19.521,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Center",
+    "target_x": -0.059,
+    "target_y": 1.24,
+    "target_z": -19.593,
+    "mitt_x": -0.086,
+    "mitt_y": 1.302,
+    "mitt_z": -19.577,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Center",
+    "target_x": -0.063,
+    "target_y": 1.222,
+    "target_z": -19.59,
+    "mitt_x": -0.059,
+    "mitt_y": 1.072,
+    "mitt_z": -19.566,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Center",
+    "target_x": -0.065,
+    "target_y": 1.234,
+    "target_z": -19.556,
+    "mitt_x": -0.024,
+    "mitt_y": 1.058,
+    "mitt_z": -19.522,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Center",
+    "target_x": -0.058,
+    "target_y": 1.231,
+    "target_z": -19.556,
+    "mitt_x": -0.094,
+    "mitt_y": 1.082,
+    "mitt_z": -19.546,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Center",
+    "target_x": -0.048,
+    "target_y": 1.252,
+    "target_z": -19.577,
+    "mitt_x": -0.202,
+    "mitt_y": 1.219,
+    "mitt_z": -19.534,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Center",
+    "target_x": -0.048,
+    "target_y": 1.257,
+    "target_z": -19.596,
+    "mitt_x": -0.383,
+    "mitt_y": 1.314,
+    "mitt_z": -19.52,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Center",
+    "target_x": -0.048,
+    "target_y": 1.096,
+    "target_z": -19.719,
+    "mitt_x": -0.09,
+    "mitt_y": 1.27,
+    "mitt_z": -19.65,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Center",
+    "target_x": -0.05,
+    "target_y": 1.072,
+    "target_z": -19.701,
+    "mitt_x": -0.071,
+    "mitt_y": 1.127,
+    "mitt_z": -19.602,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Center",
+    "target_x": -0.047,
+    "target_y": 1.089,
+    "target_z": -19.66,
+    "mitt_x": -0.221,
+    "mitt_y": 1.044,
+    "mitt_z": -19.617,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Center",
+    "target_x": -0.039,
+    "target_y": 1.057,
+    "target_z": -19.608,
+    "mitt_x": -0.034,
+    "mitt_y": 1.004,
+    "mitt_z": -19.579,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Center",
+    "target_x": -0.025,
+    "target_y": 1.032,
+    "target_z": -19.628,
+    "mitt_x": 0.077,
+    "mitt_y": 1.118,
+    "mitt_z": -19.575,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Center",
+    "target_x": -0.024,
+    "target_y": 1.091,
+    "target_z": -19.618,
+    "mitt_x": 0.003,
+    "mitt_y": 1.121,
+    "mitt_z": -19.57,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Center",
+    "target_x": -0.012,
+    "target_y": 1.062,
+    "target_z": -19.629,
+    "mitt_x": 0.063,
+    "mitt_y": 1.056,
+    "mitt_z": -19.556,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Center",
+    "target_x": -0.032,
+    "target_y": 1.047,
+    "target_z": -19.632,
+    "mitt_x": -0.185,
+    "mitt_y": 0.881,
+    "mitt_z": -19.53,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Center",
+    "target_x": -0.022,
+    "target_y": 1.047,
+    "target_z": -19.595,
+    "mitt_x": -0.23,
+    "mitt_y": 0.872,
+    "mitt_z": -19.538,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Center",
+    "target_x": -0.022,
+    "target_y": 1.031,
+    "target_z": -19.572,
+    "mitt_x": -0.182,
+    "mitt_y": 1.121,
+    "mitt_z": -19.556,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Center Ball",
+    "target_x": -0.046,
+    "target_y": 0.67,
+    "target_z": -19.647,
+    "mitt_x": -0.106,
+    "mitt_y": 0.58,
+    "mitt_z": -19.718,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Center",
+    "target_x": -0.042,
+    "target_y": 0.854,
+    "target_z": -19.673,
+    "mitt_x": -0.203,
+    "mitt_y": 0.906,
+    "mitt_z": -19.701,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Center",
+    "target_x": -0.027,
+    "target_y": 0.828,
+    "target_z": -19.715,
+    "mitt_x": -0.106,
+    "mitt_y": 0.804,
+    "mitt_z": -19.719,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Center",
+    "target_x": -0.032,
+    "target_y": 0.802,
+    "target_z": -19.733,
+    "mitt_x": 0.034,
+    "mitt_y": 0.801,
+    "mitt_z": -19.724,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Center",
+    "target_x": -0.036,
+    "target_y": 0.802,
+    "target_z": -19.73,
+    "mitt_x": -0.033,
+    "mitt_y": 0.796,
+    "mitt_z": -19.733,
+    "catch_result": "Ball_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Center",
+    "target_x": -0.045,
+    "target_y": 0.786,
+    "target_z": -19.731,
+    "mitt_x": -0.13,
+    "mitt_y": 0.663,
+    "mitt_z": -19.75,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Center",
+    "target_x": -0.033,
+    "target_y": 0.855,
+    "target_z": -19.734,
+    "mitt_x": -0.039,
+    "mitt_y": 0.863,
+    "mitt_z": -19.729,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Center",
+    "target_x": -0.037,
+    "target_y": 0.839,
+    "target_z": -19.736,
+    "mitt_x": -0.014,
+    "mitt_y": 0.769,
+    "mitt_z": -19.746,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Center",
+    "target_x": -0.033,
+    "target_y": 0.83,
+    "target_z": -19.746,
+    "mitt_x": 0.006,
+    "mitt_y": 0.964,
+    "mitt_z": -19.734,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Center",
+    "target_x": -0.01,
+    "target_y": 0.812,
+    "target_z": -19.765,
+    "mitt_x": -0.188,
+    "mitt_y": 0.905,
+    "mitt_z": -19.693,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Outside",
+    "target_x": 0.192,
+    "target_y": 1.195,
+    "target_z": -19.521,
+    "mitt_x": 0.311,
+    "mitt_y": 1.302,
+    "mitt_z": -19.441,
+    "catch_result": "Ball_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid-High Outside Ball",
+    "target_x": 0.236,
+    "target_y": 1.27,
+    "target_z": -19.541,
+    "mitt_x": 0.345,
+    "mitt_y": 1.405,
+    "mitt_z": -19.482,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Outside",
+    "target_x": 0.212,
+    "target_y": 1.174,
+    "target_z": -19.556,
+    "mitt_x": 0.158,
+    "mitt_y": 1.159,
+    "mitt_z": -19.514,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Outside",
+    "target_x": 0.172,
+    "target_y": 1.193,
+    "target_z": -19.529,
+    "mitt_x": 0.214,
+    "mitt_y": 1.206,
+    "mitt_z": -19.514,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Outside",
+    "target_x": 0.172,
+    "target_y": 1.193,
+    "target_z": -19.523,
+    "mitt_x": 0.239,
+    "mitt_y": 1.224,
+    "mitt_z": -19.514,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Outside",
+    "target_x": 0.172,
+    "target_y": 1.213,
+    "target_z": -19.535,
+    "mitt_x": 0.022,
+    "mitt_y": 1.071,
+    "mitt_z": -19.474,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Outside",
+    "target_x": 0.18,
+    "target_y": 1.233,
+    "target_z": -19.492,
+    "mitt_x": 0.265,
+    "mitt_y": 1.184,
+    "mitt_z": -19.457,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Outside",
+    "target_x": 0.159,
+    "target_y": 1.212,
+    "target_z": -19.475,
+    "mitt_x": 0.173,
+    "mitt_y": 1.186,
+    "mitt_z": -19.476,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Outside",
+    "target_x": 0.168,
+    "target_y": 1.196,
+    "target_z": -19.478,
+    "mitt_x": 0.22,
+    "mitt_y": 1.224,
+    "mitt_z": -19.458,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Outside",
+    "target_x": 0.158,
+    "target_y": 1.195,
+    "target_z": -19.498,
+    "mitt_x": -0.041,
+    "mitt_y": 1.292,
+    "mitt_z": -19.419,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "High Outside",
+    "target_x": 0.192,
+    "target_y": 1.211,
+    "target_z": -19.478,
+    "mitt_x": 0.054,
+    "mitt_y": 0.991,
+    "mitt_z": -19.373,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Outside",
+    "target_x": 0.157,
+    "target_y": 1.091,
+    "target_z": -19.528,
+    "mitt_x": -0.118,
+    "mitt_y": 1.157,
+    "mitt_z": -19.502,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Outside",
+    "target_x": 0.21,
+    "target_y": 1.062,
+    "target_z": -19.526,
+    "mitt_x": 0.266,
+    "mitt_y": 0.965,
+    "mitt_z": -19.427,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Outside Ball",
+    "target_x": 0.233,
+    "target_y": 1.044,
+    "target_z": -19.487,
+    "mitt_x": 0.31,
+    "mitt_y": 1.076,
+    "mitt_z": -19.438,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Outside",
+    "target_x": 0.218,
+    "target_y": 1.032,
+    "target_z": -19.484,
+    "mitt_x": 0.394,
+    "mitt_y": 0.993,
+    "mitt_z": -19.431,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Outside Ball",
+    "target_x": 0.225,
+    "target_y": 1.014,
+    "target_z": -19.467,
+    "mitt_x": 0.288,
+    "mitt_y": 1.025,
+    "mitt_z": -19.454,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Outside Ball",
+    "target_x": 0.229,
+    "target_y": 1.008,
+    "target_z": -19.479,
+    "mitt_x": 0.393,
+    "mitt_y": 1.052,
+    "mitt_z": -19.449,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Outside Ball",
+    "target_x": 0.232,
+    "target_y": 1.003,
+    "target_z": -19.532,
+    "mitt_x": 0.314,
+    "mitt_y": 0.99,
+    "mitt_z": -19.491,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Outside",
+    "target_x": 0.204,
+    "target_y": 0.984,
+    "target_z": -19.52,
+    "mitt_x": 0.231,
+    "mitt_y": 1.074,
+    "mitt_z": -19.509,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Outside",
+    "target_x": 0.219,
+    "target_y": 0.978,
+    "target_z": -19.517,
+    "mitt_x": 0.294,
+    "mitt_y": 1.052,
+    "mitt_z": -19.511,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Outside Ball",
+    "target_x": 0.222,
+    "target_y": 1.001,
+    "target_z": -19.547,
+    "mitt_x": 0.137,
+    "mitt_y": 0.956,
+    "mitt_z": -19.492,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid Outside Ball",
+    "target_x": 0.242,
+    "target_y": 1.01,
+    "target_z": -19.533,
+    "mitt_x": 0.192,
+    "mitt_y": 1.118,
+    "mitt_z": -19.499,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Outside Center Ball",
+    "target_x": 0.202,
+    "target_y": 0.708,
+    "target_z": -19.726,
+    "mitt_x": 0.056,
+    "mitt_y": 0.746,
+    "mitt_z": -19.769,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Outside",
+    "target_x": 0.177,
+    "target_y": 0.871,
+    "target_z": -19.758,
+    "mitt_x": 0.153,
+    "mitt_y": 0.972,
+    "mitt_z": -19.775,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Outside",
+    "target_x": 0.19,
+    "target_y": 0.818,
+    "target_z": -19.78,
+    "mitt_x": 0.208,
+    "mitt_y": 0.805,
+    "mitt_z": -19.776,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Outside",
+    "target_x": 0.201,
+    "target_y": 0.813,
+    "target_z": -19.786,
+    "mitt_x": 0.33,
+    "mitt_y": 0.784,
+    "mitt_z": -19.792,
+    "catch_result": "Ball_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Outside",
+    "target_x": 0.216,
+    "target_y": 0.771,
+    "target_z": -19.803,
+    "mitt_x": 0.092,
+    "mitt_y": 0.868,
+    "mitt_z": -19.757,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid-Low Outside Ball",
+    "target_x": 0.221,
+    "target_y": 0.769,
+    "target_z": -19.811,
+    "mitt_x": 0.264,
+    "mitt_y": 0.748,
+    "mitt_z": -19.797,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Low Outside",
+    "target_x": 0.215,
+    "target_y": 0.774,
+    "target_z": -19.799,
+    "mitt_x": 0.259,
+    "mitt_y": 0.726,
+    "mitt_z": -19.755,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid-Low Outside Ball",
+    "target_x": 0.224,
+    "target_y": 0.801,
+    "target_z": -19.772,
+    "mitt_x": 0.05,
+    "mitt_y": 0.759,
+    "mitt_z": -19.745,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid-Low Outside Ball",
+    "target_x": 0.225,
+    "target_y": 0.823,
+    "target_z": -19.766,
+    "mitt_x": 0.091,
+    "mitt_y": 0.899,
+    "mitt_z": -19.753,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "100 km/h",
+    "course": "Mid-Low Outside Ball",
+    "target_x": 0.22,
+    "target_y": 0.798,
+    "target_z": -19.78,
+    "mitt_x": 0.214,
+    "mitt_y": 0.791,
+    "mitt_z": -19.738,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 0",
     "speed": "130 km/h",
+    "course": "Mid Center",
     "target_x": -0.019,
     "target_y": 1.033,
     "target_z": -19.796,
@@ -451,8 +2808,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "130 km/h",
+    "course": "Mid Center",
     "target_x": -0.003,
     "target_y": 1.043,
     "target_z": -19.656,
@@ -462,8 +2820,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "130 km/h",
+    "course": "Mid Center",
     "target_x": -0.011,
     "target_y": 1.007,
     "target_z": -19.653,
@@ -473,8 +2832,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "130 km/h",
+    "course": "Mid Center",
     "target_x": 0.0,
     "target_y": 1.016,
     "target_z": -19.723,
@@ -484,8 +2844,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "130 km/h",
+    "course": "Mid Inside",
     "target_x": -0.134,
     "target_y": 0.979,
     "target_z": -19.726,
@@ -495,8 +2856,9 @@
     "catch_result": "Ball_PassedBall"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "130 km/h",
+    "course": "Mid Center",
     "target_x": -0.001,
     "target_y": 0.986,
     "target_z": -19.673,
@@ -506,8 +2868,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "130 km/h",
+    "course": "Mid Center",
     "target_x": -0.01,
     "target_y": 1.002,
     "target_z": -19.672,
@@ -517,8 +2880,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "130 km/h",
+    "course": "Mid Center",
     "target_x": -0.071,
     "target_y": 1.031,
     "target_z": -19.693,
@@ -528,8 +2892,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "130 km/h",
+    "course": "Mid Inside",
     "target_x": -0.149,
     "target_y": 0.985,
     "target_z": -19.785,
@@ -539,8 +2904,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "130 km/h",
+    "course": "Mid Center",
     "target_x": 0.004,
     "target_y": 1.093,
     "target_z": -19.75,
@@ -550,8 +2916,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "130 km/h",
+    "course": "Mid Center",
     "target_x": 0.0,
     "target_y": 1.074,
     "target_z": -19.714,
@@ -561,8 +2928,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "130 km/h",
+    "course": "Mid Center",
     "target_x": 0.025,
     "target_y": 1.084,
     "target_z": -19.727,
@@ -572,8 +2940,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "130 km/h",
+    "course": "Mid Center",
     "target_x": 0.005,
     "target_y": 1.054,
     "target_z": -19.703,
@@ -583,8 +2952,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "130 km/h",
+    "course": "Mid Center",
     "target_x": 0.002,
     "target_y": 1.059,
     "target_z": -19.694,
@@ -594,8 +2964,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "130 km/h",
+    "course": "Mid Center",
     "target_x": -0.019,
     "target_y": 1.01,
     "target_z": -19.753,
@@ -605,8 +2976,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "130 km/h",
+    "course": "Mid Center",
     "target_x": 0.001,
     "target_y": 1.044,
     "target_z": -19.703,
@@ -616,8 +2988,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "130 km/h",
+    "course": "Mid Center",
     "target_x": -0.039,
     "target_y": 1.057,
     "target_z": -19.678,
@@ -627,8 +3000,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "130 km/h",
+    "course": "Mid Center",
     "target_x": 0.002,
     "target_y": 1.013,
     "target_z": -19.728,
@@ -638,8 +3012,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "130 km/h",
+    "course": "Mid Center",
     "target_x": 0.017,
     "target_y": 0.971,
     "target_z": -19.717,
@@ -649,8 +3024,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": -0.068,
     "target_y": 0.858,
     "target_z": -19.75,
@@ -660,8 +3036,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "100 km/h",
+    "course": "Low Inside",
     "target_x": -0.075,
     "target_y": 0.894,
     "target_z": -19.729,
@@ -671,8 +3048,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "100 km/h",
+    "course": "Low Inside",
     "target_x": -0.077,
     "target_y": 0.88,
     "target_z": -19.721,
@@ -682,8 +3060,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "100 km/h",
+    "course": "Low Inside",
     "target_x": -0.078,
     "target_y": 0.865,
     "target_z": -19.741,
@@ -693,8 +3072,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "100 km/h",
+    "course": "Low Inside",
     "target_x": -0.08,
     "target_y": 0.858,
     "target_z": -19.73,
@@ -704,8 +3084,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": -0.051,
     "target_y": 0.866,
     "target_z": -19.774,
@@ -715,8 +3096,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": -0.055,
     "target_y": 0.897,
     "target_z": -19.769,
@@ -726,8 +3108,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": -0.056,
     "target_y": 0.89,
     "target_z": -19.77,
@@ -737,8 +3120,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": -0.058,
     "target_y": 0.888,
     "target_z": -19.764,
@@ -748,8 +3132,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "130 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.062,
     "target_y": 0.696,
     "target_z": -19.686,
@@ -759,8 +3144,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "130 km/h",
+    "course": "Low Center",
     "target_x": -0.028,
     "target_y": 0.852,
     "target_z": -19.564,
@@ -770,8 +3156,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "130 km/h",
+    "course": "Low Center",
     "target_x": -0.023,
     "target_y": 0.851,
     "target_z": -19.567,
@@ -781,8 +3168,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "130 km/h",
+    "course": "Low Center",
     "target_x": -0.023,
     "target_y": 0.841,
     "target_z": -19.568,
@@ -792,8 +3180,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "130 km/h",
+    "course": "Low Center",
     "target_x": -0.026,
     "target_y": 0.836,
     "target_z": -19.564,
@@ -803,8 +3192,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "130 km/h",
+    "course": "Low Center",
     "target_x": -0.036,
     "target_y": 0.832,
     "target_z": -19.563,
@@ -814,8 +3204,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "130 km/h",
+    "course": "Low Center",
     "target_x": -0.051,
     "target_y": 0.833,
     "target_z": -19.568,
@@ -825,8 +3216,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "130 km/h",
+    "course": "Low Center",
     "target_x": -0.034,
     "target_y": 0.837,
     "target_z": -19.565,
@@ -836,8 +3228,9 @@
     "catch_result": "Ball_WildPitch"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "130 km/h",
+    "course": "Low Inside",
     "target_x": -0.093,
     "target_y": 0.866,
     "target_z": -19.586,
@@ -847,8 +3240,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "130 km/h",
+    "course": "Low Center",
     "target_x": -0.061,
     "target_y": 0.857,
     "target_z": -19.568,
@@ -858,8 +3252,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.001,
     "target_y": 0.448,
     "target_z": -19.792,
@@ -869,8 +3264,9 @@
     "catch_result": "Ball_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Center Ball",
     "target_x": 0.003,
     "target_y": 0.466,
     "target_z": -19.789,
@@ -880,8 +3276,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.013,
     "target_y": 0.555,
     "target_z": -19.831,
@@ -891,8 +3288,9 @@
     "catch_result": "Ball_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.051,
     "target_y": 0.575,
     "target_z": -19.78,
@@ -902,8 +3300,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.025,
     "target_y": 0.615,
     "target_z": -19.817,
@@ -913,8 +3312,9 @@
     "catch_result": "Ball"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.065,
     "target_y": 0.45,
     "target_z": -19.736,
@@ -924,8 +3324,9 @@
     "catch_result": "Ball"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.065,
     "target_y": 0.464,
     "target_z": -19.757,
@@ -935,8 +3336,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.046,
     "target_y": 0.65,
     "target_z": -19.789,
@@ -946,8 +3348,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.017,
     "target_y": 0.687,
     "target_z": -19.842,
@@ -957,8 +3360,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Outside Center Ball",
     "target_x": 0.11,
     "target_y": 0.687,
     "target_z": -19.915,
@@ -968,8 +3372,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.044,
     "target_y": 0.62,
     "target_z": -19.807,
@@ -979,8 +3384,9 @@
     "catch_result": "Ball"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.06,
     "target_y": 0.657,
     "target_z": -19.799,
@@ -990,8 +3396,9 @@
     "catch_result": "Ball_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.019,
     "target_y": 0.664,
     "target_z": -19.805,
@@ -1001,8 +3408,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Inside Center Ball",
     "target_x": -0.074,
     "target_y": 0.455,
     "target_z": -19.753,
@@ -1012,8 +3420,9 @@
     "catch_result": "Ball"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.05,
     "target_y": 0.695,
     "target_z": -19.751,
@@ -1023,8 +3432,9 @@
     "catch_result": "Ball"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.022,
     "target_y": 0.636,
     "target_z": -19.782,
@@ -1034,8 +3444,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Center",
     "target_x": -0.034,
     "target_y": 0.734,
     "target_z": -19.843,
@@ -1045,8 +3456,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Inside Center Ball",
     "target_x": -0.086,
     "target_y": 0.698,
     "target_z": -19.818,
@@ -1056,8 +3468,9 @@
     "catch_result": "Ball_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.055,
     "target_y": 0.669,
     "target_z": -19.784,
@@ -1067,8 +3480,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.055,
     "target_y": 0.713,
     "target_z": -19.841,
@@ -1078,8 +3492,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Inside Center Ball",
     "target_x": -0.103,
     "target_y": 0.661,
     "target_z": -19.826,
@@ -1089,8 +3504,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Inside Center Ball",
     "target_x": -0.088,
     "target_y": 0.634,
     "target_z": -19.792,
@@ -1100,8 +3516,9 @@
     "catch_result": "Ball_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "158 km/h",
+    "course": "Low Center Ball",
     "target_x": 0.022,
     "target_y": 0.714,
     "target_z": -19.867,
@@ -1111,8 +3528,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "130 km/h",
+    "course": "Mid Center",
     "target_x": -0.041,
     "target_y": 0.917,
     "target_z": -19.681,
@@ -1122,8 +3540,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "130 km/h",
+    "course": "Low Inside",
     "target_x": -0.083,
     "target_y": 0.875,
     "target_z": -19.724,
@@ -1133,8 +3552,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "130 km/h",
+    "course": "Low Inside",
     "target_x": -0.08,
     "target_y": 0.881,
     "target_z": -19.771,
@@ -1144,8 +3564,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "130 km/h",
+    "course": "Low Inside",
     "target_x": -0.083,
     "target_y": 0.867,
     "target_z": -19.773,
@@ -1155,8 +3576,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "130 km/h",
+    "course": "Low Center",
     "target_x": -0.037,
     "target_y": 0.863,
     "target_z": -19.767,
@@ -1166,8 +3588,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "130 km/h",
+    "course": "Low Center",
     "target_x": -0.048,
     "target_y": 0.861,
     "target_z": -19.784,
@@ -1177,8 +3600,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "130 km/h",
+    "course": "Low Center",
     "target_x": -0.067,
     "target_y": 0.858,
     "target_z": -19.789,
@@ -1188,8 +3612,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "130 km/h",
+    "course": "Low Inside",
     "target_x": -0.073,
     "target_y": 0.874,
     "target_z": -19.798,
@@ -1199,8 +3624,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 4",
+    "player": "Player 4",
     "speed": "130 km/h",
+    "course": "Low Inside",
     "target_x": -0.074,
     "target_y": 0.878,
     "target_z": -19.814,
@@ -1210,8 +3636,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": -0.057,
     "target_y": 0.844,
     "target_z": -19.602,
@@ -1221,8 +3648,9 @@
     "catch_result": "Ball_PassedBall"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": -0.046,
     "target_y": 0.823,
     "target_z": -19.598,
@@ -1232,8 +3660,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": -0.054,
     "target_y": 0.833,
     "target_z": -19.587,
@@ -1243,8 +3672,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": -0.043,
     "target_y": 0.812,
     "target_z": -19.589,
@@ -1254,8 +3684,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": -0.044,
     "target_y": 0.816,
     "target_z": -19.598,
@@ -1265,8 +3696,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": -0.056,
     "target_y": 0.827,
     "target_z": -19.619,
@@ -1276,8 +3708,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": -0.069,
     "target_y": 0.815,
     "target_z": -19.615,
@@ -1287,8 +3720,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": -0.051,
     "target_y": 0.82,
     "target_z": -19.627,
@@ -1298,8 +3732,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": -0.064,
     "target_y": 0.807,
     "target_z": -19.611,
@@ -1309,8 +3744,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": -0.034,
     "target_y": 0.788,
     "target_z": -19.621,
@@ -1320,8 +3756,1197 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Inside",
+    "target_x": -0.147,
+    "target_y": 1.249,
+    "target_z": -19.376,
+    "mitt_x": 0.019,
+    "mitt_y": 1.173,
+    "mitt_z": -19.346,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Inside",
+    "target_x": -0.153,
+    "target_y": 1.274,
+    "target_z": -19.385,
+    "mitt_x": -0.239,
+    "mitt_y": 0.949,
+    "mitt_z": -19.404,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Inside",
+    "target_x": -0.152,
+    "target_y": 1.257,
+    "target_z": -19.381,
+    "mitt_x": -0.188,
+    "mitt_y": 1.26,
+    "mitt_z": -19.358,
+    "catch_result": "Ball_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Inside",
+    "target_x": -0.174,
+    "target_y": 1.261,
+    "target_z": -19.36,
+    "mitt_x": -0.07,
+    "mitt_y": 0.996,
+    "mitt_z": -19.367,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Inside",
+    "target_x": -0.165,
+    "target_y": 1.192,
+    "target_z": -19.409,
+    "mitt_x": -0.094,
+    "mitt_y": 1.131,
+    "mitt_z": -19.444,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Inside",
+    "target_x": -0.17,
+    "target_y": 1.166,
+    "target_z": -19.461,
+    "mitt_x": -0.155,
+    "mitt_y": 1.028,
+    "mitt_z": -19.454,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Inside",
+    "target_x": -0.137,
+    "target_y": 1.15,
+    "target_z": -19.616,
+    "mitt_x": -0.177,
+    "mitt_y": 1.131,
+    "mitt_z": -19.538,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Inside",
+    "target_x": -0.156,
+    "target_y": 1.165,
+    "target_z": -19.575,
+    "mitt_x": -0.315,
+    "mitt_y": 1.036,
+    "mitt_z": -19.561,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Inside",
+    "target_x": -0.147,
+    "target_y": 1.13,
+    "target_z": -19.579,
+    "mitt_x": -0.202,
+    "mitt_y": 1.046,
+    "mitt_z": -19.534,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Inside",
+    "target_x": -0.152,
+    "target_y": 1.141,
+    "target_z": -19.594,
+    "mitt_x": -0.252,
+    "mitt_y": 1.036,
+    "mitt_z": -19.444,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.154,
+    "target_y": 1.059,
+    "target_z": -19.668,
+    "mitt_x": -0.074,
+    "mitt_y": 1.026,
+    "mitt_z": -19.601,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.185,
+    "target_y": 1.031,
+    "target_z": -19.609,
+    "mitt_x": -0.31,
+    "mitt_y": 0.862,
+    "mitt_z": -19.5,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.174,
+    "target_y": 1.044,
+    "target_z": -19.562,
+    "mitt_x": -0.177,
+    "mitt_y": 1.049,
+    "mitt_z": -19.58,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.176,
+    "target_y": 1.049,
+    "target_z": -19.579,
+    "mitt_x": -0.143,
+    "mitt_y": 1.114,
+    "mitt_z": -19.48,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Inside Ball",
+    "target_x": -0.317,
+    "target_y": 0.684,
+    "target_z": -19.738,
+    "mitt_x": -0.362,
+    "mitt_y": 0.627,
+    "mitt_z": -19.746,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.184,
+    "target_y": 1.028,
+    "target_z": -19.573,
+    "mitt_x": -0.076,
+    "mitt_y": 1.063,
+    "mitt_z": -19.472,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.213,
+    "target_y": 1.031,
+    "target_z": -19.586,
+    "mitt_x": -0.181,
+    "mitt_y": 0.912,
+    "mitt_z": -19.504,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.209,
+    "target_y": 0.992,
+    "target_z": -19.523,
+    "mitt_x": -0.259,
+    "mitt_y": 0.979,
+    "mitt_z": -19.511,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.19,
+    "target_y": 1.001,
+    "target_z": -19.552,
+    "mitt_x": -0.201,
+    "mitt_y": 1.097,
+    "mitt_z": -19.525,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.203,
+    "target_y": 0.996,
+    "target_z": -19.559,
+    "mitt_x": -0.15,
+    "mitt_y": 0.968,
+    "mitt_z": -19.517,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.207,
+    "target_y": 1.003,
+    "target_z": -19.541,
+    "mitt_x": -0.19,
+    "mitt_y": 1.001,
+    "mitt_z": -19.508,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Inside",
+    "target_x": -0.201,
+    "target_y": 0.812,
+    "target_z": -19.609,
+    "mitt_x": -0.197,
+    "mitt_y": 0.812,
+    "mitt_z": -19.578,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Inside",
+    "target_x": -0.21,
+    "target_y": 0.803,
+    "target_z": -19.587,
+    "mitt_x": -0.417,
+    "mitt_y": 0.854,
+    "mitt_z": -19.564,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Inside",
+    "target_x": -0.207,
+    "target_y": 0.843,
+    "target_z": -19.59,
+    "mitt_x": -0.415,
+    "mitt_y": 0.684,
+    "mitt_z": -19.565,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid-Low Inside Ball",
+    "target_x": -0.231,
+    "target_y": 0.87,
+    "target_z": -19.602,
+    "mitt_x": -0.197,
+    "mitt_y": 0.902,
+    "mitt_z": -19.748,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Inside",
+    "target_x": -0.135,
+    "target_y": 0.889,
+    "target_z": -19.766,
+    "mitt_x": -0.357,
+    "mitt_y": 0.761,
+    "mitt_z": -19.756,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Inside",
+    "target_x": -0.13,
+    "target_y": 0.891,
+    "target_z": -19.763,
+    "mitt_x": -0.443,
+    "mitt_y": 0.837,
+    "mitt_z": -19.794,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Inside",
+    "target_x": -0.143,
+    "target_y": 0.916,
+    "target_z": -19.838,
+    "mitt_x": -0.248,
+    "mitt_y": 0.852,
+    "mitt_z": -19.847,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Inside",
+    "target_x": -0.179,
+    "target_y": 0.747,
+    "target_z": -19.885,
+    "mitt_x": -0.33,
+    "mitt_y": 0.788,
+    "mitt_z": -19.866,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Inside",
+    "target_x": -0.183,
+    "target_y": 0.8,
+    "target_z": -19.889,
+    "mitt_x": -0.254,
+    "mitt_y": 0.792,
+    "mitt_z": -19.873,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Inside",
+    "target_x": -0.195,
+    "target_y": 0.795,
+    "target_z": -19.887,
+    "mitt_x": -0.388,
+    "mitt_y": 0.828,
+    "mitt_z": -19.872,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Inside",
+    "target_x": -0.211,
+    "target_y": 0.833,
+    "target_z": -19.88,
+    "mitt_x": -0.074,
+    "mitt_y": 0.809,
+    "mitt_z": -19.864,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid-Low Inside Ball",
+    "target_x": -0.22,
+    "target_y": 0.844,
+    "target_z": -19.875,
+    "mitt_x": -0.178,
+    "mitt_y": 0.861,
+    "mitt_z": -19.892,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Inside",
+    "target_x": -0.158,
+    "target_y": 0.836,
+    "target_z": -19.901,
+    "mitt_x": -0.303,
+    "mitt_y": 0.841,
+    "mitt_z": -19.864,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Inside",
+    "target_x": -0.138,
+    "target_y": 0.816,
+    "target_z": -19.912,
+    "mitt_x": -0.262,
+    "mitt_y": 0.903,
+    "mitt_z": -19.908,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Center",
+    "target_x": -0.056,
+    "target_y": 1.205,
+    "target_z": -19.51,
+    "mitt_x": -0.092,
+    "mitt_y": 1.075,
+    "mitt_z": -19.497,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Center Ball",
+    "target_x": -0.058,
+    "target_y": 1.325,
+    "target_z": -19.486,
+    "mitt_x": 0.022,
+    "mitt_y": 1.41,
+    "mitt_z": -19.404,
+    "catch_result": "Ball_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Center",
+    "target_x": -0.056,
+    "target_y": 1.222,
+    "target_z": -19.521,
+    "mitt_x": -0.043,
+    "mitt_y": 1.197,
+    "mitt_z": -19.529,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Center",
+    "target_x": -0.066,
+    "target_y": 1.214,
+    "target_z": -19.546,
+    "mitt_x": -0.117,
+    "mitt_y": 1.013,
+    "mitt_z": -19.516,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Center",
+    "target_x": -0.066,
+    "target_y": 1.215,
+    "target_z": -19.53,
+    "mitt_x": 0.01,
+    "mitt_y": 1.212,
+    "mitt_z": -19.493,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Center",
+    "target_x": -0.067,
+    "target_y": 1.211,
+    "target_z": -19.547,
+    "mitt_x": -0.018,
+    "mitt_y": 1.141,
+    "mitt_z": -19.511,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Inside",
+    "target_x": -0.075,
+    "target_y": 1.169,
+    "target_z": -19.563,
+    "mitt_x": -0.15,
+    "mitt_y": 0.985,
+    "mitt_z": -19.495,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Center",
+    "target_x": -0.067,
+    "target_y": 1.154,
+    "target_z": -19.543,
+    "mitt_x": -0.115,
+    "mitt_y": 0.914,
+    "mitt_z": -19.5,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Center",
+    "target_x": -0.063,
+    "target_y": 1.166,
+    "target_z": -19.526,
+    "mitt_x": -0.106,
+    "mitt_y": 1.004,
+    "mitt_z": -19.507,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Center",
+    "target_x": -0.057,
+    "target_y": 1.168,
+    "target_z": -19.536,
+    "mitt_x": -0.202,
+    "mitt_y": 0.958,
+    "mitt_z": -19.5,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Center",
+    "target_x": -0.068,
+    "target_y": 1.157,
+    "target_z": -19.534,
+    "mitt_x": -0.342,
+    "mitt_y": 1.061,
+    "mitt_z": -19.434,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Center",
+    "target_x": -0.054,
+    "target_y": 1.177,
+    "target_z": -19.496,
+    "mitt_x": -0.04,
+    "mitt_y": 0.982,
+    "mitt_z": -19.663,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Center",
+    "target_x": -0.024,
+    "target_y": 1.119,
+    "target_z": -19.781,
+    "mitt_x": 0.21,
+    "mitt_y": 0.974,
+    "mitt_z": -19.635,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Center",
+    "target_x": -0.017,
+    "target_y": 1.03,
+    "target_z": -19.65,
+    "mitt_x": -0.021,
+    "mitt_y": 0.998,
+    "mitt_z": -19.57,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Center",
+    "target_x": -0.016,
+    "target_y": 1.042,
+    "target_z": -19.603,
+    "mitt_x": -0.018,
+    "mitt_y": 0.903,
+    "mitt_z": -19.581,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Center",
+    "target_x": -0.026,
+    "target_y": 1.056,
+    "target_z": -19.621,
+    "mitt_x": -0.023,
+    "mitt_y": 0.951,
+    "mitt_z": -19.519,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Center",
+    "target_x": -0.022,
+    "target_y": 0.995,
+    "target_z": -19.651,
+    "mitt_x": 0.02,
+    "mitt_y": 1.004,
+    "mitt_z": -19.574,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Center",
+    "target_x": -0.038,
+    "target_y": 1.045,
+    "target_z": -19.681,
+    "mitt_x": -0.007,
+    "mitt_y": 0.89,
+    "mitt_z": -19.539,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Center",
+    "target_x": -0.006,
+    "target_y": 1.025,
+    "target_z": -19.564,
+    "mitt_x": -0.103,
+    "mitt_y": 1.036,
+    "mitt_z": -19.57,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Center",
+    "target_x": 0.001,
+    "target_y": 1.029,
+    "target_z": -19.621,
+    "mitt_x": 0.071,
+    "mitt_y": 1.163,
+    "mitt_z": -19.545,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Center",
+    "target_x": 0.005,
+    "target_y": 1.052,
+    "target_z": -19.607,
+    "mitt_x": 0.099,
+    "mitt_y": 1.086,
+    "mitt_z": -19.501,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Center",
+    "target_x": 0.018,
+    "target_y": 1.054,
+    "target_z": -19.588,
+    "mitt_x": -0.299,
+    "mitt_y": 1.001,
+    "mitt_z": -19.524,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Center",
+    "target_x": -0.023,
+    "target_y": 0.735,
+    "target_z": -19.635,
+    "mitt_x": 0.041,
+    "mitt_y": 0.685,
+    "mitt_z": -19.647,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Center",
+    "target_x": 0.005,
+    "target_y": 0.758,
+    "target_z": -19.743,
+    "mitt_x": -0.188,
+    "mitt_y": 0.822,
+    "mitt_z": -19.715,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Center",
+    "target_x": -0.017,
+    "target_y": 0.786,
+    "target_z": -19.741,
+    "mitt_x": -0.131,
+    "mitt_y": 0.687,
+    "mitt_z": -19.756,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Center",
+    "target_x": -0.002,
+    "target_y": 0.845,
+    "target_z": -19.736,
+    "mitt_x": 0.146,
+    "mitt_y": 0.91,
+    "mitt_z": -19.735,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Center",
+    "target_x": -0.002,
+    "target_y": 0.858,
+    "target_z": -19.82,
+    "mitt_x": 0.095,
+    "mitt_y": 0.833,
+    "mitt_z": -19.802,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Center",
+    "target_x": -0.005,
+    "target_y": 0.859,
+    "target_z": -19.815,
+    "mitt_x": -0.063,
+    "mitt_y": 0.711,
+    "mitt_z": -19.826,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Center",
+    "target_x": -0.002,
+    "target_y": 0.904,
+    "target_z": -19.816,
+    "mitt_x": 0.2,
+    "mitt_y": 0.885,
+    "mitt_z": -19.842,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Center",
+    "target_x": -0.035,
+    "target_y": 0.886,
+    "target_z": -19.904,
+    "mitt_x": 0.107,
+    "mitt_y": 0.844,
+    "mitt_z": -19.887,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Center",
+    "target_x": -0.016,
+    "target_y": 0.882,
+    "target_z": -19.894,
+    "mitt_x": -0.318,
+    "mitt_y": 0.796,
+    "mitt_z": -19.883,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Center",
+    "target_x": 0.002,
+    "target_y": 0.91,
+    "target_z": -19.951,
+    "mitt_x": -0.029,
+    "mitt_y": 0.952,
+    "mitt_z": -19.959,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Center",
+    "target_x": -0.006,
+    "target_y": 0.819,
+    "target_z": -19.935,
+    "mitt_x": 0.134,
+    "mitt_y": 0.884,
+    "mitt_z": -19.916,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Outside",
+    "target_x": 0.212,
+    "target_y": 1.25,
+    "target_z": -19.521,
+    "mitt_x": 0.27,
+    "mitt_y": 1.414,
+    "mitt_z": -19.293,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Outside",
+    "target_x": 0.167,
+    "target_y": 1.259,
+    "target_z": -19.325,
+    "mitt_x": 0.101,
+    "mitt_y": 1.197,
+    "mitt_z": -19.281,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Outside",
+    "target_x": 0.158,
+    "target_y": 1.263,
+    "target_z": -19.373,
+    "mitt_x": 0.222,
+    "mitt_y": 1.356,
+    "mitt_z": -19.314,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Outside",
+    "target_x": 0.182,
+    "target_y": 1.233,
+    "target_z": -19.404,
+    "mitt_x": -0.048,
+    "mitt_y": 1.29,
+    "mitt_z": -19.308,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Outside",
+    "target_x": 0.156,
+    "target_y": 1.176,
+    "target_z": -19.397,
+    "mitt_x": 0.124,
+    "mitt_y": 1.201,
+    "mitt_z": -19.369,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Outside",
+    "target_x": 0.127,
+    "target_y": 1.193,
+    "target_z": -19.446,
+    "mitt_x": 0.105,
+    "mitt_y": 1.032,
+    "mitt_z": -19.448,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Outside",
+    "target_x": 0.146,
+    "target_y": 1.191,
+    "target_z": -19.437,
+    "mitt_x": 0.195,
+    "mitt_y": 1.238,
+    "mitt_z": -19.459,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Outside",
+    "target_x": 0.143,
+    "target_y": 1.139,
+    "target_z": -19.493,
+    "mitt_x": 0.227,
+    "mitt_y": 1.256,
+    "mitt_z": -19.456,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Outside",
+    "target_x": 0.145,
+    "target_y": 1.126,
+    "target_z": -19.508,
+    "mitt_x": 0.212,
+    "mitt_y": 1.008,
+    "mitt_z": -19.485,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "High Outside",
+    "target_x": 0.173,
+    "target_y": 1.137,
+    "target_z": -19.487,
+    "mitt_x": 0.304,
+    "mitt_y": 1.053,
+    "mitt_z": -19.455,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Outside",
+    "target_x": 0.177,
+    "target_y": 1.09,
+    "target_z": -19.614,
+    "mitt_x": 0.207,
+    "mitt_y": 0.603,
+    "mitt_z": -19.793,
+    "catch_result": "Ball_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Outside",
+    "target_x": 0.201,
+    "target_y": 1.07,
+    "target_z": -19.572,
+    "mitt_x": 0.134,
+    "mitt_y": 1.104,
+    "mitt_z": -19.459,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Outside",
+    "target_x": 0.218,
+    "target_y": 1.079,
+    "target_z": -19.545,
+    "mitt_x": 0.246,
+    "mitt_y": 1.065,
+    "mitt_z": -19.412,
+    "catch_result": "Ball_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Outside Ball",
+    "target_x": 0.245,
+    "target_y": 1.065,
+    "target_z": -19.413,
+    "mitt_x": 0.37,
+    "mitt_y": 1.041,
+    "mitt_z": -19.412,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Outside",
+    "target_x": 0.166,
+    "target_y": 1.07,
+    "target_z": -19.47,
+    "mitt_x": -0.113,
+    "mitt_y": 0.901,
+    "mitt_z": -19.382,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Outside",
+    "target_x": 0.177,
+    "target_y": 1.036,
+    "target_z": -19.455,
+    "mitt_x": 0.21,
+    "mitt_y": 0.992,
+    "mitt_z": -19.411,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Outside Ball",
+    "target_x": 0.223,
+    "target_y": 1.027,
+    "target_z": -19.434,
+    "mitt_x": 0.213,
+    "mitt_y": 1.075,
+    "mitt_z": -19.44,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid Outside",
+    "target_x": 0.208,
+    "target_y": 1.027,
+    "target_z": -19.492,
+    "mitt_x": 0.132,
+    "mitt_y": 0.884,
+    "mitt_z": -19.397,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Outside",
+    "target_x": 0.171,
+    "target_y": 0.841,
+    "target_z": -19.686,
+    "mitt_x": 0.233,
+    "mitt_y": 0.906,
+    "mitt_z": -19.691,
+    "catch_result": "Strike_PassedBall"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Outside",
+    "target_x": 0.185,
+    "target_y": 0.911,
+    "target_z": -19.686,
+    "mitt_x": 0.079,
+    "mitt_y": 0.783,
+    "mitt_z": -19.685,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Outside",
+    "target_x": 0.191,
+    "target_y": 0.859,
+    "target_z": -19.699,
+    "mitt_x": 0.264,
+    "mitt_y": 1.019,
+    "mitt_z": -19.728,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Outside",
+    "target_x": 0.216,
+    "target_y": 0.839,
+    "target_z": -19.767,
+    "mitt_x": 0.305,
+    "mitt_y": 0.897,
+    "mitt_z": -19.713,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Outside",
+    "target_x": 0.199,
+    "target_y": 0.84,
+    "target_z": -19.719,
+    "mitt_x": 0.231,
+    "mitt_y": 0.983,
+    "mitt_z": -19.703,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Outside",
+    "target_x": 0.193,
+    "target_y": 0.84,
+    "target_z": -19.732,
+    "mitt_x": 0.212,
+    "mitt_y": 0.837,
+    "mitt_z": -19.733,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Mid-Low Outside Ball",
+    "target_x": 0.229,
+    "target_y": 0.848,
+    "target_z": -19.767,
+    "mitt_x": 0.312,
+    "mitt_y": 0.833,
+    "mitt_z": -19.723,
+    "catch_result": "Ball"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Outside",
+    "target_x": 0.179,
+    "target_y": 0.856,
+    "target_z": -19.745,
+    "mitt_x": 0.052,
+    "mitt_y": 0.84,
+    "mitt_z": -19.687,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Outside",
+    "target_x": 0.193,
+    "target_y": 0.851,
+    "target_z": -19.736,
+    "mitt_x": 0.285,
+    "mitt_y": 0.821,
+    "mitt_z": -19.734,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Outside",
+    "target_x": 0.197,
+    "target_y": 0.865,
+    "target_z": -19.726,
+    "mitt_x": 0.076,
+    "mitt_y": 0.948,
+    "mitt_z": -19.761,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Outside",
+    "target_x": 0.194,
+    "target_y": 0.825,
+    "target_z": -19.788,
+    "mitt_x": 0.138,
+    "mitt_y": 0.837,
+    "mitt_z": -19.728,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Outside",
+    "target_x": 0.207,
+    "target_y": 0.844,
+    "target_z": -19.748,
+    "mitt_x": -0.032,
+    "mitt_y": 0.845,
+    "mitt_z": -19.732,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 5",
+    "speed": "130 km/h",
+    "course": "Low Outside",
+    "target_x": 0.212,
+    "target_y": 0.844,
+    "target_z": -19.76,
+    "mitt_x": 0.236,
+    "mitt_y": 0.824,
+    "mitt_z": -19.746,
+    "catch_result": "Strike"
+  },
+  {
+    "player": "Player 2",
     "speed": "158 km/h",
+    "course": "Low Center",
     "target_x": 0.0,
     "target_y": 0.88,
     "target_z": -19.816,
@@ -1331,8 +4956,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "158 km/h",
+    "course": "Low Center",
     "target_x": -0.011,
     "target_y": 0.864,
     "target_z": -19.806,
@@ -1342,8 +4968,9 @@
     "catch_result": "Ball_PassedBall"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "158 km/h",
+    "course": "High Center",
     "target_x": -0.05,
     "target_y": 1.168,
     "target_z": -19.778,
@@ -1353,8 +4980,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "158 km/h",
+    "course": "High Center",
     "target_x": -0.037,
     "target_y": 1.165,
     "target_z": -19.787,
@@ -1364,8 +4992,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "158 km/h",
+    "course": "High Inside",
     "target_x": -0.117,
     "target_y": 1.179,
     "target_z": -19.783,
@@ -1375,8 +5004,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "158 km/h",
+    "course": "Low Center",
     "target_x": -0.067,
     "target_y": 0.863,
     "target_z": -19.783,
@@ -1386,8 +5016,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "158 km/h",
+    "course": "Low Inside",
     "target_x": -0.081,
     "target_y": 0.893,
     "target_z": -19.796,
@@ -1397,8 +5028,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "158 km/h",
+    "course": "Mid Inside",
     "target_x": -0.074,
     "target_y": 0.914,
     "target_z": -19.771,
@@ -1408,8 +5040,9 @@
     "catch_result": "Ball_PassedBall"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "158 km/h",
+    "course": "Low Center",
     "target_x": -0.039,
     "target_y": 0.871,
     "target_z": -19.78,
@@ -1419,8 +5052,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "158 km/h",
+    "course": "Low Outside",
     "target_x": 0.1,
     "target_y": 0.867,
     "target_z": -19.788,
@@ -1430,8 +5064,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "158 km/h",
+    "course": "Low Outside",
     "target_x": 0.08,
     "target_y": 0.867,
     "target_z": -19.781,
@@ -1441,8 +5076,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": 0.001,
     "target_y": 1.076,
     "target_z": -19.702,
@@ -1452,8 +5088,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": -0.026,
     "target_y": 1.083,
     "target_z": -19.802,
@@ -1463,8 +5100,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": -0.014,
     "target_y": 1.086,
     "target_z": -19.793,
@@ -1474,8 +5112,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": 0.01,
     "target_y": 1.087,
     "target_z": -19.838,
@@ -1485,8 +5124,9 @@
     "catch_result": "Ball_PassedBall"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": -0.004,
     "target_y": 1.068,
     "target_z": -19.79,
@@ -1496,8 +5136,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "High Center",
     "target_x": -0.003,
     "target_y": 1.112,
     "target_z": -19.825,
@@ -1507,8 +5148,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": -0.014,
     "target_y": 1.036,
     "target_z": -19.798,
@@ -1518,8 +5160,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": 0.003,
     "target_y": 1.031,
     "target_z": -19.778,
@@ -1529,8 +5172,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": 0.005,
     "target_y": 1.022,
     "target_z": -19.734,
@@ -1540,8 +5184,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": 0.02,
     "target_y": 1.04,
     "target_z": -19.721,
@@ -1551,8 +5196,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": -0.001,
     "target_y": 1.041,
     "target_z": -19.733,
@@ -1562,8 +5208,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": 0.017,
     "target_y": 0.981,
     "target_z": -19.744,
@@ -1573,8 +5220,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": 0.005,
     "target_y": 0.992,
     "target_z": -19.751,
@@ -1584,8 +5232,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": 0.009,
     "target_y": 1.022,
     "target_z": -19.744,
@@ -1595,8 +5244,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": 0.012,
     "target_y": 1.018,
     "target_z": -19.776,
@@ -1606,8 +5256,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Inside",
     "target_x": -0.091,
     "target_y": 1.002,
     "target_z": -19.786,
@@ -1617,8 +5268,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": 0.008,
     "target_y": 1.042,
     "target_z": -19.816,
@@ -1628,8 +5280,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": -0.005,
     "target_y": 1.033,
     "target_z": -19.817,
@@ -1639,8 +5292,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": 0.02,
     "target_y": 1.011,
     "target_z": -19.737,
@@ -1650,8 +5304,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": 0.012,
     "target_y": 0.94,
     "target_z": -19.755,
@@ -1661,8 +5316,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": -0.007,
     "target_y": 0.989,
     "target_z": -19.785,
@@ -1672,8 +5328,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": -0.012,
     "target_y": 1.003,
     "target_z": -19.756,
@@ -1683,8 +5340,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": -0.025,
     "target_y": 0.99,
     "target_z": -19.71,
@@ -1694,8 +5352,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": -0.018,
     "target_y": 0.982,
     "target_z": -19.744,
@@ -1705,8 +5364,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": -0.015,
     "target_y": 1.009,
     "target_z": -19.736,
@@ -1716,8 +5376,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": -0.019,
     "target_y": 0.999,
     "target_z": -19.702,
@@ -1727,8 +5388,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": -0.009,
     "target_y": 1.008,
     "target_z": -19.732,
@@ -1738,8 +5400,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": 0.0,
     "target_y": 1.037,
     "target_z": -19.723,
@@ -1749,8 +5412,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": -0.013,
     "target_y": 1.052,
     "target_z": -19.694,
@@ -1760,8 +5424,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": -0.033,
     "target_y": 1.026,
     "target_z": -19.7,
@@ -1771,8 +5436,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": -0.009,
     "target_y": 1.044,
     "target_z": -19.692,
@@ -1782,8 +5448,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": 0.017,
     "target_y": 1.042,
     "target_z": -19.709,
@@ -1793,8 +5460,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": 0.006,
     "target_y": 1.041,
     "target_z": -19.766,
@@ -1804,8 +5472,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": -0.047,
     "target_y": 1.019,
     "target_z": -19.69,
@@ -1815,8 +5484,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": -0.025,
     "target_y": 1.023,
     "target_z": -19.676,
@@ -1826,8 +5496,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": -0.013,
     "target_y": 1.025,
     "target_z": -19.624,
@@ -1837,8 +5508,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": 0.02,
     "target_y": 0.985,
     "target_z": -19.701,
@@ -1848,8 +5520,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": -0.047,
     "target_y": 1.026,
     "target_z": -19.672,
@@ -1859,8 +5532,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": 0.015,
     "target_y": 1.061,
     "target_z": -19.675,
@@ -1870,8 +5544,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": 0.019,
     "target_y": 1.027,
     "target_z": -19.694,
@@ -1881,8 +5556,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": 0.015,
     "target_y": 0.971,
     "target_z": -19.712,
@@ -1892,8 +5568,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": -0.007,
     "target_y": 0.993,
     "target_z": -19.767,
@@ -1903,8 +5580,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": -0.005,
     "target_y": 1.038,
     "target_z": -19.764,
@@ -1914,8 +5592,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 0",
+    "player": "Player 0",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": 0.001,
     "target_y": 0.986,
     "target_z": -19.749,
@@ -1925,8 +5604,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": -0.028,
     "target_y": 0.854,
     "target_z": -19.749,
@@ -1936,8 +5616,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "100 km/h",
+    "course": "Low Inside",
     "target_x": -0.094,
     "target_y": 0.88,
     "target_z": -19.738,
@@ -1947,8 +5628,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": -0.064,
     "target_y": 1.043,
     "target_z": -19.724,
@@ -1958,8 +5640,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "100 km/h",
+    "course": "High Center",
     "target_x": -0.045,
     "target_y": 1.168,
     "target_z": -19.734,
@@ -1969,8 +5652,9 @@
     "catch_result": "Ball_PassedBall"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": -0.045,
     "target_y": 1.077,
     "target_z": -19.723,
@@ -1980,8 +5664,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "100 km/h",
+    "course": "Mid Center",
     "target_x": -0.039,
     "target_y": 1.104,
     "target_z": -19.72,
@@ -1991,8 +5676,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "100 km/h",
+    "course": "Low Outside",
     "target_x": 0.139,
     "target_y": 0.889,
     "target_z": -19.721,
@@ -2002,8 +5688,9 @@
     "catch_result": "Ball_PassedBall"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "100 km/h",
+    "course": "Low Outside",
     "target_x": 0.085,
     "target_y": 0.895,
     "target_z": -19.725,
@@ -2013,8 +5700,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": 0.04,
     "target_y": 0.883,
     "target_z": -19.73,
@@ -2024,8 +5712,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": -0.003,
     "target_y": 0.878,
     "target_z": -19.728,
@@ -2035,8 +5724,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 2",
+    "player": "Player 2",
     "speed": "100 km/h",
+    "course": "Low Outside",
     "target_x": 0.095,
     "target_y": 0.882,
     "target_z": -19.744,
@@ -2046,8 +5736,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": -0.025,
     "target_y": 0.949,
     "target_z": -19.594,
@@ -2057,8 +5748,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "158 km/h",
+    "course": "Mid Center",
     "target_x": -0.028,
     "target_y": 0.926,
     "target_z": -19.574,
@@ -2068,8 +5760,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "158 km/h",
+    "course": "Low Center",
     "target_x": -0.028,
     "target_y": 0.875,
     "target_z": -19.567,
@@ -2079,8 +5772,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "158 km/h",
+    "course": "Low Center",
     "target_x": -0.033,
     "target_y": 0.867,
     "target_z": -19.57,
@@ -2090,8 +5784,9 @@
     "catch_result": "Ball_WildPitch"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "158 km/h",
+    "course": "Low Center",
     "target_x": -0.021,
     "target_y": 0.842,
     "target_z": -19.602,
@@ -2101,8 +5796,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "158 km/h",
+    "course": "Low Center",
     "target_x": -0.032,
     "target_y": 0.852,
     "target_z": -19.591,
@@ -2112,8 +5808,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "158 km/h",
+    "course": "Low Center",
     "target_x": -0.038,
     "target_y": 0.828,
     "target_z": -19.575,
@@ -2123,8 +5820,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "158 km/h",
+    "course": "Low Center",
     "target_x": -0.034,
     "target_y": 0.823,
     "target_z": -19.567,
@@ -2134,8 +5832,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "158 km/h",
+    "course": "Low Center",
     "target_x": -0.032,
     "target_y": 0.833,
     "target_z": -19.574,
@@ -2145,8 +5844,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 1",
+    "player": "Player 1",
     "speed": "158 km/h",
+    "course": "Low Center",
     "target_x": -0.032,
     "target_y": 0.844,
     "target_z": -19.567,
@@ -2156,8 +5856,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "100 km/h",
+    "course": "Low Center Ball",
     "target_x": 0.029,
     "target_y": 0.468,
     "target_z": -19.829,
@@ -2167,8 +5868,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": -0.036,
     "target_y": 0.762,
     "target_z": -19.831,
@@ -2178,8 +5880,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": 0.011,
     "target_y": 0.754,
     "target_z": -19.861,
@@ -2189,8 +5892,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": 0.047,
     "target_y": 0.747,
     "target_z": -19.887,
@@ -2200,8 +5904,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": -0.047,
     "target_y": 0.773,
     "target_z": -19.86,
@@ -2211,8 +5916,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": -0.036,
     "target_y": 0.762,
     "target_z": -19.846,
@@ -2222,8 +5928,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "100 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.044,
     "target_y": 0.715,
     "target_z": -19.825,
@@ -2233,8 +5940,9 @@
     "catch_result": "Strike"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "100 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.041,
     "target_y": 0.684,
     "target_z": -19.863,
@@ -2244,8 +5952,9 @@
     "catch_result": "Strike_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "100 km/h",
+    "course": "Low Outside",
     "target_x": 0.087,
     "target_y": 0.739,
     "target_z": -19.917,
@@ -2255,8 +5964,9 @@
     "catch_result": "Ball_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "100 km/h",
+    "course": "Low Center Ball",
     "target_x": -0.014,
     "target_y": 0.692,
     "target_z": -19.874,
@@ -2266,8 +5976,9 @@
     "catch_result": "Ball_PassedBall"
   },
   {
-    "dataset": "Dataset 3",
+    "player": "Player 3",
     "speed": "100 km/h",
+    "course": "Low Center",
     "target_x": 0.011,
     "target_y": 0.751,
     "target_z": -19.86,

@@ -1,15 +1,109 @@
-let errorChart = null;
+let chartXY = null;
+let chartZY = null;
+let chartCourseXY = null;
+let chartCourseZY = null;
 let logData = [];
+
+const colorPalette = [
+    '#004b87', '#e74c3c', '#2ecc71', '#f39c12', 
+    '#9b59b6', '#34495e', '#1abc9c', '#d35400'
+];
+
+const courseMapping = [
+    ['High Inside Ball', 'High Inside Center Ball', 'High Center Ball', 'High Outside Center Ball', 'High Outside Ball'],
+    ['Mid-High Inside Ball', 'High Inside', 'High Center', 'High Outside', 'Mid-High Outside Ball'],
+    ['Mid Inside Ball', 'Mid Inside', 'Mid Center', 'Mid Outside', 'Mid Outside Ball'],
+    ['Mid-Low Inside Ball', 'Low Inside', 'Low Center', 'Low Outside', 'Mid-Low Outside Ball'],
+    ['Low Inside Ball', 'Low Inside Center Ball', 'Low Center Ball', 'Low Outside Center Ball', 'Low Outside Ball']
+];
+
+// --- 2つ目のグラフ用：投球コースを矢印のマーカーとして描画するプラグイン ---
+const courseArrowPlugin = {
+    id: 'courseArrowPlugin',
+    afterDatasetsDraw(chart) {
+        // IDに 'Course' が含まれるグラフにのみ適用
+        if (!chart.canvas.id.includes('Course')) return;
+
+        const ctx = chart.ctx;
+        chart.data.datasets.forEach((dataset, i) => {
+            const meta = chart.getDatasetMeta(i);
+            if (meta.hidden) return;
+
+            meta.data.forEach((element, index) => {
+                const raw = dataset.data[index];
+                if (!raw) return;
+
+                const x = element.x;
+                const y = element.y;
+                const course = raw._course;
+                const isStrike = raw._rawResult.includes('Strike');
+                const color = dataset.borderColor;
+
+                // コース文字列からX/Y方向を判別
+                let yDir = 0, xDir = 0;
+                if (course.includes('High')) yDir = -1; // 上
+                if (course.includes('Low')) yDir = 1;   // 下
+                if (course.includes('Inside')) xDir = -1; // 左
+                if (course.includes('Outside')) xDir = 1; // 右
+
+                ctx.save();
+                ctx.translate(x, y);
+
+                if (yDir === 0 && xDir === 0) {
+                    // ど真ん中（Center）は丸にする
+                    ctx.beginPath();
+                    ctx.arc(0, 0, 5, 0, 2 * Math.PI);
+                    if (isStrike) {
+                        ctx.fillStyle = color;
+                        ctx.fill();
+                    } else {
+                        ctx.strokeStyle = color;
+                        ctx.lineWidth = 1.5;
+                        ctx.stroke();
+                    }
+                } else {
+                    // 方向に応じた角度を計算
+                    const angle = Math.atan2(yDir, xDir);
+                    ctx.rotate(angle);
+                    
+                    const size = 6;
+                    ctx.beginPath();
+                    if (isStrike) {
+                        // ストライク：塗りつぶしの太い矢印
+                        ctx.moveTo(-size, -size * 0.6);
+                        ctx.lineTo(0, -size * 0.6);
+                        ctx.lineTo(0, -size * 1.3);
+                        ctx.lineTo(size * 1.3, 0);
+                        ctx.lineTo(0, size * 1.3);
+                        ctx.lineTo(0, size * 0.6);
+                        ctx.lineTo(-size, size * 0.6);
+                        ctx.closePath();
+                        ctx.fillStyle = color;
+                        ctx.fill();
+                    } else {
+                        // ボール等：白抜きの細い矢印（線画）
+                        ctx.moveTo(-size, 0);
+                        ctx.lineTo(size, 0);
+                        ctx.moveTo(size/2, -size/2);
+                        ctx.lineTo(size, 0);
+                        ctx.lineTo(size/2, size/2);
+                        ctx.strokeStyle = color;
+                        ctx.lineWidth = 1.5;
+                        ctx.stroke();
+                    }
+                }
+                ctx.restore();
+            });
+        });
+    }
+};
+
+// プラグイン登録
+Chart.register(courseArrowPlugin);
 
 document.addEventListener('DOMContentLoaded', async () => {
     logData = await fetchLogData();
-    populateSelectOptions();
-
-    const filters = ['datasetSelect', 'speedSelect', 'planeSelect'];
-    filters.forEach(id => {
-        document.getElementById(id).addEventListener('change', renderChart);
-    });
-
+    generateUI();
     renderChart();
 });
 
@@ -24,120 +118,169 @@ async function fetchLogData() {
     }
 }
 
-function populateSelectOptions() {
-    const datasets = [...new Set(logData.map(d => d.dataset))].sort();
+function generateUI() {
+    const players = [...new Set(logData.map(d => d.player))].sort();
     const speeds = [...new Set(logData.map(d => d.speed))].sort();
 
-    const addOptions = (selectId, values) => {
-        const select = document.getElementById(selectId);
-        values.forEach(val => {
-            const opt = document.createElement('option');
-            opt.value = val;
-            opt.textContent = val;
-            select.appendChild(opt);
-        });
-    };
+    createCheckboxes('playerCheckboxes', 'player', players);
+    createCheckboxes('speedCheckboxes', 'speed', speeds);
 
-    addOptions('datasetSelect', datasets);
-    addOptions('speedSelect', speeds);
+    const gridContainer = document.getElementById('courseGrid');
+    courseMapping.flat().forEach(courseValue => {
+        const label = document.createElement('label');
+        label.className = 'sz-cell';
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.name = 'course';
+        checkbox.value = courseValue;
+        checkbox.checked = true;
+        checkbox.addEventListener('change', renderChart);
+        label.appendChild(checkbox);
+        gridContainer.appendChild(label);
+    });
 }
 
-// Pythonコードのクリッピング関数を再現
+function createCheckboxes(containerId, name, values) {
+    const container = document.getElementById(containerId);
+    values.forEach(val => {
+        const label = document.createElement('label');
+        label.className = 'checkbox-label';
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.value = val;
+        checkbox.name = name;
+        checkbox.checked = true;
+        checkbox.addEventListener('change', renderChart);
+        label.appendChild(checkbox);
+        label.appendChild(document.createTextNode(val));
+        container.appendChild(label);
+    });
+}
+
+function getCheckedValues(name) {
+    const checkboxes = document.querySelectorAll(`input[name="${name}"]:checked`);
+    return Array.from(checkboxes).map(cb => cb.value);
+}
+
 function clip(val, limit = 0.38) {
     return Math.max(-limit, Math.min(limit, val));
 }
 
-// 捕球結果のカテゴリ分け（Pythonと同一ロジック）
 function categorizeCatch(res) {
-    if (res.includes('WildPitch')) return 'Missed';
-    if (res.includes('PassedBall')) return 'Dropped';
+    if (res.includes('WildPitch')) return 'WildPitch';
+    if (res.includes('PassedBall')) return 'PassedBall';
+    if (res.includes('Missed')) return 'Ignored';
     return 'Perfect';
 }
 
 function renderChart() {
-    const datasetFilter = document.getElementById('datasetSelect').value;
-    const speedFilter = document.getElementById('speedSelect').value;
-    const plane = document.getElementById('planeSelect').value; // 'XY' or 'ZY'
+    const selectedPlayers = getCheckedValues('player');
+    const selectedSpeeds = getCheckedValues('speed');
+    const selectedCourses = getCheckedValues('course');
 
-    // フィルタリングと座標計算
-    const processedData = logData
-        .filter(d => (datasetFilter === 'all' || d.dataset === datasetFilter))
-        .filter(d => (speedFilter === 'all' || d.speed === speedFilter))
-        .map(d => {
+    const datasetsXY = [];
+    const datasetsZY = [];
+    const datasetsCourseXY = [];
+    const datasetsCourseZY = [];
+
+    selectedPlayers.forEach((playerName, index) => {
+        const playerColor = colorPalette[index % colorPalette.length];
+        const playerData = logData.filter(d => 
+            d.player === playerName && selectedSpeeds.includes(d.speed) && selectedCourses.includes(d.course)
+        );
+
+        if (playerData.length === 0) return;
+
+        const points1 = []; // グラフ1用（結果図形）
+        const points2 = []; // グラフ2用（コース矢印）
+
+        playerData.forEach(d => {
             const diffX = clip(d.mitt_x - d.target_x);
             const diffY = clip(d.mitt_y - d.target_y);
             const diffZ = clip(d.mitt_z - d.target_z);
             
-            return {
-                x: plane === 'XY' ? diffX : diffZ,
+            const category = categorizeCatch(d.catch_result);
+            
+            // --- グラフ1用の形状判定 ---
+            let styleResult = 'circle';
+            let radiusResult = 6;
+            if (category === 'PassedBall') { styleResult = 'rect'; }
+            if (category === 'WildPitch') { styleResult = 'crossRot'; radiusResult = 8; }
+            if (category === 'Ignored') { styleResult = 'triangle'; radiusResult = 7; }
+
+            // 共通のプロパティ
+            const baseInfo = {
                 y: diffY,
-                category: categorizeCatch(d.catch_result)
+                _category: category,
+                _rawResult: d.catch_result,
+                _course: d.course
             };
+
+            // グラフ1用
+            points1.push({ x: diffX, diffZ: diffZ, _pointStyle: styleResult, _radius: radiusResult, ...baseInfo });
+            
+            // グラフ2用（形状はプラグインが描くのでここは座標情報のみ）
+            points2.push({ x: diffX, diffZ: diffZ, ...baseInfo });
         });
 
-    // カテゴリごとのデータセット分割
-    const perfectData = processedData.filter(d => d.category === 'Perfect');
-    const droppedData = processedData.filter(d => d.category === 'Dropped');
-    const missedData = processedData.filter(d => d.category === 'Missed');
+        // グラフ1のデータセット（結果の図形）
+        const config1 = {
+            label: playerName,
+            backgroundColor: playerColor,
+            borderColor: playerColor,
+            borderWidth: 2,
+            pointStyle: (ctx) => ctx.raw ? ctx.raw._pointStyle : 'circle',
+            pointRadius: (ctx) => ctx.raw ? ctx.raw._radius : 6,
+        };
 
-    const ctx = document.getElementById('errorChart').getContext('2d');
-    if (errorChart) errorChart.destroy();
+        // グラフ2のデータセット（点そのものは非表示にし、プラグインに矢印を描かせる）
+        const config2 = {
+            label: playerName,
+            backgroundColor: playerColor,
+            borderColor: playerColor,
+            pointRadius: 0, // プラグインで描くので0
+            hitRadius: 6    // ホバー用
+        };
 
-    const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim() || '#004b87';
+        // 【重要】オブジェクトの展開順序を修正（スプレッド構文を先に書く）
+        datasetsXY.push({ ...config1, data: points1.map(p => ({ ...p, x: p.x, y: p.y })) });
+        datasetsZY.push({ ...config1, data: points1.map(p => ({ ...p, x: p.diffZ, y: p.y })) });
+        
+        datasetsCourseXY.push({ ...config2, data: points2.map(p => ({ ...p, x: p.x, y: p.y })) });
+        datasetsCourseZY.push({ ...config2, data: points2.map(p => ({ ...p, x: p.diffZ, y: p.y })) });
+    });
 
-    errorChart = new Chart(ctx, {
+    drawChart('errorChartXY', datasetsXY, 'Mitt_Catch_X - Target_Pos_X [m]', chartXY, (c) => chartXY = c);
+    drawChart('errorChartZY', datasetsZY, 'Mitt_Catch_Z - Target_Pos_Z [m]', chartZY, (c) => chartZY = c);
+    drawChart('errorChartCourseXY', datasetsCourseXY, 'Mitt_Catch_X - Target_Pos_X [m]', chartCourseXY, (c) => chartCourseXY = c);
+    drawChart('errorChartCourseZY', datasetsCourseZY, 'Mitt_Catch_Z - Target_Pos_Z [m]', chartCourseZY, (c) => chartCourseZY = c);
+}
+
+function drawChart(canvasId, datasets, xLabel, chartInstance, setChartInstance) {
+    if (chartInstance) chartInstance.destroy();
+    const ctx = document.getElementById(canvasId).getContext('2d');
+
+    const newChart = new Chart(ctx, {
         type: 'scatter',
-        data: {
-            datasets: [
-                {
-                    label: 'Perfect',
-                    data: perfectData,
-                    backgroundColor: primaryColor,
-                    borderColor: primaryColor,
-                    pointStyle: 'circle',
-                    pointRadius: 6
-                },
-                {
-                    label: 'Dropped',
-                    data: droppedData,
-                    backgroundColor: 'transparent',
-                    borderColor: primaryColor,
-                    borderWidth: 2,
-                    pointStyle: 'rect', // 四角（□）
-                    pointRadius: 6
-                },
-                {
-                    label: 'Missed',
-                    data: missedData,
-                    backgroundColor: primaryColor,
-                    borderColor: primaryColor,
-                    borderWidth: 2,
-                    pointStyle: 'crossRot', // バツ印（×）
-                    pointRadius: 7
-                }
-            ]
-        },
+        data: { datasets: datasets },
         options: {
             responsive: true,
             maintainAspectRatio: false,
             scales: {
-                x: {
-                    title: { 
-                        display: true, 
-                        text: plane === 'XY' ? 'Mitt_Catch_X - Target_Pos_X [m]' : 'Mitt_Catch_Z - Target_Pos_Z [m]'
-                    },
-                    min: -0.4, max: 0.4,
-                    grid: { color: '#ddd', drawBorder: true }
-                },
-                y: {
-                    title: { display: true, text: 'Mitt_Catch_Y - Target_Pos_Y [m]' },
-                    min: -0.4, max: 0.4,
-                    grid: { color: '#ddd', drawBorder: true }
-                }
+                x: { title: { display: true, text: xLabel }, min: -0.4, max: 0.4, grid: { color: '#eee', drawBorder: true } },
+                y: { title: { display: true, text: 'Mitt_Catch_Y - Target_Pos_Y [m]' }, min: -0.4, max: 0.4, grid: { color: '#eee', drawBorder: true } }
             },
             plugins: {
-                legend: { position: 'top' }
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `[${context.raw._course}] ${context.raw._rawResult} (${context.parsed.x.toFixed(2)}, ${context.parsed.y.toFixed(2)})`;
+                        }
+                    }
+                }
             }
         }
     });
+    setChartInstance(newChart);
 }

@@ -1,117 +1,223 @@
-/* --------------------------------------
-   共通変数（テーマカラーなど）
--------------------------------------- */
+@charset "UTF-8";
+
+/* =========================================================
+   モダン・ブルー テーマ (EC2026 Dashboard)
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
 :root {
-    --primary-color: #004b87;     /* 深みのある青（アカデミックブルー） */
-    --secondary-color: #e6f0fa;   /* 薄い青（背景・アクセント用） */
-    --accent-color: #e74c3c;      /* 警告・失敗などのインジケータ（赤） */
-    --text-color: #333333;
-    --bg-color: #f8f9fa;
-    --card-bg: #ffffff;
+    --primary-color: #004b87;       /* パーソナルカラーの深みのある青 */
+    --primary-light: #2a75bb;       /* ホバー時などの明るい青 */
+    --primary-fade: #e6f0fa;        /* 背景用の極薄い青 */
+    --bg-color: #f4f7f9;            /* 全体の背景色（ライトグレーブルー） */
+    --card-bg: #ffffff;             /* カード背景 */
+    --text-main: #2c3e50;           /* 真っ黒ではない上品な文字色 */
+    --text-muted: #7f8c8d;          /* 補助テキスト */
+    --border-color: #e1e8ed;        /* 境界線 */
+    
+    /* 柔らかなモダンシャドウ */
+    --shadow-sm: 0 4px 6px rgba(0, 75, 135, 0.04);
+    --shadow-md: 0 12px 30px rgba(0, 75, 135, 0.08);
+    --radius: 16px;                 /* 全体的に角を丸く */
 }
 
-/* --------------------------------------
-   ベーススタイル
--------------------------------------- */
 body {
-    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-    color: var(--text-color);
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text-main);
     background-color: var(--bg-color);
     line-height: 1.6;
     margin: 0;
     padding: 0;
 }
 
-/* --------------------------------------
-   ヘッダー（全ページ共通で利用可能）
--------------------------------------- */
+/* --- ヘッダー領域 --- */
 .main-header {
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
     color: white;
-    padding: 3rem 1rem;
+    padding: 4rem 2rem;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 3rem;
 }
 
 .main-header h1 {
     margin: 0 0 1rem 0;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .main-header p.author {
-    margin: 0;
+    margin: 0.3rem 0;
     font-size: 1.1rem;
     opacity: 0.9;
+    font-weight: 500;
 }
 
-/* --------------------------------------
-   レイアウト・コンポーネント
--------------------------------------- */
+/* --- コンテナとカード --- */
 .container {
-    max-width: 900px;
-    margin: 2rem auto;
+    max-width: 1100px;
+    margin: 0 auto;
     padding: 0 2rem;
 }
 
-/* サブページでも使い回せる汎用カード型セクション */
 .card {
     background: var(--card-bg);
-    padding: 2rem;
-    margin-bottom: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 .card h2 {
     color: var(--primary-color);
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 0.5rem;
+    font-size: 1.6rem;
+    border-bottom: 2px solid var(--primary-fade);
+    padding-bottom: 0.8rem;
     margin-top: 0;
+    margin-bottom: 1.8rem;
 }
 
-/* --------------------------------------
-   インタラクティブ要素・フォーム
--------------------------------------- */
-.controls {
+/* --- 操作パネルのレイアウト --- */
+.controls-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 左右2列に分割 */
+    gap: 2rem;
+    margin-bottom: 3rem;
+    background: #fafbfc;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.filter-section h3 {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.3rem;
+}
+
+.checkbox-group { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+
+/* ピル型ボタン */
+.checkbox-label {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 0.5rem 1.2rem; background: var(--card-bg);
+    border: 2px solid var(--border-color); border-radius: 30px;
+    font-size: 0.9rem; font-weight: 500; color: var(--text-muted);
+    cursor: pointer; transition: all 0.2s; user-select: none;
+}
+.checkbox-label:hover { border-color: var(--primary-light); color: var(--primary-light); }
+.checkbox-label:has(input:checked) {
+    background: var(--primary-color); border-color: var(--primary-color); color: white;
+}
+.checkbox-label input { display: none; }
+
+/* --- 5x5 ストライクゾーンUI（捕手目線） --- */
+.sz-wrapper {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
 }
 
-.control-group {
+.batter-box {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    color: var(--text-muted);
 }
+.batter-icon { font-size: 2.5rem; line-height: 1; }
+.batter-label { font-size: 0.85rem; font-weight: bold; margin-top: 0.5rem; }
 
-.control-group label {
-    font-size: 0.9rem;
-    font-weight: bold;
-    margin-bottom: 0.3rem;
-    color: #555;
-}
+.sz-grid-container { position: relative; }
 
-.control-group select {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
+/* 仮想ストライクゾーン（3x3）の枠線 */
+.sz-strike-zone-border {
+    position: absolute;
+    top: calc(40px + 4px); /* 1段目(40px) + 隙間(4px) の下から */
+    left: calc(40px + 4px); /* 1列目の右から */
+    width: calc(40px * 3 + 4px * 2);
+    height: calc(40px * 3 + 4px * 2);
+    border: 3px solid var(--primary-color);
     border-radius: 4px;
-    font-size: 1rem;
-    min-width: 150px;
-    background-color: #fff;
+    pointer-events: none;
+    z-index: 10;
 }
 
-/* --------------------------------------
-   グラフ描画エリア
--------------------------------------- */
-.chart-container {
+.sz-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 40px);
+    grid-template-rows: repeat(5, 40px);
+    gap: 4px;
+    background: #e1e8ed;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.sz-cell {
+    background: var(--card-bg);
+    border-radius: 4px;
+    cursor: pointer;
     position: relative;
-    height: 500px;
-    width: 100%;
+    transition: all 0.2s;
+}
+.sz-cell:hover { background: var(--primary-fade); }
+.sz-cell:has(input:checked) { background: var(--primary-light); }
+.sz-cell input { display: none; }
+
+/* --- グラフエリア（強制左右並列） --- */
+.charts-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 完全に1:1で横に並べる */
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
-.chart-caption {
-    text-align: right;
-    font-size: 0.8rem;
-    color: #777;
-    margin-top: 0.5rem;
+.chart-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fafbfc;
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
 }
+
+.chart-title {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-align: center;
+    background: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-sm);
+}
+
+.canvas-container {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    /* padding: 10px; */
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.02);
+    overflow: hidden; /* これを追加：はみ出しを防止 */
+}
+
+.legend-box {
+    margin-top: 1rem; padding: 1.2rem; background: var(--card-bg);
+    border: 1px solid var(--border-color); border-radius: 12px;
+    text-align: center; font-size: 0.95rem; box-shadow: var(--shadow-sm);
+}
+.marker-sample { font-weight: bold; color: var(--primary-color); font-size: 1.2rem; margin: 0 0.2rem; }
