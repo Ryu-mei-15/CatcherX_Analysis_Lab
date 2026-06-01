@@ -4,7 +4,7 @@ import json
 import os
 
 # データの読み込み先をGitリポジトリ内のDataディレクトリに変更
-DATA_DIR = '/Users/yamaguchimiyu/Git/CatcherX_Log_Analysis_Center/Data'
+DATA_DIR = '/Users/yamaguchimiyu/Git/CatcherX_Log_Analysis_Center/DataCourse'
 
 # 指定ディレクトリ内のCSVを取得
 csv_files = glob.glob(os.path.join(DATA_DIR, "*.csv"))

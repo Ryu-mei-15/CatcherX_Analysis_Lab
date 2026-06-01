@@ -221,3 +221,43 @@ body {
     text-align: center; font-size: 0.95rem; box-shadow: var(--shadow-sm);
 }
 .marker-sample { font-weight: bold; color: var(--primary-color); font-size: 1.2rem; margin: 0 0.2rem; }
+
+/* --- 全選択 / 全解除 ボタン（モダン・洗練版） --- */
+.filter-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* 右端ではなく，タイトルのすぐ横に配置 */
+    gap: 1rem;                   /* タイトルとの適度な隙間 */
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.5rem;
+}
+
+.filter-header h3 {
+    margin: 0 !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+}
+
+.filter-actions {
+    display: flex;
+    gap: 0.2rem;
+}
+
+.action-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted); /* 普段は主張しない落ち着いた色 */
+    border-radius: 6px;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* マウスを乗せた時だけ青くハイライトして「押せる感」を出す */
+.action-btn:hover {
+    background: var(--primary-fade);
+    color: var(--primary-color);
+}

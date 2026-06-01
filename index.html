@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EC2026 Data Appendix</title>
+    <link rel="icon" href="fig/Ryumei.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -19,22 +20,40 @@
 
     <div class="container">
         <section id="dashboard" class="card">
-            <h2>捕球時のミットの移動量分析</h2>
+            <h2>捕球時のミットの移動量 インタラクティブ分析</h2>
             
             <div class="controls-grid">
                 <div class="filter-column">
                     <div class="filter-section">
-                        <h3>プレイヤー (Player)</h3>
+                        <div class="filter-header">
+                            <h3>プレイヤー (Player)</h3>
+                            <div class="filter-actions">
+                                <button class="action-btn select-all" data-target="player">全選択</button>
+                                <button class="action-btn deselect-all" data-target="player">全解除</button>
+                            </div>
+                        </div>
                         <div id="playerCheckboxes" class="checkbox-group"></div>
                     </div>
                     <div class="filter-section" style="margin-top: 2rem;">
-                        <h3>球速</h3>
+                        <div class="filter-header">
+                            <h3>球速</h3>
+                            <div class="filter-actions">
+                                <button class="action-btn select-all" data-target="speed">全選択</button>
+                                <button class="action-btn deselect-all" data-target="speed">全解除</button>
+                            </div>
+                        </div>
                         <div id="speedCheckboxes" class="checkbox-group"></div>
                     </div>
                 </div>
 
                 <div class="filter-section zone-section">
-                    <h3>投球コース（捕手目線・右打者）</h3>
+                    <div class="filter-header">
+                        <h3>投球コース（捕手目線・右打者）</h3>
+                        <div class="filter-actions">
+                            <button class="action-btn select-all" data-target="course">全選択</button>
+                            <button class="action-btn deselect-all" data-target="course">全解除</button>
+                        </div>
+                    </div>
                     <div class="sz-wrapper">
                         <div class="batter-box">
                             <span class="batter-icon">👤</span>

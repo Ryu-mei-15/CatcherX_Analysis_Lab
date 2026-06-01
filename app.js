@@ -17,11 +17,9 @@ const courseMapping = [
     ['Low Inside Ball', 'Low Inside Center Ball', 'Low Center Ball', 'Low Outside Center Ball', 'Low Outside Ball']
 ];
 
-// --- 2つ目のグラフ用：投球コースを矢印のマーカーとして描画するプラグイン ---
 const courseArrowPlugin = {
     id: 'courseArrowPlugin',
     afterDatasetsDraw(chart) {
-        // IDに 'Course' が含まれるグラフにのみ適用
         if (!chart.canvas.id.includes('Course')) return;
 
         const ctx = chart.ctx;
@@ -39,18 +37,16 @@ const courseArrowPlugin = {
                 const isStrike = raw._rawResult.includes('Strike');
                 const color = dataset.borderColor;
 
-                // コース文字列からX/Y方向を判別
                 let yDir = 0, xDir = 0;
-                if (course.includes('High')) yDir = -1; // 上
-                if (course.includes('Low')) yDir = 1;   // 下
-                if (course.includes('Inside')) xDir = -1; // 左
-                if (course.includes('Outside')) xDir = 1; // 右
+                if (course.includes('High')) yDir = -1;
+                if (course.includes('Low')) yDir = 1;
+                if (course.includes('Inside')) xDir = -1;
+                if (course.includes('Outside')) xDir = 1;
 
                 ctx.save();
                 ctx.translate(x, y);
 
                 if (yDir === 0 && xDir === 0) {
-                    // ど真ん中（Center）は丸にする
                     ctx.beginPath();
                     ctx.arc(0, 0, 5, 0, 2 * Math.PI);
                     if (isStrike) {
@@ -62,14 +58,12 @@ const courseArrowPlugin = {
                         ctx.stroke();
                     }
                 } else {
-                    // 方向に応じた角度を計算
                     const angle = Math.atan2(yDir, xDir);
                     ctx.rotate(angle);
                     
                     const size = 6;
                     ctx.beginPath();
                     if (isStrike) {
-                        // ストライク：塗りつぶしの太い矢印
                         ctx.moveTo(-size, -size * 0.6);
                         ctx.lineTo(0, -size * 0.6);
                         ctx.lineTo(0, -size * 1.3);
@@ -81,7 +75,6 @@ const courseArrowPlugin = {
                         ctx.fillStyle = color;
                         ctx.fill();
                     } else {
-                        // ボール等：白抜きの細い矢印（線画）
                         ctx.moveTo(-size, 0);
                         ctx.lineTo(size, 0);
                         ctx.moveTo(size/2, -size/2);
@@ -98,12 +91,12 @@ const courseArrowPlugin = {
     }
 };
 
-// プラグイン登録
 Chart.register(courseArrowPlugin);
 
 document.addEventListener('DOMContentLoaded', async () => {
     logData = await fetchLogData();
     generateUI();
+    setupActionButtons(); // ボタン処理の初期化
     renderChart();
 });
 
@@ -157,6 +150,29 @@ function createCheckboxes(containerId, name, values) {
     });
 }
 
+// 全選択・全解除ボタンのロジック
+function setupActionButtons() {
+    document.querySelectorAll('.select-all').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const targetName = e.target.getAttribute('data-target');
+            document.querySelectorAll(`input[name="${targetName}"]`).forEach(cb => {
+                cb.checked = true;
+            });
+            renderChart();
+        });
+    });
+
+    document.querySelectorAll('.deselect-all').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const targetName = e.target.getAttribute('data-target');
+            document.querySelectorAll(`input[name="${targetName}"]`).forEach(cb => {
+                cb.checked = false;
+            });
+            renderChart();
+        });
+    });
+}
+
 function getCheckedValues(name) {
     const checkboxes = document.querySelectorAll(`input[name="${name}"]:checked`);
     return Array.from(checkboxes).map(cb => cb.value);
@@ -191,8 +207,8 @@ function renderChart() {
 
         if (playerData.length === 0) return;
 
-        const points1 = []; // グラフ1用（結果図形）
-        const points2 = []; // グラフ2用（コース矢印）
+        const points1 = []; 
+        const points2 = []; 
 
         playerData.forEach(d => {
             const diffX = clip(d.mitt_x - d.target_x);
@@ -201,14 +217,12 @@ function renderChart() {
             
             const category = categorizeCatch(d.catch_result);
             
-            // --- グラフ1用の形状判定 ---
             let styleResult = 'circle';
             let radiusResult = 6;
             if (category === 'PassedBall') { styleResult = 'rect'; }
             if (category === 'WildPitch') { styleResult = 'crossRot'; radiusResult = 8; }
             if (category === 'Ignored') { styleResult = 'triangle'; radiusResult = 7; }
 
-            // 共通のプロパティ
             const baseInfo = {
                 y: diffY,
                 _category: category,
@@ -216,14 +230,10 @@ function renderChart() {
                 _course: d.course
             };
 
-            // グラフ1用
             points1.push({ x: diffX, diffZ: diffZ, _pointStyle: styleResult, _radius: radiusResult, ...baseInfo });
-            
-            // グラフ2用（形状はプラグインが描くのでここは座標情報のみ）
             points2.push({ x: diffX, diffZ: diffZ, ...baseInfo });
         });
 
-        // グラフ1のデータセット（結果の図形）
         const config1 = {
             label: playerName,
             backgroundColor: playerColor,
@@ -233,16 +243,14 @@ function renderChart() {
             pointRadius: (ctx) => ctx.raw ? ctx.raw._radius : 6,
         };
 
-        // グラフ2のデータセット（点そのものは非表示にし、プラグインに矢印を描かせる）
         const config2 = {
             label: playerName,
             backgroundColor: playerColor,
             borderColor: playerColor,
-            pointRadius: 0, // プラグインで描くので0
-            hitRadius: 6    // ホバー用
+            pointRadius: 0, 
+            hitRadius: 6    
         };
 
-        // 【重要】オブジェクトの展開順序を修正（スプレッド構文を先に書く）
         datasetsXY.push({ ...config1, data: points1.map(p => ({ ...p, x: p.x, y: p.y })) });
         datasetsZY.push({ ...config1, data: points1.map(p => ({ ...p, x: p.diffZ, y: p.y })) });
         
