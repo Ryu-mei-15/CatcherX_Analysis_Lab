@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANOVA Dashboard - CatcherX:</title>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>📊</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        .anova-nav { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
+        .anova-tab {
+            padding: 0.8rem 2rem; background: var(--card-bg); border: 2px solid var(--border-color);
+            border-radius: 30px; font-size: 1.1rem; font-weight: bold; color: var(--text-muted);
+            cursor: pointer; transition: all 0.2s;
+        }
+        .anova-tab.active {
+            background: var(--primary-color); border-color: var(--primary-color); color: white; box-shadow: var(--shadow-md);
+        }
+        .result-card {
+            background: var(--card-bg); border-radius: var(--radius); padding: 2rem;
+            margin-bottom: 1.5rem; border-left: 6px solid var(--primary-color); box-shadow: var(--shadow-sm);
+        }
+        .result-card h3 { margin-top: 0; color: var(--primary-color); border-bottom: 1px solid var(--primary-fade); padding-bottom: 0.5rem; }
+        
+        .stat-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 1.5rem; 
+            margin-top: 1.5rem; 
+        }
+        
+        .stat-box { 
+            background: #fafbfc; 
+            padding: 1.5rem; 
+            border-radius: 12px; 
+            border: 1px solid var(--border-color); 
+            min-width: 0; 
+        }
+        
+        .stat-box h4 { 
+            margin: 0 0 0.5rem 0; 
+            color: var(--text-main); 
+            font-size: 1rem; 
+        }
+        
+        .stat-box .math { 
+            font-size: 1.05rem; 
+            color: #d35400; 
+            margin-bottom: 0.5rem;
+            overflow-x: auto; 
+            overflow-y: hidden;
+            white-space: nowrap;
+            padding-bottom: 4px; 
+        }
+        
+        .stat-box .math::-webkit-scrollbar {
+            height: 4px;
+        }
+        .stat-box .math::-webkit-scrollbar-thumb {
+            background: #d1d5db;
+            border-radius: 2px;
+        }
+
+        .stat-box .significance { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.85rem; font-weight: bold; }
+        .sig-high { background: #fee2e2; color: #b91c1c; } 
+        .sig-yes { background: #fef3c7; color: #b45309; }  
+        .sig-trend { background: #e0f2fe; color: #0369a1; } 
+        .sig-no { background: #f3f4f6; color: #374151; }   
+        
+        .insight-box { margin-top: 2rem; background: var(--primary-fade); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--primary-light); color: var(--text-main); line-height: 1.8; font-size: 1.05rem; }
+        .insight-box strong { color: var(--primary-color); }
+        
+        .bar-chart-container { width: 100%; height: 350px; position: relative; margin-bottom: 2rem; }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>二元配置分散分析 (Two-Way ANOVA) レポート</h1>
+        <p class="author">被験者 × 球速 がもたらす三次元的トラッキング誤差の解明</p>
+        <div style="margin-top: 1rem;">
+            <a href="index.html" style="color: white; text-decoration: underline; opacity: 0.8;">← メインダッシュボードに戻る</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="anova-nav" id="tabContainer">
+            <button class="anova-tab active" data-target="axisX">X軸 (水平方向)</button>
+            <button class="anova-tab" data-target="axisY">Y軸 (垂直方向)</button>
+            <button class="anova-tab" data-target="axisZ">Z軸 (奥行き方向)</button>
+        </div>
+        <div id="anovaContent"></div>
+
+        <hr style="border:none; border-top:2px dashed #ccc; margin: 4rem 0;">
+
+        <section id="interactive-comparison" class="card">
+            <h2>各条件の平均誤差 インタラクティブ比較</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">
+                ※ 上記のANOVAで示された有意差（特に被験者と球速の交互作用）を，実際の平均ズレ量（センチメートル）として視覚的に確認できます．
+            </p>
+
+            <div class="controls-grid">
+                <div class="filter-column">
+                    <div class="filter-section">
+                        <div class="filter-header">
+                            <h3>プレイヤー (Player)</h3>
+                            <div class="filter-actions">
+                                <button class="action-btn select-all" data-target="player">全選択</button>
+                                <button class="action-btn deselect-all" data-target="player">全解除</button>
+                            </div>
+                        </div>
+                        <div id="playerCheckboxes" class="checkbox-group"></div>
+                    </div>
+                    <div class="filter-section" style="margin-top: 2rem;">
+                        <div class="filter-header">
+                            <h3>球速</h3>
+                            <div class="filter-actions">
+                                <button class="action-btn select-all" data-target="speed">全選択</button>
+                                <button class="action-btn deselect-all" data-target="speed">全解除</button>
+                            </div>
+                        </div>
+                        <div id="speedCheckboxes" class="checkbox-group"></div>
+                    </div>
+                </div>
+                <div class="filter-section zone-section">
+                    <div class="filter-header">
+                        <h3>投球コース（右打者）</h3>
+                        <div class="filter-actions">
+                            <button class="action-btn select-all" data-target="course">全選択</button>
+                            <button class="action-btn deselect-all" data-target="course">全解除</button>
+                        </div>
+                    </div>
+                    <div class="sz-wrapper">
+                        <div class="sz-grid-container">
+                            <div class="sz-strike-zone-border"></div>
+                            <div class="sz-grid" id="courseGrid"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-heading" style="margin-top: 2rem;">
+                <span id="filterStatus" class="filter-status"></span>
+            </div>
+
+            <h3 style="color: var(--primary-color);">X軸 平均誤差 (水平: 左マイナス / 右プラス)</h3>
+            <div class="bar-chart-container"><canvas id="meanChartX"></canvas></div>
+
+            <h3 style="color: var(--primary-color);">Y軸 平均誤差 (垂直: 下マイナス / 上プラス)</h3>
+            <div class="bar-chart-container"><canvas id="meanChartY"></canvas></div>
+
+            <h3 style="color: var(--primary-color);">Z軸 平均誤差 (奥行: 後ろマイナス / 前プラス)</h3>
+            <div class="bar-chart-container"><canvas id="meanChartZ"></canvas></div>
+        </section>
+    </div>
+
+    <script src="anova.js"></script>
+</body>
+</html>

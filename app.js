@@ -179,7 +179,8 @@ function getCheckedValues(name) {
     return Array.from(checkboxes).map(cb => cb.value);
 }
 
-function clip(val, limit = 0.38) {
+// ★ クリッピング範囲も cm 単位 (38) に変更
+function clip(val, limit = 38) {
     return Math.max(-limit, Math.min(limit, val));
 }
 
@@ -203,6 +204,7 @@ function renderChart() {
     const pText = selectedPlayers.length === totalPlayers ? '全プレイヤー' : (selectedPlayers.length === 0 ? 'なし' : selectedPlayers.join(', '));
     const sText = selectedSpeeds.length === totalSpeeds ? '全球速' : (selectedSpeeds.length === 0 ? 'なし' : selectedSpeeds.join(', '));
     const cText = selectedCourses.length === totalCourses ? '全25コース' : (selectedCourses.length === 0 ? 'なし' : selectedCourses.join(', '));
+
     const statusText = `表示対象: ${pText} ｜ ${sText} ｜ ${cText}`;
     
     const status1 = document.getElementById('filterStatus1');
@@ -227,9 +229,10 @@ function renderChart() {
         const points2 = []; 
 
         playerData.forEach(d => {
-            const diffX = clip(d.mitt_x - d.target_x);
-            const diffY = clip(d.mitt_y - d.target_y);
-            const diffZ = clip(d.mitt_z - d.target_z);
+            // ★ m から cm への変換 (100倍)
+            const diffX = clip((d.mitt_x - d.target_x) * 100);
+            const diffY = clip((d.mitt_y - d.target_y) * 100);
+            const diffZ = clip((d.mitt_z - d.target_z) * 100);
             
             const category = categorizeCatch(d.catch_result);
             
@@ -267,7 +270,6 @@ function renderChart() {
             hitRadius: 6    
         };
 
-        // ZY平面の分身の術バグ修正済み
         datasetsXY.push({ ...config1, data: points1.map(p => ({ ...p, x: p.x, y: p.y })) });
         datasetsZY.push({ ...config1, data: points1.map(p => ({ ...p, x: p.diffZ, y: p.y })) });
         
@@ -275,10 +277,11 @@ function renderChart() {
         datasetsCourseZY.push({ ...config2, data: points2.map(p => ({ ...p, x: p.diffZ, y: p.y })) });
     });
 
-    drawChart('errorChartXY', datasetsXY, 'Mitt_Catch_X - Target_Pos_X [m]', chartXY, (c) => chartXY = c);
-    drawChart('errorChartZY', datasetsZY, 'Mitt_Catch_Z - Target_Pos_Z [m]', chartZY, (c) => chartZY = c);
-    drawChart('errorChartCourseXY', datasetsCourseXY, 'Mitt_Catch_X - Target_Pos_X [m]', chartCourseXY, (c) => chartCourseXY = c);
-    drawChart('errorChartCourseZY', datasetsCourseZY, 'Mitt_Catch_Z - Target_Pos_Z [m]', chartCourseZY, (c) => chartCourseZY = c);
+    // ★ 軸ラベルを cm に変更
+    drawChart('errorChartXY', datasetsXY, 'Mitt_Catch_X - Target_Pos_X [cm]', chartXY, (c) => chartXY = c);
+    drawChart('errorChartZY', datasetsZY, 'Mitt_Catch_Z - Target_Pos_Z [cm]', chartZY, (c) => chartZY = c);
+    drawChart('errorChartCourseXY', datasetsCourseXY, 'Mitt_Catch_X - Target_Pos_X [cm]', chartCourseXY, (c) => chartCourseXY = c);
+    drawChart('errorChartCourseZY', datasetsCourseZY, 'Mitt_Catch_Z - Target_Pos_Z [cm]', chartCourseZY, (c) => chartCourseZY = c);
 }
 
 function drawChart(canvasId, datasets, xLabel, chartInstance, setChartInstance) {
@@ -292,15 +295,17 @@ function drawChart(canvasId, datasets, xLabel, chartInstance, setChartInstance) 
             responsive: true,
             maintainAspectRatio: false,
             scales: {
-                x: { title: { display: true, text: xLabel }, min: -0.4, max: 0.4, grid: { color: '#eee', drawBorder: true } },
-                y: { title: { display: true, text: 'Mitt_Catch_Y - Target_Pos_Y [m]' }, min: -0.4, max: 0.4, grid: { color: '#eee', drawBorder: true } }
+                // ★ グラフの表示範囲を ±0.4 から ±40 (cm) に変更
+                x: { title: { display: true, text: xLabel }, min: -40, max: 40, grid: { color: '#eee', drawBorder: true } },
+                y: { title: { display: true, text: 'Mitt_Catch_Y - Target_Pos_Y [cm]' }, min: -40, max: 40, grid: { color: '#eee', drawBorder: true } }
             },
             plugins: {
                 legend: { display: false },
                 tooltip: {
                     callbacks: {
                         label: function(context) {
-                            return `[${context.raw._course}] ${context.raw._rawResult} (${context.parsed.x.toFixed(2)}, ${context.parsed.y.toFixed(2)})`;
+                            // ★ ツールチップの表示も少数第1位 (例: 12.5) に変更
+                            return `[${context.raw._course}] ${context.raw._rawResult} (${context.parsed.x.toFixed(1)}, ${context.parsed.y.toFixed(1)})`;
                         }
                     }
                 }
