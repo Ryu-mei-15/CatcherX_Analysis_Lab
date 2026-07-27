@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CatcherX予稿に掲載したプレイログ分析結果を公開する研究データページ">
+    <title>分析結果 | CatcherX Research Data</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>⚾</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <nav class="site-nav" aria-label="主要ナビゲーション">
+        <a class="site-brand" href="index.html"><span class="brand-mark">CX</span><span>CatcherX <small>Research Data</small></span></a>
+        <div class="nav-links">
+            <a href="index.html">研究概要</a>
+            <a href="results.html" aria-current="page">主要結果</a>
+            <a href="analysis.html">ログ可視化</a>
+            <a href="anova.html">要因分析</a>
+        </div>
+    </nav>
+
+    <header class="page-hero">
+        <div class="hero-inner">
+            <p class="eyebrow">EC2026 · PLAY LOG ANALYSIS</p>
+            <h1>身体的補正の主要結果</h1>
+            <p class="hero-lead">
+                予稿に掲載した集計値を，定義・実験条件とともに閲覧できるデータ付録である．
+                投球のズレに対して，プレイヤがどの程度ミット位置を補正したかを公開する．
+            </p>
+            <div class="hero-meta" aria-label="分析対象">
+                <span><strong>6</strong> 参加者</span>
+                <span><strong>1,974</strong> 取得試行</span>
+                <span><strong>3</strong> 球速条件</span>
+                <span><strong>9</strong> 投球コース</span>
+            </div>
+        </div>
+    </header>
+
+    <main id="main" class="container results-layout">
+        <section class="summary-strip" aria-label="主要な結果">
+            <article class="summary-metric">
+                <span class="metric-label">分析対象</span>
+                <strong>1,946<small> 試行</small></strong>
+                <span>ストライク判定を対象</span>
+            </article>
+            <article class="summary-metric">
+                <span class="metric-label">平均制球誤差</span>
+                <strong>16.9<small> cm</small></strong>
+                <span>要求位置からの投球のズレ</span>
+            </article>
+            <article class="summary-metric">
+                <span class="metric-label">平均ミット補正量</span>
+                <strong>12.9<small> cm</small></strong>
+                <span>予稿の集計値</span>
+            </article>
+            <article class="summary-metric accent">
+                <span class="metric-label">改善試行率</span>
+                <strong>75.5<small> %</small></strong>
+                <span>制球誤差が小さくなった試行</span>
+            </article>
+        </section>
+
+        <section class="card paper-finding">
+            <div>
+                <p class="section-kicker">KEY FINDING</p>
+                <h2>投球のズレが大きいほど，身体的補正も大きくなる</h2>
+                <p>
+                    制球誤差とミット補正量の間には正の相関が確認された．
+                    これは，プレイヤが投球軌道のズレを受動的に受け取るだけでなく，
+                    実際の投球位置を視認しながら身体的介入を行ったことを示す．
+                </p>
+            </div>
+            <div class="correlation-badge" aria-label="相関係数 0.413">
+                <span>相関係数</span>
+                <strong>r = 0.413</strong>
+                <small>正の相関</small>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="section-header">
+                <div>
+                    <p class="section-kicker">METRIC DEFINITIONS</p>
+                    <h2>分析指標</h2>
+                </div>
+                <p>各座標は同一の三次元座標系で記録し，距離は cm に換算した．</p>
+            </div>
+            <div class="definition-grid">
+                <article class="definition-card">
+                    <span class="definition-number">01</span>
+                    <h3>制球誤差</h3>
+                    <div class="formula">d<sub>control</sub> = |p<sub>impact</sub> − p<sub>target</sub>|</div>
+                    <p>要求した投球目標位置と，実際の投球到達位置の距離．システムが提示した不確実性を表す．</p>
+                </article>
+                <article class="definition-card">
+                    <span class="definition-number">02</span>
+                    <h3>ミット補正量</h3>
+                    <div class="formula">d<sub>move</sub> = |p<sub>catch</sub> − p<sub>start</sub>|</div>
+                    <p>投球開始時のミット中心から，捕球時のミット中心までの距離．身体的な操作量を表す．</p>
+                </article>
+                <article class="definition-card">
+                    <span class="definition-number">03</span>
+                    <h3>捕球誤差</h3>
+                    <div class="formula">d<sub>catch</sub> = |p<sub>catch</sub> − p<sub>impact</sub>|</div>
+                    <p>実際の投球到達位置と，捕球時のミット中心の距離．身体的補正の結果を表す．</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="card data-explorer">
+            <div class="section-header">
+                <div>
+                    <p class="section-kicker">PAPER DATA</p>
+                    <h2>制球誤差への対応</h2>
+                </div>
+                <p id="tableDescription">予稿に掲載した全体集計値．</p>
+            </div>
+            <div class="segmented-control" role="tablist" aria-label="集計単位">
+                <button type="button" role="tab" aria-selected="true" aria-controls="resultPanel" data-view="overall">全体</button>
+                <button type="button" role="tab" aria-selected="false" aria-controls="resultPanel" data-view="speed">球速別</button>
+                <button type="button" role="tab" aria-selected="false" aria-controls="resultPanel" data-view="participant">参加者別</button>
+            </div>
+            <div id="resultPanel" role="tabpanel" tabindex="0">
+                <div id="comparisonVisual" class="comparison-visual" aria-label="制球誤差とミット補正量の比較"></div>
+                <div class="table-scroll">
+                    <table id="resultTable">
+                        <caption class="visually-hidden">制球誤差への対応に関する集計結果</caption>
+                    </table>
+                </div>
+            </div>
+            <p class="data-note">
+                「集計低減率」は全試行の誤差減少量合計を制球誤差合計で除した値，
+                「改善試行率」は制球誤差に対して捕球位置の誤差が小さくなった試行の割合を示す．
+            </p>
+        </section>
+
+        <section class="card speed-finding">
+            <div class="section-header">
+                <div>
+                    <p class="section-kicker">SPEED EFFECT</p>
+                    <h2>球速上昇に伴う対応力の低下</h2>
+                </div>
+            </div>
+            <div class="speed-bars" aria-label="球速別の集計誤差低減率">
+                <div><span>100 km/h</span><div class="bar-track"><i style="width:100%"></i></div><strong>32.4%</strong></div>
+                <div><span>130 km/h</span><div class="bar-track"><i style="width:61.4%"></i></div><strong>19.9%</strong></div>
+                <div><span>158 km/h</span><div class="bar-track"><i style="width:59.9%"></i></div><strong>19.4%</strong></div>
+            </div>
+            <p class="interpretation">
+                改善試行率は100 km/hの80.9%から158 km/hの72.3%へ低下した．
+                球速上昇によって，知覚・判断・運動に利用できる時間が減少した可能性がある．
+            </p>
+        </section>
+
+        <section class="card">
+            <div class="section-header">
+                <div>
+                    <p class="section-kicker">EXPERIMENT CONTEXT</p>
+                    <h2>実験条件とデータの範囲</h2>
+                </div>
+            </div>
+            <div class="context-grid">
+                <dl>
+                    <div><dt>対象</dt><dd>情報学系大学生 6名</dd></div>
+                    <div><dt>打者条件</dt><dd>右打者に統一</dd></div>
+                    <div><dt>球速</dt><dd>100 / 130 / 158 km/h</dd></div>
+                    <div><dt>コース</dt><dd>ストライクゾーン内 3 × 3</dd></div>
+                    <div><dt>反復</dt><dd>各条件 10試行以上</dd></div>
+                    <div><dt>制球誤差</dt><dd>正規分布に基づき半径25 cm以内</dd></div>
+                </dl>
+                <aside class="research-note">
+                    <strong>結果の読み方</strong>
+                    <p>
+                        参加者数は限定的で，球速・コースの提示順序は固定されている．
+                        個人差や順序効果を含む探索的なプレイログ分析として解釈する必要がある．
+                    </p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="next-analysis">
+            <div>
+                <p class="section-kicker">EXPLORE FURTHER</p>
+                <h2>個々のログと統計モデルを確認する</h2>
+                <p>公開ログを条件で絞り込み，分布・方向別誤差・二元配置分散分析へ進める．</p>
+            </div>
+            <div class="next-links">
+                <a class="button primary" href="analysis.html">ログ可視化を開く</a>
+                <a class="button secondary" href="anova.html">要因分析を開く</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p><strong>CatcherX Research Data</strong><br>山口 瑞悠・藤井 叙人・橋田 光代<br>福知山公立大学 情報学部</p>
+        <p>EC2026予稿の補足資料</p>
+    </footer>
+    <script src="results.js"></script>
+</body>
+</html>

@@ -12,10 +12,20 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+    <a class="skip-link" href="#dashboard">本文へ移動</a>
+    <nav class="site-nav" aria-label="主要ナビゲーション">
+        <a class="site-brand" href="index.html"><span class="brand-mark">CX</span><span>CatcherX <small>Research Data</small></span></a>
+        <div class="nav-links">
+            <a href="index.html">研究概要</a>
+            <a href="results.html">主要結果</a>
+            <a href="analysis.html" aria-current="page">ログ可視化</a>
+            <a href="anova.html">要因分析</a>
+        </div>
+    </nav>
 
     <header class="main-header">
-        <p class="Play Log Analysis">Interactive Data Appendix</p>
-        <h1>CatcherX: 配球と捕球を統合したVR捕手シミュレータ</h1>
+        <p class="header-subtitle">Interactive Log Explorer</p>
+        <h1>プレイログ可視化</h1>
 
         <p class="header-lead">
             本ページでは，論文中で用いたプレイログの一部を対象に，
@@ -25,7 +35,7 @@
         </p>
 
         <div class="header-actions">
-            <a href="index.html" class="header-link-btn">CatcherX概要に戻る</a>
+            <a href="results.html" class="header-link-btn">予稿の主要結果を見る</a>
             <a href="anova.html" class="header-link-btn">二元配置分散分析の結果を見る</a>
         </div>
     </header>
@@ -196,7 +206,7 @@
             <div class="charts-wrapper" style="grid-template-columns: 1fr;">
                 <div class="chart-box">
                     <h3 class="chart-title">制球誤差 × ミット補正量 の相関</h3>
-                    <div class="canvas-container" style="width: 100%; max-width: 450px; aspect-ratio: 25 / 40; height: auto; margin: 0 auto;">
+                    <div class="canvas-container correlation-canvas" style="width: 100%; max-width: 1000px; height: 600px; margin: 0 auto;">
                         <canvas id="correlationChart"></canvas>
                     </div>
                 </div>

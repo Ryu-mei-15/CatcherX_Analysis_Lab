@@ -184,6 +184,16 @@
     </style>
 </head>
 <body>
+    <a class="skip-link" href="#analysis-main">本文へ移動</a>
+    <nav class="site-nav" aria-label="主要ナビゲーション">
+        <a class="site-brand" href="index.html"><span class="brand-mark">CX</span><span>CatcherX <small>Research Data</small></span></a>
+        <div class="nav-links">
+            <a href="index.html">研究概要</a>
+            <a href="results.html">主要結果</a>
+            <a href="analysis.html">ログ可視化</a>
+            <a href="anova.html" aria-current="page">要因分析</a>
+        </div>
+    </nav>
 
     <div id="loading-overlay">
         <div class="spinner"></div>
@@ -203,12 +213,12 @@
             および両者の交互作用を確認できる．
         </p>
         <div class="header-actions">
-            <a href="index.html" class="header-link-btn">CatcherX概要に戻る</a>
+            <a href="results.html" class="header-link-btn">予稿の主要結果を見る</a>
             <a href="analysis.html" class="header-link-btn">捕球誤差の可視化に戻る</a>
         </div>
     </header>
 
-    <div class="container">
+    <div id="analysis-main" class="container">
         <section class="card" style="margin-bottom: 2rem;">
             <h2>解析条件の選択</h2>
 
