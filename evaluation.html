@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CatcherXのNASA-TLXおよびSystem Usability Scale評価・比較ページ">
+    <title>標準尺度評価 | CatcherX Research Data</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>📋</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <nav class="site-nav" aria-label="主要ナビゲーション">
+        <a class="site-brand" href="index.html"><span class="brand-mark">CX</span><span>CatcherX <small>Research Data</small></span></a>
+        <div class="nav-links">
+            <a href="index.html">研究概要</a>
+            <a href="paper.html">予稿閲覧</a>
+            <a href="results.html">主要結果</a>
+            <a href="analysis.html">ログ可視化</a>
+            <a href="anova.html">要因分析</a>
+            <a href="evaluation.html" aria-current="page">標準尺度</a>
+        </div>
+    </nav>
+
+    <header class="main-header evaluation-hero">
+        <p class="header-subtitle">Standardized Evaluation</p>
+        <h1>主観的負荷とユーザビリティ評価</h1>
+        <p class="header-lead">
+            NASA-TLXとSystem Usability Scale（SUS）を用いて，
+            CatcherXのタスク負荷とユーザビリティを標準化された方法で記録・比較する．
+        </p>
+    </header>
+
+    <main id="main" class="container evaluation-layout">
+        <div class="empty-data-notice" role="status">
+            <span class="notice-icon" aria-hidden="true">!</span>
+            <div>
+                <strong>既存実験の質問紙回答は登録されていません</strong>
+                <p>このページは今後の対照実験用です．回答を入力するまで研究結果としての比較値は表示されません．</p>
+            </div>
+        </div>
+
+        <section class="card protocol-card">
+            <div class="section-header">
+                <div>
+                    <p class="section-kicker">RECOMMENDED PROTOCOL</p>
+                    <h2>循環構造を検証する比較条件</h2>
+                </div>
+                <p>同一参加者が各条件を体験する場合は，提示順を参加者間でカウンターバランスする．</p>
+            </div>
+            <div class="condition-grid">
+                <article>
+                    <span>A</span>
+                    <h3>統合条件</h3>
+                    <p>配球判断，待機，捕球，結果受容，次配球への更新を連続して行う．</p>
+                </article>
+                <article>
+                    <span>B</span>
+                    <h3>捕球のみ</h3>
+                    <p>配球選択と結果に基づく更新を除き，提示された投球の捕球のみを行う．</p>
+                </article>
+                <article>
+                    <span>C</span>
+                    <h3>配球判断のみ</h3>
+                    <p>身体的な捕球操作を除き，状況情報に基づく配球選択と更新を行う．</p>
+                </article>
+            </div>
+            <div class="protocol-note">
+                <strong>推奨する測定タイミング</strong>
+                <span>NASA-TLX：各条件の直後</span>
+                <span>SUS：各条件の直後，またはCatcherX全体の体験終了後</span>
+                <span>併記：タスク成功率・反応時間・捕球誤差</span>
+            </div>
+        </section>
+
+        <form id="evaluationForm" class="evaluation-form">
+            <section class="card">
+                <div class="section-header">
+                    <div>
+                        <p class="section-kicker">RESPONSE METADATA</p>
+                        <h2>回答情報</h2>
+                    </div>
+                    <p>氏名などの直接識別子は入力せず，匿名化IDを使用する．</p>
+                </div>
+                <div class="metadata-grid">
+                    <label>
+                        <span>参加者ID <b>必須</b></span>
+                        <input id="participantId" name="participantId" type="text" required maxlength="24" placeholder="例：P01" autocomplete="off">
+                    </label>
+                    <label>
+                        <span>実験条件 <b>必須</b></span>
+                        <select id="condition" name="condition" required>
+                            <option value="">選択してください</option>
+                            <option value="統合条件">統合条件</option>
+                            <option value="捕球のみ">捕球のみ</option>
+                            <option value="配球判断のみ">配球判断のみ</option>
+                            <option value="CatcherX全体">CatcherX全体</option>
+                        </select>
+                    </label>
+                    <label>
+                        <span>測定時点</span>
+                        <input id="sessionLabel" name="sessionLabel" type="text" maxlength="32" placeholder="例：各条件直後">
+                    </label>
+                    <label>
+                        <span>実施日</span>
+                        <input id="recordedDate" name="recordedDate" type="date">
+                    </label>
+                </div>
+            </section>
+
+            <section class="card scale-section" id="nasaTlx">
+                <div class="section-header">
+                    <div>
+                        <p class="section-kicker">NASA TASK LOAD INDEX</p>
+                        <h2>NASA-TLX</h2>
+                    </div>
+                    <p>6側面を0–100で評価する．値が高いほど主観的なタスク負荷が高い．</p>
+                </div>
+
+                <fieldset class="method-choice">
+                    <legend>集計方式</legend>
+                    <label><input type="radio" name="tlxMethod" value="raw" checked> Raw TLX（6尺度の単純平均）</label>
+                    <label><input type="radio" name="tlxMethod" value="weighted"> 重み付きNASA-TLX（15対の比較を使用）</label>
+                </fieldset>
+
+                <div class="tlx-grid">
+                    <label class="scale-slider">
+                        <span><strong>精神的要求</strong><small>考える，判断する，覚える必要はどの程度あったか</small></span>
+                        <input type="range" name="mental" min="0" max="100" step="5" value="50">
+                        <output for="mental">50</output>
+                        <i><span>低い</span><span>高い</span></i>
+                    </label>
+                    <label class="scale-slider">
+                        <span><strong>身体的要求</strong><small>身体を動かす必要はどの程度あったか</small></span>
+                        <input type="range" name="physical" min="0" max="100" step="5" value="50">
+                        <output for="physical">50</output>
+                        <i><span>低い</span><span>高い</span></i>
+                    </label>
+                    <label class="scale-slider">
+                        <span><strong>時間的要求</strong><small>急かされる，時間が足りないと感じた程度</small></span>
+                        <input type="range" name="temporal" min="0" max="100" step="5" value="50">
+                        <output for="temporal">50</output>
+                        <i><span>低い</span><span>高い</span></i>
+                    </label>
+                    <label class="scale-slider performance-slider">
+                        <span><strong>作業成績</strong><small>課題をどの程度うまく達成できたと感じるか</small></span>
+                        <input type="range" name="performance" min="0" max="100" step="5" value="50">
+                        <output for="performance">50</output>
+                        <i><span>良い</span><span>悪い</span></i>
+                    </label>
+                    <label class="scale-slider">
+                        <span><strong>努力</strong><small>目標達成のためにどの程度努力したか</small></span>
+                        <input type="range" name="effort" min="0" max="100" step="5" value="50">
+                        <output for="effort">50</output>
+                        <i><span>低い</span><span>高い</span></i>
+                    </label>
+                    <label class="scale-slider">
+                        <span><strong>不満</strong><small>不安，落胆，苛立ち，ストレスを感じた程度</small></span>
+                        <input type="range" name="frustration" min="0" max="100" step="5" value="50">
+                        <output for="frustration">50</output>
+                        <i><span>低い</span><span>高い</span></i>
+                    </label>
+                </div>
+
+                <details id="weightingPanel" class="weighting-panel">
+                    <summary>重み付けのための一対比較（15項目）</summary>
+                    <p>各組について，今回の負荷により強く寄与した側面を選択する．重み付き方式では全項目への回答が必要である．</p>
+                    <div id="pairwiseComparisons" class="pairwise-grid"></div>
+                </details>
+
+                <div class="live-score">
+                    <span>現在のNASA-TLX</span>
+                    <strong id="tlxLiveScore">50.0</strong>
+                    <small id="tlxScoreMethod">Raw TLX</small>
+                </div>
+            </section>
+
+            <section class="card scale-section" id="sus">
+                <div class="section-header">
+                    <div>
+                        <p class="section-kicker">SYSTEM USABILITY SCALE</p>
+                        <h2>System Usability Scale（SUS）</h2>
+                    </div>
+                    <p>10項目を5件法で回答する．スコアは0–100だが，百分率ではない．</p>
+                </div>
+                <div class="sus-scale-legend" aria-hidden="true">
+                    <span>1<br><small>まったく<br>そう思わない</small></span>
+                    <span>2</span><span>3</span><span>4</span>
+                    <span>5<br><small>強く<br>そう思う</small></span>
+                </div>
+                <div id="susQuestions" class="sus-questions"></div>
+                <p class="translation-note">
+                    表示文はCatcherX向けの実施用文案である．正式な研究実施時は，
+                    <a href="https://doi.org/10.7876/jmvr.23.1" target="_blank" rel="noopener">言語的妥当性が検討された日本語版SUS</a>
+                    の採用版・文言・出典を研究計画内で固定すること．
+                </p>
+                <div class="live-score">
+                    <span>現在のSUS</span>
+                    <strong id="susLiveScore">—</strong>
+                    <small id="susCompletion">0 / 10項目回答</small>
+                </div>
+            </section>
+
+            <div class="form-actions">
+                <button class="button primary save-response" type="submit">回答を保存</button>
+                <button class="button secondary reset-response" type="reset">入力をリセット</button>
+                <p id="formMessage" role="status" aria-live="polite"></p>
+            </div>
+        </form>
+
+        <section class="card comparison-section" id="comparison">
+            <div class="section-header">
+                <div>
+                    <p class="section-kicker">CONDITION COMPARISON</p>
+                    <h2>条件別の比較結果</h2>
+                </div>
+                <p>このブラウザに保存された回答のみを集計する．平均値と標本標準偏差を表示する．</p>
+            </div>
+            <div id="comparisonEmpty" class="comparison-empty">
+                回答データがありません．上の質問紙に回答を保存すると，ここに比較結果が表示されます．
+            </div>
+            <div id="comparisonContent" hidden>
+                <div class="comparison-legend">
+                    <span class="tlx-key">NASA-TLX（低いほど負荷が小さい）</span>
+                    <span class="sus-key">SUS（高いほどユーザビリティ評価が高い）</span>
+                </div>
+                <div id="conditionComparison" class="condition-comparison"></div>
+                <div class="table-scroll evaluation-table-wrap">
+                    <table id="summaryTable">
+                        <caption class="visually-hidden">条件別のNASA-TLXおよびSUS集計</caption>
+                    </table>
+                </div>
+                <h3 class="subsection-title">個別回答</h3>
+                <div class="table-scroll evaluation-table-wrap">
+                    <table id="responseTable">
+                        <caption class="visually-hidden">保存された個別回答</caption>
+                    </table>
+                </div>
+                <div class="data-actions">
+                    <button type="button" id="exportCsv" class="button download-button">CSVを出力</button>
+                    <button type="button" id="clearResponses" class="text-danger-button">保存データをすべて削除</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="card methodology-card">
+            <div class="section-header">
+                <div>
+                    <p class="section-kicker">INTERPRETATION</p>
+                    <h2>結果の扱い方</h2>
+                </div>
+            </div>
+            <div class="methodology-grid">
+                <article>
+                    <h3>NASA-TLX</h3>
+                    <p>課題間の相対比較に用いる．分野横断で適用できるが，普遍的な合否基準は設定しない．6下位尺度も併記する．</p>
+                </article>
+                <article>
+                    <h3>SUS</h3>
+                    <p>システム全体の知覚されたユーザビリティを示す．0–100は百分率ではなく，個別項目を単独で解釈しない．</p>
+                </article>
+                <article>
+                    <h3>対照実験</h3>
+                    <p>標準尺度だけで循環構造の効果を証明せず，捕球成績，判断時間，配球変更，インタビューを合わせて解釈する．</p>
+                </article>
+            </div>
+            <div class="source-links">
+                <span>尺度資料：</span>
+                <a href="https://www.nasa.gov/human-systems-integration-division/nasa-task-load-index-tlx/" target="_blank" rel="noopener">NASA公式 TLX</a>
+                <a href="https://ntrs.nasa.gov/citations/20000021488" target="_blank" rel="noopener">NASA-TLXマニュアル</a>
+                <a href="https://doi.org/10.7876/jmvr.23.1" target="_blank" rel="noopener">日本語版SUS研究</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p><strong>CatcherX Research Data</strong><br>山口 瑞悠・藤井 叙人・橋田 光代<br>福知山公立大学 情報学部</p>
+        <p>回答データはサーバーへ送信されません</p>
+    </footer>
+    <script src="evaluation.js"></script>
+</body>
+</html>
