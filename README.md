@@ -15,11 +15,14 @@ python3 -m http.server 8000
 - `index.html`：研究概要
 - `paper.html`：EC2026投稿予稿のブラウザ内閲覧
 - `results.html`：予稿掲載の主要結果
+- `phase3.html`：第3フェーズの配球更新行動と有意差分析
 - `analysis.html`：プレイログ可視化
 - `anova.html`：二元配置分散分析
 - `evaluation.html`：NASA-TLX・SUS回答と条件間比較
 
 予稿PDFは`paper/ec2026.pdf`に配置しています．閲覧ページではPDFビューアのツールバーと直接ダウンロード導線を表示しませんが，Web配信されるファイルの保存や画面撮影を完全に防ぐことはできません．
+
+第3フェーズの公開用データは`python3 convert_phase3.py`で`DataBreak/*_1_2.csv`から再生成できます．各参加者の第1球を除き，65球から59遷移を作成します．
 
 ## 標準尺度データ
 

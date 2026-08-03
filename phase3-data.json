@@ -1,0 +1,483 @@
+{
+  "metadata": {
+    "phase": 3,
+    "participants": 6,
+    "pitches": 65,
+    "transitions": 59,
+    "source_pattern": "DataBreak/*_1_2.csv"
+  },
+  "transitions": [
+    {
+      "participant": "参加者A",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者A",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者A",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": false,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者A",
+      "previous_reaction": "見逃し",
+      "pitch_changed": false,
+      "course_changed": false,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者A",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者A",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者A",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "高め"
+    },
+    {
+      "participant": "参加者A",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者A",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者B",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者B",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "高め"
+    },
+    {
+      "participant": "参加者B",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者B",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者B",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "高め"
+    },
+    {
+      "participant": "参加者B",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者B",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者B",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "高め"
+    },
+    {
+      "participant": "参加者C",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": false,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者C",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "高め"
+    },
+    {
+      "participant": "参加者C",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者C",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者C",
+      "previous_reaction": "見逃し",
+      "pitch_changed": false,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者C",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者C",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者C",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者C",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者C",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者C",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者D",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者D",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": false,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者D",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者D",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者D",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": false,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者D",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者D",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者D",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者D",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者E",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": false,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者E",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者E",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者E",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": false,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者E",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": false,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者E",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "高め"
+    },
+    {
+      "participant": "参加者E",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": false,
+      "course_changed": false,
+      "next_pitch_group": "変化球",
+      "next_course_height": "高め"
+    },
+    {
+      "participant": "参加者E",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者E",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者E",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者F",
+      "previous_reaction": "見逃し",
+      "pitch_changed": false,
+      "course_changed": false,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者F",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者F",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者F",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者F",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": false,
+      "course_changed": false,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者F",
+      "previous_reaction": "空振り",
+      "pitch_changed": false,
+      "course_changed": false,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "参加者F",
+      "previous_reaction": "見逃し",
+      "pitch_changed": false,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者F",
+      "previous_reaction": "見逃し",
+      "pitch_changed": false,
+      "course_changed": false,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者F",
+      "previous_reaction": "空振り",
+      "pitch_changed": false,
+      "course_changed": false,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者F",
+      "previous_reaction": "見逃し",
+      "pitch_changed": false,
+      "course_changed": false,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者F",
+      "previous_reaction": "空振り",
+      "pitch_changed": false,
+      "course_changed": false,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "参加者F",
+      "previous_reaction": "見逃し",
+      "pitch_changed": false,
+      "course_changed": false,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "真ん中"
+    }
+  ]
+}
