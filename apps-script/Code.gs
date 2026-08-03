@@ -2,16 +2,23 @@ const CATCHERX_CONFIG = Object.freeze({
   namespace: 'catcherx-evaluation-v1',
   timezone: 'Asia/Tokyo',
   sessionMinutes: 30,
+  otpMinutes: 60,
   maxFailedLogins: 5,
   failedLoginWindowSeconds: 900,
   minimumPublicGroupSize: 3,
   participantSheet: 'Participants',
   responseSheet: 'Responses',
-  importSheet: 'CredentialImport',
+  importSheet: 'ParticipantImport',
+  otpIssueSheet: 'OtpIssue',
   conditions: ['統合条件', '捕球のみ', '配球判断のみ', 'CatcherX全体']
 });
 
 const PARTICIPANT_HEADERS = [
+  'participant_id', 'otp_hash', 'otp_salt', 'otp_expires_at',
+  'otp_used_at', 'active', 'allowed_conditions', 'notes'
+];
+
+const LEGACY_PARTICIPANT_HEADERS = [
   'participant_id', 'password_hash', 'password_salt', 'active',
   'allowed_conditions', 'notes'
 ];
@@ -24,15 +31,20 @@ const RESPONSE_HEADERS = [
 ];
 
 const IMPORT_HEADERS = [
-  'participant_id', 'password', 'allowed_conditions', 'active', 'notes'
+  'participant_id', 'allowed_conditions', 'active', 'notes'
 ];
+
+const OTP_ISSUE_HEADERS = ['participant_id', 'otp', 'expires_at', 'issued_at'];
 
 function onOpen() {
   SpreadsheetApp.getUi()
     .createMenu('CatcherX')
     .addItem('初期設定', 'setupCatcherXEvaluation')
-    .addItem('認証情報を取り込む', 'importCredentialsFromSheet')
-    .addItem('認証情報を10件生成', 'generateTenCredentials')
+    .addItem('固定IDを取り込む', 'importParticipantsFromSheet')
+    .addSeparator()
+    .addItem('選択したIDへOTPを発行', 'issueOtpsForSelectedParticipants')
+    .addItem('有効な全IDへOTPを発行', 'issueOtpsForAllActiveParticipants')
+    .addItem('OTP発行一覧を消去', 'clearOtpIssueSheet')
     .addToUi();
 }
 
@@ -44,100 +56,143 @@ function setupCatcherXEvaluation() {
 
   const properties = PropertiesService.getScriptProperties();
   properties.setProperty('SPREADSHEET_ID', spreadsheet.getId());
-  if (!properties.getProperty('PASSWORD_PEPPER')) {
-    properties.setProperty('PASSWORD_PEPPER', createSecret_());
+  if (!properties.getProperty('OTP_PEPPER')) {
+    properties.setProperty(
+      'OTP_PEPPER',
+      properties.getProperty('PASSWORD_PEPPER') || createSecret_()
+    );
   }
   if (!properties.getProperty('SESSION_SECRET')) {
     properties.setProperty('SESSION_SECRET', createSecret_());
   }
 
-  ensureSheet_(spreadsheet, CATCHERX_CONFIG.participantSheet, PARTICIPANT_HEADERS);
+  ensureParticipantSheet_(spreadsheet);
   ensureSheet_(spreadsheet, CATCHERX_CONFIG.responseSheet, RESPONSE_HEADERS);
   ensureSheet_(spreadsheet, CATCHERX_CONFIG.importSheet, IMPORT_HEADERS);
+  ensureSheet_(spreadsheet, CATCHERX_CONFIG.otpIssueSheet, OTP_ISSUE_HEADERS);
+  migrateLegacyImportSheet_(spreadsheet);
 
   SpreadsheetApp.getUi().alert(
     '初期設定が完了しました．スクリプトプロパティ ALLOWED_ORIGIN に公開サイトのオリジンを設定してください．'
   );
 }
 
-function generateTenCredentials() {
-  generateCredentials_(10, 'P');
-}
-
-function generateCredentials_(count, prefix) {
-  const spreadsheet = getSpreadsheet_();
-  const sheet = ensureSheet_(spreadsheet, CATCHERX_CONFIG.importSheet, IMPORT_HEADERS);
-  const existingIds = getDataObjects_(
-    ensureSheet_(spreadsheet, CATCHERX_CONFIG.participantSheet, PARTICIPANT_HEADERS)
-  ).map(row => row.participant_id).concat(
-    getDataObjects_(sheet).map(row => row.participant_id)
-  );
-  const rows = [];
-  let number = 1;
-
-  while (rows.length < count) {
-    const participantId = `${prefix}${String(number).padStart(3, '0')}`;
-    number += 1;
-    if (existingIds.includes(participantId)) continue;
-    rows.push([
-      participantId,
-      createSecret_().replace(/[-_=]/g, '').slice(0, 20),
-      CATCHERX_CONFIG.conditions.join('|'),
-      true,
-      ''
-    ]);
-  }
-
-  sheet.getRange(sheet.getLastRow() + 1, 1, rows.length, rows[0].length).setValues(rows);
-  SpreadsheetApp.getUi().alert(
-    'CredentialImportシートへ認証情報を生成しました．配布用に安全な場所へ控えた後，「認証情報を取り込む」を実行してください．'
-  );
-}
-
-function importCredentialsFromSheet() {
+function importParticipantsFromSheet() {
   const spreadsheet = getSpreadsheet_();
   const importSheet = ensureSheet_(spreadsheet, CATCHERX_CONFIG.importSheet, IMPORT_HEADERS);
-  const participantSheet = ensureSheet_(spreadsheet, CATCHERX_CONFIG.participantSheet, PARTICIPANT_HEADERS);
+  const participantSheet = ensureParticipantSheet_(spreadsheet);
   const imports = getDataObjects_(importSheet);
   const existing = getDataObjects_(participantSheet);
-  const byId = new Map(existing.map((row, index) => [String(row.participant_id), index + 2]));
+  const byId = new Map(existing.map((row, index) => [String(row.participant_id), { row, rowNumber: index + 2 }]));
   let imported = 0;
 
-  imports.forEach((row, index) => {
-    const sheetRow = index + 2;
+  imports.forEach(row => {
     const participantId = String(row.participant_id || '').trim();
-    const password = String(row.password || '');
-    if (!participantId && !password) return;
+    if (!participantId) return;
     validateParticipantId_(participantId);
-    if (password.length < 12 || password.length > 128) {
-      throw new Error(`${participantId}: パスワードは12文字以上128文字以下にしてください．`);
-    }
-
     const conditions = parseConditions_(row.allowed_conditions);
-    const salt = createSecret_().slice(0, 24);
+    const current = byId.get(participantId);
     const values = [
       participantId,
-      hashPassword_(password, salt),
-      salt,
+      current ? current.row.otp_hash : '',
+      current ? current.row.otp_salt : '',
+      current ? current.row.otp_expires_at : '',
+      current ? current.row.otp_used_at : '',
       normalizeBoolean_(row.active, true),
       conditions.join('|'),
       String(row.notes || '')
     ];
 
-    if (byId.has(participantId)) {
-      participantSheet.getRange(byId.get(participantId), 1, 1, values.length).setValues([values]);
+    if (current) {
+      participantSheet.getRange(current.rowNumber, 1, 1, values.length).setValues([values]);
     } else {
       participantSheet.appendRow(values);
-      byId.set(participantId, participantSheet.getLastRow());
+      byId.set(participantId, {
+        row: Object.fromEntries(PARTICIPANT_HEADERS.map((header, index) => [header, values[index]])),
+        rowNumber: participantSheet.getLastRow()
+      });
     }
-
-    importSheet.getRange(sheetRow, 2).clearContent();
     imported += 1;
   });
 
   SpreadsheetApp.getUi().alert(
-    `${imported}件を取り込みました．CredentialImportシートのパスワード欄は消去済みです．`
+    `${imported}件の固定IDと利用条件を取り込みました．`
   );
+}
+
+function issueOtpsForSelectedParticipants() {
+  const spreadsheet = getSpreadsheet_();
+  const sheet = ensureParticipantSheet_(spreadsheet);
+  const activeSheet = spreadsheet.getActiveSheet();
+  const range = activeSheet.getActiveRange();
+  if (activeSheet.getName() !== CATCHERX_CONFIG.participantSheet || !range) {
+    throw new Error('ParticipantsシートでOTPを発行するIDの行を選択してください．');
+  }
+  const firstRow = Math.max(2, range.getRow());
+  const lastRow = range.getLastRow();
+  if (lastRow < 2) throw new Error('参加者IDの行を選択してください．');
+  const rowNumbers = [];
+  for (let row = firstRow; row <= lastRow; row += 1) rowNumbers.push(row);
+  issueOtpsForRows_(sheet, rowNumbers);
+}
+
+function issueOtpsForAllActiveParticipants() {
+  const spreadsheet = getSpreadsheet_();
+  const sheet = ensureParticipantSheet_(spreadsheet);
+  const rowNumbers = getDataObjects_(sheet)
+    .map((row, index) => normalizeBoolean_(row.active, false) ? index + 2 : null)
+    .filter(rowNumber => rowNumber !== null);
+  issueOtpsForRows_(sheet, rowNumbers);
+}
+
+function issueOtpsForRows_(participantSheet, rowNumbers) {
+  if (!rowNumbers.length) throw new Error('OTPを発行できる有効なIDがありません．');
+  const spreadsheet = getSpreadsheet_();
+  const issueSheet = ensureSheet_(spreadsheet, CATCHERX_CONFIG.otpIssueSheet, OTP_ISSUE_HEADERS);
+  const now = new Date();
+  const expiresAt = new Date(now.getTime() + CATCHERX_CONFIG.otpMinutes * 60 * 1000);
+  const issueRows = [];
+  const lock = LockService.getScriptLock();
+  lock.waitLock(10000);
+
+  try {
+    rowNumbers.forEach(rowNumber => {
+      const values = participantSheet.getRange(rowNumber, 1, 1, PARTICIPANT_HEADERS.length).getValues()[0];
+      const participant = Object.fromEntries(PARTICIPANT_HEADERS.map((header, index) => [header, values[index]]));
+      const participantId = String(participant.participant_id || '').trim();
+      if (!participantId || !normalizeBoolean_(participant.active, false)) return;
+      validateParticipantId_(participantId);
+      const otp = createOtp_();
+      const salt = createSecret_().slice(0, 24);
+      participantSheet.getRange(rowNumber, 2, 1, 4).setValues([[
+        hashOtp_(otp, salt), salt, expiresAt, ''
+      ]]);
+      issueRows.push([
+        participantId,
+        otp,
+        Utilities.formatDate(expiresAt, CATCHERX_CONFIG.timezone, "yyyy-MM-dd'T'HH:mm:ssXXX"),
+        Utilities.formatDate(now, CATCHERX_CONFIG.timezone, "yyyy-MM-dd'T'HH:mm:ssXXX")
+      ]);
+    });
+
+    if (issueRows.length) {
+      issueSheet.getRange(issueSheet.getLastRow() + 1, 1, issueRows.length, issueRows[0].length).setValues(issueRows);
+    }
+  } finally {
+    lock.releaseLock();
+  }
+
+  SpreadsheetApp.getUi().alert(
+    `${issueRows.length}件の8桁OTPを発行しました．有効時間は${CATCHERX_CONFIG.otpMinutes}分です．`
+  );
+}
+
+function clearOtpIssueSheet() {
+  const sheet = ensureSheet_(getSpreadsheet_(), CATCHERX_CONFIG.otpIssueSheet, OTP_ISSUE_HEADERS);
+  if (sheet.getLastRow() >= 2) {
+    sheet.getRange(2, 1, sheet.getLastRow() - 1, OTP_ISSUE_HEADERS.length).clearContent();
+  }
+  SpreadsheetApp.getUi().alert('OTP発行一覧を消去しました．');
 }
 
 function doPost(event) {
@@ -190,10 +245,10 @@ function doGet(event) {
 
 function authenticate_(parameters) {
   const participantId = String(parameters.participant_id || '').trim();
-  const password = String(parameters.password || '');
+  const otp = String(parameters.otp || '');
   validateParticipantId_(participantId);
-  if (password.length < 12 || password.length > 128) {
-    throw publicError_('参加者IDまたはパスワードが正しくありません．');
+  if (!/^\d{8}$/.test(otp)) {
+    throw publicError_('参加者IDまたはOTPが正しくありません．');
   }
 
   const cache = CacheService.getScriptCache();
@@ -203,32 +258,48 @@ function authenticate_(parameters) {
     throw publicError_('認証試行回数が上限に達しました．15分後に再度お試しください．');
   }
 
-  const participant = findParticipant_(participantId);
-  const valid = participant &&
-    normalizeBoolean_(participant.active, false) &&
-    timingSafeEqual_(
-      String(participant.password_hash || ''),
-      hashPassword_(password, String(participant.password_salt || ''))
-    );
+  const lock = LockService.getScriptLock();
+  lock.waitLock(10000);
+  try {
+    const record = findParticipantRecord_(participantId);
+    const participant = record && record.participant;
+    const otpExpiry = participant && participant.otp_expires_at
+      ? new Date(participant.otp_expires_at).getTime()
+      : 0;
+    const valid = participant &&
+      normalizeBoolean_(participant.active, false) &&
+      !participant.otp_used_at &&
+      Number.isFinite(otpExpiry) &&
+      otpExpiry >= Date.now() &&
+      timingSafeEqual_(
+        String(participant.otp_hash || ''),
+        hashOtp_(otp, String(participant.otp_salt || ''))
+      );
 
-  if (!valid) {
-    cache.put(
-      attemptKey,
-      String(failedAttempts + 1),
-      CATCHERX_CONFIG.failedLoginWindowSeconds
-    );
-    throw publicError_('参加者IDまたはパスワードが正しくありません．');
+    if (!valid) {
+      cache.put(
+        attemptKey,
+        String(failedAttempts + 1),
+        CATCHERX_CONFIG.failedLoginWindowSeconds
+      );
+      throw publicError_('参加者IDまたはOTPが正しくないか，OTPが期限切れ・使用済みです．');
+    }
+
+    const token = createSessionToken_(participantId);
+    const usedAt = Utilities.formatDate(new Date(), CATCHERX_CONFIG.timezone, "yyyy-MM-dd'T'HH:mm:ssXXX");
+    record.sheet.getRange(record.rowNumber, 5).setValue(usedAt);
+    cache.remove(attemptKey);
+    return {
+      ok: true,
+      participantId,
+      allowedConditions: parseConditions_(participant.allowed_conditions),
+      token,
+      expiresInMinutes: CATCHERX_CONFIG.sessionMinutes,
+      serverDate: Utilities.formatDate(new Date(), CATCHERX_CONFIG.timezone, 'yyyy-MM-dd')
+    };
+  } finally {
+    lock.releaseLock();
   }
-
-  cache.remove(attemptKey);
-  return {
-    ok: true,
-    participantId,
-    allowedConditions: parseConditions_(participant.allowed_conditions),
-    token: createSessionToken_(participantId),
-    expiresInMinutes: CATCHERX_CONFIG.sessionMinutes,
-    serverDate: Utilities.formatDate(new Date(), CATCHERX_CONFIG.timezone, 'yyyy-MM-dd')
-  };
 }
 
 function submitResponse_(parameters) {
@@ -402,8 +473,15 @@ function verifySessionToken_(token) {
 }
 
 function findParticipant_(participantId) {
-  const sheet = ensureSheet_(getSpreadsheet_(), CATCHERX_CONFIG.participantSheet, PARTICIPANT_HEADERS);
-  return getDataObjects_(sheet).find(row => String(row.participant_id) === participantId) || null;
+  const record = findParticipantRecord_(participantId);
+  return record ? record.participant : null;
+}
+
+function findParticipantRecord_(participantId) {
+  const sheet = ensureParticipantSheet_(getSpreadsheet_());
+  const rows = getDataObjects_(sheet);
+  const index = rows.findIndex(row => String(row.participant_id) === participantId);
+  return index < 0 ? null : { participant: rows[index], rowNumber: index + 2, sheet };
 }
 
 function parseConditions_(value) {
@@ -418,8 +496,55 @@ function parseConditions_(value) {
 }
 
 function validateParticipantId_(participantId) {
-  if (!/^[A-Za-z0-9_-]{2,24}$/.test(participantId)) {
-    throw publicError_('参加者IDまたはパスワードが正しくありません．');
+  if (!/^[A-Za-z0-9][A-Za-z0-9 _-]{1,23}$/.test(participantId)) {
+    throw publicError_('参加者IDまたはOTPが正しくありません．');
+  }
+}
+
+function ensureParticipantSheet_(spreadsheet) {
+  let sheet = spreadsheet.getSheetByName(CATCHERX_CONFIG.participantSheet);
+  if (!sheet) sheet = spreadsheet.insertSheet(CATCHERX_CONFIG.participantSheet);
+  if (sheet.getLastRow() === 0) {
+    sheet.getRange(1, 1, 1, PARTICIPANT_HEADERS.length).setValues([PARTICIPANT_HEADERS]);
+    sheet.setFrozenRows(1);
+    return sheet;
+  }
+
+  const actual = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0].map(String);
+  if (actual.join('|') === PARTICIPANT_HEADERS.join('|')) return sheet;
+  if (actual.join('|') !== LEGACY_PARTICIPANT_HEADERS.join('|')) {
+    throw new Error('Participantsシートの列見出しが想定と異なります．');
+  }
+
+  const legacyRows = getDataObjects_(sheet);
+  const migratedRows = legacyRows.map(row => [
+    row.participant_id, '', '', '', '', row.active, row.allowed_conditions, row.notes
+  ]);
+  sheet.clearContents();
+  sheet.getRange(1, 1, 1, PARTICIPANT_HEADERS.length).setValues([PARTICIPANT_HEADERS]);
+  if (migratedRows.length) {
+    sheet.getRange(2, 1, migratedRows.length, PARTICIPANT_HEADERS.length).setValues(migratedRows);
+  }
+  sheet.setFrozenRows(1);
+  return sheet;
+}
+
+function migrateLegacyImportSheet_(spreadsheet) {
+  const legacy = spreadsheet.getSheetByName('CredentialImport');
+  if (!legacy || legacy.getLastRow() < 1) return;
+  const headers = legacy.getRange(1, 1, 1, legacy.getLastColumn()).getValues()[0].map(String);
+  const expected = ['participant_id', 'password', 'allowed_conditions', 'active', 'notes'];
+  if (headers.join('|') !== expected.join('|')) return;
+
+  const target = ensureSheet_(spreadsheet, CATCHERX_CONFIG.importSheet, IMPORT_HEADERS);
+  const rows = getDataObjects_(legacy)
+    .filter(row => String(row.participant_id || '').trim())
+    .map(row => [row.participant_id, row.allowed_conditions, row.active, row.notes]);
+  if (rows.length && target.getLastRow() === 1) {
+    target.getRange(2, 1, rows.length, IMPORT_HEADERS.length).setValues(rows);
+  }
+  if (legacy.getLastRow() >= 2) {
+    legacy.getRange(2, 2, legacy.getLastRow() - 1, 1).clearContent();
   }
 }
 
@@ -450,10 +575,10 @@ function getSpreadsheet_() {
   return SpreadsheetApp.openById(id);
 }
 
-function hashPassword_(password, salt) {
-  const pepper = requiredProperty_('PASSWORD_PEPPER');
+function hashOtp_(otp, salt) {
+  const pepper = requiredProperty_('OTP_PEPPER');
   return Utilities.base64EncodeWebSafe(
-    Utilities.computeHmacSha256Signature(`${salt}:${password}`, pepper)
+    Utilities.computeHmacSha256Signature(`${salt}:${otp}`, pepper)
   ).replace(/=+$/g, '');
 }
 
@@ -493,6 +618,11 @@ function requiredProperty_(name) {
 
 function createSecret_() {
   return `${Utilities.getUuid()}${Utilities.getUuid()}`.replace(/-/g, '');
+}
+
+function createOtp_() {
+  const value = parseInt(createSecret_().slice(0, 12), 16) % 100000000;
+  return String(value).padStart(8, '0');
 }
 
 function normalizeBoolean_(value, fallback) {

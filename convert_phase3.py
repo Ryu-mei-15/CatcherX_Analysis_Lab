@@ -8,12 +8,12 @@ DATA_PATTERN = os.path.join(os.path.dirname(__file__), 'DataBreak', '*_1_2.csv')
 OUTPUT_PATH = os.path.join(os.path.dirname(__file__), 'phase3-data.json')
 
 PARTICIPANT_MAP = {
-    '1': '参加者A',
-    '2': '参加者B',
-    '3': '参加者C',
-    '5': '参加者D',
-    '6': '参加者E',
-    '7': '参加者F',
+    '1': 'Player 1',
+    '2': 'Player 2',
+    '3': 'Player 3',
+    '5': 'Player 5',
+    '6': 'Player 6',
+    '7': 'Player 7',
 }
 
 REACTION_MAP = {

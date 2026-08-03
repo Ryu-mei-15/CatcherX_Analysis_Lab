@@ -265,7 +265,7 @@ function leaveAuthenticatedState(message = '') {
     evaluationForm.hidden = true;
     authenticationForm.hidden = false;
     document.getElementById('authenticatedParticipant').hidden = true;
-    document.getElementById('loginPassword').value = '';
+    document.getElementById('loginOtp').value = '';
     setAuthenticationMessage(message);
     updateMethodVisibility();
 }
@@ -274,23 +274,23 @@ authenticationForm.addEventListener('submit', async event => {
     event.preventDefault();
     const loginButton = document.getElementById('loginButton');
     const participantId = authenticationForm.elements.participantId.value.trim();
-    const password = authenticationForm.elements.password.value;
+    const otp = authenticationForm.elements.otp.value;
     loginButton.disabled = true;
     setAuthenticationMessage('認証情報を確認しています．');
 
     try {
         const response = await postToBackend('authenticate', {
             participant_id: participantId,
-            password
+            otp
         });
-        document.getElementById('loginPassword').value = '';
+        document.getElementById('loginOtp').value = '';
         if (!response.ok) {
             setAuthenticationMessage(response.message, 'error');
             return;
         }
         enterAuthenticatedState(response);
     } catch (error) {
-        document.getElementById('loginPassword').value = '';
+        document.getElementById('loginOtp').value = '';
         setAuthenticationMessage(error.message, 'error');
     } finally {
         loginButton.disabled = false;

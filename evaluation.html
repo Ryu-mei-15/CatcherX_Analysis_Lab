@@ -36,8 +36,8 @@
         <div class="empty-data-notice authenticated-data-notice" role="status">
             <span class="notice-icon" aria-hidden="true">✓</span>
             <div>
-                <strong>発行済みの参加者IDとパスワードが必要です</strong>
-                <p>認証された参加者の回答だけを受け付け，実施日は送信時の日本時間で記録する．</p>
+                <strong>固定参加者IDと発行済みOTPが必要です</strong>
+                <p>OTPは発行後60分以内に1回だけ使用できる．認証された参加者の回答だけを受け付け，実施日は送信時の日本時間で記録する．</p>
             </div>
         </div>
 
@@ -85,11 +85,11 @@
             <form id="authenticationForm" class="authentication-form">
                 <label>
                     <span>参加者ID <b>必須</b></span>
-                    <input id="loginParticipantId" name="participantId" type="text" required minlength="2" maxlength="24" pattern="[A-Za-z0-9_-]+" autocomplete="username" placeholder="例：P001">
+                    <input id="loginParticipantId" name="participantId" type="text" required minlength="2" maxlength="24" pattern="[A-Za-z0-9][A-Za-z0-9 _-]+" autocomplete="username" placeholder="例：Player 1">
                 </label>
                 <label>
-                    <span>パスワード <b>必須</b></span>
-                    <input id="loginPassword" name="password" type="password" required minlength="12" maxlength="128" autocomplete="current-password">
+                    <span>ワンタイムパスワード（OTP） <b>必須</b></span>
+                    <input id="loginOtp" name="otp" type="text" required minlength="8" maxlength="8" pattern="[0-9]{8}" inputmode="numeric" autocomplete="one-time-code" placeholder="8桁の数字">
                 </label>
                 <button id="loginButton" class="button auth-button" type="submit">認証する</button>
             </form>
