@@ -128,6 +128,8 @@ python3 analyze_phase3.py
 
 `evaluation.html`は，固定参加者IDと研究担当者が発行した8桁OTPが一致した場合だけ回答フォームを表示します．認証・保存は`apps-script/Code.gs`が処理します．
 
+評価フォーム用の固定IDには数字だけの正の整数を使用し，必要な人数分を登録できます．これは公開済みログの`Player 1`，`Player 2`等の識別子とは別に管理します．
+
 - 固定参加者IDはCSVから登録・更新可能
 - OTPは60分間有効で，認証成功時に使用済みとなる
 - OTPの一致時だけ30分間有効な署名付きトークンを発行
@@ -141,7 +143,7 @@ python3 analyze_phase3.py
 
 NASA-TLXはRaw TLXと15対の一対比較を用いる重み付き方式に対応しています．SUSは奇数項目を「回答値 − 1」，偶数項目を「5 − 回答値」として合計し，2.5倍して0–100のスコアへ変換します．SUSの値は百分率ではありません．
 
-Apps Scriptの初期設定，固定IDのCSV取込，OTP発行，デプロイ方法は[`apps-script/README.md`](apps-script/README.md)を参照してください．接続先の`/exec` URLは[`evaluation-config.js`](evaluation-config.js)で設定します．
+実験当日のOTP発行，再発行，回答確認，デプロイ更新を含む操作方法は[`GAS_OPERATION_GUIDE.md`](GAS_OPERATION_GUIDE.md)を参照してください．バックエンドの仕様と初期導入の説明は[`apps-script/README.md`](apps-script/README.md)に記載しています．接続先の`/exec` URLは[`evaluation-config.js`](evaluation-config.js)で設定します．
 
 平文OTP，スプレッドシートID，`OTP_PEPPER`，`SESSION_SECRET`は公開リポジトリへ追加しないでください．
 

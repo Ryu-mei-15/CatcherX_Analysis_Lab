@@ -192,7 +192,7 @@ function postToBackend(action, values) {
         const timeout = window.setTimeout(() => {
             pendingRequests.delete(requestId);
             reject(new Error('サーバから応答がありません．接続設定を確認してください．'));
-        }, 20000);
+        }, 60000);
         pendingRequests.set(requestId, { resolve, reject, timeout });
     });
 

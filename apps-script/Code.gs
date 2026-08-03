@@ -1,5 +1,6 @@
 const CATCHERX_CONFIG = Object.freeze({
   namespace: 'catcherx-evaluation-v1',
+  allowedOrigin: 'https://ryu-mei-15.github.io',
   timezone: 'Asia/Tokyo',
   sessionMinutes: 30,
   otpMinutes: 60,
@@ -56,6 +57,9 @@ function setupCatcherXEvaluation() {
 
   const properties = PropertiesService.getScriptProperties();
   properties.setProperty('SPREADSHEET_ID', spreadsheet.getId());
+  if (!properties.getProperty('ALLOWED_ORIGIN')) {
+    properties.setProperty('ALLOWED_ORIGIN', CATCHERX_CONFIG.allowedOrigin);
+  }
   if (!properties.getProperty('OTP_PEPPER')) {
     properties.setProperty(
       'OTP_PEPPER',
@@ -73,7 +77,7 @@ function setupCatcherXEvaluation() {
   migrateLegacyImportSheet_(spreadsheet);
 
   SpreadsheetApp.getUi().alert(
-    '初期設定が完了しました．スクリプトプロパティ ALLOWED_ORIGIN に公開サイトのオリジンを設定してください．'
+    '初期設定が完了しました．公開サイトのオリジンと認証用シートを設定しました．'
   );
 }
 
@@ -85,11 +89,15 @@ function importParticipantsFromSheet() {
   const existing = getDataObjects_(participantSheet);
   const byId = new Map(existing.map((row, index) => [String(row.participant_id), { row, rowNumber: index + 2 }]));
   let imported = 0;
+  const skipped = [];
 
-  imports.forEach(row => {
+  imports.forEach((row, index) => {
     const participantId = String(row.participant_id || '').trim();
     if (!participantId) return;
-    validateParticipantId_(participantId);
+    if (!isValidParticipantId_(participantId)) {
+      skipped.push(`${participantId}（${index + 2}行）`);
+      return;
+    }
     const conditions = parseConditions_(row.allowed_conditions);
     const current = byId.get(participantId);
     const values = [
@@ -115,17 +123,17 @@ function importParticipantsFromSheet() {
     imported += 1;
   });
 
-  SpreadsheetApp.getUi().alert(
-    `${imported}件の固定IDと利用条件を取り込みました．`
-  );
+  const skippedMessage = skipped.length
+    ? `\n正の整数IDではないため除外: ${skipped.join('，')}`
+    : '';
+  SpreadsheetApp.getUi().alert(`${imported}件の固定IDと利用条件を取り込みました．${skippedMessage}`);
 }
 
 function issueOtpsForSelectedParticipants() {
   const spreadsheet = getSpreadsheet_();
   const sheet = ensureParticipantSheet_(spreadsheet);
-  const activeSheet = spreadsheet.getActiveSheet();
-  const range = activeSheet.getActiveRange();
-  if (activeSheet.getName() !== CATCHERX_CONFIG.participantSheet || !range) {
+  const range = SpreadsheetApp.getActiveRange();
+  if (!range || range.getSheet().getName() !== CATCHERX_CONFIG.participantSheet) {
     throw new Error('ParticipantsシートでOTPを発行するIDの行を選択してください．');
   }
   const firstRow = Math.max(2, range.getRow());
@@ -140,7 +148,8 @@ function issueOtpsForAllActiveParticipants() {
   const spreadsheet = getSpreadsheet_();
   const sheet = ensureParticipantSheet_(spreadsheet);
   const rowNumbers = getDataObjects_(sheet)
-    .map((row, index) => normalizeBoolean_(row.active, false) ? index + 2 : null)
+    .map((row, index) => normalizeBoolean_(row.active, false) &&
+      isValidParticipantId_(String(row.participant_id || '').trim()) ? index + 2 : null)
     .filter(rowNumber => rowNumber !== null);
   issueOtpsForRows_(sheet, rowNumbers);
 }
@@ -496,9 +505,13 @@ function parseConditions_(value) {
 }
 
 function validateParticipantId_(participantId) {
-  if (!/^[A-Za-z0-9][A-Za-z0-9 _-]{1,23}$/.test(participantId)) {
+  if (!isValidParticipantId_(participantId)) {
     throw publicError_('参加者IDまたはOTPが正しくありません．');
   }
+}
+
+function isValidParticipantId_(participantId) {
+  return /^[1-9]\d{0,8}$/.test(String(participantId));
 }
 
 function ensureParticipantSheet_(spreadsheet) {
@@ -653,7 +666,8 @@ function publicError_(message) {
 }
 
 function postMessageOutput_(response) {
-  const allowedOrigin = requiredProperty_('ALLOWED_ORIGIN');
+  const allowedOrigin = PropertiesService.getScriptProperties().getProperty('ALLOWED_ORIGIN') ||
+    CATCHERX_CONFIG.allowedOrigin;
   const payload = JSON.stringify(response).replace(/</g, '\\u003c');
   const origin = JSON.stringify(allowedOrigin).replace(/</g, '\\u003c');
   return HtmlService
