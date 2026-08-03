@@ -33,6 +33,7 @@ def course_height(course):
 
 def main():
     transitions = []
+    sessions = []
     pitch_count = 0
 
     for file_path in sorted(glob.glob(DATA_PATTERN)):
@@ -43,6 +44,33 @@ def main():
             rows = list(csv.DictReader(source))
 
         pitch_count += len(rows)
+
+        pitches = []
+        for sequence, row in enumerate(rows, start=1):
+            previous = rows[sequence - 2] if sequence > 1 else None
+            speed = row.get('Pitch_Speed_Kmph', '').strip()
+            pitches.append({
+                'sequence': sequence,
+                'pitch_number': int(row['Pitch_Number']),
+                'pitch_type': row['Selected_Pitch_Type'],
+                'course': row['Selected_Course_Zone'],
+                'speed_kmph': float(speed) if speed else None,
+                'batter_reaction': REACTION_MAP[row['Batter_Reaction']],
+                'catch_result': row['Catch_Result'],
+                'pitch_changed_from_previous': (
+                    None if previous is None
+                    else previous['Selected_Pitch_Type'] != row['Selected_Pitch_Type']
+                ),
+                'course_changed_from_previous': (
+                    None if previous is None
+                    else previous['Selected_Course_Zone'] != row['Selected_Course_Zone']
+                ),
+            })
+
+        sessions.append({
+            'participant': participant,
+            'pitches': pitches,
+        })
 
         for current, following in zip(rows, rows[1:]):
             transitions.append({
@@ -62,6 +90,7 @@ def main():
             'transitions': len(transitions),
             'source_pattern': 'DataBreak/*_1_2.csv',
         },
+        'sessions': sessions,
         'transitions': transitions,
     }
 

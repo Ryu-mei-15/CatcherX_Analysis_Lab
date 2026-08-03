@@ -26,22 +26,22 @@ const staticInsights = {
     axisX: `
         <strong>解釈の補助</strong><br>
         X軸方向の誤差は，球速条件による変化が比較的小さい一方で，
-        プレイヤー間の差が確認される場合がある．
+        プレイヤ間の差が確認される場合がある．
         このことから，本データの範囲では，水平方向のミット位置のずれに，
-        球速よりもプレイヤー固有の操作傾向が反映されている可能性がある．
+        球速よりもプレイヤ固有の操作傾向が反映されている可能性がある．
     `,
     axisY: `
         <strong>解釈の補助</strong><br>
         Y軸方向の誤差は，球速条件によって変化する傾向が見られる．
         特に高い球速条件では，目標位置に対してミット位置が下方向にずれる例が確認される．
-        また，プレイヤーと球速の交互作用が見られる場合，
-        球速上昇に対するミット操作の変化量がプレイヤーによって異なる可能性が示唆される．
+        また，プレイヤと球速の交互作用が見られる場合，
+        球速上昇に対するミット操作の変化量がプレイヤによって異なる可能性が示唆される．
     `,
     axisZ: `
         <strong>解釈の補助</strong><br>
         Z軸方向の誤差は，捕球時にボールを前方で迎えるか，
         あるいは目標位置付近で待つかといった捕球方略の違いを反映する指標として解釈できる．
-        球速条件による変化に加えて，プレイヤーごとの違いも確認される場合，
+        球速条件による変化に加えて，プレイヤごとの違いも確認される場合，
         高速球に対する奥行き方向の調整方略が個人によって異なる可能性がある．
     `
 };
@@ -199,13 +199,13 @@ async function executeAnalysis() {
     const courseText = getCourseSelectionText(selectedCourses, totalCourses);
 
     document.getElementById('filterStatus').textContent =
-        `解析条件：プレイヤー ${selectedPlayers.length}名 ｜ 球速 ${selectedSpeeds.length}条件 ｜ コース ${courseText}`;
+        `解析条件：プレイヤ ${selectedPlayers.length}名 ｜ 球速 ${selectedSpeeds.length}条件 ｜ コース ${courseText}`;
 
     renderComparisonCharts(selectedPlayers, selectedSpeeds, selectedCourses);
 
     if (selectedPlayers.length < 2 || selectedSpeeds.length < 2 || selectedCourses.length === 0) {
         currentAnovaResults = {
-            error: '二元配置分散分析を行うには，プレイヤーと球速をそれぞれ2条件以上選択してください．'
+            error: '二元配置分散分析を行うには，プレイヤと球速をそれぞれ2条件以上選択してください．'
         };
         renderAnovaTab();
         return;
@@ -360,9 +360,9 @@ function renderAnovaTab() {
         <div class="result-card">
             <h3>${titles[currentActiveTab]}</h3>
             <div class="stat-grid">
-                ${buildStatBox('プレイヤーの主効果', data.player)}
+                ${buildStatBox('プレイヤの主効果', data.player)}
                 ${buildStatBox('球速の主効果', data.speed)}
-                ${buildStatBox('プレイヤー × 球速の交互作用', data.interaction)}
+                ${buildStatBox('プレイヤ × 球速の交互作用', data.interaction)}
             </div>
             <div class="insight-box">
                 ${staticInsights[currentActiveTab]}
@@ -483,7 +483,7 @@ function drawBarChart(canvasId, labels, datasets, yLabel, chartInstance, setChar
                 x: {
                     title: {
                         display: true,
-                        text: 'プレイヤー'
+                        text: 'プレイヤ'
                     },
                     grid: {
                         display: false

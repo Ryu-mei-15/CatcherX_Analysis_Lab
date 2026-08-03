@@ -112,6 +112,39 @@
             </div>
         </section>
 
+        <section class="card sequence-explorer">
+            <div class="section-header">
+                <div>
+                    <p class="section-kicker">SEQUENCE EXPLORER</p>
+                    <h2>参加者別の配球シーケンス</h2>
+                </div>
+                <p>参加者を切り替え，球種・コースと各球の結果を記録順に確認できる．</p>
+            </div>
+
+            <div id="participantSequenceTabs" class="sequence-tabs" role="tablist" aria-label="参加者"></div>
+
+            <div class="sequence-summary" aria-label="選択中の参加者の概要">
+                <article><span>投球数</span><strong id="sequencePitchCount">—</strong><small>球</small></article>
+                <article><span>球種</span><strong id="sequencePitchTypes">—</strong><small>種類</small></article>
+                <article><span>コース</span><strong id="sequenceCourses">—</strong><small>種類</small></article>
+                <article><span>球種変更</span><strong id="sequencePitchChanges">—</strong><small>回</small></article>
+                <article><span>コース変更</span><strong id="sequenceCourseChanges">—</strong><small>回</small></article>
+            </div>
+
+            <div class="sequence-guide">
+                <p><span class="sequence-change pitch-change">球種変更</span><span class="sequence-change course-change">コース変更</span>は直前球からの変更を示す．</p>
+                <p>球速欄が存在しない旧形式のログは「記録なし」と表示する．</p>
+            </div>
+
+            <div id="pitchSequenceTimeline" class="sequence-timeline" role="tabpanel" tabindex="0" aria-label="配球の時系列"></div>
+
+            <div class="table-scroll sequence-table-wrap">
+                <table id="pitchSequenceTable">
+                    <caption class="visually-hidden">選択した参加者の配球シーケンス詳細</caption>
+                </table>
+            </div>
+        </section>
+
         <section class="card phase3-overview-card">
             <div class="section-header">
                 <div>
@@ -145,12 +178,13 @@
                 </article>
                 <article>
                     <span>04</span><h3>結論の範囲</h3>
-                    <p>非有意は「影響がない」ことの証明ではない．検出力の不足を含むため，参加者・試行数を増やした事前設計の検証が必要である．</p>
+                    <p>4つの主要分析間では多重性補正を行っていないが，いずれもp &gt; .05であった．非有意は「影響がない」ことの証明ではなく，参加者・試行数を増やした事前設計の検証が必要である．</p>
                 </article>
             </div>
             <div class="analysis-provenance">
                 <span>データ：</span><code>DataBreak/*_1_2.csv</code>
                 <span>変換：</span><code>convert_phase3.py</code>
+                <span>検定再現：</span><code>analyze_phase3.py</code>
                 <span>公開用：</span><code>phase3-data.json</code>
             </div>
         </section>

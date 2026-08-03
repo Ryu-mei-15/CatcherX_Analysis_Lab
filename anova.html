@@ -211,8 +211,8 @@
         <h1>捕球誤差に対する要因分析</h1>
         <p class="header-lead">
             本ページでは，捕球誤差を対象として，
-            プレイヤーと球速を要因とする二元配置分散分析を行う．
-            各軸方向の誤差について，プレイヤーの違い，球速の違い，
+            プレイヤと球速を要因とする二元配置分散分析を行う．
+            各軸方向の誤差について，プレイヤの違い，球速の違い，
             および両者の交互作用を確認できる．
         </p>
         <div class="header-actions">
@@ -222,19 +222,85 @@
     </header>
 
     <div id="analysis-main" class="container">
+        <section class="card anova-primer" aria-labelledby="anova-primer-title">
+            <div class="section-header">
+                <div>
+                    <p class="section-kicker">HOW TO READ TWO-WAY ANOVA</p>
+                    <h2 id="anova-primer-title">二元配置分散分析では何を比べているか</h2>
+                </div>
+                <p>2つの要因を同時に扱い，それぞれの影響と組み合わせによる影響を分けて調べる．</p>
+            </div>
+
+            <div class="anova-model-overview" aria-label="分析モデルの概要">
+                <div class="anova-factor-block">
+                    <span>要因A</span>
+                    <strong>プレイヤ</strong>
+                    <small>誰が捕球したか</small>
+                </div>
+                <div class="anova-model-symbol" aria-hidden="true">×</div>
+                <div class="anova-factor-block">
+                    <span>要因B</span>
+                    <strong>球速</strong>
+                    <small>どの球速条件か</small>
+                </div>
+                <div class="anova-model-symbol arrow" aria-hidden="true">→</div>
+                <div class="anova-response-block">
+                    <span>比較する値</span>
+                    <strong>軸方向ごとの捕球誤差</strong>
+                    <small>目標位置に対するミット位置の符号付き差［cm］</small>
+                </div>
+            </div>
+
+            <div class="anova-effect-guide">
+                <article>
+                    <span>01 · MAIN EFFECT</span>
+                    <h3>プレイヤの主効果</h3>
+                    <p>球速条件をまとめて見たとき，プレイヤ間で平均捕球誤差が異なるかを調べる．</p>
+                    <small>有意な場合：少なくとも1名の平均が他と異なる可能性がある．</small>
+                </article>
+                <article>
+                    <span>02 · MAIN EFFECT</span>
+                    <h3>球速の主効果</h3>
+                    <p>プレイヤをまとめて見たとき，球速条件間で平均捕球誤差が異なるかを調べる．</p>
+                    <small>有意な場合：少なくとも1つの球速条件の平均が他と異なる可能性がある．</small>
+                </article>
+                <article>
+                    <span>03 · INTERACTION</span>
+                    <h3>プレイヤ × 球速の交互作用</h3>
+                    <p>球速による誤差の変化が，すべてのプレイヤで同じかを調べる．</p>
+                    <small>有意な場合：球速の影響がプレイヤによって異なる可能性がある．</small>
+                </article>
+            </div>
+
+            <div class="anova-reading-guide">
+                <div>
+                    <h3>p値はこの順番で読む</h3>
+                    <ol>
+                        <li><strong>最初に交互作用を見る．</strong>有意なら，一律の「プレイヤ差」「球速差」だけでは説明しにくいため，下部の平均誤差グラフで組み合わせごとの変化を確認する．</li>
+                        <li><strong>次に2つの主効果を見る．</strong><i>p</i> &lt; .05は「平均がすべて同じ」という仮説と整合しにくいことを示すが，どの条件間に差があるかまでは特定しない．</li>
+                        <li><strong>誤差の向きと大きさを見る．</strong>統計的有意差だけで実質的に大きな差とは判断せず，グラフの正負と平均差も併せて解釈する．</li>
+                    </ol>
+                </div>
+                <aside>
+                    <strong>解釈上の注意</strong>
+                    <p><i>p</i> ≥ .05は「差がない」ことの証明ではない．また，本分析は符号付き誤差を対象とするため，正負のずれが平均で相殺される場合がある．投球コースは要因ではなく，選択したデータを絞り込む条件として扱う．</p>
+                </aside>
+            </div>
+        </section>
+
         <section class="card" style="margin-bottom: 2rem;">
             <h2>解析条件の選択</h2>
 
             <p class="page-lead">
                 条件を変更すると，選択されたプレイログに基づいて分散分析と平均誤差の可視化を更新する．
-                プレイヤー，球速，投球コースを絞り込むことで，特定条件における捕球誤差の傾向を確認できる．
+                プレイヤ，球速，投球コースを絞り込むことで，特定条件における捕球誤差の傾向を確認できる．
             </p>
 
             <div class="controls-grid">
                 <div class="filter-column">
                     <div class="filter-section">
                         <div class="filter-header">
-                            <h3>プレイヤー</h3>
+                            <h3>プレイヤ</h3>
                             <div class="filter-actions">
                                 <button class="action-btn select-all" data-target="player">全選択</button>
                                 <button class="action-btn deselect-all" data-target="player">全解除</button>

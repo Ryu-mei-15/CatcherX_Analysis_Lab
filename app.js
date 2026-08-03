@@ -346,11 +346,11 @@ function renderChart() {
     const totalSpeeds = document.querySelectorAll('input[name="speed"]').length;
     const totalCourses = document.querySelectorAll('input[name="course"]').length;
 
-    const playerText = formatSelectedItems(selectedPlayers, totalPlayers, '全プレイヤー', 'なし');
+    const playerText = formatSelectedItems(selectedPlayers, totalPlayers, '全プレイヤ', 'なし');
     const speedText = formatSelectedItems(selectedSpeeds, totalSpeeds, '全球速', 'なし', formatSpeedLabel);
     const courseText = getCourseSelectionText(selectedCourses, totalCourses);
 
-    const statusText = `表示条件：プレイヤー ${playerText} ｜ 球速 ${speedText} ｜ コース ${courseText}`;
+    const statusText = `表示条件：プレイヤ ${playerText} ｜ 球速 ${speedText} ｜ コース ${courseText}`;
 
     const status1 = document.getElementById('filterStatus1');
     const status2 = document.getElementById('filterStatus2');
@@ -647,7 +647,7 @@ function renderCorrectionChart(selectedPlayers, selectedSpeeds, selectedCourses)
                 x: {
                     title: {
                         display: true,
-                        text: 'プレイヤー'
+                        text: 'プレイヤ'
                     },
                     grid: {
                         display: false
@@ -662,7 +662,7 @@ function renderCorrelationChart(selectedPlayers, selectedSpeeds, selectedCourses
     const datasets = [];
     const allPoints = [];
 
-    // プレイヤーごとに散布図のデータセットを作成
+    // プレイヤごとに散布図のデータセットを作成
     selectedPlayers.forEach((player, i) => {
         const color = colorPalette[i % colorPalette.length];
         

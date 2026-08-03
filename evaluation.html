@@ -33,11 +33,11 @@
     </header>
 
     <main id="main" class="container evaluation-layout">
-        <div class="empty-data-notice" role="status">
-            <span class="notice-icon" aria-hidden="true">!</span>
+        <div class="empty-data-notice authenticated-data-notice" role="status">
+            <span class="notice-icon" aria-hidden="true">✓</span>
             <div>
-                <strong>既存実験の質問紙回答は登録されていません</strong>
-                <p>このページは今後の対照実験用です．回答を入力するまで研究結果としての比較値は表示されません．</p>
+                <strong>発行済みの参加者IDとパスワードが必要です</strong>
+                <p>認証された参加者の回答だけを受け付け，実施日は送信時の日本時間で記録する．</p>
             </div>
         </div>
 
@@ -74,7 +74,33 @@
             </div>
         </section>
 
-        <form id="evaluationForm" class="evaluation-form">
+        <section id="authentication" class="card authentication-card" aria-labelledby="authenticationTitle">
+            <div class="section-header">
+                <div>
+                    <p class="section-kicker">PARTICIPANT AUTHENTICATION</p>
+                    <h2 id="authenticationTitle">参加者認証</h2>
+                </div>
+                <p>研究担当者から発行された認証情報を入力する．</p>
+            </div>
+            <form id="authenticationForm" class="authentication-form">
+                <label>
+                    <span>参加者ID <b>必須</b></span>
+                    <input id="loginParticipantId" name="participantId" type="text" required minlength="2" maxlength="24" pattern="[A-Za-z0-9_-]+" autocomplete="username" placeholder="例：P001">
+                </label>
+                <label>
+                    <span>パスワード <b>必須</b></span>
+                    <input id="loginPassword" name="password" type="password" required minlength="12" maxlength="128" autocomplete="current-password">
+                </label>
+                <button id="loginButton" class="button auth-button" type="submit">認証する</button>
+            </form>
+            <p id="authenticationMessage" class="authentication-message" role="status" aria-live="polite"></p>
+            <div id="authenticatedParticipant" class="authenticated-participant" hidden>
+                <div><span>認証済み</span><strong id="authenticatedParticipantId">—</strong><small id="authenticationExpiry">—</small></div>
+                <button id="logoutButton" class="button secondary" type="button">ログアウト</button>
+            </div>
+        </section>
+
+        <form id="evaluationForm" class="evaluation-form" hidden>
             <section class="card">
                 <div class="section-header">
                     <div>
@@ -86,7 +112,7 @@
                 <div class="metadata-grid">
                     <label>
                         <span>参加者ID <b>必須</b></span>
-                        <input id="participantId" name="participantId" type="text" required maxlength="24" placeholder="例：P01" autocomplete="off">
+                        <input id="participantId" name="participantId" type="text" readonly aria-readonly="true">
                     </label>
                     <label>
                         <span>実験条件 <b>必須</b></span>
@@ -104,7 +130,8 @@
                     </label>
                     <label>
                         <span>実施日</span>
-                        <input id="recordedDate" name="recordedDate" type="date">
+                        <input id="recordedDate" name="recordedDate" type="date" readonly aria-readonly="true">
+                        <small>送信時にサーバ側で日本時間の日付を確定する．</small>
                     </label>
                 </div>
             </section>
@@ -203,7 +230,7 @@
             </section>
 
             <div class="form-actions">
-                <button class="button primary save-response" type="submit">回答を保存</button>
+                <button class="button primary save-response" type="submit">回答を送信</button>
                 <button class="button secondary reset-response" type="reset">入力をリセット</button>
                 <p id="formMessage" role="status" aria-live="polite"></p>
             </div>
@@ -215,10 +242,10 @@
                     <p class="section-kicker">CONDITION COMPARISON</p>
                     <h2>条件別の比較結果</h2>
                 </div>
-                <p>このブラウザに保存された回答のみを集計する．平均値と標本標準偏差を表示する．</p>
+                <p>認証後に送信された回答の集計値を表示する．各条件3名以上で，平均値と標本標準偏差を公開する．</p>
             </div>
             <div id="comparisonEmpty" class="comparison-empty">
-                回答データがありません．上の質問紙に回答を保存すると，ここに比較結果が表示されます．
+                公開対象の回答データはまだありません．
             </div>
             <div id="comparisonContent" hidden>
                 <div class="comparison-legend">
@@ -231,16 +258,7 @@
                         <caption class="visually-hidden">条件別のNASA-TLXおよびSUS集計</caption>
                     </table>
                 </div>
-                <h3 class="subsection-title">個別回答</h3>
-                <div class="table-scroll evaluation-table-wrap">
-                    <table id="responseTable">
-                        <caption class="visually-hidden">保存された個別回答</caption>
-                    </table>
-                </div>
-                <div class="data-actions">
-                    <button type="button" id="exportCsv" class="button download-button">CSVを出力</button>
-                    <button type="button" id="clearResponses" class="text-danger-button">保存データをすべて削除</button>
-                </div>
+                <p class="aggregate-privacy-note">参加者IDおよび個別回答は公開しない．管理・出力は研究担当者用の非公開スプレッドシートで行う．</p>
             </div>
         </section>
 
@@ -276,8 +294,10 @@
 
     <footer class="site-footer">
         <p><strong>CatcherX Research Data</strong><br>山口 瑞悠・藤井 叙人・橋田 光代<br>福知山公立大学 情報学部</p>
-        <p>回答データはサーバーへ送信されません</p>
+        <p>認証済み回答のみを集計</p>
     </footer>
+    <iframe id="evaluationTransport" name="evaluationTransport" class="visually-hidden" title="回答送信用" aria-hidden="true"></iframe>
+    <script src="evaluation-config.js"></script>
     <script src="evaluation.js"></script>
 </body>
 </html>

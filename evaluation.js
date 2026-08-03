@@ -1,4 +1,5 @@
-const STORAGE_KEY = 'catcherx-standardized-evaluation-v1';
+const EVALUATION_NAMESPACE = 'catcherx-evaluation-v1';
+const evaluationConfig = window.CATCHERX_EVALUATION_CONFIG || { endpoint: '' };
 
 const tlxDimensions = [
     { key: 'mental', label: '精神的要求' },
@@ -22,16 +23,30 @@ const susItems = [
     'CatcherXを使い始める前に多くのことを学ぶ必要がある'
 ];
 
-const form = document.getElementById('evaluationForm');
+const authenticationForm = document.getElementById('authenticationForm');
+const evaluationForm = document.getElementById('evaluationForm');
 const pairwiseContainer = document.getElementById('pairwiseComparisons');
 const susContainer = document.getElementById('susQuestions');
 const weightingPanel = document.getElementById('weightingPanel');
+const transportFrame = document.getElementById('evaluationTransport');
+const pendingRequests = new Map();
+
+const authState = {
+    participantId: null,
+    token: null,
+    serverDate: null,
+    allowedConditions: []
+};
+
+function endpointIsConfigured() {
+    return /^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(evaluationConfig.endpoint);
+}
 
 function createPairwiseComparisons() {
     const pairs = [];
-    for (let i = 0; i < tlxDimensions.length; i += 1) {
-        for (let j = i + 1; j < tlxDimensions.length; j += 1) {
-            pairs.push([tlxDimensions[i], tlxDimensions[j]]);
+    for (let first = 0; first < tlxDimensions.length; first += 1) {
+        for (let second = first + 1; second < tlxDimensions.length; second += 1) {
+            pairs.push([tlxDimensions[first], tlxDimensions[second]]);
         }
     }
 
@@ -61,10 +76,10 @@ function createSusQuestions() {
 }
 
 function getTlxRatings() {
-    return Object.fromEntries(tlxDimensions.map(dimension => {
-        const input = form.elements[dimension.key];
-        return [dimension.key, Number(input.value)];
-    }));
+    return Object.fromEntries(tlxDimensions.map(dimension => [
+        dimension.key,
+        Number(evaluationForm.elements[dimension.key].value)
+    ]));
 }
 
 function getPairwiseWeights() {
@@ -72,7 +87,7 @@ function getPairwiseWeights() {
     let completed = 0;
 
     for (let index = 0; index < 15; index += 1) {
-        const selected = form.querySelector(`input[name="pair${index}"]:checked`);
+        const selected = evaluationForm.querySelector(`input[name="pair${index}"]:checked`);
         if (selected) {
             weights[selected.value] += 1;
             completed += 1;
@@ -84,7 +99,7 @@ function getPairwiseWeights() {
 
 function calculateTlx() {
     const ratings = getTlxRatings();
-    const method = form.elements.tlxMethod.value;
+    const method = evaluationForm.elements.tlxMethod.value;
     const rawScore = Object.values(ratings).reduce((sum, value) => sum + value, 0) / 6;
     const { weights, completed } = getPairwiseWeights();
     const weightedScore = completed === 15
@@ -103,16 +118,16 @@ function calculateTlx() {
 
 function getSusResponses() {
     return susItems.map((_, index) => {
-        const selected = form.querySelector(`input[name="sus${index + 1}"]:checked`);
+        const selected = evaluationForm.querySelector(`input[name="sus${index + 1}"]:checked`);
         return selected ? Number(selected.value) : null;
     });
 }
 
 function calculateSus(responses) {
     if (responses.some(value => value === null)) return null;
-    const contribution = responses.reduce((sum, response, index) => {
-        return sum + (index % 2 === 0 ? response - 1 : 5 - response);
-    }, 0);
+    const contribution = responses.reduce((sum, response, index) =>
+        sum + (index % 2 === 0 ? response - 1 : 5 - response), 0
+    );
     return contribution * 2.5;
 }
 
@@ -130,9 +145,8 @@ function updateLiveScores() {
     }
 
     tlxDimensions.forEach(dimension => {
-        const input = form.elements[dimension.key];
-        const output = input.closest('.scale-slider').querySelector('output');
-        output.textContent = input.value;
+        const input = evaluationForm.elements[dimension.key];
+        input.closest('.scale-slider').querySelector('output').textContent = input.value;
     });
 
     const susResponses = getSusResponses();
@@ -143,166 +157,163 @@ function updateLiveScores() {
 }
 
 function updateMethodVisibility() {
-    const weighted = form.elements.tlxMethod.value === 'weighted';
+    const weighted = evaluationForm.elements.tlxMethod.value === 'weighted';
     weightingPanel.open = weighted;
     weightingPanel.classList.toggle('required-weighting', weighted);
     updateLiveScores();
 }
 
-function loadRecords() {
+function makeRequestId() {
+    return crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`;
+}
+
+function postToBackend(action, values) {
+    if (!endpointIsConfigured()) {
+        return Promise.reject(new Error('回答収集用の接続先が設定されていません．'));
+    }
+
+    const requestId = makeRequestId();
+    const postForm = document.createElement('form');
+    postForm.method = 'POST';
+    postForm.action = evaluationConfig.endpoint;
+    postForm.target = transportFrame.name;
+    postForm.hidden = true;
+
+    Object.entries({ action, request_id: requestId, ...values }).forEach(([name, value]) => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = name;
+        input.value = String(value);
+        postForm.appendChild(input);
+    });
+
+    document.body.appendChild(postForm);
+    const response = new Promise((resolve, reject) => {
+        const timeout = window.setTimeout(() => {
+            pendingRequests.delete(requestId);
+            reject(new Error('サーバから応答がありません．接続設定を確認してください．'));
+        }, 20000);
+        pendingRequests.set(requestId, { resolve, reject, timeout });
+    });
+
+    postForm.submit();
+    postForm.remove();
+    return response;
+}
+
+function isTrustedTransportOrigin(origin) {
     try {
-        const value = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-        return Array.isArray(value) ? value : [];
+        const url = new URL(origin);
+        return url.protocol === 'https:' && (
+            url.hostname === 'script.google.com' ||
+            url.hostname === 'script.googleusercontent.com' ||
+            url.hostname.endsWith('.googleusercontent.com')
+        );
     } catch {
-        return [];
+        return false;
     }
 }
 
-function saveRecords(records) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
+window.addEventListener('message', event => {
+    if (!isTrustedTransportOrigin(event.origin)) return;
+    const data = event.data;
+    if (!data || data.namespace !== EVALUATION_NAMESPACE || !data.requestId) return;
+    const pending = pendingRequests.get(data.requestId);
+    if (!pending) return;
+    window.clearTimeout(pending.timeout);
+    pendingRequests.delete(data.requestId);
+    pending.resolve(data);
+});
+
+function setAuthenticationMessage(message, type = '') {
+    const target = document.getElementById('authenticationMessage');
+    target.textContent = message;
+    target.dataset.type = type;
 }
 
-function mean(values) {
-    return values.reduce((sum, value) => sum + value, 0) / values.length;
+function populateConditions(conditions) {
+    const select = evaluationForm.elements.condition;
+    select.innerHTML = '<option value="">選択してください</option>' + conditions.map(condition =>
+        `<option value="${escapeHtml(condition)}">${escapeHtml(condition)}</option>`
+    ).join('');
 }
 
-function sampleSd(values) {
-    if (values.length < 2) return null;
-    const average = mean(values);
-    return Math.sqrt(values.reduce((sum, value) => sum + (value - average) ** 2, 0) / (values.length - 1));
+function enterAuthenticatedState(response) {
+    authState.participantId = response.participantId;
+    authState.token = response.token;
+    authState.serverDate = response.serverDate;
+    authState.allowedConditions = response.allowedConditions;
+
+    authenticationForm.hidden = true;
+    document.getElementById('authenticatedParticipant').hidden = false;
+    document.getElementById('authenticatedParticipantId').textContent = response.participantId;
+    document.getElementById('authenticationExpiry').textContent = `認証有効時間 ${response.expiresInMinutes}分`;
+    evaluationForm.hidden = false;
+    evaluationForm.elements.participantId.value = response.participantId;
+    evaluationForm.elements.recordedDate.value = response.serverDate;
+    populateConditions(response.allowedConditions);
+    setAuthenticationMessage('認証が完了しました．質問紙へ回答してください．', 'success');
+    evaluationForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-function formatSummary(value, sd) {
-    if (value === null || Number.isNaN(value)) return '—';
-    return sd === null ? value.toFixed(1) : `${value.toFixed(1)} ± ${sd.toFixed(1)}`;
+function leaveAuthenticatedState(message = '') {
+    authState.participantId = null;
+    authState.token = null;
+    authState.serverDate = null;
+    authState.allowedConditions = [];
+    evaluationForm.reset();
+    evaluationForm.hidden = true;
+    authenticationForm.hidden = false;
+    document.getElementById('authenticatedParticipant').hidden = true;
+    document.getElementById('loginPassword').value = '';
+    setAuthenticationMessage(message);
+    updateMethodVisibility();
 }
 
-function escapeHtml(value) {
-    return String(value)
-        .replaceAll('&', '&amp;')
-        .replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;')
-        .replaceAll('"', '&quot;')
-        .replaceAll("'", '&#039;');
-}
+authenticationForm.addEventListener('submit', async event => {
+    event.preventDefault();
+    const loginButton = document.getElementById('loginButton');
+    const participantId = authenticationForm.elements.participantId.value.trim();
+    const password = authenticationForm.elements.password.value;
+    loginButton.disabled = true;
+    setAuthenticationMessage('認証情報を確認しています．');
 
-function groupRecords(records) {
-    const groups = new Map();
-    records.forEach(record => {
-        if (!groups.has(record.condition)) groups.set(record.condition, []);
-        groups.get(record.condition).push(record);
-    });
-    return Array.from(groups, ([condition, items]) => {
-        const tlxValues = items.map(item => item.tlxScore);
-        const susValues = items.map(item => item.susScore);
-        return {
-            condition,
-            n: items.length,
-            tlxMean: mean(tlxValues),
-            tlxSd: sampleSd(tlxValues),
-            susMean: mean(susValues),
-            susSd: sampleSd(susValues)
-        };
-    });
-}
+    try {
+        const response = await postToBackend('authenticate', {
+            participant_id: participantId,
+            password
+        });
+        document.getElementById('loginPassword').value = '';
+        if (!response.ok) {
+            setAuthenticationMessage(response.message, 'error');
+            return;
+        }
+        enterAuthenticatedState(response);
+    } catch (error) {
+        document.getElementById('loginPassword').value = '';
+        setAuthenticationMessage(error.message, 'error');
+    } finally {
+        loginButton.disabled = false;
+    }
+});
 
-function renderComparison() {
-    const records = loadRecords();
-    const empty = document.getElementById('comparisonEmpty');
-    const content = document.getElementById('comparisonContent');
+document.getElementById('logoutButton').addEventListener('click', () => {
+    leaveAuthenticatedState('ログアウトしました．');
+});
 
-    if (records.length === 0) {
-        empty.hidden = false;
-        content.hidden = true;
+evaluationForm.addEventListener('input', updateLiveScores);
+evaluationForm.elements.tlxMethod.forEach(input => input.addEventListener('change', updateMethodVisibility));
+
+evaluationForm.addEventListener('submit', async event => {
+    event.preventDefault();
+    const message = document.getElementById('formMessage');
+    const submitButton = evaluationForm.querySelector('.save-response');
+    if (!authState.token) {
+        message.textContent = '認証の有効性を確認できません．再度ログインしてください．';
+        leaveAuthenticatedState(message.textContent);
         return;
     }
 
-    empty.hidden = true;
-    content.hidden = false;
-    const groups = groupRecords(records);
-
-    document.getElementById('conditionComparison').innerHTML = groups.map(group => `
-        <article class="condition-result">
-            <div><strong>${escapeHtml(group.condition)}</strong><span>n = ${group.n}</span></div>
-            <label><span>NASA-TLX</span><i class="tlx-bar" style="width:${group.tlxMean}%"></i><b>${group.tlxMean.toFixed(1)}</b></label>
-            <label><span>SUS</span><i class="sus-bar" style="width:${group.susMean}%"></i><b>${group.susMean.toFixed(1)}</b></label>
-        </article>
-    `).join('');
-
-    document.getElementById('summaryTable').innerHTML = `
-        <thead><tr><th scope="col">条件</th><th scope="col">n</th><th scope="col">NASA-TLX 平均 ± SD</th><th scope="col">SUS 平均 ± SD</th></tr></thead>
-        <tbody>${groups.map(group => `
-            <tr>
-                <th scope="row">${escapeHtml(group.condition)}</th>
-                <td>${group.n}</td>
-                <td>${formatSummary(group.tlxMean, group.tlxSd)}</td>
-                <td>${formatSummary(group.susMean, group.susSd)}</td>
-            </tr>
-        `).join('')}</tbody>
-    `;
-
-    document.getElementById('responseTable').innerHTML = `
-        <thead><tr><th scope="col">参加者ID</th><th scope="col">条件</th><th scope="col">方式</th><th scope="col">NASA-TLX</th><th scope="col">SUS</th><th scope="col">測定日</th><th scope="col"></th></tr></thead>
-        <tbody>${records.map(record => `
-            <tr>
-                <th scope="row">${escapeHtml(record.participantId)}</th>
-                <td>${escapeHtml(record.condition)}</td>
-                <td>${record.tlxMethod === 'weighted' ? '重み付き' : 'Raw'}</td>
-                <td>${record.tlxScore.toFixed(1)}</td>
-                <td>${record.susScore.toFixed(1)}</td>
-                <td>${escapeHtml(record.recordedDate || '—')}</td>
-                <td><button type="button" class="row-delete" data-id="${record.id}" aria-label="${escapeHtml(record.participantId)}の回答を削除">削除</button></td>
-            </tr>
-        `).join('')}</tbody>
-    `;
-
-    document.querySelectorAll('.row-delete').forEach(button => {
-        button.addEventListener('click', () => {
-            const next = loadRecords().filter(record => record.id !== button.dataset.id);
-            saveRecords(next);
-            renderComparison();
-        });
-    });
-}
-
-function csvEscape(value) {
-    const text = value === null || value === undefined ? '' : String(value);
-    return `"${text.replaceAll('"', '""')}"`;
-}
-
-function exportCsv() {
-    const records = loadRecords();
-    if (records.length === 0) return;
-
-    const headers = [
-        'participant_id', 'condition', 'session_label', 'recorded_date', 'tlx_method',
-        ...tlxDimensions.map(d => `tlx_${d.key}`),
-        ...tlxDimensions.map(d => `tlx_weight_${d.key}`),
-        'tlx_score', ...susItems.map((_, index) => `sus_${index + 1}`), 'sus_score'
-    ];
-    const rows = records.map(record => [
-        record.participantId, record.condition, record.sessionLabel, record.recordedDate, record.tlxMethod,
-        ...tlxDimensions.map(d => record.tlxRatings[d.key]),
-        ...tlxDimensions.map(d => record.tlxWeights[d.key]),
-        record.tlxScore, ...record.susResponses, record.susScore
-    ]);
-    const csv = [headers, ...rows].map(row => row.map(csvEscape).join(',')).join('\r\n');
-    const blob = new Blob([`\uFEFF${csv}`], { type: 'text/csv;charset=utf-8' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = `catcherx_standard_scales_${new Date().toISOString().slice(0, 10)}.csv`;
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    URL.revokeObjectURL(link.href);
-}
-
-form.addEventListener('input', updateLiveScores);
-form.elements.tlxMethod.forEach(input => input.addEventListener('change', updateMethodVisibility));
-
-form.addEventListener('submit', event => {
-    event.preventDefault();
-    const message = document.getElementById('formMessage');
     const tlx = calculateTlx();
     const susResponses = getSusResponses();
     const susScore = calculateSus(susResponses);
@@ -319,44 +330,129 @@ form.addEventListener('submit', event => {
         return;
     }
 
-    const record = {
-        id: crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`,
-        participantId: form.elements.participantId.value.trim(),
-        condition: form.elements.condition.value,
-        sessionLabel: form.elements.sessionLabel.value.trim(),
-        recordedDate: form.elements.recordedDate.value,
+    const payload = {
+        condition: evaluationForm.elements.condition.value,
+        sessionLabel: evaluationForm.elements.sessionLabel.value.trim(),
         tlxMethod: tlx.method,
         tlxRatings: tlx.ratings,
         tlxWeights: tlx.weights,
-        tlxScore: tlx.score,
-        susResponses,
-        susScore,
-        savedAt: new Date().toISOString()
+        susResponses
     };
 
-    const records = loadRecords();
-    records.push(record);
-    saveRecords(records);
-    message.textContent = `${record.participantId}・${record.condition}の回答をこのブラウザに保存しました．`;
-    renderComparison();
-    document.getElementById('comparison').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    submitButton.disabled = true;
+    message.textContent = '回答を送信しています．';
+    try {
+        const response = await postToBackend('submit', {
+            token: authState.token,
+            payload: JSON.stringify(payload)
+        });
+        if (!response.ok) {
+            message.textContent = response.message;
+            if (response.message.includes('再度ログイン')) leaveAuthenticatedState(response.message);
+            return;
+        }
+        authState.serverDate = response.recordedDate;
+        evaluationForm.elements.recordedDate.value = response.recordedDate;
+        message.textContent = `${response.participantId}・${response.condition}の回答を受け付けました．実施日：${response.recordedDate}`;
+        loadPublicSummary();
+        document.getElementById('comparison').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } catch (error) {
+        message.textContent = error.message;
+    } finally {
+        submitButton.disabled = false;
+    }
 });
 
-form.addEventListener('reset', () => {
+evaluationForm.addEventListener('reset', () => {
     window.setTimeout(() => {
         document.getElementById('formMessage').textContent = '';
+        if (authState.participantId) {
+            evaluationForm.elements.participantId.value = authState.participantId;
+            evaluationForm.elements.recordedDate.value = authState.serverDate;
+            populateConditions(authState.allowedConditions);
+        }
         updateMethodVisibility();
     }, 0);
 });
 
-document.getElementById('exportCsv').addEventListener('click', exportCsv);
-document.getElementById('clearResponses').addEventListener('click', () => {
-    if (!window.confirm('このブラウザに保存した標準尺度の回答をすべて削除しますか？')) return;
-    localStorage.removeItem(STORAGE_KEY);
-    renderComparison();
-});
+function escapeHtml(value) {
+    return String(value)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+}
 
-createPairwiseComparisons();
-createSusQuestions();
-updateMethodVisibility();
-renderComparison();
+function formatSummary(value, sd) {
+    if (value === null || !Number.isFinite(Number(value))) return '—';
+    return sd === null ? Number(value).toFixed(1) : `${Number(value).toFixed(1)} ± ${Number(sd).toFixed(1)}`;
+}
+
+function renderPublicSummary(groups) {
+    const empty = document.getElementById('comparisonEmpty');
+    const content = document.getElementById('comparisonContent');
+    if (!Array.isArray(groups) || groups.length === 0) {
+        empty.hidden = false;
+        content.hidden = true;
+        empty.textContent = '公開対象の回答データはまだありません．';
+        return;
+    }
+
+    empty.hidden = true;
+    content.hidden = false;
+    document.getElementById('conditionComparison').innerHTML = groups.map(group => `
+        <article class="condition-result">
+            <div><strong>${escapeHtml(group.condition)}</strong><span>n = ${group.n}</span></div>
+            <label><span>NASA-TLX</span><i class="tlx-bar" style="width:${Number(group.tlxMean)}%"></i><b>${Number(group.tlxMean).toFixed(1)}</b></label>
+            <label><span>SUS</span><i class="sus-bar" style="width:${Number(group.susMean)}%"></i><b>${Number(group.susMean).toFixed(1)}</b></label>
+        </article>
+    `).join('');
+
+    document.getElementById('summaryTable').innerHTML = `
+        <thead><tr><th scope="col">条件</th><th scope="col">n</th><th scope="col">NASA-TLX 平均 ± SD</th><th scope="col">SUS 平均 ± SD</th></tr></thead>
+        <tbody>${groups.map(group => `
+            <tr>
+                <th scope="row">${escapeHtml(group.condition)}</th>
+                <td>${group.n}</td>
+                <td>${formatSummary(group.tlxMean, group.tlxSd)}</td>
+                <td>${formatSummary(group.susMean, group.susSd)}</td>
+            </tr>
+        `).join('')}</tbody>
+    `;
+}
+
+window.__catcherxEvaluationSummary = payload => {
+    if (!payload || payload.namespace !== EVALUATION_NAMESPACE || !payload.ok) return;
+    renderPublicSummary(payload.groups);
+};
+
+function loadPublicSummary() {
+    if (!endpointIsConfigured()) {
+        const empty = document.getElementById('comparisonEmpty');
+        empty.textContent = '回答収集用の接続先は現在設定されていません．';
+        document.getElementById('comparisonContent').hidden = true;
+        return;
+    }
+    document.getElementById('evaluationSummaryScript')?.remove();
+    const script = document.createElement('script');
+    script.id = 'evaluationSummaryScript';
+    script.src = `${evaluationConfig.endpoint}?action=summary&callback=__catcherxEvaluationSummary&t=${Date.now()}`;
+    script.onerror = () => {
+        document.getElementById('comparisonEmpty').textContent = '集計結果を読み込めませんでした．';
+    };
+    document.body.appendChild(script);
+}
+
+function initializeEvaluation() {
+    createPairwiseComparisons();
+    createSusQuestions();
+    updateMethodVisibility();
+    if (!endpointIsConfigured()) {
+        document.getElementById('loginButton').disabled = true;
+        setAuthenticationMessage('管理者による回答収集用の接続設定が必要です．', 'error');
+    }
+    loadPublicSummary();
+}
+
+initializeEvaluation();

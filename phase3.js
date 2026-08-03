@@ -1,5 +1,68 @@
 const reactionOrder = ['見逃し', 'ハーフスイング', '空振り'];
 
+const pitchTypeLabels = {
+    Straight: 'ストレート',
+    Splitter: 'スプリッター',
+    Slider: 'スライダー',
+    Sweeper: 'スイーパー',
+    VSlider: 'Vスライダー',
+    Curve: 'カーブ',
+    Changeup: 'チェンジアップ',
+    SinkingFast: 'シンキングファスト',
+    Fork: 'フォーク',
+    Shoot: 'シュート',
+    Sinker: 'シンカー',
+    Eephus: 'イーファス',
+    TwoSeamGyro: 'ツーシームジャイロ',
+    KnuckleCurve: 'ナックルカーブ',
+    PalmChange: 'パームチェンジ',
+    TwoSeam: 'ツーシーム',
+    Slatter: 'スラッター',
+    Drop: 'ドロップ',
+    Splinker: 'スプリンカー',
+    DCurve: 'Dカーブ',
+    FourseamGyro: 'フォーシームジャイロ'
+};
+
+const courseLabels = {
+    'High Inside Ball': '内角高めボール',
+    'High Inside Center Ball': '内角高めボール',
+    'High Center Ball': '高めボール',
+    'High Outside Center Ball': '外角高め寄りボール',
+    'High Outside Ball': '外角高めボール',
+    'Mid-High Inside Ball': '内角高めボール',
+    'High Inside': '内角高め',
+    'High Center': '高め',
+    'High Outside': '外角高め',
+    'Mid-High Outside Ball': '外角高めボール',
+    'Mid Inside Ball': '内角ボール',
+    'Mid Inside': '内角',
+    'Mid Center': '真ん中',
+    'Mid Outside': '外角',
+    'Mid Outside Ball': '外角ボール',
+    'Mid-Low Inside Ball': '内角低めボール',
+    'Low Inside': '内角低め',
+    'Low Center': '低め',
+    'Low Outside': '外角低め',
+    'Mid-Low Outside Ball': '外角低めボール',
+    'Low Inside Ball': '内角低めボール',
+    'Low Inside Center Ball': '内角低めボール',
+    'Low Center Ball': '低めボール',
+    'Low Outside Center Ball': '外角低めボール',
+    'Low Outside Ball': '外角低めボール'
+};
+
+const catchResultLabels = {
+    Strike: 'ストライク・捕球',
+    Strike_PassedBall: 'ストライク・後逸',
+    Strike_Missed: 'ストライク・捕球失敗',
+    Ball: 'ボール・捕球',
+    Ball_PassedBall: 'ボール・後逸',
+    Ball_Missed: 'ボール・捕球失敗'
+};
+
+const pitchTones = ['#0b4f8a', '#176aa5', '#2f78b7', '#4f8fbd', '#6aa3c8'];
+
 const outcomeDefinitions = {
     pitch_changed: {
         number: 'ANALYSIS 01',
@@ -8,7 +71,7 @@ const outcomeDefinitions = {
         categories: [false, true],
         labels: ['維持', '変更'],
         colors: ['#c8d5df', '#0b4f8a'],
-        sensitivityP: 0.2356,
+        sensitivityP: 0.2374,
         pairwise: true
     },
     course_changed: {
@@ -18,7 +81,7 @@ const outcomeDefinitions = {
         categories: [false, true],
         labels: ['維持', '変更'],
         colors: ['#c8d5df', '#2f78b7'],
-        sensitivityP: 0.3257,
+        sensitivityP: 0.3229,
         pairwise: true
     },
     next_pitch_group: {
@@ -28,7 +91,7 @@ const outcomeDefinitions = {
         categories: ['ストレート', '変化球'],
         labels: ['ストレート', '変化球'],
         colors: ['#86a8c0', '#0b4f8a'],
-        sensitivityP: 0.8720,
+        sensitivityP: 0.8713,
         pairwise: false
     },
     next_course_height: {
@@ -38,7 +101,7 @@ const outcomeDefinitions = {
         categories: ['高め', '真ん中', '低め'],
         labels: ['高め', '真ん中', '低め'],
         colors: ['#8eb8d5', '#3f7fac', '#0b4f8a'],
-        sensitivityP: 0.3201,
+        sensitivityP: 0.3198,
         pairwise: false
     }
 };
@@ -244,6 +307,81 @@ function renderAllOutcomeCards() {
     }).join('');
 }
 
+function pitchTone(pitchType) {
+    const hash = [...pitchType].reduce((sum, character) => sum + character.charCodeAt(0), 0);
+    return pitchTones[hash % pitchTones.length];
+}
+
+function renderChangeTags(pitch) {
+    if (pitch.sequence === 1) return '<span class="sequence-start">開始球</span>';
+    const tags = [];
+    if (pitch.pitch_changed_from_previous) tags.push('<span class="sequence-change pitch-change">球種変更</span>');
+    if (pitch.course_changed_from_previous) tags.push('<span class="sequence-change course-change">コース変更</span>');
+    if (!tags.length) tags.push('<span class="sequence-maintained">変更なし</span>');
+    return tags.join('');
+}
+
+function renderPitchSequence(session) {
+    const pitches = session.pitches;
+    const pitchChanges = pitches.filter(pitch => pitch.pitch_changed_from_previous).length;
+    const courseChanges = pitches.filter(pitch => pitch.course_changed_from_previous).length;
+
+    document.getElementById('sequencePitchCount').textContent = pitches.length;
+    document.getElementById('sequencePitchTypes').textContent = new Set(pitches.map(pitch => pitch.pitch_type)).size;
+    document.getElementById('sequenceCourses').textContent = new Set(pitches.map(pitch => pitch.course)).size;
+    document.getElementById('sequencePitchChanges').textContent = pitchChanges;
+    document.getElementById('sequenceCourseChanges').textContent = courseChanges;
+
+    const timeline = document.getElementById('pitchSequenceTimeline');
+    timeline.setAttribute('aria-label', `${session.participant}の配球時系列`);
+    timeline.innerHTML = pitches.map(pitch => `
+        <article class="sequence-pitch" style="--pitch-tone:${pitchTone(pitch.pitch_type)}">
+            <div class="sequence-pitch-number"><span>${String(pitch.sequence).padStart(2, '0')}</span><small>球目</small></div>
+            <div class="sequence-pitch-body">
+                <strong>${pitchTypeLabels[pitch.pitch_type] || pitch.pitch_type}</strong>
+                <p class="sequence-course">${courseLabels[pitch.course] || pitch.course}</p>
+                <dl>
+                    <div><dt>球速</dt><dd>${pitch.speed_kmph === null ? '記録なし' : `${pitch.speed_kmph.toFixed(1)} km/h`}</dd></div>
+                    <div><dt>打者反応</dt><dd>${pitch.batter_reaction}</dd></div>
+                    <div><dt>捕球結果</dt><dd>${catchResultLabels[pitch.catch_result] || pitch.catch_result}</dd></div>
+                </dl>
+                <div class="sequence-change-list">${renderChangeTags(pitch)}</div>
+            </div>
+        </article>
+    `).join('');
+
+    document.getElementById('pitchSequenceTable').innerHTML = `
+        <thead><tr><th scope="col">順番</th><th scope="col">球種</th><th scope="col">コース</th><th scope="col">球速</th><th scope="col">打者反応</th><th scope="col">捕球結果</th><th scope="col">直前球からの変更</th></tr></thead>
+        <tbody>${pitches.map(pitch => `
+            <tr>
+                <th scope="row">${pitch.sequence}球目</th>
+                <td><span class="pitch-type-dot" style="background:${pitchTone(pitch.pitch_type)}"></span>${pitchTypeLabels[pitch.pitch_type] || pitch.pitch_type}</td>
+                <td>${courseLabels[pitch.course] || pitch.course}</td>
+                <td>${pitch.speed_kmph === null ? '<span class="missing-value">記録なし</span>' : `${pitch.speed_kmph.toFixed(1)} km/h`}</td>
+                <td>${pitch.batter_reaction}</td>
+                <td>${catchResultLabels[pitch.catch_result] || pitch.catch_result}</td>
+                <td><div class="sequence-change-list">${renderChangeTags(pitch)}</div></td>
+            </tr>
+        `).join('')}</tbody>`;
+}
+
+function initializeSequenceExplorer() {
+    const tabs = document.getElementById('participantSequenceTabs');
+    tabs.innerHTML = phase3Data.sessions.map((session, index) => `
+        <button type="button" role="tab" aria-selected="${index === 0}" aria-controls="pitchSequenceTimeline" data-participant-index="${index}">${session.participant}</button>
+    `).join('');
+
+    tabs.querySelectorAll('[data-participant-index]').forEach(button => {
+        button.addEventListener('click', () => {
+            tabs.querySelectorAll('[data-participant-index]').forEach(tab => tab.setAttribute('aria-selected', 'false'));
+            button.setAttribute('aria-selected', 'true');
+            renderPitchSequence(phase3Data.sessions[Number(button.dataset.participantIndex)]);
+        });
+    });
+
+    renderPitchSequence(phase3Data.sessions[0]);
+}
+
 async function initializePhase3() {
     const response = await fetch('phase3-data.json');
     if (!response.ok) throw new Error('第3フェーズのデータを読み込めませんでした．');
@@ -259,6 +397,7 @@ async function initializePhase3() {
 
     renderOutcome('pitch_changed');
     renderAllOutcomeCards();
+    initializeSequenceExplorer();
 
     document.querySelectorAll('[data-outcome]').forEach(button => {
         button.addEventListener('click', () => {

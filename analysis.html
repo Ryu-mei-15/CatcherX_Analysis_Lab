@@ -33,7 +33,7 @@
         <p class="header-lead">
             本ページでは，論文中で用いたプレイログの一部を対象に，
             捕球時のミット位置と投球の目標到達点の差分を可視化する．
-            プレイヤー，球速，投球コースを切り替えることで，
+            プレイヤ，球速，投球コースを切り替えることで，
             条件ごとの捕球誤差の分布を確認できる．
         </p>
 
@@ -49,7 +49,7 @@
 
             <p class="page-lead">
                 各プロットは，投球の目標到達点に対して，
-                プレイヤーが実際にミットを動かして捕球した位置の差分を示している．
+                プレイヤが実際にミットを動かして捕球した位置の差分を示している．
                 横方向，縦方向，奥行き方向のずれを比較することで，
                 球速や投球コースの違いに応じたミット操作の傾向を確認できる．
             </p>
@@ -58,7 +58,7 @@
                 <div class="filter-column">
                     <div class="filter-section">
                         <div class="filter-header">
-                            <h3>プレイヤー</h3>
+                            <h3>プレイヤ</h3>
                             <div class="filter-actions">
                                 <button type="button" class="action-btn select-all" data-target="player">全選択</button>
                                 <button type="button" class="action-btn deselect-all" data-target="player">全解除</button>
@@ -130,7 +130,7 @@
             <div class="legend-box" style="margin-bottom: 4rem;">
                 <strong>凡例</strong>
                 <div class="legend-inline">
-                    <span>色：プレイヤー</span>
+                    <span>色：プレイヤ</span>
                     <span><span class="marker-sample">○</span>正常捕球</span>
                     <span><span class="marker-sample">□</span>パスボール</span>
                     <span><span class="marker-sample">×</span>暴投</span>
@@ -167,7 +167,7 @@
             <div class="legend-box legend-box-left" style="margin-bottom: 4rem;">
                 <strong>分析2プロットの見方</strong>
                 <ul class="legend-list">
-                    <li><span class="legend-key">線の色</span>：プレイヤーごとの識別</li>
+                    <li><span class="legend-key">線の色</span>：プレイヤごとの識別</li>
                     <li><span class="legend-key">塗りつぶし太矢印</span>：最終判定がストライクになった球</li>
                     <li><span class="legend-key">白抜き細矢印</span>：最終判定がボール，パスボール，暴投を含む球</li>
                     <li><span class="legend-key">丸印</span>：中央コースの球</li>
@@ -199,8 +199,8 @@
             </div>
 
             <p class="analysis-description">
-                横軸に「制球誤差（システム側から与えられたノイズ量）」，縦軸に「ミット補正量（プレイヤーの介入量）」をとった散布図である．
-                回帰直線および相関係数（\( r \)）が 1 に近いほど，システム側の制球のブレに対してプレイヤーが完璧に追従してミットを操作できていることを意味する．<br>
+                横軸に「制球誤差（システム側から与えられたノイズ量）」，縦軸に「ミット補正量（プレイヤの介入量）」をとった散布図である．
+                回帰直線および相関係数（\( r \)）が 1 に近いほど，システム側の制球のブレに対してプレイヤが完璧に追従してミットを操作できていることを意味する．<br>
                 ※ 空間的なスケールを正確に比較するため，<strong>横軸(25cm)と縦軸(40cm)の比率に合わせてグラフを長方形（25:40）に描画し，グリッドが正方形になるよう統一</strong>している．<br>
                 ※ 実験条件に基づき，<strong>制球誤差が 25 cm，またはミット補正量が 40 cm を超過するデータは外れ値として除外</strong>している．<br>
                 ※ マーカーの<strong>塗りつぶしは捕球成功，中抜きは捕球失敗</strong>（パスボール，暴投，見送り）を示す．
