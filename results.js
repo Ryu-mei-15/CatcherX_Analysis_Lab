@@ -43,6 +43,59 @@ const resultData = {
     }
 };
 
+const participantSummaries = {
+    overall: {
+        label: '全体', trials: '1,946', control: '16.9', correction: '12.9',
+        reduction: '4.0 cm', medianRate: '30.4%', aggregateRate: '23.9%', improvement: '75.5'
+    },
+    'Player 1': {
+        label: 'Player 1', trials: '326', control: '16.4', correction: '10.5',
+        reduction: '5.9 cm', medianRate: '38.8%', aggregateRate: '36.1%', improvement: '81.9'
+    },
+    'Player 2': {
+        label: 'Player 2', trials: '322', control: '17.0', correction: '16.1',
+        reduction: '0.9 cm', medianRate: '13.0%', aggregateRate: '5.1%', improvement: '61.5'
+    },
+    'Player 3': {
+        label: 'Player 3', trials: '344', control: '17.0', correction: '13.5',
+        reduction: '3.5 cm', medianRate: '34.1%', aggregateRate: '20.5%', improvement: '74.4'
+    },
+    'Player 5': {
+        label: 'Player 5', trials: '291', control: '16.6', correction: '10.5',
+        reduction: '6.1 cm', medianRate: '39.9%', aggregateRate: '36.7%', improvement: '83.2'
+    },
+    'Player 6': {
+        label: 'Player 6', trials: '353', control: '16.6', correction: '10.9',
+        reduction: '5.8 cm', medianRate: '35.9%', aggregateRate: '34.6%', improvement: '83.0'
+    },
+    'Player 7': {
+        label: 'Player 7', trials: '310', control: '17.7', correction: '15.7',
+        reduction: '2.0 cm', medianRate: '14.4%', aggregateRate: '11.5%', improvement: '68.7'
+    }
+};
+
+function renderParticipantSummary(key) {
+    const summary = participantSummaries[key] || participantSummaries.overall;
+    const isOverall = key === 'overall';
+
+    document.getElementById('summaryTrials').textContent = summary.trials;
+    document.getElementById('summaryControl').textContent = summary.control;
+    document.getElementById('summaryCorrection').textContent = summary.correction;
+    document.getElementById('summaryImprovement').textContent = summary.improvement;
+    document.getElementById('summaryReduction').textContent = summary.reduction;
+    document.getElementById('summaryMedianRate').textContent = summary.medianRate;
+    document.getElementById('summaryAggregateRate').textContent = summary.aggregateRate;
+    document.getElementById('summaryTrialsNote').textContent = isOverall
+        ? '全参加者の有効試行'
+        : `${summary.label}の有効試行`;
+    document.getElementById('summaryCorrectionNote').textContent = isOverall
+        ? '全参加者の集計値'
+        : `${summary.label}の集計値`;
+    document.getElementById('summaryScopeDescription').textContent = isOverall
+        ? '全参加者1,946試行の集計値を表示している．'
+        : `${summary.label}の${summary.trials}試行について，身体的補正の主要結果を表示している．`;
+}
+
 function renderResult(viewName) {
     const data = resultData[viewName];
     const table = document.getElementById('resultTable');
@@ -78,4 +131,9 @@ document.querySelectorAll('[data-view]').forEach(button => {
     });
 });
 
+document.getElementById('participantResultSelect').addEventListener('change', event => {
+    renderParticipantSummary(event.target.value);
+});
+
+renderParticipantSummary('overall');
 renderResult('overall');

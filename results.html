@@ -41,32 +41,68 @@
     </header>
 
     <main id="main" class="container results-layout">
+        <section class="card participant-result-selector" aria-labelledby="participantResultTitle">
+            <div>
+                <p class="section-kicker">PARTICIPANT RESULTS</p>
+                <h2 id="participantResultTitle">参加者別の主要結果</h2>
+                <p>参加者を選択すると，身体的補正に関する主要指標が個人別の値へ切り替わる．</p>
+            </div>
+            <label for="participantResultSelect">
+                <span>表示対象</span>
+                <select id="participantResultSelect">
+                    <option value="overall">全体</option>
+                    <option value="Player 1">Player 1</option>
+                    <option value="Player 2">Player 2</option>
+                    <option value="Player 3">Player 3</option>
+                    <option value="Player 5">Player 5</option>
+                    <option value="Player 6">Player 6</option>
+                    <option value="Player 7">Player 7</option>
+                </select>
+            </label>
+        </section>
+
         <section class="summary-strip" aria-label="主要な結果">
             <article class="summary-metric">
                 <span class="metric-label">分析対象</span>
-                <strong>1,946<small> 試行</small></strong>
-                <span>ストライク判定を対象</span>
+                <strong><span id="summaryTrials">1,946</span><small> 試行</small></strong>
+                <span id="summaryTrialsNote">全参加者の有効試行</span>
             </article>
             <article class="summary-metric">
                 <span class="metric-label">平均制球誤差</span>
-                <strong>16.9<small> cm</small></strong>
+                <strong><span id="summaryControl">16.9</span><small> cm</small></strong>
                 <span>要求位置からの投球のズレ</span>
             </article>
             <article class="summary-metric">
                 <span class="metric-label">平均ミット補正量</span>
-                <strong>12.9<small> cm</small></strong>
-                <span>予稿の集計値</span>
+                <strong><span id="summaryCorrection">12.9</span><small> cm</small></strong>
+                <span id="summaryCorrectionNote">全参加者の集計値</span>
             </article>
             <article class="summary-metric accent">
                 <span class="metric-label">改善試行率</span>
-                <strong>75.5<small> %</small></strong>
+                <strong><span id="summaryImprovement">75.5</span><small> %</small></strong>
                 <span>制球誤差が小さくなった試行</span>
             </article>
         </section>
 
+        <section class="participant-result-detail" aria-live="polite" aria-label="選択した参加者の補足指標">
+            <div>
+                <span>平均誤差減少量</span>
+                <strong id="summaryReduction">4.0 cm</strong>
+            </div>
+            <div>
+                <span>低減率中央値</span>
+                <strong id="summaryMedianRate">30.4%</strong>
+            </div>
+            <div>
+                <span>集計低減率</span>
+                <strong id="summaryAggregateRate">23.9%</strong>
+            </div>
+            <p id="summaryScopeDescription">全参加者1,946試行の集計値を表示している．</p>
+        </section>
+
         <section class="card paper-finding">
             <div>
-                <p class="section-kicker">KEY FINDING</p>
+                <p class="section-kicker">KEY FINDING · 全参加者の傾向</p>
                 <h2>投球のズレが大きいほど，身体的補正も大きくなる</h2>
                 <p>
                     制球誤差とミット補正量の間には正の相関が確認された．
