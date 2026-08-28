@@ -1,12 +1,12 @@
 # CatcherX Research Data
 
-「CatcherX: 捕手の認知-運動過程の循環に着目したVRシミュレータ」の研究データ公開・分析サイトです．EC2026投稿予稿，主要な集計結果，プレイログ可視化，第3フェーズの配球分析，二元配置分散分析，NASA-TLX／SUS回答収集を一つのサイトにまとめています．
+「CatcherX: 捕手の認知-運動過程の循環に着目したVRシミュレータ」の研究データ公開・分析サイトです．EC2026公開版論文，主要な集計結果，プレイログ可視化，第3フェーズの配球分析，二元配置分散分析，NASA-TLX／SUS回答収集を一つのサイトにまとめています．
 
 本サイトはHTML，CSS，JavaScriptを中心とした静的サイトです．標準尺度の認証と回答保存に限り，Google Apps Scriptと非公開Googleスプレッドシートを使用します．
 
 ## 主な機能
 
-- EC2026投稿予稿のブラウザ内閲覧
+- EC2026公開版論文（IPSJ-EC2026006）のブラウザ内閲覧
 - 予稿に掲載した制球誤差，ミット補正量，誤差低減率の公開
 - プレイヤ，球速，投球コースによるプレイログの絞り込み
 - 捕球誤差，平均ミット補正量，制球誤差との相関の可視化
@@ -20,7 +20,7 @@
 | ページ | 内容 |
 |---|---|
 | [`index.html`](index.html) | 研究目的，認知―運動過程，システム構成，公開コンテンツの概要 |
-| [`paper.html`](paper.html) | `paper/ec2026.pdf`に配置したEC2026投稿予稿の閲覧 |
+| [`paper.html`](paper.html) | `paper/IPSJ-EC2026006.pdf`に配置したEC2026公開版論文の閲覧と公式レコードへのリンク |
 | [`results.html`](results.html) | 予稿掲載の主要結果，指標定義，全体・球速別・参加者別集計 |
 | [`analysis.html`](analysis.html) | 捕球誤差，コース別分布，平均補正量，相関関係のインタラクティブ可視化 |
 | [`anova.html`](anova.html) | プレイヤ×球速の二元配置分散分析と，主効果・交互作用・p値の読み方 |
@@ -66,7 +66,7 @@ http://localhost:8000/
 | `DataBreak/*_1_2.csv` | 第3フェーズ分析に使用する6名分のログ |
 | `phase3-data.json` | 第3フェーズの公開用データ（65球，59遷移） |
 | `Data/` | 変換前ログおよび検証用ログ |
-| `paper/ec2026.pdf` | EC2026投稿予稿 |
+| `paper/IPSJ-EC2026006.pdf` | 情報処理学会で公開されたEC2026特選論文 |
 
 参加者識別子は既存ログに合わせ，`Player 1`，`Player 2`，`Player 3`，`Player 5`，`Player 6`，`Player 7`に統一しています．球速列が存在しない旧形式ログは，値を推定せず`null`として保持し，画面では「記録なし」と表示します．
 
@@ -147,11 +147,11 @@ NASA-TLXはRaw TLXと15対の一対比較を用いる重み付き方式に対応
 
 平文OTP，スプレッドシートID，`OTP_PEPPER`，`SESSION_SECRET`は公開リポジトリへ追加しないでください．
 
-## 予稿PDFの公開について
+## EC2026公開版PDFについて
 
 `paper.html`はPDFビューアのツールバーと直接ダウンロード導線を表示しません．ただし，Webブラウザへ配信したPDFの保存，開発者ツールからの取得，画面撮影を技術的に完全防止することはできません．本ページはダウンロード操作を抑制する表示であり，DRMではありません．
 
-掲載中のPDFは情報処理学会での正式公開前の投稿予稿です．後日公開される最終版とは内容・体裁が異なる可能性があります．
+掲載中のPDFは情報処理学会の情報学広場で公開された`IPSJ-EC2026006`です．公式の書誌情報と配布条件は[情報学広場のレコード](https://ipsj.ixsq.nii.ac.jp/records/2011336)を参照してください．
 
 ## ディレクトリ概要
 
@@ -163,7 +163,7 @@ NASA-TLXはRaw TLXと15対の一対比較を用いる重み付き方式に対応
 ├── anova.html / anova.js
 ├── phase3.html / phase3.js
 ├── evaluation.html / evaluation.js / evaluation-config.js
-├── paper.html / paper/ec2026.pdf
+├── paper.html / paper/IPSJ-EC2026006.pdf
 ├── data.json / phase3-data.json
 ├── Data/ / DataCourse/ / DataBreak/
 ├── convert.py / convert_phase3.py / analyze_phase3.py

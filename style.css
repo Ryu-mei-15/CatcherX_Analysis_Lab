@@ -2864,6 +2864,11 @@ tbody tr:hover {
     border-radius: 50%;
 }
 
+.status-dot.published {
+    background: #23845b;
+    box-shadow: 0 0 0 3px rgba(35, 132, 91, 0.12);
+}
+
 .paper-notice {
     display: flex;
     align-items: center;
@@ -2982,6 +2987,13 @@ tbody tr:hover {
     text-decoration: none;
     font-size: 0.72rem;
     font-weight: 700;
+}
+
+.paper-version-links {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 1.2rem;
 }
 
 @media (max-width: 1180px) {
@@ -3287,6 +3299,12 @@ tbody tr:hover {
         align-items: flex-start;
         flex-direction: column;
         gap: 0.8rem;
+    }
+
+    .paper-version-links {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.65rem;
     }
 
     .phase3-summary {
