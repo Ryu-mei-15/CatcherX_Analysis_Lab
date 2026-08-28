@@ -194,6 +194,7 @@
             <a href="phase3.html">配球更新</a>
             <a href="analysis.html">ログ可視化</a>
             <a href="anova.html" aria-current="page">要因分析</a>
+            <a href="research.html">追加分析</a>
             <a href="evaluation.html">標準尺度</a>
         </div>
     </nav>
@@ -208,16 +209,16 @@
 
     <header class="main-header">
         <p class="header-subtitle">Factor Analysis</p>
-        <h1>捕球誤差に対する要因分析</h1>
+        <h1>残差誤差に対する要因分析</h1>
         <p class="header-lead">
-            本ページでは，捕球誤差を対象として，
+            本ページでは，実際の球到達点に対する捕球時ミット位置の残差誤差を対象として，
             プレイヤと球速を要因とする二元配置分散分析を行う．
             各軸方向の誤差について，プレイヤの違い，球速の違い，
             および両者の交互作用を確認できる．
         </p>
         <div class="header-actions">
             <a href="results.html" class="header-link-btn">予稿の主要結果を見る</a>
-            <a href="analysis.html" class="header-link-btn">捕球誤差の可視化に戻る</a>
+            <a href="analysis.html" class="header-link-btn">残差誤差の可視化に戻る</a>
         </div>
     </header>
 
@@ -246,8 +247,8 @@
                 <div class="anova-model-symbol arrow" aria-hidden="true">→</div>
                 <div class="anova-response-block">
                     <span>比較する値</span>
-                    <strong>軸方向ごとの捕球誤差</strong>
-                    <small>目標位置に対するミット位置の符号付き差［cm］</small>
+                    <strong>軸方向ごとの残差誤差</strong>
+                    <small>球到達位置に対するミット位置の符号付き差［cm］</small>
                 </div>
             </div>
 
@@ -255,13 +256,13 @@
                 <article>
                     <span>01 · MAIN EFFECT</span>
                     <h3>プレイヤの主効果</h3>
-                    <p>球速条件をまとめて見たとき，プレイヤ間で平均捕球誤差が異なるかを調べる．</p>
+                    <p>球速条件をまとめて見たとき，プレイヤ間で平均残差誤差が異なるかを調べる．</p>
                     <small>有意な場合：少なくとも1名の平均が他と異なる可能性がある．</small>
                 </article>
                 <article>
                     <span>02 · MAIN EFFECT</span>
                     <h3>球速の主効果</h3>
-                    <p>プレイヤをまとめて見たとき，球速条件間で平均捕球誤差が異なるかを調べる．</p>
+                    <p>プレイヤをまとめて見たとき，球速条件間で平均残差誤差が異なるかを調べる．</p>
                     <small>有意な場合：少なくとも1つの球速条件の平均が他と異なる可能性がある．</small>
                 </article>
                 <article>
@@ -279,11 +280,12 @@
                         <li><strong>最初に交互作用を見る．</strong>有意なら，一律の「プレイヤ差」「球速差」だけでは説明しにくいため，下部の平均誤差グラフで組み合わせごとの変化を確認する．</li>
                         <li><strong>次に2つの主効果を見る．</strong><i>p</i> &lt; .05は「平均がすべて同じ」という仮説と整合しにくいことを示すが，どの条件間に差があるかまでは特定しない．</li>
                         <li><strong>誤差の向きと大きさを見る．</strong>統計的有意差だけで実質的に大きな差とは判断せず，グラフの正負と平均差も併せて解釈する．</li>
+                        <li><strong>偏η²で効果の大きさを確認する．</strong>p値とは別に，各効果が残差を含む変動のどの程度を占めるかを0〜1で示す．</li>
                     </ol>
                 </div>
                 <aside>
                     <strong>解釈上の注意</strong>
-                    <p><i>p</i> ≥ .05は「差がない」ことの証明ではない．また，本分析は符号付き誤差を対象とするため，正負のずれが平均で相殺される場合がある．投球コースは要因ではなく，選択したデータを絞り込む条件として扱う．</p>
+                    <p><i>p</i> ≥ .05は「差がない」ことの証明ではない．また，本分析は符号付き誤差を対象とするため，正負のずれが平均で相殺される場合がある．投球コースは要因ではなく，選択したデータを絞り込む条件として扱う．同一プレイヤ内の反復を独立とみなすため，探索的結果として解釈する．</p>
                 </aside>
             </div>
         </section>
@@ -293,7 +295,7 @@
 
             <p class="page-lead">
                 条件を変更すると，選択されたプレイログに基づいて分散分析と平均誤差の可視化を更新する．
-                プレイヤ，球速，投球コースを絞り込むことで，特定条件における捕球誤差の傾向を確認できる．
+                プレイヤ，球速，投球コースを絞り込むことで，特定条件における残差誤差の傾向を確認できる．
             </p>
 
             <div class="controls-grid">
@@ -355,10 +357,10 @@
         <hr style="border:none; border-top:2px dashed #ccc; margin: 4rem 0;">
 
         <section id="interactive-comparison" class="card">
-            <h2>条件別の平均捕球誤差</h2>
+            <h2>条件別の平均残差誤差</h2>
 
             <p class="page-lead">
-                各棒グラフは，選択された条件における平均捕球誤差を軸方向ごとに示している．
+                各棒グラフは，選択された条件における平均残差誤差を軸方向ごとに示している．
                 正の値と負の値は，それぞれ各軸方向におけるずれの向きを表す．
             </p>
 

@@ -1,0 +1,1157 @@
+{
+  "schema_version": "2.0.0",
+  "generated_from": "DataCourse/*.csv and DataBreak/*_1_2.csv",
+  "metric_scope": "3D unless otherwise stated",
+  "quality": {
+    "raw_n": 1974,
+    "eligible_n": 1948,
+    "excluded_n": 26,
+    "designed_noise_radius_cm": 25.0,
+    "outside_designed_noise_n": 56,
+    "extreme_threshold_cm": 50.0,
+    "extreme_coordinate_anomaly_n": 26,
+    "control_error_p99_cm": 57.59321244464438,
+    "control_error_max_cm": 880306.7478088817,
+    "actual_speed_missing_n": 1974,
+    "actual_speed_missing_rate": 1.0,
+    "logged_movement_mean_abs_difference_cm": 0.040844061346110835,
+    "logged_movement_max_abs_difference_cm": 0.15489544790530374,
+    "published_trial_count": 1946,
+    "published_vs_reanalysis_difference": 2,
+    "by_player": [
+      {
+        "player": "Player 1",
+        "raw_n": 326,
+        "eligible_n": 326,
+        "outside_designed_noise_n": 3,
+        "extreme_coordinate_anomaly_n": 0
+      },
+      {
+        "player": "Player 2",
+        "raw_n": 324,
+        "eligible_n": 324,
+        "outside_designed_noise_n": 1,
+        "extreme_coordinate_anomaly_n": 0
+      },
+      {
+        "player": "Player 3",
+        "raw_n": 345,
+        "eligible_n": 344,
+        "outside_designed_noise_n": 3,
+        "extreme_coordinate_anomaly_n": 1
+      },
+      {
+        "player": "Player 5",
+        "raw_n": 292,
+        "eligible_n": 291,
+        "outside_designed_noise_n": 2,
+        "extreme_coordinate_anomaly_n": 1
+      },
+      {
+        "player": "Player 6",
+        "raw_n": 356,
+        "eligible_n": 353,
+        "outside_designed_noise_n": 8,
+        "extreme_coordinate_anomaly_n": 3
+      },
+      {
+        "player": "Player 7",
+        "raw_n": 331,
+        "eligible_n": 310,
+        "outside_designed_noise_n": 39,
+        "extreme_coordinate_anomaly_n": 21
+      }
+    ]
+  },
+  "overall": {
+    "label": "全体",
+    "n": 1948,
+    "caught": 1223,
+    "catch_rate": 0.62782340862423,
+    "catch_rate_ci95": [
+      0.606125704366418,
+      0.6490179691883454
+    ],
+    "mean_control_error_3d_cm": 16.882374811468516,
+    "mean_mitt_movement_3d_cm": 17.12831727238073,
+    "median_mitt_movement_3d_cm": 15.561330236689777,
+    "mean_residual_error_3d_cm": 12.857152210862504,
+    "median_residual_error_3d_cm": 11.58533548602056,
+    "median_direction_cosine_3d": 0.8596709720521507,
+    "median_projection_ratio_3d": 0.6791728748653979
+  },
+  "by_player": [
+    {
+      "label": "Player 1",
+      "n": 326,
+      "caught": 218,
+      "catch_rate": 0.6687116564417178,
+      "catch_rate_ci95": [
+        0.6159141345441811,
+        0.7175794183684544
+      ],
+      "mean_control_error_3d_cm": 16.430006839753506,
+      "mean_mitt_movement_3d_cm": 15.18322587208798,
+      "median_mitt_movement_3d_cm": 14.519984249570395,
+      "mean_residual_error_3d_cm": 10.496756642100163,
+      "median_residual_error_3d_cm": 9.756016026405002,
+      "median_direction_cosine_3d": 0.8560173080634561,
+      "median_projection_ratio_3d": 0.6985647582628847
+    },
+    {
+      "label": "Player 2",
+      "n": 324,
+      "caught": 143,
+      "catch_rate": 0.44135802469135804,
+      "catch_rate_ci95": [
+        0.3882907681828407,
+        0.4957995474938496
+      ],
+      "mean_control_error_3d_cm": 16.88419413386914,
+      "mean_mitt_movement_3d_cm": 20.361838621909826,
+      "median_mitt_movement_3d_cm": 18.374438764924296,
+      "mean_residual_error_3d_cm": 16.06280307270026,
+      "median_residual_error_3d_cm": 14.330205166227147,
+      "median_direction_cosine_3d": 0.789185194315473,
+      "median_projection_ratio_3d": 0.7288005983707087
+    },
+    {
+      "label": "Player 3",
+      "n": 344,
+      "caught": 240,
+      "catch_rate": 0.6976744186046512,
+      "catch_rate_ci95": [
+        0.6471782411086933,
+        0.74380447975813
+      ],
+      "mean_control_error_3d_cm": 17.01988609007782,
+      "mean_mitt_movement_3d_cm": 24.823613916617447,
+      "median_mitt_movement_3d_cm": 24.260522146581312,
+      "mean_residual_error_3d_cm": 13.536999361342271,
+      "median_residual_error_3d_cm": 11.467780282248718,
+      "median_direction_cosine_3d": 0.9377717650757275,
+      "median_projection_ratio_3d": 0.815222435021371
+    },
+    {
+      "label": "Player 5",
+      "n": 291,
+      "caught": 257,
+      "catch_rate": 0.8831615120274914,
+      "catch_rate_ci95": [
+        0.8411647752356356,
+        0.9151739055318339
+      ],
+      "mean_control_error_3d_cm": 16.623458725046262,
+      "mean_mitt_movement_3d_cm": 16.621205234453367,
+      "median_mitt_movement_3d_cm": 15.395129099815964,
+      "mean_residual_error_3d_cm": 10.515191562832745,
+      "median_residual_error_3d_cm": 9.644169222903678,
+      "median_direction_cosine_3d": 0.9164223053600316,
+      "median_projection_ratio_3d": 0.7127974798041207
+    },
+    {
+      "label": "Player 6",
+      "n": 353,
+      "caught": 192,
+      "catch_rate": 0.5439093484419264,
+      "catch_rate_ci95": [
+        0.4917572581085231,
+        0.5951160556102647
+      ],
+      "mean_control_error_3d_cm": 16.634387201516994,
+      "mean_mitt_movement_3d_cm": 11.056419049405354,
+      "median_mitt_movement_3d_cm": 11.52822622956365,
+      "mean_residual_error_3d_cm": 10.880095817538106,
+      "median_residual_error_3d_cm": 9.633794683301064,
+      "median_direction_cosine_3d": 0.870610907622844,
+      "median_projection_ratio_3d": 0.5449615906009946
+    },
+    {
+      "label": "Player 7",
+      "n": 310,
+      "caught": 173,
+      "catch_rate": 0.5580645161290323,
+      "catch_rate_ci95": [
+        0.5024059235103019,
+        0.6123016748270095
+      ],
+      "mean_control_error_3d_cm": 17.72902908869885,
+      "mean_mitt_movement_3d_cm": 14.645112463921759,
+      "median_mitt_movement_3d_cm": 13.599999681966203,
+      "mean_residual_error_3d_cm": 15.684255797430943,
+      "median_residual_error_3d_cm": 14.10378752913285,
+      "median_direction_cosine_3d": 0.7278259642703137,
+      "median_projection_ratio_3d": 0.5011310238832914
+    }
+  ],
+  "by_speed": [
+    {
+      "label": "100 km/h",
+      "n": 646,
+      "caught": 430,
+      "catch_rate": 0.6656346749226006,
+      "catch_rate_ci95": [
+        0.6283702103314086,
+        0.7009408810051745
+      ],
+      "mean_control_error_3d_cm": 16.956606708588353,
+      "mean_mitt_movement_3d_cm": 16.810467769909927,
+      "median_mitt_movement_3d_cm": 15.860320646805024,
+      "mean_residual_error_3d_cm": 11.48776706401208,
+      "median_residual_error_3d_cm": 10.71657592285003,
+      "median_direction_cosine_3d": 0.8785380680328536,
+      "median_projection_ratio_3d": 0.7054475868926635
+    },
+    {
+      "label": "130 km/h",
+      "n": 642,
+      "caught": 414,
+      "catch_rate": 0.6448598130841121,
+      "catch_rate_ci95": [
+        0.6070803714447877,
+        0.6809160051576617
+      ],
+      "mean_control_error_3d_cm": 16.527842144912707,
+      "mean_mitt_movement_3d_cm": 17.175560741258064,
+      "median_mitt_movement_3d_cm": 15.010495920092865,
+      "mean_residual_error_3d_cm": 13.232718455889442,
+      "median_residual_error_3d_cm": 11.696784588766999,
+      "median_direction_cosine_3d": 0.8557331592249119,
+      "median_projection_ratio_3d": 0.6698133578257339
+    },
+    {
+      "label": "158 km/h",
+      "n": 660,
+      "caught": 379,
+      "catch_rate": 0.5742424242424242,
+      "catch_rate_ci95": [
+        0.5361967658006471,
+        0.6114288437448846
+      ],
+      "mean_control_error_3d_cm": 17.15458112417968,
+      "mean_mitt_movement_3d_cm": 17.393469502042628,
+      "median_mitt_movement_3d_cm": 15.805327768282194,
+      "mean_residual_error_3d_cm": 13.83216626473837,
+      "median_residual_error_3d_cm": 12.27314138010818,
+      "median_direction_cosine_3d": 0.8396198697138261,
+      "median_projection_ratio_3d": 0.670773910341417
+    }
+  ],
+  "by_course": [
+    {
+      "label": "High Center",
+      "n": 209,
+      "caught": 131,
+      "catch_rate": 0.6267942583732058,
+      "catch_rate_ci95": [
+        0.559488983111719,
+        0.6895226535010955
+      ],
+      "mean_control_error_3d_cm": 16.663870329501854,
+      "mean_mitt_movement_3d_cm": 16.23421271854078,
+      "median_mitt_movement_3d_cm": 13.820998516749734,
+      "mean_residual_error_3d_cm": 13.936160246640407,
+      "median_residual_error_3d_cm": 11.82032148462978,
+      "median_direction_cosine_3d": 0.8542189444446923,
+      "median_projection_ratio_3d": 0.618183573014188
+    },
+    {
+      "label": "High Center Ball",
+      "n": 20,
+      "caught": 12,
+      "catch_rate": 0.6,
+      "catch_rate_ci95": [
+        0.3865815007622531,
+        0.781193467627183
+      ],
+      "mean_control_error_3d_cm": 14.071939024338992,
+      "mean_mitt_movement_3d_cm": 20.533375833489597,
+      "median_mitt_movement_3d_cm": 19.900147207091308,
+      "mean_residual_error_3d_cm": 13.161801635493088,
+      "median_residual_error_3d_cm": 13.086973771664047,
+      "median_direction_cosine_3d": 0.815635999112829,
+      "median_projection_ratio_3d": 0.7542816159901113
+    },
+    {
+      "label": "High Inside",
+      "n": 217,
+      "caught": 118,
+      "catch_rate": 0.543778801843318,
+      "catch_rate_ci95": [
+        0.47732175317842274,
+        0.6087128170578956
+      ],
+      "mean_control_error_3d_cm": 17.102335178532826,
+      "mean_mitt_movement_3d_cm": 14.784126454351838,
+      "median_mitt_movement_3d_cm": 13.487030807409008,
+      "mean_residual_error_3d_cm": 13.540839023168235,
+      "median_residual_error_3d_cm": 12.44748970676413,
+      "median_direction_cosine_3d": 0.7961316163303447,
+      "median_projection_ratio_3d": 0.5559980633775287
+    },
+    {
+      "label": "High Inside Center Ball",
+      "n": 9,
+      "caught": 4,
+      "catch_rate": 0.4444444444444444,
+      "catch_rate_ci95": [
+        0.18877852109766452,
+        0.733348706504507
+      ],
+      "mean_control_error_3d_cm": 16.880292630819397,
+      "mean_mitt_movement_3d_cm": 24.484143455421364,
+      "median_mitt_movement_3d_cm": 16.393291310777006,
+      "mean_residual_error_3d_cm": 11.303941951672714,
+      "median_residual_error_3d_cm": 11.202231920470197,
+      "median_direction_cosine_3d": 0.9732609938668926,
+      "median_projection_ratio_3d": 0.7967941488089126
+    },
+    {
+      "label": "High Outside",
+      "n": 193,
+      "caught": 131,
+      "catch_rate": 0.6787564766839378,
+      "catch_rate_ci95": [
+        0.6099422471963564,
+        0.7405936633449953
+      ],
+      "mean_control_error_3d_cm": 16.602559684124902,
+      "mean_mitt_movement_3d_cm": 19.335193050622586,
+      "median_mitt_movement_3d_cm": 15.025644744901966,
+      "mean_residual_error_3d_cm": 13.85302224981638,
+      "median_residual_error_3d_cm": 11.032225523438141,
+      "median_direction_cosine_3d": 0.8903788927086665,
+      "median_projection_ratio_3d": 0.6747906351732902
+    },
+    {
+      "label": "High Outside Ball",
+      "n": 2,
+      "caught": 1,
+      "catch_rate": 0.5,
+      "catch_rate_ci95": [
+        0.09453120573423074,
+        0.9054687942657693
+      ],
+      "mean_control_error_3d_cm": 11.371027926129564,
+      "mean_mitt_movement_3d_cm": 7.908047419682957,
+      "median_mitt_movement_3d_cm": 7.908047419682957,
+      "mean_residual_error_3d_cm": 10.99762749340692,
+      "median_residual_error_3d_cm": 10.99762749340692,
+      "median_direction_cosine_3d": -0.0007653193890414522,
+      "median_projection_ratio_3d": 0.9541495151227304
+    },
+    {
+      "label": "High Outside Center Ball",
+      "n": 8,
+      "caught": 6,
+      "catch_rate": 0.75,
+      "catch_rate_ci95": [
+        0.40927543031016883,
+        0.9285207872478909
+      ],
+      "mean_control_error_3d_cm": 16.01298675788912,
+      "mean_mitt_movement_3d_cm": 18.526787806856657,
+      "median_mitt_movement_3d_cm": 12.743493099995995,
+      "mean_residual_error_3d_cm": 13.507784142822302,
+      "median_residual_error_3d_cm": 13.226539681976938,
+      "median_direction_cosine_3d": 0.8135393920904761,
+      "median_projection_ratio_3d": 0.4479910906231116
+    },
+    {
+      "label": "Low Center",
+      "n": 215,
+      "caught": 128,
+      "catch_rate": 0.5953488372093023,
+      "catch_rate_ci95": [
+        0.528624230716056,
+        0.6587260100515901
+      ],
+      "mean_control_error_3d_cm": 17.120688766389343,
+      "mean_mitt_movement_3d_cm": 16.240724460019837,
+      "median_mitt_movement_3d_cm": 15.389931773727906,
+      "mean_residual_error_3d_cm": 11.945021459077186,
+      "median_residual_error_3d_cm": 11.251222155837102,
+      "median_direction_cosine_3d": 0.8761442031435991,
+      "median_projection_ratio_3d": 0.7077878795958058
+    },
+    {
+      "label": "Low Center Ball",
+      "n": 5,
+      "caught": 3,
+      "catch_rate": 0.6,
+      "catch_rate_ci95": [
+        0.2307242812760128,
+        0.882379225767352
+      ],
+      "mean_control_error_3d_cm": 14.13356116532612,
+      "mean_mitt_movement_3d_cm": 17.62516088657946,
+      "median_mitt_movement_3d_cm": 17.00999706055232,
+      "mean_residual_error_3d_cm": 16.80523364547128,
+      "median_residual_error_3d_cm": 16.482111515215536,
+      "median_direction_cosine_3d": 0.8394836578227882,
+      "median_projection_ratio_3d": 0.5173423450176389
+    },
+    {
+      "label": "Low Inside",
+      "n": 193,
+      "caught": 105,
+      "catch_rate": 0.5440414507772021,
+      "catch_rate_ci95": [
+        0.47359920599709066,
+        0.6127647139913586
+      ],
+      "mean_control_error_3d_cm": 18.11444074851598,
+      "mean_mitt_movement_3d_cm": 16.811217368920772,
+      "median_mitt_movement_3d_cm": 16.24561479292188,
+      "mean_residual_error_3d_cm": 13.426169788783762,
+      "median_residual_error_3d_cm": 12.66254318847506,
+      "median_direction_cosine_3d": 0.8320281381047006,
+      "median_projection_ratio_3d": 0.6813375508359695
+    },
+    {
+      "label": "Low Inside Ball",
+      "n": 2,
+      "caught": 1,
+      "catch_rate": 0.5,
+      "catch_rate_ci95": [
+        0.09453120573423074,
+        0.9054687942657693
+      ],
+      "mean_control_error_3d_cm": 9.6353073218567,
+      "mean_mitt_movement_3d_cm": 9.066715517551062,
+      "median_mitt_movement_3d_cm": 9.066715517551062,
+      "mean_residual_error_3d_cm": 10.503115102813641,
+      "median_residual_error_3d_cm": 10.503115102813641,
+      "median_direction_cosine_3d": 0.8026118231549698,
+      "median_projection_ratio_3d": 0.6263686463928566
+    },
+    {
+      "label": "Low Inside Center Ball",
+      "n": 6,
+      "caught": 3,
+      "catch_rate": 0.5,
+      "catch_rate_ci95": [
+        0.1876163064826506,
+        0.8123836935173494
+      ],
+      "mean_control_error_3d_cm": 15.646882352635288,
+      "mean_mitt_movement_3d_cm": 24.360807531484344,
+      "median_mitt_movement_3d_cm": 24.07798384124106,
+      "mean_residual_error_3d_cm": 18.84220995397851,
+      "median_residual_error_3d_cm": 17.925531242197806,
+      "median_direction_cosine_3d": 0.8722514547074136,
+      "median_projection_ratio_3d": 0.5657112938317446
+    },
+    {
+      "label": "Low Outside",
+      "n": 187,
+      "caught": 126,
+      "catch_rate": 0.6737967914438503,
+      "catch_rate_ci95": [
+        0.6036913813439719,
+        0.736905470103653
+      ],
+      "mean_control_error_3d_cm": 16.905558011575533,
+      "mean_mitt_movement_3d_cm": 18.067992078786386,
+      "median_mitt_movement_3d_cm": 17.188949938841567,
+      "mean_residual_error_3d_cm": 12.72323369919634,
+      "median_residual_error_3d_cm": 11.137324633860736,
+      "median_direction_cosine_3d": 0.87717720616045,
+      "median_projection_ratio_3d": 0.7387307087560456
+    },
+    {
+      "label": "Low Outside Center Ball",
+      "n": 4,
+      "caught": 2,
+      "catch_rate": 0.5,
+      "catch_rate_ci95": [
+        0.15003898915214947,
+        0.8499610108478506
+      ],
+      "mean_control_error_3d_cm": 16.18889454212214,
+      "mean_mitt_movement_3d_cm": 23.87933332124576,
+      "median_mitt_movement_3d_cm": 21.090971236202538,
+      "mean_residual_error_3d_cm": 9.187194251955205,
+      "median_residual_error_3d_cm": 10.386861426430656,
+      "median_direction_cosine_3d": 0.9549885477893789,
+      "median_projection_ratio_3d": 0.9492046656298385
+    },
+    {
+      "label": "Mid Center",
+      "n": 202,
+      "caught": 144,
+      "catch_rate": 0.7128712871287128,
+      "catch_rate_ci95": [
+        0.646965818476038,
+        0.7708314537193243
+      ],
+      "mean_control_error_3d_cm": 16.54078303420165,
+      "mean_mitt_movement_3d_cm": 17.256384654236626,
+      "median_mitt_movement_3d_cm": 17.292048368297877,
+      "mean_residual_error_3d_cm": 12.139172387429957,
+      "median_residual_error_3d_cm": 10.874112201200914,
+      "median_direction_cosine_3d": 0.8725985750683294,
+      "median_projection_ratio_3d": 0.7408452896043747
+    },
+    {
+      "label": "Mid Inside",
+      "n": 208,
+      "caught": 124,
+      "catch_rate": 0.5961538461538461,
+      "catch_rate_ci95": [
+        0.5283133511119047,
+        0.6605071008556991
+      ],
+      "mean_control_error_3d_cm": 16.718210207477913,
+      "mean_mitt_movement_3d_cm": 16.6906304314859,
+      "median_mitt_movement_3d_cm": 15.320534604314563,
+      "mean_residual_error_3d_cm": 11.875164683635145,
+      "median_residual_error_3d_cm": 10.491859290430533,
+      "median_direction_cosine_3d": 0.8596237976151739,
+      "median_projection_ratio_3d": 0.6809215132036783
+    },
+    {
+      "label": "Mid Inside Ball",
+      "n": 5,
+      "caught": 3,
+      "catch_rate": 0.6,
+      "catch_rate_ci95": [
+        0.2307242812760128,
+        0.882379225767352
+      ],
+      "mean_control_error_3d_cm": 16.21417745898108,
+      "mean_mitt_movement_3d_cm": 19.445606247617597,
+      "median_mitt_movement_3d_cm": 18.9470314297517,
+      "mean_residual_error_3d_cm": 13.729274019357263,
+      "median_residual_error_3d_cm": 13.774251340817083,
+      "median_direction_cosine_3d": 0.7198332061859071,
+      "median_projection_ratio_3d": 0.7691622670313554
+    },
+    {
+      "label": "Mid Outside",
+      "n": 198,
+      "caught": 132,
+      "catch_rate": 0.6666666666666666,
+      "catch_rate_ci95": [
+        0.5983839171982037,
+        0.7286053960262469
+      ],
+      "mean_control_error_3d_cm": 17.083858684321267,
+      "mean_mitt_movement_3d_cm": 19.092431108165943,
+      "median_mitt_movement_3d_cm": 17.235423235148005,
+      "mean_residual_error_3d_cm": 12.499878120368056,
+      "median_residual_error_3d_cm": 11.019269276785383,
+      "median_direction_cosine_3d": 0.8722629476102213,
+      "median_projection_ratio_3d": 0.7636696361904427
+    },
+    {
+      "label": "Mid Outside Ball",
+      "n": 18,
+      "caught": 16,
+      "catch_rate": 0.8888888888888888,
+      "catch_rate_ci95": [
+        0.672002348698212,
+        0.9689804773543876
+      ],
+      "mean_control_error_3d_cm": 17.068813574915836,
+      "mean_mitt_movement_3d_cm": 15.089643656973275,
+      "median_mitt_movement_3d_cm": 14.597770183041845,
+      "mean_residual_error_3d_cm": 9.501671557347102,
+      "median_residual_error_3d_cm": 8.174057882800614,
+      "median_direction_cosine_3d": 0.8833725393444063,
+      "median_projection_ratio_3d": 0.7806543607141521
+    },
+    {
+      "label": "Mid-High Inside Ball",
+      "n": 9,
+      "caught": 7,
+      "catch_rate": 0.7777777777777778,
+      "catch_rate_ci95": [
+        0.45258896910698887,
+        0.9367748928821533
+      ],
+      "mean_control_error_3d_cm": 17.048999421594274,
+      "mean_mitt_movement_3d_cm": 14.262605056223443,
+      "median_mitt_movement_3d_cm": 13.676256797823013,
+      "mean_residual_error_3d_cm": 13.510385290870978,
+      "median_residual_error_3d_cm": 12.01707119060216,
+      "median_direction_cosine_3d": 0.789775249036239,
+      "median_projection_ratio_3d": 0.5663614234380417
+    },
+    {
+      "label": "Mid-High Outside Ball",
+      "n": 17,
+      "caught": 12,
+      "catch_rate": 0.7058823529411765,
+      "catch_rate_ci95": [
+        0.4686688993346016,
+        0.8672001038970478
+      ],
+      "mean_control_error_3d_cm": 17.295657453550227,
+      "mean_mitt_movement_3d_cm": 13.46314569129278,
+      "median_mitt_movement_3d_cm": 9.611451503284997,
+      "mean_residual_error_3d_cm": 11.619032199646812,
+      "median_residual_error_3d_cm": 10.883933112620639,
+      "median_direction_cosine_3d": 0.7600533755001636,
+      "median_projection_ratio_3d": 0.3266435986159029
+    },
+    {
+      "label": "Mid-Low Inside Ball",
+      "n": 7,
+      "caught": 5,
+      "catch_rate": 0.7142857142857143,
+      "catch_rate_ci95": [
+        0.35893445183261935,
+        0.9177810759959433
+      ],
+      "mean_control_error_3d_cm": 12.473002741759677,
+      "mean_mitt_movement_3d_cm": 11.50018573730476,
+      "median_mitt_movement_3d_cm": 12.633289357882997,
+      "mean_residual_error_3d_cm": 12.25466918211276,
+      "median_residual_error_3d_cm": 11.681609478149824,
+      "median_direction_cosine_3d": 0.9765671118949313,
+      "median_projection_ratio_3d": 0.4718279020545199
+    },
+    {
+      "label": "Mid-Low Outside Ball",
+      "n": 14,
+      "caught": 9,
+      "catch_rate": 0.6428571428571429,
+      "catch_rate_ci95": [
+        0.38764423103907397,
+        0.8365526824644587
+      ],
+      "mean_control_error_3d_cm": 13.795834925767739,
+      "mean_mitt_movement_3d_cm": 16.486429386423477,
+      "median_mitt_movement_3d_cm": 16.5883238932943,
+      "mean_residual_error_3d_cm": 13.631570929227868,
+      "median_residual_error_3d_cm": 14.469920387487583,
+      "median_direction_cosine_3d": 0.7170053668437859,
+      "median_projection_ratio_3d": 0.5640441881970584
+    }
+  ],
+  "catch_outcomes": {
+    "missed": 368,
+    "passed_ball": 357,
+    "caught": 1223
+  },
+  "direction_bins": [
+    {
+      "label": "-1–0",
+      "n": 168,
+      "caught": 60,
+      "catch_rate": 0.35714285714285715,
+      "catch_rate_ci95": [
+        0.28862412309215557,
+        0.4320486392935211
+      ],
+      "mean_control_error_3d_cm": 13.81121190042451,
+      "mean_mitt_movement_3d_cm": 12.413751658765719,
+      "median_mitt_movement_3d_cm": 7.327844898215222,
+      "mean_residual_error_3d_cm": 25.277436716951588,
+      "median_residual_error_3d_cm": 19.276971738196025,
+      "median_direction_cosine_3d": -0.46238730628759184,
+      "median_projection_ratio_3d": -0.2262293692210094
+    },
+    {
+      "label": "0–0.5",
+      "n": 179,
+      "caught": 90,
+      "catch_rate": 0.5027932960893855,
+      "catch_rate_ci95": [
+        0.4302619629217492,
+        0.5752072561845185
+      ],
+      "mean_control_error_3d_cm": 14.210262294332479,
+      "mean_mitt_movement_3d_cm": 11.019033799253176,
+      "median_mitt_movement_3d_cm": 9.816312953446394,
+      "mean_residual_error_3d_cm": 16.554312766569655,
+      "median_residual_error_3d_cm": 15.180250327316758,
+      "median_direction_cosine_3d": 0.30634356049014133,
+      "median_projection_ratio_3d": 0.20447770399457055
+    },
+    {
+      "label": "0.5–0.8",
+      "n": 429,
+      "caught": 238,
+      "catch_rate": 0.5547785547785548,
+      "catch_rate_ci95": [
+        0.5074698587605132,
+        0.6011149337592575
+      ],
+      "mean_control_error_3d_cm": 16.083420707218366,
+      "mean_mitt_movement_3d_cm": 14.176801947343039,
+      "median_mitt_movement_3d_cm": 13.562448156582885,
+      "mean_residual_error_3d_cm": 14.189155915908774,
+      "median_residual_error_3d_cm": 14.047419691886388,
+      "median_direction_cosine_3d": 0.6964420783523337,
+      "median_projection_ratio_3d": 0.5526975893882042
+    },
+    {
+      "label": "0.8–0.9",
+      "n": 370,
+      "caught": 256,
+      "catch_rate": 0.6918918918918919,
+      "catch_rate_ci95": [
+        0.6430754172071075,
+        0.7367647440418555
+      ],
+      "mean_control_error_3d_cm": 17.154071547008638,
+      "mean_mitt_movement_3d_cm": 17.053265384139085,
+      "median_mitt_movement_3d_cm": 16.676600017092376,
+      "mean_residual_error_3d_cm": 11.885866565019507,
+      "median_residual_error_3d_cm": 11.994165132243316,
+      "median_direction_cosine_3d": 0.8562027682185414,
+      "median_projection_ratio_3d": 0.7672828068024515
+    },
+    {
+      "label": "0.9–0.95",
+      "n": 276,
+      "caught": 198,
+      "catch_rate": 0.717391304347826,
+      "catch_rate_ci95": [
+        0.6615678707210848,
+        0.7672463604000046
+      ],
+      "mean_control_error_3d_cm": 18.449814297812118,
+      "mean_mitt_movement_3d_cm": 19.133484510300516,
+      "median_mitt_movement_3d_cm": 18.510936418622812,
+      "mean_residual_error_3d_cm": 10.804654893584216,
+      "median_residual_error_3d_cm": 10.042905859871162,
+      "median_direction_cosine_3d": 0.9265124885042137,
+      "median_projection_ratio_3d": 0.8028198523302881
+    },
+    {
+      "label": "0.95–1",
+      "n": 526,
+      "caught": 381,
+      "catch_rate": 0.7243346007604563,
+      "catch_rate_ci95": [
+        0.6846250277342056,
+        0.7607912304145659
+      ],
+      "mean_control_error_3d_cm": 18.410651864634552,
+      "mean_mitt_movement_3d_cm": 22.121001455273966,
+      "median_mitt_movement_3d_cm": 19.448383174926846,
+      "mean_residual_error_3d_cm": 8.305889516131172,
+      "median_residual_error_3d_cm": 7.585182917462865,
+      "median_direction_cosine_3d": 0.9795605436823458,
+      "median_projection_ratio_3d": 0.8426061739137196
+    }
+  ],
+  "metric_validation": {
+    "direction_cosine_3d": {
+      "caught_median": 0.889102784372269,
+      "failed_median": 0.7791164263950389,
+      "auc": 0.6289361942087011
+    },
+    "projection_ratio_3d": {
+      "caught_median": 0.7442040784678595,
+      "failed_median": 0.5393043911347218,
+      "auc": 0.6306955761693969
+    },
+    "residual_error_3d_cm": {
+      "caught_median": 10.323274674249449,
+      "failed_median": 14.475496537252134,
+      "auc": 0.6956912059097189
+    },
+    "magnitude_correlation": 0.6009526085389982
+  },
+  "leave_one_player_out": [
+    {
+      "excluded_player": "Player 1",
+      "n": 1622,
+      "direction_cosine_auc": 0.6448535281453349,
+      "residual_error_auc": 0.7095341767660885
+    },
+    {
+      "excluded_player": "Player 2",
+      "n": 1624,
+      "direction_cosine_auc": 0.6061563861655773,
+      "residual_error_auc": 0.6662105119825708
+    },
+    {
+      "excluded_player": "Player 3",
+      "n": 1604,
+      "direction_cosine_auc": 0.6204805362662853,
+      "residual_error_auc": 0.6929803437831215
+    },
+    {
+      "excluded_player": "Player 5",
+      "n": 1657,
+      "direction_cosine_auc": 0.6140544055034711,
+      "residual_error_auc": 0.6809833919095858
+    },
+    {
+      "excluded_player": "Player 6",
+      "n": 1595,
+      "direction_cosine_auc": 0.6506008763783698,
+      "residual_error_auc": 0.7345464363593839
+    },
+    {
+      "excluded_player": "Player 7",
+      "n": 1638,
+      "direction_cosine_auc": 0.6325850340136054,
+      "residual_error_auc": 0.6883138969873663
+    }
+  ],
+  "learning_terciles": [
+    {
+      "label": "1/3",
+      "n": 655,
+      "caught": 365,
+      "catch_rate": 0.5572519083969466,
+      "catch_rate_ci95": [
+        0.5189884659810586,
+        0.5948477217631791
+      ],
+      "mean_control_error_3d_cm": 17.128694716392708,
+      "mean_mitt_movement_3d_cm": 15.972653540255576,
+      "median_mitt_movement_3d_cm": 15.006998367428443,
+      "mean_residual_error_3d_cm": 12.817748619626807,
+      "median_residual_error_3d_cm": 11.86128154964706,
+      "median_direction_cosine_3d": 0.8325910470734197,
+      "median_projection_ratio_3d": 0.6436588936748073
+    },
+    {
+      "label": "2/3",
+      "n": 648,
+      "caught": 427,
+      "catch_rate": 0.6589506172839507,
+      "catch_rate_ci95": [
+        0.6216093059361274,
+        0.6944184600373555
+      ],
+      "mean_control_error_3d_cm": 16.648841714767826,
+      "mean_mitt_movement_3d_cm": 16.940675550866583,
+      "median_mitt_movement_3d_cm": 15.733244875707797,
+      "mean_residual_error_3d_cm": 12.798175338594179,
+      "median_residual_error_3d_cm": 11.550756382918403,
+      "median_direction_cosine_3d": 0.858463110073309,
+      "median_projection_ratio_3d": 0.6995817503947446
+    },
+    {
+      "label": "3/3",
+      "n": 645,
+      "caught": 431,
+      "catch_rate": 0.6682170542635659,
+      "catch_rate_ci95": [
+        0.6309777522788155,
+        0.7034645017571856
+      ],
+      "mean_control_error_3d_cm": 16.866855290440036,
+      "mean_mitt_movement_3d_cm": 18.490412745377782,
+      "median_mitt_movement_3d_cm": 16.34655927099022,
+      "mean_residual_error_3d_cm": 12.956417893791588,
+      "median_residual_error_3d_cm": 11.1018016555873,
+      "median_direction_cosine_3d": 0.8767248377164452,
+      "median_projection_ratio_3d": 0.7211804551650096
+    }
+  ],
+  "phase3_diversity": {
+    "n": 65,
+    "participants": [
+      {
+        "player_id": "1",
+        "player": "Player 1",
+        "n": 10,
+        "unique_pitch_types": 8,
+        "pitch_entropy_bits": 2.9219280948873623,
+        "normalized_pitch_entropy": 0.9739760316291207,
+        "unique_courses": 5,
+        "course_entropy_bits": 1.9609640474436814,
+        "same_pitch_repeat_rate": 0.1111111111111111
+      },
+      {
+        "player_id": "2",
+        "player": "Player 2",
+        "n": 9,
+        "unique_pitch_types": 8,
+        "pitch_entropy_bits": 2.94770277922009,
+        "normalized_pitch_entropy": 0.9825675930733633,
+        "unique_courses": 7,
+        "course_entropy_bits": 2.725480556997868,
+        "same_pitch_repeat_rate": 0.0
+      },
+      {
+        "player_id": "3",
+        "player": "Player 3",
+        "n": 12,
+        "unique_pitch_types": 8,
+        "pitch_entropy_bits": 2.8553885422075336,
+        "normalized_pitch_entropy": 0.9517961807358445,
+        "unique_courses": 8,
+        "course_entropy_bits": 2.751629167387823,
+        "same_pitch_repeat_rate": 0.09090909090909091
+      },
+      {
+        "player_id": "5",
+        "player": "Player 5",
+        "n": 10,
+        "unique_pitch_types": 7,
+        "pitch_entropy_bits": 2.6464393446710153,
+        "normalized_pitch_entropy": 0.9426807148172599,
+        "unique_courses": 7,
+        "course_entropy_bits": 2.721928094887362,
+        "same_pitch_repeat_rate": 0.2222222222222222
+      },
+      {
+        "player_id": "6",
+        "player": "Player 6",
+        "n": 11,
+        "unique_pitch_types": 9,
+        "pitch_entropy_bits": 3.0957952550009344,
+        "normalized_pitch_entropy": 0.9766146686727135,
+        "unique_courses": 4,
+        "course_entropy_bits": 1.9362600275315274,
+        "same_pitch_repeat_rate": 0.1
+      },
+      {
+        "player_id": "7",
+        "player": "Player 7",
+        "n": 13,
+        "unique_pitch_types": 3,
+        "pitch_entropy_bits": 0.7732283485249176,
+        "normalized_pitch_entropy": 0.4878527713892913,
+        "unique_courses": 4,
+        "course_entropy_bits": 1.6143308351592656,
+        "same_pitch_repeat_rate": 0.75
+      }
+    ],
+    "unique_pitch_types": 21,
+    "pitch_catalog": [
+      {
+        "pitch_type": "Straight",
+        "n": 22
+      },
+      {
+        "pitch_type": "Splitter",
+        "n": 6
+      },
+      {
+        "pitch_type": "Slider",
+        "n": 5
+      },
+      {
+        "pitch_type": "Sweeper",
+        "n": 5
+      },
+      {
+        "pitch_type": "VSlider",
+        "n": 3
+      },
+      {
+        "pitch_type": "Curve",
+        "n": 3
+      },
+      {
+        "pitch_type": "Changeup",
+        "n": 2
+      },
+      {
+        "pitch_type": "SinkingFast",
+        "n": 2
+      },
+      {
+        "pitch_type": "Fork",
+        "n": 2
+      },
+      {
+        "pitch_type": "Shoot",
+        "n": 2
+      },
+      {
+        "pitch_type": "Sinker",
+        "n": 2
+      },
+      {
+        "pitch_type": "Eephus",
+        "n": 2
+      },
+      {
+        "pitch_type": "TwoSeamGyro",
+        "n": 1
+      },
+      {
+        "pitch_type": "KnuckleCurve",
+        "n": 1
+      },
+      {
+        "pitch_type": "PalmChange",
+        "n": 1
+      },
+      {
+        "pitch_type": "TwoSeam",
+        "n": 1
+      },
+      {
+        "pitch_type": "Slatter",
+        "n": 1
+      },
+      {
+        "pitch_type": "Drop",
+        "n": 1
+      },
+      {
+        "pitch_type": "Splinker",
+        "n": 1
+      },
+      {
+        "pitch_type": "DCurve",
+        "n": 1
+      },
+      {
+        "pitch_type": "FourseamGyro",
+        "n": 1
+      }
+    ],
+    "implemented_unique_pitch_types": 34,
+    "implemented_pitch_catalog": [
+      {
+        "pitch_type": "Straight",
+        "n": 45
+      },
+      {
+        "pitch_type": "Curve",
+        "n": 18
+      },
+      {
+        "pitch_type": "Splitter",
+        "n": 17
+      },
+      {
+        "pitch_type": "Slider",
+        "n": 14
+      },
+      {
+        "pitch_type": "Sweeper",
+        "n": 13
+      },
+      {
+        "pitch_type": "Eephus",
+        "n": 12
+      },
+      {
+        "pitch_type": "SinkingFast",
+        "n": 12
+      },
+      {
+        "pitch_type": "Shoot",
+        "n": 11
+      },
+      {
+        "pitch_type": "SlidePalm",
+        "n": 11
+      },
+      {
+        "pitch_type": "Slatter",
+        "n": 10
+      },
+      {
+        "pitch_type": "Fork",
+        "n": 10
+      },
+      {
+        "pitch_type": "Sinker",
+        "n": 10
+      },
+      {
+        "pitch_type": "DCurve",
+        "n": 8
+      },
+      {
+        "pitch_type": "Changeup",
+        "n": 8
+      },
+      {
+        "pitch_type": "Drop",
+        "n": 8
+      },
+      {
+        "pitch_type": "Knuckle",
+        "n": 7
+      },
+      {
+        "pitch_type": "Palm",
+        "n": 7
+      },
+      {
+        "pitch_type": "CircleChange",
+        "n": 7
+      },
+      {
+        "pitch_type": "VSlider",
+        "n": 7
+      },
+      {
+        "pitch_type": "KnuckleCurve",
+        "n": 7
+      },
+      {
+        "pitch_type": "Splinker",
+        "n": 7
+      },
+      {
+        "pitch_type": "TwoSeam",
+        "n": 5
+      },
+      {
+        "pitch_type": "OneSeamGyro",
+        "n": 5
+      },
+      {
+        "pitch_type": "Screw",
+        "n": 5
+      },
+      {
+        "pitch_type": "ZeroSeamGyro",
+        "n": 5
+      },
+      {
+        "pitch_type": "SpikeCurve",
+        "n": 5
+      },
+      {
+        "pitch_type": "ZeroSeam",
+        "n": 4
+      },
+      {
+        "pitch_type": "Cutter",
+        "n": 4
+      },
+      {
+        "pitch_type": "PalmChange",
+        "n": 4
+      },
+      {
+        "pitch_type": "TwoSeamGyro",
+        "n": 3
+      },
+      {
+        "pitch_type": "VulcanChange",
+        "n": 3
+      },
+      {
+        "pitch_type": "OneSeam",
+        "n": 2
+      },
+      {
+        "pitch_type": "FourseamGyro",
+        "n": 2
+      },
+      {
+        "pitch_type": "Slurb",
+        "n": 1
+      }
+    ],
+    "unique_courses": 15
+  },
+  "definitions": {
+    "control_error": "投球到達位置 − 投球目標位置",
+    "mitt_movement": "捕球時ミット位置 − 構え位置",
+    "residual_error": "捕球時ミット位置 − 投球到達位置",
+    "required_movement": "投球到達位置 − 構え位置",
+    "direction_cosine": "実移動ベクトルと必要移動ベクトルの正規化内積（−1〜1）",
+    "projection_ratio": "必要移動方向への射影距離 ÷ 必要移動距離"
+  }
+}

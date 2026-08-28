@@ -373,7 +373,8 @@ function renderChart() {
         const playerData = logData.filter(d =>
             String(d.player) === String(playerName) &&
             selectedSpeeds.includes(String(d.speed)) &&
-            selectedCourses.includes(String(d.course))
+            selectedCourses.includes(String(d.course)) &&
+            d.analysis_eligible !== false
         );
 
         if (playerData.length === 0) return;
@@ -382,9 +383,9 @@ function renderChart() {
         const pointsForCourse = [];
 
         playerData.forEach(d => {
-            const diffX = clip((d.mitt_x - d.target_x) * 100);
-            const diffY = clip((d.mitt_y - d.target_y) * 100);
-            const diffZ = clip((d.mitt_z - d.target_z) * 100);
+            const diffX = clip(d.residual_x_cm ?? (d.mitt_x - d.impact_x) * 100);
+            const diffY = clip(d.residual_y_cm ?? (d.mitt_y - d.impact_y) * 100);
+            const diffZ = clip(d.residual_z_cm ?? (d.mitt_z - d.impact_z) * 100);
 
             const category = categorizeCatch(d.catch_result);
 
@@ -470,7 +471,7 @@ function renderChart() {
     drawChart(
         'errorChartXY',
         datasetsXY,
-        'X軸方向の捕球誤差 [cm]（左 − / 右 +）',
+        'X軸方向の残差誤差 [cm]（左 − / 右 +）',
         chartXY,
         (c) => chartXY = c
     );
@@ -478,7 +479,7 @@ function renderChart() {
     drawChart(
         'errorChartZY',
         datasetsZY,
-        'Z軸方向の捕球誤差 [cm]（後方 − / 前方 +）',
+        'Z軸方向の残差誤差 [cm]（後方 − / 前方 +）',
         chartZY,
         (c) => chartZY = c
     );
@@ -486,7 +487,7 @@ function renderChart() {
     drawChart(
         'errorChartCourseXY',
         datasetsCourseXY,
-        'X軸方向の捕球誤差 [cm]（左 − / 右 +）',
+        'X軸方向の残差誤差 [cm]（左 − / 右 +）',
         chartCourseXY,
         (c) => chartCourseXY = c
     );
@@ -494,7 +495,7 @@ function renderChart() {
     drawChart(
         'errorChartCourseZY',
         datasetsCourseZY,
-        'Z軸方向の捕球誤差 [cm]（後方 − / 前方 +）',
+        'Z軸方向の残差誤差 [cm]（後方 − / 前方 +）',
         chartCourseZY,
         (c) => chartCourseZY = c
     );
@@ -532,7 +533,7 @@ function drawChart(canvasId, datasets, xLabel, chartInstance, setChartInstance) 
                 y: {
                     title: {
                         display: true,
-                        text: 'Y軸方向の捕球誤差 [cm]（下 − / 上 +）'
+                        text: 'Y軸方向の残差誤差 [cm]（下 − / 上 +）'
                     },
                     min: -40,
                     max: 40,
@@ -584,15 +585,16 @@ function renderCorrectionChart(selectedPlayers, selectedSpeeds, selectedCourses)
             const filtered = logData.filter(d =>
                 String(d.player) === String(player) &&
                 String(d.speed) === String(speed) &&
-                targetCourses.includes(String(d.course))
+                targetCourses.includes(String(d.course)) &&
+                d.analysis_eligible !== false
             );
 
             const meanVal = getMean(filtered.map(d => {
                 if (d.correction_2d_cm !== undefined) {
                     return d.correction_2d_cm;
                 } else {
-                    const diffX = (d.mitt_x - d.target_x) * 100;
-                    const diffY = (d.mitt_y - d.target_y) * 100;
+                    const diffX = (d.mitt_x - d.mitt_start_x) * 100;
+                    const diffY = (d.mitt_y - d.mitt_start_y) * 100;
                     return Math.sqrt(diffX * diffX + diffY * diffY);
                 }
             }));
@@ -669,7 +671,8 @@ function renderCorrelationChart(selectedPlayers, selectedSpeeds, selectedCourses
         const filtered = logData.filter(d =>
             String(d.player) === String(player) &&
             selectedSpeeds.includes(String(d.speed)) &&
-            selectedCourses.includes(String(d.course))
+            selectedCourses.includes(String(d.course)) &&
+            d.analysis_eligible !== false
         );
         
         const points = [];
@@ -712,6 +715,8 @@ function renderCorrelationChart(selectedPlayers, selectedSpeeds, selectedCourses
     });
 
     const stats = calculateCorrelation(allPoints);
+    const status4 = document.getElementById('filterStatus4');
+    if (status4) status4.textContent += ` ｜ 解析対象 n = ${allPoints.length}`;
 
     if (allPoints.length > 1 && stats.maxX > stats.minX) {
         // 回帰直線を描画（X軸の最大・最小に合わせて引く）

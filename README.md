@@ -1,6 +1,6 @@
 # CatcherX Research Data
 
-「CatcherX: 捕手の認知-運動過程の循環に着目したVRシミュレータ」の研究データ公開・分析サイトです．EC2026公開版論文，主要な集計結果，プレイログ可視化，第3フェーズの配球分析，二元配置分散分析，NASA-TLX／SUS回答収集を一つのサイトにまとめています．
+「CatcherX: 捕手の認知-運動過程の循環に着目したVRシミュレータ」の研究データ公開・分析サイトです．EC2026公開版論文，主要な集計結果，プレイログ可視化，第3フェーズの配球分析，二元配置分散分析，捕球方向一致度・データ品質の追加分析，NASA-TLX／SUS回答収集を一つのサイトにまとめています．
 
 本サイトはHTML，CSS，JavaScriptを中心とした静的サイトです．標準尺度の認証と回答保存に限り，Google Apps Scriptと非公開Googleスプレッドシートを使用します．
 
@@ -9,10 +9,14 @@
 - EC2026公開版論文（IPSJ-EC2026006）のブラウザ内閲覧
 - 予稿に掲載した制球誤差，ミット補正量，誤差低減率の公開
 - プレイヤ，球速，投球コースによるプレイログの絞り込み
-- 捕球誤差，平均ミット補正量，制球誤差との相関の可視化
-- プレイヤと球速を要因とする二元配置分散分析
+- 球到達位置に対する残差誤差，平均ミット移動量，制球誤差との相関の可視化
+- プレイヤと球速を要因とする二元配置分散分析と偏η²
 - 第3フェーズにおける参加者別の配球順序，球種，コース，球速，打者反応，捕球結果の閲覧
 - 打者反応後の球種変更・コース変更に関する正確確率検定
+- 3次元移動ベクトルの正規化内積による捕球方向一致度，到達率，残差誤差の比較
+- 参加者・球速別の捕球成功率とWilson法による95%信頼区間
+- セッション内3区間の探索的推移，第3フェーズの配球エントロピー，全34球種の一覧
+- 元ログを保持した品質フラグ，除外基準，予稿掲載値との差異の公開
 - NASA-TLXおよびSystem Usability Scale（SUS）の固定ID・OTP認証付き回答収集
 
 ## ページ構成
@@ -22,9 +26,10 @@
 | [`index.html`](index.html) | 研究目的，認知―運動過程，システム構成，公開コンテンツの概要 |
 | [`paper.html`](paper.html) | `paper/IPSJ-EC2026006.pdf`に配置したEC2026公開版論文の閲覧と公式レコードへのリンク |
 | [`results.html`](results.html) | 予稿掲載の主要結果，指標定義，全体・球速別・参加者別集計 |
-| [`analysis.html`](analysis.html) | 捕球誤差，コース別分布，平均補正量，相関関係のインタラクティブ可視化 |
-| [`anova.html`](anova.html) | プレイヤ×球速の二元配置分散分析と，主効果・交互作用・p値の読み方 |
+| [`analysis.html`](analysis.html) | 残差誤差，コース別分布，平均ミット移動量，相関関係のインタラクティブ可視化 |
+| [`anova.html`](anova.html) | プレイヤ×球速の二元配置分散分析と，主効果・交互作用・p値・偏η²の読み方 |
 | [`phase3.html`](phase3.html) | 第3フェーズの参加者別配球シーケンスと打者反応後の配球更新分析 |
+| [`research.html`](research.html) | 捕球方向一致度，捕球成績，試行内推移，配球多様性，データ品質，再現手順 |
 | [`evaluation.html`](evaluation.html) | 固定ID・OTP認証付きNASA-TLX／SUS回答フォームと公開集計 |
 
 ## ローカルでの起動
@@ -51,7 +56,7 @@ http://localhost:8000/
 | 数式表示 | MathJax（CDN） |
 | ブラウザ内分散分析 | Pyodide 0.25.0，pandas，statsmodels（CDNから初回読込） |
 | 通常のデータ変換・検定再現 | Python 3 |
-| `data.json`の再生成 | Python 3，pandas |
+| `data.json`と`analysis-summary.json`の再生成 | Python 3標準ライブラリ |
 | 標準尺度の回答保存 | Google Apps Script，非公開Googleスプレッドシート |
 
 `analysis.html`と`anova.html`は外部ライブラリをCDNから読み込むため，初回表示時にはインターネット接続が必要です．特に`anova.html`はPyodideと統計ライブラリを読み込むため，表示まで数秒かかる場合があります．
@@ -62,26 +67,44 @@ http://localhost:8000/
 |---|---|
 | `DataCourse/*.csv` | ログ可視化・二元配置分散分析に使用する18ファイル |
 | `data.json` | `DataCourse`から変換した公開用ログ（1,974試行，6名，3球速条件） |
+| `analysis-summary.json` | 品質確認後の1,948試行を対象とする追加分析集計 |
 | `DataBreak/*.csv` | フェーズ別ログ |
 | `DataBreak/*_1_2.csv` | 第3フェーズ分析に使用する6名分のログ |
 | `phase3-data.json` | 第3フェーズの公開用データ（65球，59遷移） |
 | `Data/` | 変換前ログおよび検証用ログ |
 | `paper/IPSJ-EC2026006.pdf` | 情報処理学会で公開されたEC2026特選論文 |
 
-参加者識別子は既存ログに合わせ，`Player 1`，`Player 2`，`Player 3`，`Player 5`，`Player 6`，`Player 7`に統一しています．球速列が存在しない旧形式ログは，値を推定せず`null`として保持し，画面では「記録なし」と表示します．
+参加者識別子は既存ログに合わせ，`Player 1`，`Player 2`，`Player 3`，`Player 5`，`Player 6`，`Player 7`に統一しています．`DataCourse`には実測球速列がないため，ファイル名の100，130，158 km/hを設定条件として保持し，`actual_speed_kmph`は`null`にしています．
 
 ## データの再生成
 
 ### ログ可視化用データ
 
-`convert.py`は`DataCourse`内のCSVから，座標差，ミット補正量，制球誤差を計算して`data.json`を生成します．pandasが必要です．
+`convert.py`は`DataCourse`内のCSVから，座標差，制球誤差，ミット移動量，残差誤差，捕球方向一致度，到達率，品質フラグを計算し，`data.json`と`analysis-summary.json`を生成します．Python標準ライブラリだけで動作し，元CSVは変更しません．
 
 ```sh
-python3 -m pip install pandas
 python3 convert.py
+python3 verify_analysis.py
 ```
 
-現在の`convert.py`では`DATA_DIR`をローカルパスで指定しています．別の配置で実行する場合は，実行環境の`DataCourse`ディレクトリへ変更してください．
+入力先はスクリプト位置を基準とする`DataCourse/`と`DataBreak/`で，絶対パスには依存しません．
+
+### 指標と品質フラグ
+
+追加分析では次の3次元ベクトルを区別します．
+
+- 制球誤差：球到達位置 − 投球目標位置
+- 実移動：捕球位置 − 構え位置
+- 必要移動：球到達位置 − 構え位置
+- 残差誤差：捕球位置 − 球到達位置
+- 捕球方向一致度：実移動と必要移動の正規化内積（コサイン類似度，−1〜1）
+- 到達率：必要移動方向への射影距離を必要移動距離で除した値
+
+生の位置ベクトル同士の内積は座標原点に依存するため使用しません．方向一致度は「球へ向かったか」を表す補助指標であり，到達率，残差誤差，捕球成否と併記します．全体では成功時の方向一致度中央値0.889，失敗時0.779，AUC 0.629でした．単独の判定指標としては用いません．
+
+全1,974件は`data.json`へ残したまま，制球誤差が25 cmを超える56件へ想定範囲外フラグを付けています．このうち50 cmを超える26件は座標異常の影響が強いため，追加分析から除いた1,948件を再分析対象としています．予稿掲載値の1,946件とは2件の差があるため，`results.html`の掲載値を書き換えず，`research.html`で再分析値と区別しています．
+
+予稿ではミット補正量を`|p_catch − p_start|`と定義し，平均12.9 cm・中央値11.6 cmと報告しています．公開CSVの再分析対象では，この式によるミット移動量は平均17.1 cm・中央値15.6 cmです．一方，`|p_catch − p_impact|`による残差誤差は平均12.86 cm・中央値11.59 cmで，予稿掲載値とほぼ一致します．指標名・数式と集計値の対応に再現上の不整合があるため，掲載値は改変せず，追加分析では各指標を分離しています．
 
 ### 第3フェーズ公開用データ
 
@@ -116,7 +139,7 @@ python3 analyze_phase3.py
 
 ### 二元配置分散分析
 
-`anova.html`では，軸方向ごとの符号付き捕球誤差を目的変数とし，「プレイヤ」と「球速」を要因とするType II二元配置分散分析をブラウザ内で実行します．出力する項目は次の3つです．
+`anova.html`では，球到達位置に対する軸方向ごとの符号付き残差誤差を目的変数とし，「プレイヤ」と「球速」を要因とするType II二元配置分散分析をブラウザ内で実行します．F値・p値に加えて偏η²を表示します．出力する効果は次の3つです．
 
 - プレイヤの主効果
 - 球速の主効果
@@ -161,12 +184,13 @@ NASA-TLXはRaw TLXと15対の一対比較を用いる重み付き方式に対応
 ├── results.html / results.js
 ├── analysis.html / app.js
 ├── anova.html / anova.js
+├── research.html / research.js
 ├── phase3.html / phase3.js
 ├── evaluation.html / evaluation.js / evaluation-config.js
 ├── paper.html / paper/IPSJ-EC2026006.pdf
-├── data.json / phase3-data.json
+├── data.json / analysis-summary.json / phase3-data.json
 ├── Data/ / DataCourse/ / DataBreak/
-├── convert.py / convert_phase3.py / analyze_phase3.py
+├── convert.py / verify_analysis.py / convert_phase3.py / analyze_phase3.py
 └── apps-script/
     ├── Code.gs
     ├── appsscript.json

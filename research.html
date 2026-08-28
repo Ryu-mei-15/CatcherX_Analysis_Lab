@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CatcherX公開ログの捕球方向一致度，捕球成績，試行内推移，データ品質を確認する追加分析ページ">
+    <title>追加分析・再現性 | CatcherX Research Data</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>⚾</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <nav class="site-nav" aria-label="主要ナビゲーション">
+        <a class="site-brand" href="index.html"><span class="brand-mark">CX</span><span>CatcherX <small>Research Data</small></span></a>
+        <div class="nav-links">
+            <a href="index.html">研究概要</a>
+            <a href="paper.html">予稿閲覧</a>
+            <a href="results.html">主要結果</a>
+            <a href="phase3.html">配球更新</a>
+            <a href="analysis.html">ログ可視化</a>
+            <a href="anova.html">要因分析</a>
+            <a href="research.html" aria-current="page">追加分析</a>
+            <a href="evaluation.html">標準尺度</a>
+        </div>
+    </nav>
+
+    <header class="main-header research-hero">
+        <p class="header-subtitle">Supplementary Analysis & Reproducibility</p>
+        <h1>追加分析・再現性</h1>
+        <p class="header-lead">捕球位置だけでなく，構えから球の到達点へ向かうミットの移動方向を評価する．捕球成績，試行内推移，配球の多様性，データ品質を同じ基準で確認できる．</p>
+        <div class="header-actions"><a href="#direction" class="header-link-btn">捕球方向一致度を見る</a><a href="#quality" class="header-link-btn">データ品質を見る</a></div>
+    </header>
+
+    <main id="main" class="container research-container">
+        <section class="research-summary" aria-label="再分析概要">
+            <article><span>元ログ</span><strong id="rawCount">—</strong><small>件</small></article>
+            <article><span>再分析対象</span><strong id="eligibleCount">—</strong><small>件</small></article>
+            <article><span>方向一致度 AUC</span><strong id="directionAuc">—</strong><small>探索的指標</small></article>
+            <article><span>捕球成功率</span><strong id="overallCatchRate">—</strong><small>95% CIを併記</small></article>
+        </section>
+
+        <section class="card metric-method" aria-labelledby="metric-title">
+            <div class="section-header"><div><p class="section-kicker">VECTOR METRICS</p><h2 id="metric-title">何を測っているか</h2></div><p>位置そのものの内積ではなく，原点に依存しない移動ベクトルの正規化内積を用いる．</p></div>
+            <div class="vector-flow" aria-label="方向一致度の計算手順">
+                <article><span>必要移動</span><strong>球到達位置 − 構え位置</strong><small>球へ届くために必要な方向と距離</small></article><div aria-hidden="true">×</div>
+                <article><span>実移動</span><strong>捕球位置 − 構え位置</strong><small>実際にミットを動かした方向と距離</small></article><div aria-hidden="true">→</div>
+                <article><span>方向一致度</span><strong>cos θ = (a・r) / (|a||r|)</strong><small>−1：逆方向，0：直交，1：同方向</small></article>
+            </div>
+            <div class="definition-grid compact-definitions">
+                <article class="definition-card"><span class="definition-number">01</span><h3>制球誤差</h3><div class="formula">|p<sub>impact</sub> − p<sub>target</sub>|</div><p>要求位置と球到達位置の距離．</p></article>
+                <article class="definition-card"><span class="definition-number">02</span><h3>ミット移動量</h3><div class="formula">|p<sub>catch</sub> − p<sub>start</sub>|</div><p>構えから捕球までに動かした距離．</p></article>
+                <article class="definition-card"><span class="definition-number">03</span><h3>残差誤差</h3><div class="formula">|p<sub>catch</sub> − p<sub>impact</sub>|</div><p>移動後に球とミットの間へ残った距離．</p></article>
+                <article class="definition-card"><span class="definition-number">04</span><h3>到達率</h3><div class="formula">(a・r) / |r|²</div><p>必要方向へ必要距離の何倍進んだか．1が過不足なし．</p></article>
+            </div>
+            <aside class="research-callout"><strong>指標の位置づけ</strong><p>方向一致度は「球へ向かったか」を表すが，「球まで届いたか」や捕球姿勢は表さない．そのため，到達率，残差誤差，実際の捕球成否と組み合わせて解釈する．</p></aside>
+        </section>
+
+        <section id="direction" class="card" aria-labelledby="direction-title">
+            <div class="section-header"><div><p class="section-kicker">DIRECTIONAL RESPONSE</p><h2 id="direction-title">捕球方向一致度と捕球成否</h2></div><p id="filterSummary">読込中…</p></div>
+            <div class="research-filters" aria-label="追加分析の表示条件">
+                <label>プレイヤ<select id="researchPlayer"><option value="all">全プレイヤ</option></select></label>
+                <label>球速<select id="researchSpeed"><option value="all">全球速</option></select></label>
+                <label class="quality-toggle"><input id="includeFlagged" type="checkbox"> 座標異常フラグ26件を含める</label>
+            </div>
+            <div class="metric-strip">
+                <article><span>成功時の方向一致度</span><strong id="caughtCosine">—</strong><small>中央値</small></article>
+                <article><span>失敗時の方向一致度</span><strong id="failedCosine">—</strong><small>中央値</small></article>
+                <article><span>成功時の残差誤差</span><strong id="caughtResidual">—</strong><small>中央値・cm</small></article>
+                <article><span>失敗時の残差誤差</span><strong id="failedResidual">—</strong><small>中央値・cm</small></article>
+            </div>
+            <div class="research-chart-grid">
+                <article class="chart-box"><h3>方向一致度別の捕球成功率</h3><div class="research-canvas"><canvas id="directionChart"></canvas></div></article>
+                <article class="chart-box"><h3>捕球結果の構成</h3><div class="research-canvas"><canvas id="outcomeChart"></canvas></div></article>
+            </div>
+            <div class="table-scroll"><table id="directionTable"><caption>方向一致度区間別の捕球成功率と95%信頼区間</caption></table></div>
+            <h3 class="subsection-title">指標としての妥当性確認（全再分析対象）</h3>
+            <div class="table-scroll"><table id="validationTable"><caption>捕球成功・失敗間の中央値と成功判別AUC</caption></table></div>
+            <p id="leaveOneOutNote" class="data-note"></p>
+            <p class="data-note">AUCは，無作為に選んだ成功試行の値が失敗試行より望ましい値になる確率に相当する．0.5は偶然と同程度，1.0に近いほど判別が良い．本データの方向一致度AUCは中程度であり，単独の判定基準には用いない．</p>
+        </section>
+
+        <section id="catch-performance" class="card" aria-labelledby="catch-title">
+            <div class="section-header"><div><p class="section-kicker">CATCH PERFORMANCE</p><h2 id="catch-title">参加者・球速別の捕球成績</h2></div><p>割合だけでなく，標本数とWilson法による95%信頼区間を示す．</p></div>
+            <div class="table-scroll"><table id="catchTable"><caption>参加者別の捕球成績</caption></table></div>
+            <h3 class="subsection-title">球速別</h3>
+            <div class="table-scroll"><table id="speedTable"><caption>球速別の捕球成績</caption></table></div>
+            <p class="data-note">Catch_ResultがStrikeまたはBallで，Missed・PassedBallを含まない試行を正常捕球と定義した．ストライク・ボール判定そのものは捕球成功の定義に用いない．</p>
+        </section>
+
+        <section id="learning" class="card" aria-labelledby="learning-title">
+            <div class="section-header"><div><p class="section-kicker">WITHIN-SESSION TREND</p><h2 id="learning-title">セッション内の推移</h2></div><p>各参加者×球速ファイルを投球順に3等分した探索的集計．</p></div>
+            <div class="research-chart-grid">
+                <article class="chart-box"><h3>区間別の捕球成功率</h3><div class="research-canvas"><canvas id="learningChart"></canvas></div></article>
+                <aside class="research-callout caution"><strong>因果的な学習効果ではない</strong><p>後半ほど成功率と方向一致度が高い傾向を確認できるが，疲労，コース構成，固定された提示順なども混在する．練習効果を主張するには，提示順を統制した別実験が必要である．</p></aside>
+            </div>
+            <div class="table-scroll"><table id="learningTable"><caption>セッション内3区間の捕球成績</caption></table></div>
+        </section>
+
+        <section id="diversity" class="card" aria-labelledby="diversity-title">
+            <div class="section-header"><div><p class="section-kicker">PHASE 3 DIVERSITY</p><h2 id="diversity-title">第3フェーズの配球多様性</h2></div><p>個別球種の有意差検定は試行数が少ないため行わず，選択の広がりと反復を記述する．</p></div>
+            <div class="table-scroll"><table id="diversityTable"><caption>参加者別の球種・コース多様性</caption></table></div>
+            <details class="pitch-catalog"><summary>第3フェーズで選択された球種一覧（<span id="pitchTypeCount">—</span>種）</summary><div id="pitchCatalog" class="tag-cloud"></div></details>
+            <details class="pitch-catalog"><summary>ログ全体で確認できる実装球種（<span id="implementedPitchTypeCount">—</span>種）</summary><div id="implementedPitchCatalog" class="tag-cloud"></div></details>
+            <p class="data-note">正規化エントロピーは0〜1で，1に近いほど選択が複数球種へ均等に分散する．ただし，球種数が異なる参加者間の戦術的優劣を意味しない．</p>
+        </section>
+
+        <section id="quality" class="card" aria-labelledby="quality-title">
+            <div class="section-header"><div><p class="section-kicker">DATA QUALITY</p><h2 id="quality-title">データ品質と除外基準</h2></div><p>元ログを削除せず，各レコードに品質フラグを付与する．</p></div>
+            <div class="quality-flow">
+                <article><span>元ログ</span><strong id="qualityRaw">—</strong><small>DataCourse 18ファイル</small></article><div aria-hidden="true">−</div>
+                <article><span>座標異常</span><strong id="qualityExcluded">—</strong><small>制球誤差 &gt; 50 cm</small></article><div aria-hidden="true">=</div>
+                <article><span>再分析対象</span><strong id="qualityEligible">—</strong><small>有限座標・閾値内</small></article>
+            </div>
+            <div class="table-scroll"><table id="qualityTable"><caption>参加者別の品質フラグ件数</caption></table></div>
+            <div class="quality-notes">
+                <article><h3>25 cmと50 cmの違い</h3><p>25 cmは実験で想定した制球誤差半径で，超過を品質確認フラグとした．50 cm超は想定範囲から大きく外れ，座標記録異常の影響が強いため再分析から除外した．元データには残している．</p></article>
+                <article><h3>予稿掲載値との対応</h3><p>予稿の主要結果は1,946試行，本ページの明示的な基準による再分析は1,948試行で，2試行の差がある．掲載値は書き換えず，両者を区別して公開する．</p></article>
+                <article><h3>球速の扱い</h3><p>DataCourseには実測球速列がないため，ファイル名の設定球速100・130・158 km/hを条件ラベルとして用いる．実測値としては解釈しない．</p></article>
+                <article><h3>ミット移動量の照合</h3><p id="movementCheck">計算値とログ記録値を照合中…</p></article>
+                <article><h3>予稿の指標名と値</h3><p id="paperMetricCheck">予稿掲載値との対応を確認中…</p></article>
+            </div>
+        </section>
+
+        <section class="card" aria-labelledby="reproduce-title">
+            <div class="section-header"><div><p class="section-kicker">REPRODUCIBILITY</p><h2 id="reproduce-title">再生成方法と慎重に見送った分析</h2></div></div>
+            <div class="repro-grid">
+                <article><h3>再生成</h3><pre><code>python3 convert.py
+python3 verify_analysis.py
+python3 convert_phase3.py
+python3 analyze_phase3.py</code></pre><p><code>convert.py</code>は標準ライブラリだけで実行でき，元CSVは変更しない．</p></article>
+                <article><h3>生成物</h3><ul><li><a href="data.json"><code>data.json</code></a>：全レコードと指標・品質フラグ</li><li><a href="analysis-summary.json"><code>analysis-summary.json</code></a>：公開ページ用集計</li><li><a href="phase3-data.json"><code>phase3-data.json</code></a>：第3フェーズの配球順序</li></ul></article>
+                <article><h3>現データでは断定しない項目</h3><ul><li>球種別の身体補正効果：DataCourseは全件Straight</li><li>習熟の因果効果：提示順と時間経過を分離できない</li><li>実測球速の効果：実測球速列がない</li><li>球種ごとの有意差：第3フェーズはセルごとの件数が少ない</li><li>経験年数・練習時間の効果：公開ログに属性列がない</li><li>10 cm・0.2 s閾値の感度分析：判定時刻を再計算できるログがない</li></ul></article>
+            </div>
+            <p class="data-note">再分析は探索的である．参加者内の反復と参加者数6名を考慮すると，独立試行を仮定した単純な有意差検定を追加するより，標本数，信頼区間，個人別結果，感度分析を明示する方が妥当と判断した．</p>
+        </section>
+    </main>
+
+    <footer class="site-footer"><p><strong>CatcherX Research Data</strong><br>山口 瑞悠・藤井 叙人・橋田 光代<br>福知山公立大学 情報学部</p><p>追加分析・再現性資料</p></footer>
+    <script src="research.js"></script>
+</body>
+</html>

@@ -25,24 +25,18 @@ const strikeZoneCourses = [
 const staticInsights = {
     axisX: `
         <strong>解釈の補助</strong><br>
-        X軸方向の誤差は，球速条件による変化が比較的小さい一方で，
-        プレイヤ間の差が確認される場合がある．
-        このことから，本データの範囲では，水平方向のミット位置のずれに，
-        球速よりもプレイヤ固有の操作傾向が反映されている可能性がある．
+        X軸は左右方向の符号付き残差である．有意差の有無だけでなく，
+        条件別平均が正方向・負方向のどちらへ偏るかを下のグラフで確認する．
     `,
     axisY: `
         <strong>解釈の補助</strong><br>
-        Y軸方向の誤差は，球速条件によって変化する傾向が見られる．
-        特に高い球速条件では，目標位置に対してミット位置が下方向にずれる例が確認される．
-        また，プレイヤと球速の交互作用が見られる場合，
-        球速上昇に対するミット操作の変化量がプレイヤによって異なる可能性が示唆される．
+        Y軸は上下方向の符号付き残差である．交互作用が有意な場合は，
+        球速による変化がプレイヤごとに異なるため，主効果だけで結論づけない．
     `,
     axisZ: `
         <strong>解釈の補助</strong><br>
-        Z軸方向の誤差は，捕球時にボールを前方で迎えるか，
-        あるいは目標位置付近で待つかといった捕球方略の違いを反映する指標として解釈できる．
-        球速条件による変化に加えて，プレイヤごとの違いも確認される場合，
-        高速球に対する奥行き方向の調整方略が個人によって異なる可能性がある．
+        Z軸は奥行き方向の符号付き残差である．球到達面とミット中心の前後差を表すが，
+        捕球タイミングそのものは記録していないため，時間誤差とは解釈しない．
     `
 };
 
@@ -217,17 +211,20 @@ async function executeAnalysis() {
         if (
             selectedPlayers.includes(String(d.player)) &&
             selectedSpeeds.includes(String(d.speed)) &&
-            selectedCourses.includes(String(d.course))
+            selectedCourses.includes(String(d.course)) &&
+            d.analysis_eligible !== false
         ) {
             filteredForPython.push({
                 player: String(d.player),
                 speed: String(d.speed),
-                diff_x: (d.mitt_x - d.target_x) * 100,
-                diff_y: (d.mitt_y - d.target_y) * 100,
-                diff_z: (d.mitt_z - d.target_z) * 100
+                diff_x: d.residual_x_cm ?? (d.mitt_x - d.impact_x) * 100,
+                diff_y: d.residual_y_cm ?? (d.mitt_y - d.impact_y) * 100,
+                diff_z: d.residual_z_cm ?? (d.mitt_z - d.impact_z) * 100
             });
         }
     });
+
+    document.getElementById('filterStatus').textContent += ` ｜ 解析対象 n = ${filteredForPython.length}`;
 
     window.anovaDataForPython = filteredForPython;
 
@@ -252,11 +249,14 @@ try:
         aov = sm.stats.anova_lm(model, typ=2)
 
         def extract(row_name):
+            ss_effect = float(aov.loc[row_name, 'sum_sq'])
+            ss_residual = float(aov.loc['Residual', 'sum_sq'])
             return {
                 'F': float(aov.loc[row_name, 'F']),
                 'p': float(aov.loc[row_name, 'PR(>F)']),
                 'df1': int(aov.loc[row_name, 'df']),
-                'df2': int(aov.loc['Residual', 'df'])
+                'df2': int(aov.loc['Residual', 'df']),
+                'partial_eta_squared': ss_effect / (ss_effect + ss_residual)
             }
 
         results[js_key] = {
@@ -286,6 +286,10 @@ output_json
 }
 
 function formatPValue(p) {
+    if (p <= 0) {
+        return 'p < 1 \\times 10^{-300}';
+    }
+
     if (p < 0.001) {
         const exponent = Math.floor(Math.log10(p));
         const mantissa = (p / Math.pow(10, exponent)).toFixed(2);
@@ -329,9 +333,9 @@ function renderAnovaTab() {
     const data = currentAnovaResults[currentActiveTab];
 
     const titles = {
-        axisX: 'X軸方向の捕球誤差に対する二元配置分散分析',
-        axisY: 'Y軸方向の捕球誤差に対する二元配置分散分析',
-        axisZ: 'Z軸方向の捕球誤差に対する二元配置分散分析'
+        axisX: 'X軸方向の残差誤差に対する二元配置分散分析',
+        axisY: 'Y軸方向の残差誤差に対する二元配置分散分析',
+        axisZ: 'Z軸方向の残差誤差に対する二元配置分散分析'
     };
 
     const buildStatBox = (label, stat) => {
@@ -345,7 +349,7 @@ function renderAnovaTab() {
         }
 
         const sig = evaluateSignificance(stat.p);
-        const mathStr = `\\(F(${stat.df1}, ${stat.df2}) = ${stat.F.toFixed(2)}, ${formatPValue(stat.p)}\\)`;
+        const mathStr = `\\(F(${stat.df1}, ${stat.df2}) = ${stat.F.toFixed(2)}, ${formatPValue(stat.p)}, \\eta_p^2 = ${stat.partial_eta_squared.toFixed(3)}\\)`;
 
         return `
             <div class="stat-box">
@@ -395,12 +399,13 @@ function renderComparisonCharts(selectedPlayers, selectedSpeeds, selectedCourses
             const filtered = logData.filter(d =>
                 String(d.player) === String(player) &&
                 String(d.speed) === String(speed) &&
-                selectedCourses.includes(String(d.course))
+                selectedCourses.includes(String(d.course)) &&
+                d.analysis_eligible !== false
             );
 
-            dataX.push(getMean(filtered.map(d => (d.mitt_x - d.target_x) * 100)));
-            dataY.push(getMean(filtered.map(d => (d.mitt_y - d.target_y) * 100)));
-            dataZ.push(getMean(filtered.map(d => (d.mitt_z - d.target_z) * 100)));
+            dataX.push(getMean(filtered.map(d => d.residual_x_cm ?? (d.mitt_x - d.impact_x) * 100)));
+            dataY.push(getMean(filtered.map(d => d.residual_y_cm ?? (d.mitt_y - d.impact_y) * 100)));
+            dataZ.push(getMean(filtered.map(d => d.residual_z_cm ?? (d.mitt_z - d.impact_z) * 100)));
         });
 
         const baseDataset = {
