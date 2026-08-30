@@ -1,12 +1,13 @@
 # CatcherX Research Data
 
-「CatcherX: 捕手の認知-運動過程の循環に着目したVRシミュレータ」の研究データ公開・分析サイトです．EC2026公開版論文，主要な集計結果，プレイログ可視化，第3フェーズの配球分析，二元配置分散分析，捕球方向一致度・データ品質の追加分析，NASA-TLX／SUS回答収集を一つのサイトにまとめています．
+「CatcherX: 捕手の認知-運動過程の循環に着目したVRシミュレータ」の研究データ公開・分析サイトです．EC2026公開版論文，研究結果のまとめ，主要な集計結果，プレイログ可視化，第3フェーズの配球分析，二元配置分散分析，捕球方向一致度・データ品質の追加分析，NASA-TLX／SUS回答収集を一つのサイトにまとめています．
 
 本サイトはHTML，CSS，JavaScriptを中心とした静的サイトです．標準尺度の認証と回答保存に限り，Google Apps Scriptと非公開Googleスプレッドシートを使用します．
 
 ## 主な機能
 
 - EC2026公開版論文（IPSJ-EC2026006）のブラウザ内閲覧
+- 実験結果から言えること・言えないこと・今後必要な検証の要約
 - 予稿に掲載した制球誤差，ミット補正量，誤差低減率の公開
 - プレイヤ，球速，投球コースによるプレイログの絞り込み
 - 球到達位置に対する残差誤差，平均ミット移動量，制球誤差との相関の可視化
@@ -18,13 +19,15 @@
 - セッション内3区間の探索的推移，第3フェーズの配球エントロピー，全34球種の一覧
 - 元ログを保持した品質フラグ，除外基準，予稿掲載値との差異の公開
 - NASA-TLXおよびSystem Usability Scale（SUS）の固定ID・OTP認証付き回答収集
+- 発表終了後にスライド・ポスターを公開するための保留UIと公開切替設定
 
 ## ページ構成
 
 | ページ | 内容 |
 |---|---|
 | [`index.html`](index.html) | 研究目的，認知―運動過程，システム構成，公開コンテンツの概要 |
-| [`paper.html`](paper.html) | `paper/IPSJ-EC2026006.pdf`に配置したEC2026公開版論文の閲覧と公式レコードへのリンク |
+| [`summary.html`](summary.html) | 実験結果から言えること，結論の限界，研究課題ごとの到達点，次の検証 |
+| [`paper.html`](paper.html) | EC2026公開版論文の閲覧と，発表後に公開するスライド・ポスターの状態表示 |
 | [`results.html`](results.html) | 予稿掲載の主要結果，指標定義，全体・球速別・参加者別集計 |
 | [`analysis.html`](analysis.html) | 残差誤差，コース別分布，平均ミット移動量，相関関係のインタラクティブ可視化 |
 | [`anova.html`](anova.html) | プレイヤ×球速の二元配置分散分析と，主効果・交互作用・p値・偏η²の読み方 |
@@ -73,6 +76,8 @@ http://localhost:8000/
 | `phase3-data.json` | 第3フェーズの公開用データ（65球，59遷移） |
 | `Data/` | 変換前ログおよび検証用ログ |
 | `paper/IPSJ-EC2026006.pdf` | 情報処理学会で公開されたEC2026特選論文 |
+| `paper/EC2026スライド.pdf` | 発表後に公開予定のスライド（発表前はGit管理外） |
+| `paper/EC2026ポスター.pdf` | 発表後に公開予定のポスター（発表前はGit管理外） |
 
 参加者識別子は既存ログに合わせ，`Player 1`，`Player 2`，`Player 3`，`Player 5`，`Player 6`，`Player 7`に統一しています．`DataCourse`には実測球速列がないため，ファイル名の100，130，158 km/hを設定条件として保持し，`actual_speed_kmph`は`null`にしています．
 
@@ -176,18 +181,26 @@ NASA-TLXはRaw TLXと15対の一対比較を用いる重み付き方式に対応
 
 掲載中のPDFは情報処理学会の情報学広場で公開された`IPSJ-EC2026006`です．公式の書誌情報と配布条件は[情報学広場のレコード](https://ipsj.ixsq.nii.ac.jp/records/2011336)を参照してください．
 
+## 発表スライド・ポスターの公開
+
+発表前は`paper/EC2026*.pdf`を`.gitignore`で除外し，PDF本体がGitHub Pagesへ配信されないようにしています．`paper.html`には公開予定だけを表示します．`presentation-config.js`の`published`を`true`にすると閲覧UIへ切り替わりますが，実際に公開するには`.gitignore`の解除とPDFのGit追加も必要です．
+
+現在のポスターPDFは7ページあり，完成版以外のページを含んでいます．発表後の公開前に，完成版だけを含むPDFへ差し替えてください．具体的な操作は[`PRESENTATION_RELEASE_GUIDE.md`](PRESENTATION_RELEASE_GUIDE.md)を参照してください．
+
 ## ディレクトリ概要
 
 ```text
 .
 ├── index.html / style.css
+├── summary.html
 ├── results.html / results.js
 ├── analysis.html / app.js
 ├── anova.html / anova.js
 ├── research.html / research.js
 ├── phase3.html / phase3.js
 ├── evaluation.html / evaluation.js / evaluation-config.js
-├── paper.html / paper/IPSJ-EC2026006.pdf
+├── paper.html / presentation-config.js / presentation.js
+├── paper/IPSJ-EC2026006.pdf
 ├── data.json / analysis-summary.json / phase3-data.json
 ├── Data/ / DataCourse/ / DataBreak/
 ├── convert.py / verify_analysis.py / convert_phase3.py / analyze_phase3.py
