@@ -19,7 +19,7 @@
 - セッション内3区間の探索的推移，第3フェーズの配球エントロピー，全34球種の一覧
 - 元ログを保持した品質フラグ，除外基準，予稿掲載値との差異の公開
 - NASA-TLXおよびSystem Usability Scale（SUS）の固定ID・OTP認証付き回答収集
-- 発表終了後にスライド・ポスターを公開するための保留UIと公開切替設定
+- ポスターのブラウザ内公開と，発表後にスライドだけを追加公開するための資料別設定
 
 ## ページ構成
 
@@ -27,7 +27,7 @@
 |---|---|
 | [`index.html`](index.html) | 研究目的，認知―運動過程，システム構成，公開コンテンツの概要 |
 | [`summary.html`](summary.html) | 実験結果から言えること，結論の限界，研究課題ごとの到達点，次の検証 |
-| [`paper.html`](paper.html) | EC2026公開版論文の閲覧と，発表後に公開するスライド・ポスターの状態表示 |
+| [`paper.html`](paper.html) | EC2026公開版論文・発表ポスターの閲覧と，発表スライドの公開予定表示 |
 | [`results.html`](results.html) | 予稿掲載の主要結果，指標定義，全体・球速別・参加者別集計 |
 | [`analysis.html`](analysis.html) | 残差誤差，コース別分布，平均ミット移動量，相関関係のインタラクティブ可視化 |
 | [`anova.html`](anova.html) | プレイヤ×球速の二元配置分散分析と，主効果・交互作用・p値・偏η²の読み方 |
@@ -76,8 +76,8 @@ http://localhost:8000/
 | `phase3-data.json` | 第3フェーズの公開用データ（65球，59遷移） |
 | `Data/` | 変換前ログおよび検証用ログ |
 | `paper/IPSJ-EC2026006.pdf` | 情報処理学会で公開されたEC2026特選論文 |
-| `paper/EC2026スライド.pdf` | 発表後に公開予定のスライド（発表前はGit管理外） |
-| `paper/EC2026ポスター.pdf` | 発表後に公開予定のポスター（発表前はGit管理外） |
+| `paper/EC2026スライド.pdf` | 発表後に公開予定のスライド（現在はGit管理外） |
+| `paper/EC2026ポスター.pdf` | 公開中の会場掲示用ポスター（1ページ） |
 
 参加者識別子は既存ログに合わせ，`Player 1`，`Player 2`，`Player 3`，`Player 5`，`Player 6`，`Player 7`に統一しています．`DataCourse`には実測球速列がないため，ファイル名の100，130，158 km/hを設定条件として保持し，`actual_speed_kmph`は`null`にしています．
 
@@ -183,9 +183,9 @@ NASA-TLXはRaw TLXと15対の一対比較を用いる重み付き方式に対応
 
 ## 発表スライド・ポスターの公開
 
-発表前は`paper/EC2026*.pdf`を`.gitignore`で除外し，PDF本体がGitHub Pagesへ配信されないようにしています．`paper.html`には公開予定だけを表示します．`presentation-config.js`の`published`を`true`にすると閲覧UIへ切り替わりますが，実際に公開するには`.gitignore`の解除とPDFのGit追加も必要です．
+ポスターは公開中です．スライドは`paper/EC2026*スライ*.pdf`を`.gitignore`で除外し，PDF本体がGitHub Pagesへ配信されないようにしています．`presentation-config.js`では各資料の`published`を個別に指定するため，現在はポスターにだけ閲覧UIを表示します．
 
-現在のポスターPDFは7ページあり，完成版以外のページを含んでいます．発表後の公開前に，完成版だけを含むPDFへ差し替えてください．具体的な操作は[`PRESENTATION_RELEASE_GUIDE.md`](PRESENTATION_RELEASE_GUIDE.md)を参照してください．
+スライドを発表後に公開する操作は[`PRESENTATION_RELEASE_GUIDE.md`](PRESENTATION_RELEASE_GUIDE.md)を参照してください．
 
 ## ディレクトリ概要
 
