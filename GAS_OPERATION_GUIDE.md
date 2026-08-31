@@ -4,8 +4,8 @@
 
 ## まず覚えておくこと
 
-- 公開サイト：<https://ryu-mei-15.github.io/>
-- 回答ページ：<https://ryu-mei-15.github.io/evaluation.html>
+- 公開サイト：<https://ryu-mei-15.github.io/CatcherX_Analysis_Lab/>
+- 回答ページ：<https://ryu-mei-15.github.io/CatcherX_Analysis_Lab/evaluation.html>
 - 評価フォームの参加者ID：数字だけの正の整数（`1`〜`999999999`）
 - `1`，`2`，`3`，…のように，必要な人数分を登録できる．
 - 公開済みログの`Player 1`等の表記とは別に管理する．
@@ -26,7 +26,7 @@
 4. 上部メニューの「CatcherX」→「選択したIDへOTPを発行」を実行する．
 5. `OtpIssue`シートに表示されたID，8桁OTP，有効期限を確認する．
 6. ユーザへ固定IDとOTPを伝える．
-7. ユーザに<https://ryu-mei-15.github.io/evaluation.html>を開いてもらう．
+7. ユーザに<https://ryu-mei-15.github.io/CatcherX_Analysis_Lab/evaluation.html>を開いてもらう．
 8. 回答送信後，`Responses`シートに新しい行が追加されたことを確認する．
 9. OTPを配布し終えたら「CatcherX」→「OTP発行一覧を消去」を実行する．
 
@@ -145,7 +145,7 @@ CatcherX → OTP発行一覧を消去
 
 ユーザには，次の3点を伝えます．
 
-1. 回答ページ：<https://ryu-mei-15.github.io/evaluation.html>
+1. 回答ページ：<https://ryu-mei-15.github.io/CatcherX_Analysis_Lab/evaluation.html>
 2. 固定参加者ID：例 `1`
 3. 今回発行した8桁OTP
 

@@ -4,6 +4,8 @@
 
 本サイトはHTML，CSS，JavaScriptを中心とした静的サイトです．標準尺度の認証と回答保存に限り，Google Apps Scriptと非公開Googleスプレッドシートを使用します．
 
+公開URL：<https://ryu-mei-15.github.io/CatcherX_Analysis_Lab/>
+
 ## 主な機能
 
 - EC2026公開版論文（IPSJ-EC2026006）のブラウザ内閲覧
@@ -77,7 +79,7 @@ http://localhost:8000/
 | `Data/` | 変換前ログおよび検証用ログ |
 | `paper/IPSJ-EC2026006.pdf` | 情報処理学会で公開されたEC2026特選論文 |
 | `paper/EC2026スライド.pdf` | 発表後に公開予定のスライド（現在はGit管理外） |
-| `paper/EC2026ポスター.pdf` | 公開中の会場掲示用ポスター（1ページ） |
+| `paper/EC2026-poster.pdf` | 公開中の会場掲示用ポスター（1ページ） |
 
 参加者識別子は既存ログに合わせ，`Player 1`，`Player 2`，`Player 3`，`Player 5`，`Player 6`，`Player 7`に統一しています．`DataCourse`には実測球速列がないため，ファイル名の100，130，158 km/hを設定条件として保持し，`actual_speed_kmph`は`null`にしています．
 

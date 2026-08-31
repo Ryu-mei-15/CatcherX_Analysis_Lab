@@ -14,7 +14,7 @@ window.presentationMaterialsConfig = Object.freeze({
             id: 'poster',
             title: '発表ポスター',
             description: 'EC2026会場掲示用のポスター資料．',
-            path: 'paper/EC2026ポスター.pdf',
+            path: 'paper/EC2026-poster.pdf',
             pages: 1,
             fileSize: '約4.1 MB',
             published: true,
