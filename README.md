@@ -1,6 +1,6 @@
 # CatcherX Research Data
 
-「CatcherX: 捕手の認知-運動過程の循環に着目したVRシミュレータ」の研究データ公開・分析サイトです．EC2026公開版論文，研究結果のまとめ，主要な集計結果，プレイログ可視化，第3フェーズの配球分析，二元配置分散分析，捕球方向一致度・データ品質の追加分析，NASA-TLX／SUS回答収集を一つのサイトにまとめています．
+「CatcherX: 捕手の認知-運動過程の循環に着目したVRシミュレータ」の研究成果公開サイトです．訪問者が「研究概要 → わかったこと → 捕球・配球の根拠データ → 論文・ポスター」の順に読める構成とし，詳細な統計解析やデータ品質情報は各データページの中に段階的に整理しています．
 
 本サイトはHTML，CSS，JavaScriptを中心とした静的サイトです．標準尺度の認証と回答保存に限り，Google Apps Scriptと非公開Googleスプレッドシートを使用します．
 
@@ -27,15 +27,15 @@
 
 | ページ | 内容 |
 |---|---|
-| [`index.html`](index.html) | 研究目的，認知―運動過程，システム構成，公開コンテンツの概要 |
-| [`summary.html`](summary.html) | 実験結果から言えること，結論の限界，研究課題ごとの到達点，次の検証 |
+| [`index.html`](index.html) | 初めての訪問者向け導線，研究目的，認知―運動過程，主要情報 |
+| [`summary.html`](summary.html) | この研究でわかったこと，まだわからないこと，次の検証 |
 | [`paper.html`](paper.html) | EC2026公開版論文・発表ポスターの閲覧と，発表スライドの公開予定表示 |
-| [`results.html`](results.html) | 予稿掲載の主要結果，指標定義，全体・球速別・参加者別集計 |
-| [`analysis.html`](analysis.html) | 残差誤差，コース別分布，平均ミット移動量，相関関係のインタラクティブ可視化 |
-| [`anova.html`](anova.html) | プレイヤ×球速の二元配置分散分析と，主効果・交互作用・p値・偏η²の読み方 |
-| [`phase3.html`](phase3.html) | 第3フェーズの参加者別配球シーケンスと打者反応後の配球更新分析 |
-| [`research.html`](research.html) | 捕球方向一致度，捕球成績，試行内推移，配球多様性，データ品質，再現手順 |
-| [`evaluation.html`](evaluation.html) | 固定ID・OTP認証付きNASA-TLX／SUS回答フォームと公開集計 |
+| [`results.html`](results.html) | 捕球動作の全体結果，指標定義，球速別・プレイヤ別集計 |
+| [`analysis.html`](analysis.html) | 条件を選んで確認する球とミットの位置関係 |
+| [`anova.html`](anova.html) | プレイヤ・球速による違いと二元配置分散分析の読み方 |
+| [`phase3.html`](phase3.html) | 打者反応後に次の配球が変わったか，参加者別の配球順序 |
+| [`research.html`](research.html) | ミットが球へ向かったか，捕球成功との関係，公開データの範囲と注意点 |
+| [`evaluation.html`](evaluation.html) | 研究参加者専用の固定ID・OTP認証付きNASA-TLX／SUS回答フォーム |
 
 ## ローカルでの起動
 

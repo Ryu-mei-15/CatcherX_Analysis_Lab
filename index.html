@@ -122,20 +122,16 @@
     <nav class="site-nav" aria-label="主要ナビゲーション">
         <a class="site-brand" href="index.html"><span class="brand-mark">CX</span><span>CatcherX <small>Research Data</small></span></a>
         <div class="nav-links">
-            <a href="index.html" aria-current="page">研究概要</a>
-            <a href="summary.html">結果まとめ</a>
-            <a href="paper.html">論文・資料</a>
-            <a href="results.html">主要結果</a>
-            <a href="phase3.html">配球更新</a>
-            <a href="analysis.html">ログ可視化</a>
-            <a href="anova.html">要因分析</a>
-            <a href="research.html">追加分析</a>
-            <a href="evaluation.html">標準尺度</a>
+            <a href="index.html" aria-current="page">はじめに</a>
+            <a href="summary.html">研究結果</a>
+            <a href="results.html">捕球を詳しく見る</a>
+            <a href="phase3.html">配球を詳しく見る</a>
+            <a href="paper.html">論文・ポスター</a>
         </div>
     </nav>
 
     <header class="main-header">
-        <p class="header-subtitle">Embodied Catching Interaction</p>
+        <p class="header-subtitle">EC2026 · INTERACTIVE RESEARCH EXHIBIT</p>
         <h1>CatcherX</h1>
 
         <div class="header-authors">
@@ -155,14 +151,32 @@
         </p>
 
         <div class="header-actions">
-            <a href="summary.html" class="header-link-btn">実験結果のまとめを見る</a>
-            <a href="paper.html" class="header-link-btn">予稿を閲覧する</a>
-            <a href="results.html" class="header-link-btn">主要な分析結果を見る</a>
-            <a href="analysis.html" class="header-link-btn">公開ログを探索する</a>
+            <a href="summary.html" class="header-link-btn primary-action">この研究でわかったこと</a>
+            <a href="paper.html" class="header-link-btn">論文・ポスターを見る</a>
         </div>
     </header>
 
     <main id="main" class="container">
+
+        <section class="visit-guide" aria-labelledby="visit-guide-title">
+            <div class="visit-guide-heading">
+                <p class="section-kicker">START HERE</p>
+                <h2 id="visit-guide-title">初めての方へ</h2>
+                <p>まず研究結果を約2分で確認し，関心のあるデータへ進めます．</p>
+            </div>
+            <div class="visit-guide-steps">
+                <a href="summary.html"><span>01</span><strong>結論を知る</strong><small>確認できたことと限界</small></a>
+                <a href="results.html"><span>02</span><strong>捕球を見る</strong><small>球のズレとミットの動き</small></a>
+                <a href="phase3.html"><span>03</span><strong>配球を見る</strong><small>打者反応後の次球選択</small></a>
+                <a href="paper.html"><span>04</span><strong>資料を読む</strong><small>公開論文と発表ポスター</small></a>
+            </div>
+        </section>
+
+        <section class="headline-findings" aria-label="研究の主要情報">
+            <article><strong>8段階</strong><span>配球から次球判断までを一つのVR体験として実装</span></article>
+            <article><strong>1,946試行</strong><span>予稿の身体的補正分析に使用した捕球ログ</span></article>
+            <article><strong>65球</strong><span>打者反応後の配球選択を記録した第3フェーズ</span></article>
+        </section>
 
         <section class="card">
             <h2>CatcherXとは</h2>
@@ -269,65 +283,47 @@
         </section>
 
         <section class="card">
-            <h2>実験データと分析ページ</h2>
+            <h2>知りたいことから選ぶ</h2>
             <p class="page-lead">
-                本サイトでは，論文中で用いたプレイログの一部を公開し，
-                捕球時のミット位置と投球目標点との差分を可視化している．
-                プレイヤ，球速，投球コースを切り替えることで，
-                条件ごとの残差誤差や分散分析の結果を確認できる．
+                本サイトは，結論を短く読むページと，根拠となる捕球・配球データを詳しく見るページに分けている．
+                統計手法を知らなくても，それぞれのページ冒頭から順に読める．
             </p>
 
-            <div class="link-card-grid">
-                <a href="summary.html" class="link-card">
-                    <strong>研究結果のまとめ</strong>
-                    実験結果から言えること，まだ言えないこと，
-                    次に必要な検証を一つのページで確認できる．
-                </a>
-
-                <a href="results.html" class="link-card">
-                    <strong>予稿掲載の主要結果</strong>
-                    制球誤差，ミット補正量，誤差低減率を，
-                    全体・球速・参加者ごとの表で確認できる．
-                </a>
-
-                <a href="analysis.html" class="link-card">
-                    <strong>残差誤差の分布可視化</strong>
-                    XY平面およびZY平面における残差誤差を，
-                    プレイヤ・球速・投球コースごとに確認できる．
-                </a>
-
-                <a href="anova.html" class="link-card">
-                    <strong>二元配置分散分析</strong>
-                    プレイヤと球速を要因として，
-                    X軸，Y軸，Z軸方向の残差誤差に対する統計解析を確認できる．
-                </a>
-
-                <a href="phase3.html" class="link-card">
-                    <strong>第3フェーズ・配球更新分析</strong>
-                    打者反応後の球種・コース変更について，
-                    正確確率検定と効果量を確認できる．
-                </a>
-
-                <a href="research.html" class="link-card">
-                    <strong>追加分析・再現性</strong>
-                    捕球方向一致度，捕球成功率，試行内推移，配球多様性，
-                    データ品質と除外基準を確認できる．
-                </a>
-
-                <a href="evaluation.html" class="link-card">
-                    <strong>NASA-TLX・SUS評価</strong>
-                    標準尺度への回答を記録し，
-                    実験条件ごとの主観的負荷とユーザビリティを比較できる．
-                </a>
+            <div class="topic-path-grid">
+                <article class="topic-path featured">
+                    <span class="topic-label">まず読む</span>
+                    <h3>この研究で何がわかったのか</h3>
+                    <p>実装できたこと，データから見えた傾向，現時点では言えないことを整理している．</p>
+                    <a href="summary.html">研究結果を読む <span aria-hidden="true">→</span></a>
+                </article>
+                <article class="topic-path">
+                    <span class="topic-label">捕球</span>
+                    <h3>投球のズレにどう対応したのか</h3>
+                    <p>全体結果から個々のログ，プレイヤ・球速の比較，ミットの移動方向へ順に掘り下げられる．</p>
+                    <a href="results.html">捕球データを見る <span aria-hidden="true">→</span></a>
+                </article>
+                <article class="topic-path">
+                    <span class="topic-label">配球</span>
+                    <h3>打者の反応で次の球は変わったのか</h3>
+                    <p>参加者ごとの球種・コースの順序と，反応後に選択が変化したかを確認できる．</p>
+                    <a href="phase3.html">配球データを見る <span aria-hidden="true">→</span></a>
+                </article>
+                <article class="topic-path">
+                    <span class="topic-label">発表資料</span>
+                    <h3>研究の全体像を資料で確認する</h3>
+                    <p>情報処理学会の公開論文と，EC2026会場掲示用ポスターをブラウザ内で閲覧できる．</p>
+                    <a href="paper.html">論文・ポスターを見る <span aria-hidden="true">→</span></a>
+                </article>
             </div>
         </section>
 
         <section class="card">
-            <h2>本ページの位置づけ</h2>
+            <h2>このサイトについて</h2>
             <div class="note-box">
-                本ページは，CatcherXに関する研究の補足資料として作成したものである．
-                システムの概要，実験で取得したプレイログの可視化，および統計解析結果を公開し，
-                論文中で示した分析の理解を補助することを目的としている．
+                本サイトは，CatcherXの研究内容と実験結果を公開するための補足資料である．
+                結果だけでなく，指標の定義，分析上の制約，公開データの範囲も明示し，
+                論文中の主張とその根拠をたどれるようにしている．
+                研究参加者向けの評価フォームは，担当者から案内を受けた方のみ利用できる．
             </div>
         </section>
 

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CatcherX公開ログの捕球方向一致度，捕球成績，試行内推移，データ品質を確認する追加分析ページ">
-    <title>追加分析・再現性 | CatcherX Research Data</title>
+    <meta name="description" content="CatcherXでミットが球へ向かって動いたか，捕球成功とどう関係したか，公開データの品質を詳しく確認するページ">
+    <title>捕球動作を詳しく見る | CatcherX</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>⚾</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -15,22 +15,21 @@
     <nav class="site-nav" aria-label="主要ナビゲーション">
         <a class="site-brand" href="index.html"><span class="brand-mark">CX</span><span>CatcherX <small>Research Data</small></span></a>
         <div class="nav-links">
-            <a href="index.html">研究概要</a>
-            <a href="summary.html">結果まとめ</a>
-            <a href="paper.html">論文・資料</a>
-            <a href="results.html">主要結果</a>
-            <a href="phase3.html">配球更新</a>
-            <a href="analysis.html">ログ可視化</a>
-            <a href="anova.html">要因分析</a>
-            <a href="research.html" aria-current="page">追加分析</a>
-            <a href="evaluation.html">標準尺度</a>
+            <a href="index.html">はじめに</a>
+            <a href="summary.html">研究結果</a>
+            <a href="results.html" aria-current="page">捕球を詳しく見る</a>
+            <a href="phase3.html">配球を詳しく見る</a>
+            <a href="paper.html">論文・ポスター</a>
         </div>
+    </nav>
+    <nav class="section-nav" aria-label="捕球データのページ">
+        <span>捕球データ</span><a href="results.html">まず結果を知る</a><a href="analysis.html">条件を選んで見る</a><a href="anova.html">プレイヤ・球速を比べる</a><a href="research.html" aria-current="page">動きとデータ品質を見る</a>
     </nav>
 
     <header class="main-header research-hero">
-        <p class="header-subtitle">Supplementary Analysis & Reproducibility</p>
-        <h1>追加分析・再現性</h1>
-        <p class="header-lead">捕球位置だけでなく，構えから球の到達点へ向かうミットの移動方向を評価する．捕球成績，試行内推移，配球の多様性，データ品質を同じ基準で確認できる．</p>
+        <p class="header-subtitle">CATCHING DATA · 動きを詳しく見る</p>
+        <h1>ミットは球へ向かって動いたか</h1>
+        <p class="header-lead">構えた位置から球の到達点へ向かってミットを動かせたかを調べる．捕球成功との関係，投球を重ねたときの変化，公開データの範囲も確認できる．</p>
         <div class="header-actions"><a href="#direction" class="header-link-btn">捕球方向一致度を見る</a><a href="#quality" class="header-link-btn">データ品質を見る</a></div>
     </header>
 
@@ -43,7 +42,7 @@
         </section>
 
         <section class="card metric-method" aria-labelledby="metric-title">
-            <div class="section-header"><div><p class="section-kicker">VECTOR METRICS</p><h2 id="metric-title">何を測っているか</h2></div><p>位置そのものの内積ではなく，原点に依存しない移動ベクトルの正規化内積を用いる．</p></div>
+            <div class="section-header"><div><p class="section-kicker">HOW MOVEMENT IS MEASURED</p><h2 id="metric-title">「球へ向かった動き」の測り方</h2></div><p>構えから球へ必要な動きと，実際のミットの動きを比べる．</p></div>
             <div class="vector-flow" aria-label="方向一致度の計算手順">
                 <article><span>必要移動</span><strong>球到達位置 − 構え位置</strong><small>球へ届くために必要な方向と距離</small></article><div aria-hidden="true">×</div>
                 <article><span>実移動</span><strong>捕球位置 − 構え位置</strong><small>実際にミットを動かした方向と距離</small></article><div aria-hidden="true">→</div>
@@ -59,8 +58,8 @@
         </section>
 
         <section id="direction" class="card" aria-labelledby="direction-title">
-            <div class="section-header"><div><p class="section-kicker">DIRECTIONAL RESPONSE</p><h2 id="direction-title">捕球方向一致度と捕球成否</h2></div><p id="filterSummary">読込中…</p></div>
-            <div class="research-filters" aria-label="追加分析の表示条件">
+            <div class="section-header"><div><p class="section-kicker">MOVEMENT AND CATCHING</p><h2 id="direction-title">球へ向かう動きと捕球成功</h2></div><p id="filterSummary">読込中…</p></div>
+            <div class="research-filters" aria-label="捕球動作データの表示条件">
                 <label>プレイヤ<select id="researchPlayer"><option value="all">全プレイヤ</option></select></label>
                 <label>球速<select id="researchSpeed"><option value="all">全球速</option></select></label>
                 <label class="quality-toggle"><input id="includeFlagged" type="checkbox"> 座標異常フラグ26件を含める</label>
@@ -83,7 +82,7 @@
         </section>
 
         <section id="catch-performance" class="card" aria-labelledby="catch-title">
-            <div class="section-header"><div><p class="section-kicker">CATCH PERFORMANCE</p><h2 id="catch-title">参加者・球速別の捕球成績</h2></div><p>割合だけでなく，標本数とWilson法による95%信頼区間を示す．</p></div>
+            <div class="section-header"><div><p class="section-kicker">CATCH PERFORMANCE</p><h2 id="catch-title">プレイヤ・球速別の捕球成功率</h2></div><p>割合だけでなく，試行数と95%信頼区間も示す．</p></div>
             <div class="table-scroll"><table id="catchTable"><caption>参加者別の捕球成績</caption></table></div>
             <h3 class="subsection-title">球速別</h3>
             <div class="table-scroll"><table id="speedTable"><caption>球速別の捕球成績</caption></table></div>
@@ -91,7 +90,7 @@
         </section>
 
         <section id="learning" class="card" aria-labelledby="learning-title">
-            <div class="section-header"><div><p class="section-kicker">WITHIN-SESSION TREND</p><h2 id="learning-title">セッション内の推移</h2></div><p>各参加者×球速ファイルを投球順に3等分した探索的集計．</p></div>
+            <div class="section-header"><div><p class="section-kicker">CHANGE OVER TRIALS</p><h2 id="learning-title">投球を重ねたときの変化</h2></div><p>各プレイヤ・球速条件の投球順を前半・中盤・後半に分けた集計．</p></div>
             <div class="research-chart-grid">
                 <article class="chart-box"><h3>区間別の捕球成功率</h3><div class="research-canvas"><canvas id="learningChart"></canvas></div></article>
                 <aside class="research-callout caution"><strong>因果的な学習効果ではない</strong><p>後半ほど成功率と方向一致度が高い傾向を確認できるが，疲労，コース構成，固定された提示順なども混在する．練習効果を主張するには，提示順を統制した別実験が必要である．</p></aside>
@@ -100,7 +99,7 @@
         </section>
 
         <section id="diversity" class="card" aria-labelledby="diversity-title">
-            <div class="section-header"><div><p class="section-kicker">PHASE 3 DIVERSITY</p><h2 id="diversity-title">第3フェーズの配球多様性</h2></div><p>個別球種の有意差検定は試行数が少ないため行わず，選択の広がりと反復を記述する．</p></div>
+            <div class="section-header"><div><p class="section-kicker">PITCH SELECTIONS</p><h2 id="diversity-title">選ばれた球種と配球の広がり</h2></div><p>試行数が少ないため球種ごとの優劣は検定せず，選択の広がりと繰返しを示す．</p></div>
             <div class="table-scroll"><table id="diversityTable"><caption>参加者別の球種・コース多様性</caption></table></div>
             <details class="pitch-catalog"><summary>第3フェーズで選択された球種一覧（<span id="pitchTypeCount">—</span>種）</summary><div id="pitchCatalog" class="tag-cloud"></div></details>
             <details class="pitch-catalog"><summary>ログ全体で確認できる実装球種（<span id="implementedPitchTypeCount">—</span>種）</summary><div id="implementedPitchCatalog" class="tag-cloud"></div></details>
@@ -108,7 +107,7 @@
         </section>
 
         <section id="quality" class="card" aria-labelledby="quality-title">
-            <div class="section-header"><div><p class="section-kicker">DATA QUALITY</p><h2 id="quality-title">データ品質と除外基準</h2></div><p>元ログを削除せず，各レコードに品質フラグを付与する．</p></div>
+            <div class="section-header"><div><p class="section-kicker">ABOUT THE DATA</p><h2 id="quality-title">公開データの範囲と注意点</h2></div><p>元ログを残したまま，集計から除いた記録と理由を明示する．</p></div>
             <div class="quality-flow">
                 <article><span>元ログ</span><strong id="qualityRaw">—</strong><small>DataCourse 18ファイル</small></article><div aria-hidden="true">−</div>
                 <article><span>座標異常</span><strong id="qualityExcluded">—</strong><small>制球誤差 &gt; 50 cm</small></article><div aria-hidden="true">=</div>
@@ -125,7 +124,7 @@
         </section>
 
         <section class="card" aria-labelledby="reproduce-title">
-            <div class="section-header"><div><p class="section-kicker">REPRODUCIBILITY</p><h2 id="reproduce-title">再生成方法と慎重に見送った分析</h2></div></div>
+            <div class="section-header"><div><p class="section-kicker">REPRODUCIBILITY</p><h2 id="reproduce-title">分析を確かめたい方へ</h2></div></div>
             <div class="repro-grid">
                 <article><h3>再生成</h3><pre><code>python3 convert.py
 python3 verify_analysis.py
@@ -138,7 +137,7 @@ python3 analyze_phase3.py</code></pre><p><code>convert.py</code>は標準ライ�
         </section>
     </main>
 
-    <footer class="site-footer"><p><strong>CatcherX Research Data</strong><br>山口 瑞悠・藤井 叙人・橋田 光代<br>福知山公立大学 情報学部</p><p>追加分析・再現性資料</p></footer>
+    <footer class="site-footer"><p><strong>CatcherX Research Data</strong><br>山口 瑞悠・藤井 叙人・橋田 光代<br>福知山公立大学 情報学部</p><p>捕球動作・公開データの詳細</p></footer>
     <script src="research.js"></script>
 </body>
 </html>

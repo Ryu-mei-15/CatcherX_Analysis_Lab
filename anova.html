@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CatcherX: Factor Analysis</title>
+    <meta name="description" content="CatcherXの捕球時のズレがプレイヤや球速によって変わるかを二元配置分散分析で確認するページ">
+    <title>プレイヤ・球速で捕球のズレは変わるか | CatcherX</title>
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%22550%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>📊</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -188,16 +189,15 @@
     <nav class="site-nav" aria-label="主要ナビゲーション">
         <a class="site-brand" href="index.html"><span class="brand-mark">CX</span><span>CatcherX <small>Research Data</small></span></a>
         <div class="nav-links">
-            <a href="index.html">研究概要</a>
-            <a href="summary.html">結果まとめ</a>
-            <a href="paper.html">論文・資料</a>
-            <a href="results.html">主要結果</a>
-            <a href="phase3.html">配球更新</a>
-            <a href="analysis.html">ログ可視化</a>
-            <a href="anova.html" aria-current="page">要因分析</a>
-            <a href="research.html">追加分析</a>
-            <a href="evaluation.html">標準尺度</a>
+            <a href="index.html">はじめに</a>
+            <a href="summary.html">研究結果</a>
+            <a href="results.html" aria-current="page">捕球を詳しく見る</a>
+            <a href="phase3.html">配球を詳しく見る</a>
+            <a href="paper.html">論文・ポスター</a>
         </div>
+    </nav>
+    <nav class="section-nav" aria-label="捕球データのページ">
+        <span>捕球データ</span><a href="results.html">まず結果を知る</a><a href="analysis.html">条件を選んで見る</a><a href="anova.html" aria-current="page">プレイヤ・球速を比べる</a><a href="research.html">動きとデータ品質を見る</a>
     </nav>
 
     <div id="loading-overlay">
@@ -209,13 +209,12 @@
     </div>
 
     <header class="main-header">
-        <p class="header-subtitle">Factor Analysis</p>
-        <h1>残差誤差に対する要因分析</h1>
+        <p class="header-subtitle">CATCHING DATA · 違いを比べる</p>
+        <h1>プレイヤ・球速で捕球のズレは変わるか</h1>
         <p class="header-lead">
-            本ページでは，実際の球到達点に対する捕球時ミット位置の残差誤差を対象として，
-            プレイヤと球速を要因とする二元配置分散分析を行う．
-            各軸方向の誤差について，プレイヤの違い，球速の違い，
-            および両者の交互作用を確認できる．
+            実際の球到達点と捕球時のミット位置のズレについて，
+            プレイヤによる違い，球速による違い，その組合せによる違いを比べる．
+            初めて二元配置分散分析を見る人向けに，結果の読み方から説明する．
         </p>
         <div class="header-actions">
             <a href="results.html" class="header-link-btn">予稿の主要結果を見る</a>
