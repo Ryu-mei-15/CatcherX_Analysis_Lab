@@ -21,7 +21,7 @@
 - セッション内3区間の探索的推移，第3フェーズの配球エントロピー，全34球種の一覧
 - 元ログを保持した品質フラグ，除外基準，予稿掲載値との差異の公開
 - NASA-TLXおよびSystem Usability Scale（SUS）の固定ID・OTP認証付き回答収集
-- ポスターのブラウザ内公開と，発表後にスライドだけを追加公開するための資料別設定
+- EC2026口頭発表スライド・会場掲示用ポスターのブラウザ内公開
 
 ## ページ構成
 
@@ -29,7 +29,7 @@
 |---|---|
 | [`index.html`](index.html) | 初めての訪問者向け導線，研究目的，認知―運動過程，主要情報 |
 | [`summary.html`](summary.html) | この研究でわかったこと，まだわからないこと，次の検証 |
-| [`paper.html`](paper.html) | EC2026公開版論文・発表ポスターの閲覧と，発表スライドの公開予定表示 |
+| [`paper.html`](paper.html) | EC2026公開版論文・発表スライド・発表ポスターの閲覧 |
 | [`results.html`](results.html) | 捕球動作の全体結果，指標定義，球速別・プレイヤ別集計 |
 | [`analysis.html`](analysis.html) | 条件を選んで確認する球とミットの位置関係 |
 | [`anova.html`](anova.html) | プレイヤ・球速による違いと二元配置分散分析の読み方 |
@@ -78,7 +78,7 @@ http://localhost:8000/
 | `phase3-data.json` | 第3フェーズの公開用データ（65球，59遷移） |
 | `Data/` | 変換前ログおよび検証用ログ |
 | `paper/IPSJ-EC2026006.pdf` | 情報処理学会で公開されたEC2026特選論文 |
-| `paper/EC2026スライド.pdf` | 発表後に公開予定のスライド（現在はGit管理外） |
+| `paper/EC2026-slides.pdf` | 公開中の口頭発表スライド（22ページ） |
 | `paper/EC2026-poster.pdf` | 公開中の会場掲示用ポスター（1ページ） |
 
 参加者識別子は既存ログに合わせ，`Player 1`，`Player 2`，`Player 3`，`Player 5`，`Player 6`，`Player 7`に統一しています．`DataCourse`には実測球速列がないため，ファイル名の100，130，158 km/hを設定条件として保持し，`actual_speed_kmph`は`null`にしています．
@@ -185,9 +185,7 @@ NASA-TLXはRaw TLXと15対の一対比較を用いる重み付き方式に対応
 
 ## 発表スライド・ポスターの公開
 
-ポスターは公開中です．スライドは`paper/EC2026*スライ*.pdf`を`.gitignore`で除外し，PDF本体がGitHub Pagesへ配信されないようにしています．`presentation-config.js`では各資料の`published`を個別に指定するため，現在はポスターにだけ閲覧UIを表示します．
-
-スライドを発表後に公開する操作は[`PRESENTATION_RELEASE_GUIDE.md`](PRESENTATION_RELEASE_GUIDE.md)を参照してください．
+口頭発表スライドとポスターはともに公開中です．`presentation-config.js`で資料ごとのページ数・容量・公開状態を管理し，`paper.html`からブラウザ内で閲覧できます．資料を差し替える操作は[`PRESENTATION_RELEASE_GUIDE.md`](PRESENTATION_RELEASE_GUIDE.md)を参照してください．
 
 ## ディレクトリ概要
 

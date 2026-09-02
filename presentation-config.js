@@ -3,12 +3,12 @@ window.presentationMaterialsConfig = Object.freeze({
         {
             id: 'slides',
             title: '発表スライド',
-            description: 'EC2026口頭発表で使用予定のスライド資料．',
-            path: 'paper/EC2026スライド.pdf',
-            pages: 23,
-            fileSize: '約21 MB',
-            published: false,
-            releaseLabel: '発表終了後に公開予定'
+            description: 'EC2026口頭発表で使用したスライド資料．',
+            path: 'paper/EC2026-slides.pdf',
+            pages: 22,
+            fileSize: '約19.4 MB',
+            published: true,
+            releaseLabel: '公開中'
         },
         {
             id: 'poster',
