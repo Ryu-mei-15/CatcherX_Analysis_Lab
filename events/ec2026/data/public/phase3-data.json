@@ -1,0 +1,1230 @@
+{
+  "metadata": {
+    "phase": 3,
+    "participants": 6,
+    "pitches": 65,
+    "transitions": 59,
+    "source_pattern": "data/raw/phase/*_1_2.csv"
+  },
+  "sessions": [
+    {
+      "participant": "Player 1",
+      "pitches": [
+        {
+          "sequence": 1,
+          "pitch_number": 1,
+          "pitch_type": "Changeup",
+          "course": "Mid Center",
+          "speed_kmph": null,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": null,
+          "course_changed_from_previous": null
+        },
+        {
+          "sequence": 2,
+          "pitch_number": 2,
+          "pitch_type": "Slider",
+          "course": "Low Outside",
+          "speed_kmph": null,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 3,
+          "pitch_number": 3,
+          "pitch_type": "Straight",
+          "course": "Mid Center",
+          "speed_kmph": null,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Strike_Missed",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 4,
+          "pitch_number": 4,
+          "pitch_type": "Splitter",
+          "course": "Mid Center",
+          "speed_kmph": null,
+          "batter_reaction": "見逃し",
+          "catch_result": "Strike_Missed",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": false
+        },
+        {
+          "sequence": 5,
+          "pitch_number": 5,
+          "pitch_type": "Splitter",
+          "course": "Mid Center",
+          "speed_kmph": null,
+          "batter_reaction": "見逃し",
+          "catch_result": "Strike_Missed",
+          "pitch_changed_from_previous": false,
+          "course_changed_from_previous": false
+        },
+        {
+          "sequence": 6,
+          "pitch_number": 6,
+          "pitch_type": "SinkingFast",
+          "course": "Low Inside",
+          "speed_kmph": null,
+          "batter_reaction": "見逃し",
+          "catch_result": "Strike_PassedBall",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 7,
+          "pitch_number": 7,
+          "pitch_type": "VSlider",
+          "course": "Mid Outside",
+          "speed_kmph": null,
+          "batter_reaction": "見逃し",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 8,
+          "pitch_number": 8,
+          "pitch_type": "Fork",
+          "course": "High Outside",
+          "speed_kmph": null,
+          "batter_reaction": "見逃し",
+          "catch_result": "Ball_PassedBall",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 9,
+          "pitch_number": 9,
+          "pitch_type": "TwoSeamGyro",
+          "course": "Mid Outside",
+          "speed_kmph": null,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 10,
+          "pitch_number": 10,
+          "pitch_type": "Straight",
+          "course": "Mid Center",
+          "speed_kmph": null,
+          "batter_reaction": "見逃し",
+          "catch_result": "Strike_Missed",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        }
+      ]
+    },
+    {
+      "participant": "Player 2",
+      "pitches": [
+        {
+          "sequence": 1,
+          "pitch_number": 1,
+          "pitch_type": "KnuckleCurve",
+          "course": "Low Outside",
+          "speed_kmph": null,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": null,
+          "course_changed_from_previous": null
+        },
+        {
+          "sequence": 2,
+          "pitch_number": 2,
+          "pitch_type": "PalmChange",
+          "course": "Low Inside",
+          "speed_kmph": null,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 3,
+          "pitch_number": 3,
+          "pitch_type": "Straight",
+          "course": "High Center",
+          "speed_kmph": null,
+          "batter_reaction": "見逃し",
+          "catch_result": "Strike_PassedBall",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 4,
+          "pitch_number": 4,
+          "pitch_type": "Slider",
+          "course": "Mid Outside",
+          "speed_kmph": null,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 5,
+          "pitch_number": 5,
+          "pitch_type": "Splitter",
+          "course": "Low Outside",
+          "speed_kmph": null,
+          "batter_reaction": "空振り",
+          "catch_result": "Strike_PassedBall",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 6,
+          "pitch_number": 6,
+          "pitch_type": "Straight",
+          "course": "High Inside",
+          "speed_kmph": null,
+          "batter_reaction": "空振り",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 7,
+          "pitch_number": 7,
+          "pitch_type": "Shoot",
+          "course": "Mid Inside",
+          "speed_kmph": null,
+          "batter_reaction": "空振り",
+          "catch_result": "Strike_PassedBall",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 8,
+          "pitch_number": 8,
+          "pitch_type": "SinkingFast",
+          "course": "Low Center",
+          "speed_kmph": null,
+          "batter_reaction": "見逃し",
+          "catch_result": "Strike_PassedBall",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 9,
+          "pitch_number": 9,
+          "pitch_type": "Changeup",
+          "course": "High Center",
+          "speed_kmph": null,
+          "batter_reaction": "空振り",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        }
+      ]
+    },
+    {
+      "participant": "Player 3",
+      "pitches": [
+        {
+          "sequence": 1,
+          "pitch_number": 1,
+          "pitch_type": "Slider",
+          "course": "Low Outside",
+          "speed_kmph": null,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": null,
+          "course_changed_from_previous": null
+        },
+        {
+          "sequence": 2,
+          "pitch_number": 2,
+          "pitch_type": "Splitter",
+          "course": "Low Outside",
+          "speed_kmph": null,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Strike_Missed",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": false
+        },
+        {
+          "sequence": 3,
+          "pitch_number": 3,
+          "pitch_type": "Straight",
+          "course": "High Inside",
+          "speed_kmph": null,
+          "batter_reaction": "見逃し",
+          "catch_result": "Strike_Missed",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 4,
+          "pitch_number": 4,
+          "pitch_type": "Curve",
+          "course": "Low Center Ball",
+          "speed_kmph": null,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Ball_PassedBall",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 5,
+          "pitch_number": 5,
+          "pitch_type": "Sinker",
+          "course": "Low Outside",
+          "speed_kmph": null,
+          "batter_reaction": "見逃し",
+          "catch_result": "Ball",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 6,
+          "pitch_number": 6,
+          "pitch_type": "Sinker",
+          "course": "Low Inside Center Ball",
+          "speed_kmph": null,
+          "batter_reaction": "見逃し",
+          "catch_result": "Ball_PassedBall",
+          "pitch_changed_from_previous": false,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 7,
+          "pitch_number": 7,
+          "pitch_type": "Straight",
+          "course": "Mid Inside",
+          "speed_kmph": null,
+          "batter_reaction": "空振り",
+          "catch_result": "Strike_Missed",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 8,
+          "pitch_number": 8,
+          "pitch_type": "Slider",
+          "course": "Low Outside",
+          "speed_kmph": null,
+          "batter_reaction": "空振り",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 9,
+          "pitch_number": 9,
+          "pitch_type": "Eephus",
+          "course": "Mid Center",
+          "speed_kmph": null,
+          "batter_reaction": "空振り",
+          "catch_result": "Strike_PassedBall",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 10,
+          "pitch_number": 10,
+          "pitch_type": "Shoot",
+          "course": "Low Inside",
+          "speed_kmph": null,
+          "batter_reaction": "空振り",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 11,
+          "pitch_number": 11,
+          "pitch_type": "TwoSeam",
+          "course": "Low Outside Center Ball",
+          "speed_kmph": null,
+          "batter_reaction": "空振り",
+          "catch_result": "Strike_Missed",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 12,
+          "pitch_number": 12,
+          "pitch_type": "Straight",
+          "course": "Mid Center",
+          "speed_kmph": null,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Strike_Missed",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        }
+      ]
+    },
+    {
+      "participant": "Player 5",
+      "pitches": [
+        {
+          "sequence": 1,
+          "pitch_number": 1,
+          "pitch_type": "Sweeper",
+          "course": "Mid-Low Outside Ball",
+          "speed_kmph": 125.8,
+          "batter_reaction": "見逃し",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": null,
+          "course_changed_from_previous": null
+        },
+        {
+          "sequence": 2,
+          "pitch_number": 2,
+          "pitch_type": "Straight",
+          "course": "Low Inside Center Ball",
+          "speed_kmph": 159.5,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 3,
+          "pitch_number": 3,
+          "pitch_type": "Straight",
+          "course": "Low Outside Center Ball",
+          "speed_kmph": 158.4,
+          "batter_reaction": "空振り",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": false,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 4,
+          "pitch_number": 4,
+          "pitch_type": "Curve",
+          "course": "Low Outside Ball",
+          "speed_kmph": 117.4,
+          "batter_reaction": "見逃し",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 5,
+          "pitch_number": 5,
+          "pitch_type": "Sweeper",
+          "course": "Mid-Low Outside Ball",
+          "speed_kmph": 126.6,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 6,
+          "pitch_number": 6,
+          "pitch_type": "Sweeper",
+          "course": "Low Inside",
+          "speed_kmph": 128.7,
+          "batter_reaction": "空振り",
+          "catch_result": "Strike_Missed",
+          "pitch_changed_from_previous": false,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 7,
+          "pitch_number": 7,
+          "pitch_type": "Slatter",
+          "course": "Mid Inside",
+          "speed_kmph": 137.9,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 8,
+          "pitch_number": 8,
+          "pitch_type": "VSlider",
+          "course": "Low Outside Center Ball",
+          "speed_kmph": 128.0,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Ball",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 9,
+          "pitch_number": 9,
+          "pitch_type": "Drop",
+          "course": "Low Inside Center Ball",
+          "speed_kmph": 117.8,
+          "batter_reaction": "空振り",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 10,
+          "pitch_number": 10,
+          "pitch_type": "Splinker",
+          "course": "Low Inside Ball",
+          "speed_kmph": 143.9,
+          "batter_reaction": "見逃し",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        }
+      ]
+    },
+    {
+      "participant": "Player 6",
+      "pitches": [
+        {
+          "sequence": 1,
+          "pitch_number": 1,
+          "pitch_type": "Straight",
+          "course": "Mid Center",
+          "speed_kmph": 159.7,
+          "batter_reaction": "見逃し",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": null,
+          "course_changed_from_previous": null
+        },
+        {
+          "sequence": 2,
+          "pitch_number": 2,
+          "pitch_type": "Slider",
+          "course": "Mid Center",
+          "speed_kmph": 130.4,
+          "batter_reaction": "空振り",
+          "catch_result": "Strike_PassedBall",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": false
+        },
+        {
+          "sequence": 3,
+          "pitch_number": 3,
+          "pitch_type": "Splitter",
+          "course": "Low Inside",
+          "speed_kmph": 133.1,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Strike_PassedBall",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 4,
+          "pitch_number": 4,
+          "pitch_type": "VSlider",
+          "course": "Mid Outside",
+          "speed_kmph": 130.0,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Strike_PassedBall",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 5,
+          "pitch_number": 5,
+          "pitch_type": "Fork",
+          "course": "Mid Outside",
+          "speed_kmph": 129.6,
+          "batter_reaction": "見逃し",
+          "catch_result": "Strike_PassedBall",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": false
+        },
+        {
+          "sequence": 6,
+          "pitch_number": 6,
+          "pitch_type": "Eephus",
+          "course": "Mid Outside",
+          "speed_kmph": 59.7,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": false
+        },
+        {
+          "sequence": 7,
+          "pitch_number": 7,
+          "pitch_type": "Sweeper",
+          "course": "High Inside",
+          "speed_kmph": 128.9,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Ball_PassedBall",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 8,
+          "pitch_number": 8,
+          "pitch_type": "Sweeper",
+          "course": "High Inside",
+          "speed_kmph": 128.1,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Ball",
+          "pitch_changed_from_previous": false,
+          "course_changed_from_previous": false
+        },
+        {
+          "sequence": 9,
+          "pitch_number": 9,
+          "pitch_type": "DCurve",
+          "course": "Mid Center",
+          "speed_kmph": 112.6,
+          "batter_reaction": "空振り",
+          "catch_result": "Strike_PassedBall",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 10,
+          "pitch_number": 10,
+          "pitch_type": "FourseamGyro",
+          "course": "Low Inside",
+          "speed_kmph": 142.5,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Strike_PassedBall",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 11,
+          "pitch_number": 11,
+          "pitch_type": "Straight",
+          "course": "Mid Center",
+          "speed_kmph": 158.1,
+          "batter_reaction": "見逃し",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        }
+      ]
+    },
+    {
+      "participant": "Player 7",
+      "pitches": [
+        {
+          "sequence": 1,
+          "pitch_number": 1,
+          "pitch_type": "Straight",
+          "course": "Low Center",
+          "speed_kmph": 155.1,
+          "batter_reaction": "見逃し",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": null,
+          "course_changed_from_previous": null
+        },
+        {
+          "sequence": 2,
+          "pitch_number": 2,
+          "pitch_type": "Straight",
+          "course": "Low Center",
+          "speed_kmph": 158.6,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Ball_Missed",
+          "pitch_changed_from_previous": false,
+          "course_changed_from_previous": false
+        },
+        {
+          "sequence": 3,
+          "pitch_number": 3,
+          "pitch_type": "Curve",
+          "course": "Low Outside",
+          "speed_kmph": 115.5,
+          "batter_reaction": "空振り",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 4,
+          "pitch_number": 4,
+          "pitch_type": "Splitter",
+          "course": "Low Inside",
+          "speed_kmph": 137.0,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Strike_PassedBall",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 5,
+          "pitch_number": 5,
+          "pitch_type": "Straight",
+          "course": "Low Center",
+          "speed_kmph": 158.0,
+          "batter_reaction": "ハーフスイング",
+          "catch_result": "Ball_Missed",
+          "pitch_changed_from_previous": true,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 6,
+          "pitch_number": 6,
+          "pitch_type": "Straight",
+          "course": "Low Center",
+          "speed_kmph": 156.4,
+          "batter_reaction": "空振り",
+          "catch_result": "Strike_Missed",
+          "pitch_changed_from_previous": false,
+          "course_changed_from_previous": false
+        },
+        {
+          "sequence": 7,
+          "pitch_number": 7,
+          "pitch_type": "Straight",
+          "course": "Low Center",
+          "speed_kmph": 159.4,
+          "batter_reaction": "見逃し",
+          "catch_result": "Ball",
+          "pitch_changed_from_previous": false,
+          "course_changed_from_previous": false
+        },
+        {
+          "sequence": 8,
+          "pitch_number": 8,
+          "pitch_type": "Straight",
+          "course": "Mid Center",
+          "speed_kmph": 157.3,
+          "batter_reaction": "見逃し",
+          "catch_result": "Ball_Missed",
+          "pitch_changed_from_previous": false,
+          "course_changed_from_previous": true
+        },
+        {
+          "sequence": 9,
+          "pitch_number": 9,
+          "pitch_type": "Straight",
+          "course": "Mid Center",
+          "speed_kmph": 156.4,
+          "batter_reaction": "空振り",
+          "catch_result": "Strike_PassedBall",
+          "pitch_changed_from_previous": false,
+          "course_changed_from_previous": false
+        },
+        {
+          "sequence": 10,
+          "pitch_number": 10,
+          "pitch_type": "Straight",
+          "course": "Mid Center",
+          "speed_kmph": 156.0,
+          "batter_reaction": "見逃し",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": false,
+          "course_changed_from_previous": false
+        },
+        {
+          "sequence": 11,
+          "pitch_number": 11,
+          "pitch_type": "Straight",
+          "course": "Mid Center",
+          "speed_kmph": 156.2,
+          "batter_reaction": "空振り",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": false,
+          "course_changed_from_previous": false
+        },
+        {
+          "sequence": 12,
+          "pitch_number": 12,
+          "pitch_type": "Straight",
+          "course": "Mid Center",
+          "speed_kmph": 159.3,
+          "batter_reaction": "見逃し",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": false,
+          "course_changed_from_previous": false
+        },
+        {
+          "sequence": 13,
+          "pitch_number": 13,
+          "pitch_type": "Straight",
+          "course": "Mid Center",
+          "speed_kmph": 156.9,
+          "batter_reaction": "見逃し",
+          "catch_result": "Strike",
+          "pitch_changed_from_previous": false,
+          "course_changed_from_previous": false
+        }
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "participant": "Player 1",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 1",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 1",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": false,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 1",
+      "previous_reaction": "見逃し",
+      "pitch_changed": false,
+      "course_changed": false,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 1",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 1",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 1",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "高め"
+    },
+    {
+      "participant": "Player 1",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 1",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 2",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 2",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "高め"
+    },
+    {
+      "participant": "Player 2",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 2",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 2",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "高め"
+    },
+    {
+      "participant": "Player 2",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 2",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 2",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "高め"
+    },
+    {
+      "participant": "Player 3",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": false,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 3",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "高め"
+    },
+    {
+      "participant": "Player 3",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 3",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 3",
+      "previous_reaction": "見逃し",
+      "pitch_changed": false,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 3",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 3",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 3",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 3",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 3",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 3",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 5",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 5",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": false,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 5",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 5",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 5",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": false,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 5",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 5",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 5",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 5",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 6",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": false,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 6",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 6",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 6",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": false,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 6",
+      "previous_reaction": "見逃し",
+      "pitch_changed": true,
+      "course_changed": false,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 6",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "高め"
+    },
+    {
+      "participant": "Player 6",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": false,
+      "course_changed": false,
+      "next_pitch_group": "変化球",
+      "next_course_height": "高め"
+    },
+    {
+      "participant": "Player 6",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 6",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 6",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 7",
+      "previous_reaction": "見逃し",
+      "pitch_changed": false,
+      "course_changed": false,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 7",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 7",
+      "previous_reaction": "空振り",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "変化球",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 7",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": true,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 7",
+      "previous_reaction": "ハーフスイング",
+      "pitch_changed": false,
+      "course_changed": false,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 7",
+      "previous_reaction": "空振り",
+      "pitch_changed": false,
+      "course_changed": false,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "低め"
+    },
+    {
+      "participant": "Player 7",
+      "previous_reaction": "見逃し",
+      "pitch_changed": false,
+      "course_changed": true,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 7",
+      "previous_reaction": "見逃し",
+      "pitch_changed": false,
+      "course_changed": false,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 7",
+      "previous_reaction": "空振り",
+      "pitch_changed": false,
+      "course_changed": false,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 7",
+      "previous_reaction": "見逃し",
+      "pitch_changed": false,
+      "course_changed": false,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 7",
+      "previous_reaction": "空振り",
+      "pitch_changed": false,
+      "course_changed": false,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "真ん中"
+    },
+    {
+      "participant": "Player 7",
+      "previous_reaction": "見逃し",
+      "pitch_changed": false,
+      "course_changed": false,
+      "next_pitch_group": "ストレート",
+      "next_course_height": "真ん中"
+    }
+  ]
+}

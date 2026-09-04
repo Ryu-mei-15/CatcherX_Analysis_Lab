@@ -3,335 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CatcherX | 捕手の認知と身体動作をつなぐVRインタラクション研究</title>
-
+    <meta name="description" content="CatcherXのこれまでとこれからの発表，研究データ，論文，発表資料を継続的に記録する研究アーカイブ">
+    <title>CatcherX Research Archive | 捕手の認知と身体動作をつなぐVR研究</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>⚾</text></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-        .overview-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .overview-card {
-            background: #fafbfc;
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 1.5rem;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .overview-card h3 {
-            margin-top: 0;
-            color: var(--primary-color);
-            font-size: 1.15rem;
-        }
-
-        .overview-card p {
-            margin-bottom: 0;
-            line-height: 1.85;
-        }
-
-        .flow-list {
-            display: grid;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .flow-item {
-            display: grid;
-            grid-template-columns: 3.5rem 1fr;
-            gap: 1rem;
-            align-items: start;
-            background: #fafbfc;
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 1.2rem;
-        }
-
-        .flow-number {
-            width: 3rem;
-            height: 3rem;
-            border-radius: 50%;
-            background: var(--primary-color);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .flow-item h3 {
-            margin: 0 0 0.4rem 0;
-            color: var(--primary-color);
-        }
-
-        .flow-item p {
-            margin: 0;
-            line-height: 1.85;
-        }
-
-        .link-card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .link-card {
-            display: block;
-            text-decoration: none;
-            background: var(--primary-fade);
-            border: 1px solid var(--primary-light);
-            border-radius: 16px;
-            padding: 1.6rem;
-            color: var(--text-main);
-            transition: all 0.2s;
-        }
-
-        .link-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-            background: white;
-        }
-
-        .link-card strong {
-            display: block;
-            color: var(--primary-color);
-            font-size: 1.15rem;
-            margin-bottom: 0.6rem;
-        }
-
-        .note-box {
-            background: #fff;
-            border-left: 6px solid var(--primary-color);
-            border-radius: 12px;
-            padding: 1.4rem 1.6rem;
-            box-shadow: var(--shadow-sm);
-            line-height: 1.9;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="archive-home">
     <a class="skip-link" href="#main">本文へ移動</a>
     <nav class="site-nav" aria-label="主要ナビゲーション">
-        <a class="site-brand" href="index.html"><span class="brand-mark">CX</span><span>CatcherX <small>Research Data</small></span></a>
+        <a class="site-brand" href="index.html"><span class="brand-mark">CX</span><span>CatcherX <small>Research Archive</small></span></a>
         <div class="nav-links">
-            <a href="index.html" aria-current="page">はじめに</a>
-            <a href="summary.html">研究結果</a>
-            <a href="results.html">捕球を詳しく見る</a>
-            <a href="phase3.html">配球を詳しく見る</a>
-            <a href="paper.html">論文・ポスター</a>
+            <a href="index.html" aria-current="page">ホーム</a>
+            <a href="#archive">発表アーカイブ</a>
+            <a href="events/ec2026/">EC2026</a>
+            <a href="events/ec2026/paper.html">公開資料</a>
         </div>
     </nav>
 
-    <header class="main-header">
-        <p class="header-subtitle">EC2026 · INTERACTIVE RESEARCH EXHIBIT</p>
-        <h1>CatcherX</h1>
-
-        <div class="header-authors">
-            <p class="author">捕手の認知-運動過程の循環に着目したVRシミュレータ</p>
+    <header class="archive-hero">
+        <div class="archive-hero-copy">
+            <p class="archive-eyebrow">CATCHERX RESEARCH ARCHIVE</p>
+            <h1>捕手の一球を，<br><span>考えることと動くこと</span>の循環から捉える．</h1>
+            <p>
+                CatcherXは，配球を考え，構え，球に対応し，結果から次の配球を考える
+                捕手特有の認知-運動過程をVRで探究する研究プロジェクトです．
+                本サイトに，これまでの発表と，これから生まれるデータ・資料・分析を継続して記録します．
+            </p>
+            <div class="archive-hero-actions">
+                <a class="archive-button primary" href="#archive">発表の記録を見る</a>
+                <a class="archive-button secondary" href="events/ec2026/">最新の公開成果へ</a>
+            </div>
         </div>
-
-        <div class="header-authors">
-            <p class="author">山口 瑞悠（福知山公立大学 情報学部 情報学科）</p>
-            <p class="author">藤井 叙人（福知山公立大学 情報学部 情報学科）</p>
-            <p class="author">橋田 光代（福知山公立大学 情報学部 情報学科）</p>
-        </div>
-
-        <p class="header-lead">
-            CatcherXは，捕手が行う「次の球を考える」「構える」「飛来球に身体で介入する」
-            「結果を受け取って次の配球を考える」という一連の過程を，
-            VR空間上で体験可能にすることを目指したシステムである．
-        </p>
-
-        <div class="header-actions">
-            <a href="summary.html" class="header-link-btn primary-action">この研究でわかったこと</a>
-            <a href="paper.html" class="header-link-btn">論文・ポスターを見る</a>
-        </div>
+        <aside class="archive-current" aria-label="現在公開中の研究成果">
+            <div class="archive-current-top"><span>NOW AVAILABLE</span><strong>2026</strong></div>
+            <p>発表済み・資料公開中</p>
+            <h2>EC2026</h2>
+            <small>論文・スライド・ポスター・実験データ</small>
+            <a href="events/ec2026/">発表ページを開く →</a>
+        </aside>
     </header>
 
-    <main id="main" class="container">
-
-        <section class="visit-guide" aria-labelledby="visit-guide-title">
-            <div class="visit-guide-heading">
-                <p class="section-kicker">START HERE</p>
-                <h2 id="visit-guide-title">初めての方へ</h2>
-                <p>まず研究結果を約2分で確認し，関心のあるデータへ進めます．</p>
+    <main id="main">
+        <section id="archive" class="archive-section container" aria-labelledby="archive-title">
+            <div class="archive-section-heading">
+                <div>
+                    <p class="section-kicker">PRESENTATIONS & MILESTONES</p>
+                    <h2 id="archive-title">発表の記録</h2>
+                </div>
+                <p>発表ごとに，当時の目的，取得データ，分析，論文，スライド，ポスターをまとめます．</p>
             </div>
-            <div class="visit-guide-steps">
-                <a href="summary.html"><span>01</span><strong>結論を知る</strong><small>確認できたことと限界</small></a>
-                <a href="results.html"><span>02</span><strong>捕球を見る</strong><small>球のズレとミットの動き</small></a>
-                <a href="phase3.html"><span>03</span><strong>配球を見る</strong><small>打者反応後の次球選択</small></a>
-                <a href="paper.html"><span>04</span><strong>資料を読む</strong><small>公開論文と発表ポスター</small></a>
+            <div class="archive-legend" aria-label="公開状態の説明">
+                <span><i class="published"></i>資料公開中</span>
+                <span><i class="archived"></i>発表済み・整理中</span>
+                <span><i class="planned"></i>今後の発表目標</span>
             </div>
+            <div id="eventArchive" class="archive-event-grid"></div>
+            <noscript><p class="event-content-empty">発表記録を表示するにはJavaScriptを有効にしてください．</p></noscript>
         </section>
 
-        <section class="headline-findings" aria-label="研究の主要情報">
-            <article><strong>8段階</strong><span>配球から次球判断までを一つのVR体験として実装</span></article>
-            <article><strong>1,946試行</strong><span>予稿の身体的補正分析に使用した捕球ログ</span></article>
-            <article><strong>65球</strong><span>打者反応後の配球選択を記録した第3フェーズ</span></article>
-        </section>
-
-        <section class="card">
-            <h2>CatcherXとは</h2>
-            <p class="page-lead">
-                CatcherXは，野球における捕手の体験に焦点を当てたVRコンテンツである．
-                従来の野球ゲームやVRコンテンツでは，投手や打者の体験が中心となることが多く，
-                捕手の配球判断や捕球動作はシステム側の自動処理として扱われやすかった．
-                CatcherXでは，プレイヤが捕手として球種やコースを選択し，
-                その予測に基づいてミットを構え，実際に飛来するボールに対して身体的に介入する．
-            </p>
-
-            <div class="overview-grid">
-                <div class="overview-card">
-                    <h3>配球を考える</h3>
-                    <p>
-                        プレイヤは球種とコースを選択し，次に来る投球を自ら決定する．
-                        これにより，単に飛来球を待つのではなく，捕手として予測を形成する体験を生み出す．
-                    </p>
+        <section id="about" class="archive-about">
+            <div class="container">
+                <div class="archive-section-heading light">
+                    <div><p class="section-kicker">THE RESEARCH</p><h2>CatcherXが扱う体験</h2></div>
+                    <p>捕球だけを切り出さず，前後の判断を含む一球の循環として設計します．</p>
                 </div>
-
-                <div class="overview-card">
-                    <h3>投球を受ける</h3>
-                    <p>
-                        システムは選択された配球に基づいて投球軌道を生成する．
-                        制球のぶれを加えることで，プレイヤは予測と実際の軌道との差を認識しながらミットを補正する．
-                    </p>
-                </div>
-
-                <div class="overview-card">
-                    <h3>次の配球へつなげる</h3>
-                    <p>
-                        捕球結果や打者反応を提示することで，プレイヤは前球の結果を解釈し，
-                        次の球種・コースを再考する．
-                    </p>
+                <div class="archive-cycle">
+                    <article><span>01</span><h3>配球を考える</h3><p>球種とコースを選び，次に来る球を自ら予測する．</p></article>
+                    <div aria-hidden="true">→</div>
+                    <article><span>02</span><h3>身体で対応する</h3><p>予測と実際の軌道のズレを捉え，ミット位置を補正する．</p></article>
+                    <div aria-hidden="true">→</div>
+                    <article><span>03</span><h3>次の判断へ戻る</h3><p>捕球結果と打者反応を受け取り，次の配球を考える．</p></article>
                 </div>
             </div>
         </section>
 
-        <section class="card">
-            <h2>開発の背景</h2>
-            <p class="page-lead">
-                野球における捕手は，投手に対する球種・コースの要求，飛来球の捕球，
-                打者反応の観察，次配球の判断を連続的に行う特異なポジションである．
-                しかし，既存のコンテンツでは，捕手の役割は「投球を受け止める対象」や
-                「結果を表示する処理」として抽象化されることが多い．
-            </p>
-
-            <p class="page-lead">
-                CatcherXは，捕手の体験を単発の捕球動作としてではなく，
-                配球判断と知覚・運動が循環するインタラクションとして扱う．
-                これにより，プレイヤが自ら予測し，身体で補正し，結果をもとに次の判断へ進む
-                捕手特有のプレイをVR空間内に再構成することを目指している．
-            </p>
-        </section>
-
-        <section class="card">
-            <h2>体験の流れ</h2>
-
-            <div class="flow-list">
-                <div class="flow-item">
-                    <div class="flow-number">1</div>
-                    <div>
-                        <h3>配球選択</h3>
-                        <p>
-                            プレイヤは球種とコースを選択する．
-                            この操作によって，次に来る投球に対する予測が形成される．
-                        </p>
-                    </div>
-                </div>
-
-                <div class="flow-item">
-                    <div class="flow-number">2</div>
-                    <div>
-                        <h3>投球軌道の生成</h3>
-                        <p>
-                            システムは，選択された球種・コースを基準に投球軌道を生成する．
-                            実験条件に応じて制球誤差を加え，予測通りには来ない投球を提示する．
-                        </p>
-                    </div>
-                </div>
-
-                <div class="flow-item">
-                    <div class="flow-number">3</div>
-                    <div>
-                        <h3>捕球への身体的介入</h3>
-                        <p>
-                            プレイヤは，事前の予測と実際の投球軌道との差を視覚的に認識し，
-                            ミット位置を補正しながら捕球を試みる．
-                        </p>
-                    </div>
-                </div>
-
-                <div class="flow-item">
-                    <div class="flow-number">4</div>
-                    <div>
-                        <h3>結果提示と次配球</h3>
-                        <p>
-                            捕球結果，ボール・ストライク判定，打者反応を提示する．
-                            プレイヤはこれらの情報をもとに，次の球種・コースを再考する．
-                        </p>
-                    </div>
-                </div>
+        <section class="archive-principles container" aria-labelledby="principles-title">
+            <div class="archive-section-heading">
+                <div><p class="section-kicker">ARCHIVE POLICY</p><h2 id="principles-title">このサイトに残すもの</h2></div>
+                <p>完成した成果だけでなく，研究がどのように変化したかを後からたどれる形で残します．</p>
+            </div>
+            <div class="archive-principle-grid">
+                <article><span>DATA</span><h3>実験データと分析</h3><p>公開可能なログ，指標の定義，集計結果，分析上の制約を発表単位で整理します．</p></article>
+                <article><span>MATERIALS</span><h3>論文と発表資料</h3><p>公開条件を確認した論文，スライド，ポスターを，使用した版が分かる形で掲載します．</p></article>
+                <article><span>PROCESS</span><h3>研究の経過</h3><p>過去の発表と今後の目標を同じ時系列に置き，追加検証や設計変更の流れを記録します．</p></article>
             </div>
         </section>
-
-        <section class="card">
-            <h2>知りたいことから選ぶ</h2>
-            <p class="page-lead">
-                本サイトは，結論を短く読むページと，根拠となる捕球・配球データを詳しく見るページに分けている．
-                統計手法を知らなくても，それぞれのページ冒頭から順に読める．
-            </p>
-
-            <div class="topic-path-grid">
-                <article class="topic-path featured">
-                    <span class="topic-label">まず読む</span>
-                    <h3>この研究で何がわかったのか</h3>
-                    <p>実装できたこと，データから見えた傾向，現時点では言えないことを整理している．</p>
-                    <a href="summary.html">研究結果を読む <span aria-hidden="true">→</span></a>
-                </article>
-                <article class="topic-path">
-                    <span class="topic-label">捕球</span>
-                    <h3>投球のズレにどう対応したのか</h3>
-                    <p>全体結果から個々のログ，プレイヤ・球速の比較，ミットの移動方向へ順に掘り下げられる．</p>
-                    <a href="results.html">捕球データを見る <span aria-hidden="true">→</span></a>
-                </article>
-                <article class="topic-path">
-                    <span class="topic-label">配球</span>
-                    <h3>打者の反応で次の球は変わったのか</h3>
-                    <p>参加者ごとの球種・コースの順序と，反応後に選択が変化したかを確認できる．</p>
-                    <a href="phase3.html">配球データを見る <span aria-hidden="true">→</span></a>
-                </article>
-                <article class="topic-path">
-                    <span class="topic-label">発表資料</span>
-                    <h3>研究の全体像を資料で確認する</h3>
-                    <p>情報処理学会の公開論文と，EC2026会場掲示用ポスターをブラウザ内で閲覧できる．</p>
-                    <a href="paper.html">論文・ポスターを見る <span aria-hidden="true">→</span></a>
-                </article>
-            </div>
-        </section>
-
-        <section class="card">
-            <h2>このサイトについて</h2>
-            <div class="note-box">
-                本サイトは，CatcherXの研究内容と実験結果を公開するための補足資料である．
-                結果だけでなく，指標の定義，分析上の制約，公開データの範囲も明示し，
-                論文中の主張とその根拠をたどれるようにしている．
-                研究参加者向けの評価フォームは，担当者から案内を受けた方のみ利用できる．
-            </div>
-        </section>
-
     </main>
 
     <footer class="site-footer">
-        <p><strong>CatcherX Research Data</strong><br>山口 瑞悠・藤井 叙人・橋田 光代<br>福知山公立大学 情報学部</p>
-        <p>EC2026予稿の補足資料</p>
+        <p><strong>CatcherX Research Archive</strong><br>山口 瑞悠・藤井 叙人・橋田 光代<br>福知山公立大学 情報学部</p>
+        <p>発表・データ・資料を継続的に記録</p>
     </footer>
+    <script src="assets/js/events-data.js"></script>
+    <script src="assets/js/archive.js"></script>
 </body>
 </html>

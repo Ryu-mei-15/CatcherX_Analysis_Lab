@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CatcherXの実験からわかったこと，まだわからないことを簡潔に紹介するページ">
+    <title>この研究でわかったこと | CatcherX</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>⚾</text></svg>">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <nav class="site-nav" aria-label="主要ナビゲーション">
+        <a class="site-brand" href="../../index.html"><span class="brand-mark">CX</span><span>CatcherX <small>Research Archive</small></span></a>
+        <div class="nav-links">
+            <a href="../../index.html">ホーム</a>
+            <a href="../../index.html#archive">発表アーカイブ</a>
+            <a href="index.html" aria-current="page">EC2026</a>
+            <a href="paper.html">公開資料</a>
+        </div>
+    </nav>
+
+    <header class="main-header summary-hero">
+        <p class="header-subtitle">まずここから・約2分</p>
+        <h1>この研究でわかったこと</h1>
+        <p class="header-lead">
+            CatcherXの実装と3フェーズのログから確認できたことを，
+            「確認できたこと」「傾向として見えたこと」「まだわからないこと」に分けて紹介する．
+        </p>
+        <div class="header-actions">
+            <a href="#findings" class="header-link-btn">主要な知見を見る</a>
+            <a href="#limits" class="header-link-btn">結論の限界を見る</a>
+        </div>
+    </header>
+
+    <main id="main" class="container findings-layout">
+        <section class="finding-thesis" aria-labelledby="thesis-title">
+            <div>
+                <p class="section-kicker">OVERALL CONCLUSION</p>
+                <h2 id="thesis-title">捕手の一球を，判断と身体動作がつながる循環としてVR上に実装した</h2>
+                <p>
+                    CatcherXでは，配球選択，構え，軌道知覚，身体的補正，捕球，結果評価，
+                    次配球の更新を一続きの体験として構成した．ログからは，投球のズレに応じた
+                    ミット操作と，捕球結果・打者反応後の次球選択を記録できることを確認した．
+                </p>
+            </div>
+            <aside>
+                <strong>この研究の到達点</strong>
+                <p>循環を構成するインタラクションの実装と，認知・運動の両側面を分析できるログ基盤の提示である．</p>
+            </aside>
+        </section>
+
+        <section id="findings" class="card" aria-labelledby="findings-title">
+            <div class="section-header">
+                <div><p class="section-kicker">SUPPORTED FINDINGS</p><h2 id="findings-title">実験結果から言えること</h2></div>
+                <p>実装確認，予稿掲載値，再分析値を混同せずに示す．</p>
+            </div>
+
+            <div class="finding-grid">
+                <article class="finding-card confirmed">
+                    <div class="finding-card-head"><span>01</span><small>実装・ログで確認</small></div>
+                    <h3>認知と運動を一連の体験として記録できる</h3>
+                    <p>配球，予測，ミット位置，球到達位置，捕球結果，打者反応，次球選択を同じ試行系列として取得できた．</p>
+                    <strong>3フェーズ・6名のログを取得</strong>
+                </article>
+
+                <article class="finding-card observed">
+                    <div class="finding-card-head"><span>02</span><small>予稿掲載の観察</small></div>
+                    <h3>制球のズレに応じて身体的介入が変化した</h3>
+                    <p>制球誤差と予稿記載のミット補正量には正の相関があり，投球位置の変化に応じた操作が観察された．</p>
+                    <strong>r = 0.413</strong>
+                </article>
+
+                <article class="finding-card observed">
+                    <div class="finding-card-head"><span>03</span><small>再分析で確認</small></div>
+                    <h3>球へ向かう移動方向は捕球成否と関係した</h3>
+                    <p>実移動と必要移動の3次元方向一致度は，成功時の方が失敗時より高かった．単独の判定器ではなく補助指標として利用できる．</p>
+                    <strong>中央値 0.889 対 0.779・AUC 0.629</strong>
+                </article>
+
+                <article class="finding-card observed">
+                    <div class="finding-card-head"><span>04</span><small>再分析で確認</small></div>
+                    <h3>方向が合うほど捕球成功率が高い傾向を示した</h3>
+                    <p>方向一致度が負の区間から0.95以上の区間へ上がるにつれて，正常捕球の割合が段階的に上昇した．</p>
+                    <strong>35.7% → 72.4%</strong>
+                </article>
+
+                <article class="finding-card cautious">
+                    <div class="finding-card-head"><span>05</span><small>探索的な傾向</small></div>
+                    <h3>高球速では誤差への対応率が低下した</h3>
+                    <p>予稿掲載の改善試行率は100 km/h条件から158 km/h条件にかけて低下した．ただし提示順が固定されており，球速だけの効果とは断定できない．</p>
+                    <strong>80.9% → 72.3%</strong>
+                </article>
+
+                <article class="finding-card cautious">
+                    <div class="finding-card-head"><span>06</span><small>探索的な傾向</small></div>
+                    <h3>セッション後半で捕球成功率が上昇した</h3>
+                    <p>各参加者×球速セッションを3等分すると，後半ほど成功率と方向一致度が高かった．練習，疲労，コース順序を分離できないため学習効果とは呼ばない．</p>
+                    <strong>55.7% → 65.9% → 66.8%</strong>
+                </article>
+            </div>
+        </section>
+
+        <section class="card evidence-map" aria-labelledby="evidence-title">
+            <div class="section-header">
+                <div><p class="section-kicker">RESEARCH QUESTIONS</p><h2 id="evidence-title">研究課題ごとの現在の結論</h2></div>
+            </div>
+            <div class="table-scroll">
+                <table>
+                    <caption>各研究課題に対する証拠と結論の強さ</caption>
+                    <thead><tr><th scope="col">研究課題</th><th scope="col">現在の証拠</th><th scope="col">結論</th><th scope="col">位置づけ</th></tr></thead>
+                    <tbody>
+                        <tr><th scope="row">捕手の認知-運動循環をVRで構成できるか</th><td>8段階の体験とログ記録を実装</td><td>構成・記録可能</td><td><span class="evidence-badge confirmed">確認</span></td></tr>
+                        <tr><th scope="row">制球誤差に身体的に対応するか</th><td>相関，方向一致度，残差誤差</td><td>対応行動を観察</td><td><span class="evidence-badge observed">観察</span></td></tr>
+                        <tr><th scope="row">打者反応が次配球を変えるか</th><td>65球・59遷移，4つの正確確率検定</td><td>有意差を確認できず</td><td><span class="evidence-badge cautious">未確定</span></td></tr>
+                        <tr><th scope="row">循環体験が学習を高めるか</th><td>循環なし条件との対照比較なし</td><td>現実験からは判断不能</td><td><span class="evidence-badge unsupported">未検証</span></td></tr>
+                        <tr><th scope="row">使いやすく負荷が適切か</th><td>NASA-TLX・SUS収集機能を準備</td><td>公開集計前</td><td><span class="evidence-badge unsupported">未評価</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="finding-band" aria-label="第3フェーズの結論">
+            <div class="finding-band-number">59</div>
+            <div>
+                <p class="section-kicker">PHASE 3</p>
+                <h2>配球更新行動は記録できたが，打者反応間の有意差は確認されなかった</h2>
+                <p>
+                    見逃し，ハーフスイング，空振り後の球種・コース変更を比較した4分析は，
+                    いずれも <i>p</i> ≥ .321であった．「打者反応が影響しない」という証明ではなく，
+                    6名・59遷移では差を特定できなかったと解釈する．
+                </p>
+                <a href="phase3.html">第3フェーズの検定と配球順序を確認する <span aria-hidden="true">→</span></a>
+            </div>
+        </section>
+
+        <section id="limits" class="card" aria-labelledby="limits-title">
+            <div class="section-header">
+                <div><p class="section-kicker">BOUNDARIES OF CLAIMS</p><h2 id="limits-title">現時点では言えないこと</h2></div>
+                <p>非有意や未計測を，効果がないという結論へ置き換えない．</p>
+            </div>
+            <div class="claim-limit-grid">
+                <article><span>01</span><h3>トレーニング効果</h3><p>循環あり・なしの対照条件，保持テスト，実技能への転移測定がないため，学習効率や技能定着の向上は主張できない．</p></article>
+                <article><span>02</span><h3>経験者・未経験者の差</h3><p>公開ログに経験年数や捕手経験の属性がなく，習熟度と行動指標を対応づけられない．</p></article>
+                <article><span>03</span><h3>球種別の身体補正</h3><p>身体補正用の捕球ログは全試行がStraightであり，球種間の補正差は分析できない．</p></article>
+                <article><span>04</span><h3>球速だけの因果効果</h3><p>条件提示順が固定され，実測球速列もないため，順序・慣れ・疲労から球速効果を分離できない．</p></article>
+                <article><span>05</span><h3>標準尺度による評価</h3><p>NASA-TLXとSUSの回答収集機能は用意したが，公開条件を満たす集計データはまだ示していない．</p></article>
+                <article><span>06</span><h3>予稿値の完全再現</h3><p>予稿のミット補正量の数式と掲載値には対応上の不整合があり，掲載値と再分析値を分けて扱う必要がある．</p></article>
+            </div>
+        </section>
+
+        <section class="card next-study" aria-labelledby="next-title">
+            <div class="section-header">
+                <div><p class="section-kicker">NEXT STUDY</p><h2 id="next-title">次の検証で優先すべきこと</h2></div>
+            </div>
+            <ol>
+                <li><span>1</span><div><strong>循環あり・なしの対照実験</strong><p>配球判断と捕球動作を連続させる効果を，独立条件と比較する．</p></div></li>
+                <li><span>2</span><div><strong>参加者属性と練習量の事前定義</strong><p>野球歴，捕手歴，VR経験，練習試行数を固定様式で記録する．</p></div></li>
+                <li><span>3</span><div><strong>提示順の無作為化と反復測定モデル</strong><p>球速，コース，時間経過を分離し，参加者内の反復を統計モデルへ組み込む．</p></div></li>
+                <li><span>4</span><div><strong>標準尺度と保持・転移テスト</strong><p>NASA-TLX，SUSに加え，後日の保持と実環境への転移を測る．</p></div></li>
+            </ol>
+        </section>
+
+        <section class="summary-links" aria-label="根拠データへのリンク">
+            <div><p class="section-kicker">TRACE THE EVIDENCE</p><h2>数値と分析過程を確認する</h2></div>
+            <div>
+                <a href="results.html"><strong>予稿掲載値</strong><span>身体的補正の主要集計 →</span></a>
+                <a href="research.html"><strong>捕球動作の詳細</strong><span>ミットの移動方向・データ品質 →</span></a>
+                <a href="phase3.html"><strong>配球選択の結果</strong><span>反応別比較・配球順序 →</span></a>
+                <a href="paper.html"><strong>公開論文</strong><span>EC2026公開版を閲覧 →</span></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p><strong>CatcherX Research Data</strong><br>山口 瑞悠・藤井 叙人・橋田 光代<br>福知山公立大学 情報学部</p>
+        <p>実験結果の要約と結論範囲</p>
+    </footer>
+</body>
+</html>

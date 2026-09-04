@@ -1,6 +1,6 @@
-# CatcherX Research Data
+# CatcherX Research Archive
 
-「CatcherX: 捕手の認知-運動過程の循環に着目したVRシミュレータ」の研究成果公開サイトです．訪問者が「研究概要 → わかったこと → 捕球・配球の根拠データ → 論文・ポスター」の順に読める構成とし，詳細な統計解析やデータ品質情報は各データページの中に段階的に整理しています．
+捕手の認知-運動過程をVRで探究するCatcherXについて，これまでとこれからの発表，研究データ，分析，論文，スライド，ポスターを継続的に記録する研究アーカイブです．トップページから発表を選び，発表ごとのページから当時の成果や根拠データへ進む構成です．
 
 本サイトはHTML，CSS，JavaScriptを中心とした静的サイトです．標準尺度の認証と回答保存に限り，Google Apps Scriptと非公開Googleスプレッドシートを使用します．
 
@@ -8,6 +8,8 @@
 
 ## 主な機能
 
+- EC2025，2025年度冬季中間発表，EC2026，WISS 2026，インタラクション2027を時系列で管理
+- 発表済み・資料整理中・今後の発表目標を区別した発表別ページ
 - EC2026公開版論文（IPSJ-EC2026006）のブラウザ内閲覧
 - 実験結果から言えること・言えないこと・今後必要な検証の要約
 - 予稿に掲載した制球誤差，ミット補正量，誤差低減率の公開
@@ -27,15 +29,25 @@
 
 | ページ | 内容 |
 |---|---|
-| [`index.html`](index.html) | 初めての訪問者向け導線，研究目的，認知―運動過程，主要情報 |
-| [`summary.html`](summary.html) | この研究でわかったこと，まだわからないこと，次の検証 |
-| [`paper.html`](paper.html) | EC2026公開版論文・発表スライド・発表ポスターの閲覧 |
-| [`results.html`](results.html) | 捕球動作の全体結果，指標定義，球速別・プレイヤ別集計 |
-| [`analysis.html`](analysis.html) | 条件を選んで確認する球とミットの位置関係 |
-| [`anova.html`](anova.html) | プレイヤ・球速による違いと二元配置分散分析の読み方 |
-| [`phase3.html`](phase3.html) | 打者反応後に次の配球が変わったか，参加者別の配球順序 |
-| [`research.html`](research.html) | ミットが球へ向かったか，捕球成功との関係，公開データの範囲と注意点 |
-| [`evaluation.html`](evaluation.html) | 研究参加者専用の固定ID・OTP認証付きNASA-TLX／SUS回答フォーム |
+| [`index.html`](index.html) | CatcherX全体の概要，発表アーカイブ，研究の流れ，記録方針 |
+| [`events/`](events/) | 発表ごとのページ，データ，資料，解析コードを格納する親フォルダ |
+| [`events/ec2026/`](events/ec2026/) | EC2026の発表ページと全関連ファイル |
+| [`events/ec2026/summary.html`](events/ec2026/summary.html) | この研究でわかったこと，まだわからないこと，次の検証 |
+| [`events/ec2026/paper.html`](events/ec2026/paper.html) | EC2026公開版論文・発表スライド・発表ポスターの閲覧 |
+| [`events/ec2026/results.html`](events/ec2026/results.html) | 捕球動作の全体結果，指標定義，球速別・プレイヤ別集計 |
+| [`events/ec2026/evaluation.html`](events/ec2026/evaluation.html) | 研究参加者専用の固定ID・OTP認証付きNASA-TLX／SUS回答フォーム |
+| [`assets/js/events-data.js`](assets/js/events-data.js) | 過去・現在・将来の発表情報と発表別リンクの共通データ |
+
+## 発表記録を追加する
+
+新しい発表は`events/<発表名>/`フォルダを作り，`index.html`と`README.md`を置いたうえで，`assets/js/events-data.js`の配列へ1件追加します．`id`は英小文字・数字・ハイフンで設定します．具体的なサブフォルダ構成は[`events/README.md`](events/README.md)を参照してください．
+
+- `type: 'published'`：資料公開中
+- `type: 'archived'`：発表済み・資料整理中
+- `type: 'planned'`：投稿・発表を目標としている段階
+- `links`：発表ページから公開する結果，データ，論文，スライド等へのリンク
+
+未確定の投稿先や発表は`planned`とし，採択・発表済みと誤解されない説明を添えます．公開資料がない場合は`links: []`のまま記録枠だけを用意できます．
 
 ## ローカルでの起動
 
@@ -61,40 +73,39 @@ http://localhost:8000/
 | 数式表示 | MathJax（CDN） |
 | ブラウザ内分散分析 | Pyodide 0.25.0，pandas，statsmodels（CDNから初回読込） |
 | 通常のデータ変換・検定再現 | Python 3 |
-| `data.json`と`analysis-summary.json`の再生成 | Python 3標準ライブラリ |
+| 公開用JSONの再生成 | Python 3標準ライブラリ |
 | 標準尺度の回答保存 | Google Apps Script，非公開Googleスプレッドシート |
 
-`analysis.html`と`anova.html`は外部ライブラリをCDNから読み込むため，初回表示時にはインターネット接続が必要です．特に`anova.html`はPyodideと統計ライブラリを読み込むため，表示まで数秒かかる場合があります．
+`events/ec2026/analysis.html`と`events/ec2026/anova.html`は外部ライブラリをCDNから読み込むため，初回表示時にはインターネット接続が必要です．特に`anova.html`はPyodideと統計ライブラリを読み込むため，表示まで数秒かかる場合があります．
 
 ## データ構成
 
 | パス | 用途 |
 |---|---|
-| `DataCourse/*.csv` | ログ可視化・二元配置分散分析に使用する18ファイル |
-| `data.json` | `DataCourse`から変換した公開用ログ（1,974試行，6名，3球速条件） |
-| `analysis-summary.json` | 品質確認後の1,948試行を対象とする追加分析集計 |
-| `DataBreak/*.csv` | フェーズ別ログ |
-| `DataBreak/*_1_2.csv` | 第3フェーズ分析に使用する6名分のログ |
-| `phase3-data.json` | 第3フェーズの公開用データ（65球，59遷移） |
-| `Data/` | 変換前ログおよび検証用ログ |
-| `paper/IPSJ-EC2026006.pdf` | 情報処理学会で公開されたEC2026特選論文 |
-| `paper/EC2026-slides.pdf` | 公開中の口頭発表スライド（22ページ） |
-| `paper/EC2026-poster.pdf` | 公開中の会場掲示用ポスター（1ページ） |
+| `events/ec2026/data/raw/course/*.csv` | ログ可視化・二元配置分散分析に使用する18ファイル |
+| `events/ec2026/data/public/data.json` | 捕球ログから変換した公開用ログ（1,974試行，6名，3球速条件） |
+| `events/ec2026/data/public/analysis-summary.json` | 品質確認後の1,948試行を対象とする集計 |
+| `events/ec2026/data/raw/phase/*.csv` | フェーズ別ログ |
+| `events/ec2026/data/public/phase3-data.json` | 第3フェーズの公開用データ（65球，59遷移） |
+| `events/ec2026/data/raw/legacy/` | 旧形式の変換前ログおよび検証用ログ |
+| `events/ec2026/materials/IPSJ-EC2026006.pdf` | 情報処理学会で公開されたEC2026特選論文 |
+| `events/ec2026/materials/EC2026-slides.pdf` | 公開中の口頭発表スライド（22ページ） |
+| `events/ec2026/materials/EC2026-poster.pdf` | 公開中の会場掲示用ポスター（1ページ） |
 
-参加者識別子は既存ログに合わせ，`Player 1`，`Player 2`，`Player 3`，`Player 5`，`Player 6`，`Player 7`に統一しています．`DataCourse`には実測球速列がないため，ファイル名の100，130，158 km/hを設定条件として保持し，`actual_speed_kmph`は`null`にしています．
+参加者識別子は既存ログに合わせ，`Player 1`，`Player 2`，`Player 3`，`Player 5`，`Player 6`，`Player 7`に統一しています．`data/raw/course`には実測球速列がないため，ファイル名の100，130，158 km/hを設定条件として保持し，`actual_speed_kmph`は`null`にしています．
 
 ## データの再生成
 
 ### ログ可視化用データ
 
-`convert.py`は`DataCourse`内のCSVから，座標差，制球誤差，ミット移動量，残差誤差，捕球方向一致度，到達率，品質フラグを計算し，`data.json`と`analysis-summary.json`を生成します．Python標準ライブラリだけで動作し，元CSVは変更しません．
+`events/ec2026/analysis/convert.py`は`data/raw/course`内のCSVから各指標を計算し，`data/public`へ公開用JSONを生成します．Python標準ライブラリだけで動作し，元CSVは変更しません．
 
 ```sh
-python3 convert.py
-python3 verify_analysis.py
+python3 events/ec2026/analysis/convert.py
+python3 events/ec2026/analysis/verify_analysis.py
 ```
 
-入力先はスクリプト位置を基準とする`DataCourse/`と`DataBreak/`で，絶対パスには依存しません．
+入出力先はEC2026フォルダを基準に解決し，実行時のカレントディレクトリや絶対パスには依存しません．
 
 ### 指標と品質フラグ
 
@@ -109,24 +120,24 @@ python3 verify_analysis.py
 
 生の位置ベクトル同士の内積は座標原点に依存するため使用しません．方向一致度は「球へ向かったか」を表す補助指標であり，到達率，残差誤差，捕球成否と併記します．全体では成功時の方向一致度中央値0.889，失敗時0.779，AUC 0.629でした．単独の判定指標としては用いません．
 
-全1,974件は`data.json`へ残したまま，制球誤差が25 cmを超える56件へ想定範囲外フラグを付けています．このうち50 cmを超える26件は座標異常の影響が強いため，追加分析から除いた1,948件を再分析対象としています．予稿掲載値の1,946件とは2件の差があるため，`results.html`の掲載値を書き換えず，`research.html`で再分析値と区別しています．
+全1,974件は`data/public/data.json`へ残したまま，制球誤差が25 cmを超える56件へ想定範囲外フラグを付けています．このうち50 cmを超える26件は座標異常の影響が強いため，1,948件を再分析対象としています．予稿掲載値の1,946件とは2件の差があるため，掲載値を書き換えず，`events/ec2026/research.html`で再分析値と区別しています．
 
 予稿ではミット補正量を`|p_catch − p_start|`と定義し，平均12.9 cm・中央値11.6 cmと報告しています．公開CSVの再分析対象では，この式によるミット移動量は平均17.1 cm・中央値15.6 cmです．一方，`|p_catch − p_impact|`による残差誤差は平均12.86 cm・中央値11.59 cmで，予稿掲載値とほぼ一致します．指標名・数式と集計値の対応に再現上の不整合があるため，掲載値は改変せず，追加分析では各指標を分離しています．
 
 ### 第3フェーズ公開用データ
 
-`convert_phase3.py`は標準ライブラリだけで動作します．`DataBreak/*_1_2.csv`から，全65球の参加者別時系列と，各参加者の第1球を除く59遷移を生成します．
+`events/ec2026/analysis/convert_phase3.py`は標準ライブラリだけで動作します．`data/raw/phase/*_1_2.csv`から，全65球の参加者別時系列と，各参加者の第1球を除く59遷移を生成します．
 
 ```sh
-python3 convert_phase3.py
+python3 events/ec2026/analysis/convert_phase3.py
 ```
 
-生成物は`phase3-data.json`です．
+生成物は`events/ec2026/data/public/phase3-data.json`です．
 
 ### 第3フェーズ検定の再現
 
 ```sh
-python3 analyze_phase3.py
+python3 events/ec2026/analysis/analyze_phase3.py
 ```
 
 次の4項目について検定値を再計算します．
@@ -146,7 +157,7 @@ python3 analyze_phase3.py
 
 ### 二元配置分散分析
 
-`anova.html`では，球到達位置に対する軸方向ごとの符号付き残差誤差を目的変数とし，「プレイヤ」と「球速」を要因とするType II二元配置分散分析をブラウザ内で実行します．F値・p値に加えて偏η²を表示します．出力する効果は次の3つです．
+`events/ec2026/anova.html`では，球到達位置に対する軸方向ごとの符号付き残差誤差を目的変数とし，「プレイヤ」と「球速」を要因とするType II二元配置分散分析をブラウザ内で実行します．F値・p値に加えて偏η²を表示します．出力する効果は次の3つです．
 
 - プレイヤの主効果
 - 球速の主効果
@@ -156,7 +167,7 @@ python3 analyze_phase3.py
 
 ## NASA-TLX／SUS回答収集
 
-`evaluation.html`は，固定参加者IDと研究担当者が発行した8桁OTPが一致した場合だけ回答フォームを表示します．認証・保存は`apps-script/Code.gs`が処理します．
+`events/ec2026/evaluation.html`は，固定参加者IDと研究担当者が発行した8桁OTPが一致した場合だけ回答フォームを表示します．認証・保存は`events/ec2026/backend/apps-script/Code.gs`が処理します．
 
 評価フォーム用の固定IDには数字だけの正の整数を使用し，必要な人数分を登録できます．これは公開済みログの`Player 1`，`Player 2`等の識別子とは別に管理します．
 
@@ -173,41 +184,47 @@ python3 analyze_phase3.py
 
 NASA-TLXはRaw TLXと15対の一対比較を用いる重み付き方式に対応しています．SUSは奇数項目を「回答値 − 1」，偶数項目を「5 − 回答値」として合計し，2.5倍して0–100のスコアへ変換します．SUSの値は百分率ではありません．
 
-実験当日のOTP発行，再発行，回答確認，デプロイ更新を含む操作方法は[`GAS_OPERATION_GUIDE.md`](GAS_OPERATION_GUIDE.md)を参照してください．バックエンドの仕様と初期導入の説明は[`apps-script/README.md`](apps-script/README.md)に記載しています．接続先の`/exec` URLは[`evaluation-config.js`](evaluation-config.js)で設定します．
+実験当日の操作方法は[`events/ec2026/docs/GAS_OPERATION_GUIDE.md`](events/ec2026/docs/GAS_OPERATION_GUIDE.md)を参照してください．バックエンド仕様は[`events/ec2026/backend/apps-script/README.md`](events/ec2026/backend/apps-script/README.md)，接続先は[`events/ec2026/js/evaluation-config.js`](events/ec2026/js/evaluation-config.js)で管理します．
 
 平文OTP，スプレッドシートID，`OTP_PEPPER`，`SESSION_SECRET`は公開リポジトリへ追加しないでください．
 
 ## EC2026公開版PDFについて
 
-`paper.html`はPDFビューアのツールバーと直接ダウンロード導線を表示しません．ただし，Webブラウザへ配信したPDFの保存，開発者ツールからの取得，画面撮影を技術的に完全防止することはできません．本ページはダウンロード操作を抑制する表示であり，DRMではありません．
+`events/ec2026/paper.html`はPDFビューアのツールバーと直接ダウンロード導線を表示しません．ただし，Webブラウザへ配信したPDFの保存，開発者ツールからの取得，画面撮影を技術的に完全防止することはできません．本ページはダウンロード操作を抑制する表示であり，DRMではありません．
 
 掲載中のPDFは情報処理学会の情報学広場で公開された`IPSJ-EC2026006`です．公式の書誌情報と配布条件は[情報学広場のレコード](https://ipsj.ixsq.nii.ac.jp/records/2011336)を参照してください．
 
 ## 発表スライド・ポスターの公開
 
-口頭発表スライドとポスターはともに公開中です．`presentation-config.js`で資料ごとのページ数・容量・公開状態を管理し，`paper.html`からブラウザ内で閲覧できます．資料を差し替える操作は[`PRESENTATION_RELEASE_GUIDE.md`](PRESENTATION_RELEASE_GUIDE.md)を参照してください．
+口頭発表スライドとポスターはともに公開中です．`events/ec2026/js/presentation-config.js`で資料ごとのページ数・容量・公開状態を管理します．差替手順は[`events/ec2026/docs/PRESENTATION_RELEASE_GUIDE.md`](events/ec2026/docs/PRESENTATION_RELEASE_GUIDE.md)を参照してください．
 
 ## ディレクトリ概要
 
 ```text
 .
-├── index.html / style.css
-├── summary.html
-├── results.html / results.js
-├── analysis.html / app.js
-├── anova.html / anova.js
-├── research.html / research.js
-├── phase3.html / phase3.js
-├── evaluation.html / evaluation.js / evaluation-config.js
-├── paper.html / presentation-config.js / presentation.js
-├── paper/IPSJ-EC2026006.pdf
-├── data.json / analysis-summary.json / phase3-data.json
-├── Data/ / DataCourse/ / DataBreak/
-├── convert.py / verify_analysis.py / convert_phase3.py / analyze_phase3.py
-└── apps-script/
-    ├── Code.gs
-    ├── appsscript.json
-    └── README.md
+├── index.html                     # 研究アーカイブのトップ
+├── assets/
+│   ├── css/style.css              # 全発表共通スタイル
+│   ├── js/                        # 発表一覧・発表ページ共通処理
+│   └── images/                    # 共通画像
+├── events/
+│   ├── README.md                  # 発表フォルダの規約
+│   ├── ec2025/
+│   ├── winter-2025/
+│   ├── wiss-2026/
+│   ├── interaction-2027/
+│   └── ec2026/
+│       ├── index.html             # EC2026の入口
+│       ├── *.html                 # 結果・分析・評価・資料ページ
+│       ├── js/                    # EC2026専用表示処理
+│       ├── data/
+│       │   ├── raw/               # course・phase・legacyログ
+│       │   └── public/            # Web公開用JSON
+│       ├── materials/             # 論文・スライド・ポスター等
+│       ├── analysis/              # 変換・検証・統計解析
+│       ├── backend/apps-script/   # NASA-TLX／SUSバックエンド
+│       └── docs/                  # 運用手順書
+└── summary.html等                 # 旧公開URLからの転送専用
 ```
 
 ## 表記と研究データ上の注意

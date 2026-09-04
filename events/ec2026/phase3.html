@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CatcherXで打者の反応を見た後に球種やコースの選び方が変わったかを示す配球結果">
+    <title>打者の反応で次の配球は変わったか | CatcherX</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>⚾</text></svg>">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <nav class="site-nav" aria-label="主要ナビゲーション">
+        <a class="site-brand" href="../../index.html"><span class="brand-mark">CX</span><span>CatcherX <small>Research Archive</small></span></a>
+        <div class="nav-links">
+            <a href="../../index.html">ホーム</a>
+            <a href="../../index.html#archive">発表アーカイブ</a>
+            <a href="index.html" aria-current="page">EC2026</a>
+            <a href="paper.html">公開資料</a>
+        </div>
+    </nav>
+
+    <header class="main-header phase3-hero">
+        <p class="header-subtitle">PITCH SELECTION RESULTS</p>
+        <h1>打者の反応で次の配球は変わったか</h1>
+        <p class="header-lead">
+            見逃し，ハーフスイング，空振りの後に，次球の球種・コース選択が変化したかを検定する．
+            小標本かつ同一参加者内に複数遷移を含むため，探索的分析として報告する．
+        </p>
+    </header>
+
+    <main id="main" class="container phase3-layout">
+        <section class="phase3-summary" aria-label="分析概要">
+            <article><span>参加者</span><strong id="participantCount">6</strong><small>名</small></article>
+            <article><span>取得ログ</span><strong id="pitchCount">65</strong><small>球</small></article>
+            <article><span>分析単位</span><strong id="transitionCount">59</strong><small>遷移</small></article>
+            <article><span>有意水準</span><strong>.05</strong><small>両側</small></article>
+        </section>
+
+        <section class="card phase3-conclusion">
+            <div class="conclusion-mark" aria-hidden="true">≠</div>
+            <div>
+                <p class="section-kicker">PRIMARY CONCLUSION</p>
+                <h2>打者反応による統計的有意差は確認されなかった</h2>
+                <p>
+                    ハーフスイング後・空振り後には変更率が高い値を示したが，
+                    Fisher–Freeman–Halton正確確率検定では全4分析が <i>p</i> ≥ .321 であった．
+                    現段階では「差がある」とは結論づけず，探索的傾向として扱う．
+                </p>
+            </div>
+        </section>
+
+        <section class="card phase3-explorer">
+            <div class="section-header">
+                <div>
+                    <p class="section-kicker">SIGNIFICANCE TESTS</p>
+                    <h2>反応別の分布と検定結果</h2>
+                </div>
+                <p>タブを切り替えると，観測度数・割合・正確確率検定・効果量を確認できる．</p>
+            </div>
+
+            <div class="phase3-tabs" role="tablist" aria-label="分析項目">
+                <button type="button" role="tab" aria-selected="true" data-outcome="pitch_changed">球種変更</button>
+                <button type="button" role="tab" aria-selected="false" data-outcome="course_changed">コース変更</button>
+                <button type="button" role="tab" aria-selected="false" data-outcome="next_pitch_group">次球種</button>
+                <button type="button" role="tab" aria-selected="false" data-outcome="next_course_height">次コース高さ</button>
+            </div>
+
+            <div id="phase3Panel" class="phase3-panel" role="tabpanel" tabindex="0">
+                <div class="phase3-result-header">
+                    <div>
+                        <span id="outcomeNumber">ANALYSIS 01</span>
+                        <h3 id="outcomeTitle">球種変更率</h3>
+                        <p id="outcomeDescription"></p>
+                    </div>
+                    <div id="significanceBadge" class="significance-badge nonsignificant">
+                        <span>正確確率検定</span>
+                        <strong id="exactPValue">p = —</strong>
+                        <small>有意差なし</small>
+                    </div>
+                </div>
+
+                <div id="reactionBars" class="reaction-bars" aria-label="反応別割合"></div>
+
+                <div class="phase3-stat-grid">
+                    <article><span>χ²統計量</span><strong id="chiSquare">—</strong><small id="degreesFreedom">df = —</small></article>
+                    <article><span>Cramér's V</span><strong id="cramersV">—</strong><small id="effectLabel">効果量</small></article>
+                    <article><span>参加者内置換</span><strong id="permutationP">—</strong><small>100,000回・固定seed</small></article>
+                    <article><span>最小期待度数</span><strong id="minimumExpected">—</strong><small>正確確率検定を採用</small></article>
+                </div>
+
+                <div class="table-scroll phase3-table-wrap">
+                    <table id="contingencyTable">
+                        <caption class="visually-hidden">打者反応と選択結果の分割表</caption>
+                    </table>
+                </div>
+
+                <div id="pairwiseSection" class="pairwise-results">
+                    <div>
+                        <h3>反応間の事後比較</h3>
+                        <p>2×2 Fisher正確確率検定を行い，3比較をHolm法で補正した．</p>
+                    </div>
+                    <div class="table-scroll">
+                        <table id="pairwiseTable">
+                            <caption class="visually-hidden">反応間の事後比較結果</caption>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card sequence-explorer">
+            <div class="section-header">
+                <div>
+                    <p class="section-kicker">SEQUENCE EXPLORER</p>
+                    <h2>参加者別の配球シーケンス</h2>
+                </div>
+                <p>参加者を切り替え，球種・コースと各球の結果を記録順に確認できる．</p>
+            </div>
+
+            <div id="participantSequenceTabs" class="sequence-tabs" role="tablist" aria-label="参加者"></div>
+
+            <div class="sequence-summary" aria-label="選択中の参加者の概要">
+                <article><span>投球数</span><strong id="sequencePitchCount">—</strong><small>球</small></article>
+                <article><span>球種</span><strong id="sequencePitchTypes">—</strong><small>種類</small></article>
+                <article><span>コース</span><strong id="sequenceCourses">—</strong><small>種類</small></article>
+                <article><span>球種変更</span><strong id="sequencePitchChanges">—</strong><small>回</small></article>
+                <article><span>コース変更</span><strong id="sequenceCourseChanges">—</strong><small>回</small></article>
+            </div>
+
+            <div class="sequence-guide">
+                <p><span class="sequence-change pitch-change">球種変更</span><span class="sequence-change course-change">コース変更</span>は直前球からの変更を示す．</p>
+                <p>球速欄が存在しない旧形式のログは「記録なし」と表示する．</p>
+            </div>
+
+            <div id="pitchSequenceTimeline" class="sequence-timeline" role="tabpanel" tabindex="0" aria-label="配球の時系列"></div>
+
+            <div class="table-scroll sequence-table-wrap">
+                <table id="pitchSequenceTable">
+                    <caption class="visually-hidden">選択した参加者の配球シーケンス詳細</caption>
+                </table>
+            </div>
+        </section>
+
+        <section class="card phase3-overview-card">
+            <div class="section-header">
+                <div>
+                    <p class="section-kicker">ALL OUTCOMES</p>
+                    <h2>4分析の一覧</h2>
+                </div>
+                <p>有意水準 α = .05．p値だけでなく効果量と標本数を併記する．</p>
+            </div>
+            <div id="allOutcomeCards" class="all-outcome-cards"></div>
+        </section>
+
+        <section class="card phase3-methods">
+            <div class="section-header">
+                <div>
+                    <p class="section-kicker">METHOD & LIMITATIONS</p>
+                    <h2>検定方法と解釈上の制約</h2>
+                </div>
+            </div>
+            <div class="phase3-method-grid">
+                <article>
+                    <span>01</span><h3>分析単位</h3>
+                    <p>各参加者の第1球は直前球がないため除外し，65球から59遷移を構成した．直前球の打者反応と次球選択を対応させた．</p>
+                </article>
+                <article>
+                    <span>02</span><h3>主要検定</h3>
+                    <p>期待度数が小さいセルを含むため，Pearsonのχ²検定の近似p値ではなく，固定周辺度数に基づくFisher–Freeman–Halton正確確率検定を用いた．</p>
+                </article>
+                <article>
+                    <span>03</span><h3>反復測定への配慮</h3>
+                    <p>同一参加者の遷移は独立ではない．参加者内で反応ラベルを置換する感度分析を併記したが，参加者6名のため推定精度は限定的である．</p>
+                </article>
+                <article>
+                    <span>04</span><h3>結論の範囲</h3>
+                    <p>4つの主要分析間では多重性補正を行っていないが，いずれもp &gt; .05であった．非有意は「影響がない」ことの証明ではなく，参加者・試行数を増やした事前設計の検証が必要である．</p>
+                </article>
+            </div>
+            <div class="analysis-provenance">
+                <span>データ：</span><code>data/raw/phase/*_1_2.csv</code>
+                <span>変換：</span><code>convert_phase3.py</code>
+                <span>検定再現：</span><code>analyze_phase3.py</code>
+                <span>公開用：</span><code>data/public/phase3-data.json</code>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p><strong>CatcherX Research Data</strong><br>山口 瑞悠・藤井 叙人・橋田 光代<br>福知山公立大学 情報学部</p>
+        <p>第3フェーズ・探索的配球更新分析</p>
+    </footer>
+    <script src="js/phase3.js"></script>
+</body>
+</html>

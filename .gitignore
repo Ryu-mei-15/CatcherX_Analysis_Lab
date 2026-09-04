@@ -1,1 +1,3 @@
-paper/*.mp4
+.DS_Store
+**/.DS_Store
+events/*/materials/*.mp4

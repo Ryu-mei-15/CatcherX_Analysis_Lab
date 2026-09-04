@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CatcherXの捕球時のズレがプレイヤや球速によって変わるかを二元配置分散分析で確認するページ">
+    <title>プレイヤ・球速で捕球のズレは変わるか | CatcherX</title>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%22550%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>📊</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js"></script>
+
+    <style>
+        .anova-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .anova-tab {
+            padding: 0.8rem 1.6rem;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .anova-tab.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .result-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 6px solid var(--primary-color);
+            box-shadow: var(--shadow-sm);
+            min-height: 250px;
+            position: relative;
+        }
+
+        .result-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            border-bottom: 1px solid var(--primary-fade);
+            padding-bottom: 0.5rem;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-box {
+            background: #fafbfc;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            min-width: 0;
+        }
+
+        .stat-box h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        .stat-box .math {
+            font-size: 1.05rem;
+            color: #d35400;
+            margin-bottom: 0.5rem;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            padding-bottom: 4px;
+        }
+
+        .stat-box .math::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .stat-box .math::-webkit-scrollbar-thumb {
+            background: #d1d5db;
+            border-radius: 2px;
+        }
+
+        .stat-box .significance {
+            display: inline-block;
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .sig-high {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .sig-yes {
+            background: #fef3c7;
+            color: #b45309;
+        }
+
+        .sig-trend {
+            background: #e0f2fe;
+            color: #0369a1;
+        }
+
+        .sig-no {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        .insight-box {
+            margin-top: 2rem;
+            background: var(--primary-fade);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--primary-light);
+            color: var(--text-main);
+            line-height: 1.8;
+            font-size: 1.02rem;
+        }
+
+        .insight-box strong {
+            color: var(--primary-color);
+        }
+
+        .bar-chart-container {
+            width: 100%;
+            height: 350px;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        #loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.92);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--primary-fade);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#analysis-main">本文へ移動</a>
+    <nav class="site-nav" aria-label="主要ナビゲーション">
+        <a class="site-brand" href="../../index.html"><span class="brand-mark">CX</span><span>CatcherX <small>Research Archive</small></span></a>
+        <div class="nav-links">
+            <a href="../../index.html">ホーム</a>
+            <a href="../../index.html#archive">発表アーカイブ</a>
+            <a href="index.html" aria-current="page">EC2026</a>
+            <a href="paper.html">公開資料</a>
+        </div>
+    </nav>
+    <nav class="section-nav" aria-label="捕球データのページ">
+        <span>捕球データ</span><a href="results.html">まず結果を知る</a><a href="analysis.html">条件を選んで見る</a><a href="anova.html" aria-current="page">プレイヤ・球速を比べる</a><a href="research.html">動きとデータ品質を見る</a>
+    </nav>
+
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+        <h2 style="color: var(--primary-color);">統計解析環境を準備しています</h2>
+        <p style="color: var(--text-muted); max-width: 560px;">
+            初回読み込み時のみ，解析用ライブラリの取得に数秒かかる場合があります．
+        </p>
+    </div>
+
+    <header class="main-header">
+        <p class="header-subtitle">CATCHING DATA · 違いを比べる</p>
+        <h1>プレイヤ・球速で捕球のズレは変わるか</h1>
+        <p class="header-lead">
+            実際の球到達点と捕球時のミット位置のズレについて，
+            プレイヤによる違い，球速による違い，その組合せによる違いを比べる．
+            初めて二元配置分散分析を見る人向けに，結果の読み方から説明する．
+        </p>
+        <div class="header-actions">
+            <a href="results.html" class="header-link-btn">予稿の主要結果を見る</a>
+            <a href="analysis.html" class="header-link-btn">残差誤差の可視化に戻る</a>
+        </div>
+    </header>
+
+    <div id="analysis-main" class="container">
+        <section class="card anova-primer" aria-labelledby="anova-primer-title">
+            <div class="section-header">
+                <div>
+                    <p class="section-kicker">HOW TO READ TWO-WAY ANOVA</p>
+                    <h2 id="anova-primer-title">二元配置分散分析では何を比べているか</h2>
+                </div>
+                <p>2つの要因を同時に扱い，それぞれの影響と組み合わせによる影響を分けて調べる．</p>
+            </div>
+
+            <div class="anova-model-overview" aria-label="分析モデルの概要">
+                <div class="anova-factor-block">
+                    <span>要因A</span>
+                    <strong>プレイヤ</strong>
+                    <small>誰が捕球したか</small>
+                </div>
+                <div class="anova-model-symbol" aria-hidden="true">×</div>
+                <div class="anova-factor-block">
+                    <span>要因B</span>
+                    <strong>球速</strong>
+                    <small>どの球速条件か</small>
+                </div>
+                <div class="anova-model-symbol arrow" aria-hidden="true">→</div>
+                <div class="anova-response-block">
+                    <span>比較する値</span>
+                    <strong>軸方向ごとの残差誤差</strong>
+                    <small>球到達位置に対するミット位置の符号付き差［cm］</small>
+                </div>
+            </div>
+
+            <div class="anova-effect-guide">
+                <article>
+                    <span>01 · MAIN EFFECT</span>
+                    <h3>プレイヤの主効果</h3>
+                    <p>球速条件をまとめて見たとき，プレイヤ間で平均残差誤差が異なるかを調べる．</p>
+                    <small>有意な場合：少なくとも1名の平均が他と異なる可能性がある．</small>
+                </article>
+                <article>
+                    <span>02 · MAIN EFFECT</span>
+                    <h3>球速の主効果</h3>
+                    <p>プレイヤをまとめて見たとき，球速条件間で平均残差誤差が異なるかを調べる．</p>
+                    <small>有意な場合：少なくとも1つの球速条件の平均が他と異なる可能性がある．</small>
+                </article>
+                <article>
+                    <span>03 · INTERACTION</span>
+                    <h3>プレイヤ × 球速の交互作用</h3>
+                    <p>球速による誤差の変化が，すべてのプレイヤで同じかを調べる．</p>
+                    <small>有意な場合：球速の影響がプレイヤによって異なる可能性がある．</small>
+                </article>
+            </div>
+
+            <div class="anova-reading-guide">
+                <div>
+                    <h3>p値はこの順番で読む</h3>
+                    <ol>
+                        <li><strong>最初に交互作用を見る．</strong>有意なら，一律の「プレイヤ差」「球速差」だけでは説明しにくいため，下部の平均誤差グラフで組み合わせごとの変化を確認する．</li>
+                        <li><strong>次に2つの主効果を見る．</strong><i>p</i> &lt; .05は「平均がすべて同じ」という仮説と整合しにくいことを示すが，どの条件間に差があるかまでは特定しない．</li>
+                        <li><strong>誤差の向きと大きさを見る．</strong>統計的有意差だけで実質的に大きな差とは判断せず，グラフの正負と平均差も併せて解釈する．</li>
+                        <li><strong>偏η²で効果の大きさを確認する．</strong>p値とは別に，各効果が残差を含む変動のどの程度を占めるかを0〜1で示す．</li>
+                    </ol>
+                </div>
+                <aside>
+                    <strong>解釈上の注意</strong>
+                    <p><i>p</i> ≥ .05は「差がない」ことの証明ではない．また，本分析は符号付き誤差を対象とするため，正負のずれが平均で相殺される場合がある．投球コースは要因ではなく，選択したデータを絞り込む条件として扱う．同一プレイヤ内の反復を独立とみなすため，探索的結果として解釈する．</p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="card" style="margin-bottom: 2rem;">
+            <h2>解析条件の選択</h2>
+
+            <p class="page-lead">
+                条件を変更すると，選択されたプレイログに基づいて分散分析と平均誤差の可視化を更新する．
+                プレイヤ，球速，投球コースを絞り込むことで，特定条件における残差誤差の傾向を確認できる．
+            </p>
+
+            <div class="controls-grid">
+                <div class="filter-column">
+                    <div class="filter-section">
+                        <div class="filter-header">
+                            <h3>プレイヤ</h3>
+                            <div class="filter-actions">
+                                <button class="action-btn select-all" data-target="player">全選択</button>
+                                <button class="action-btn deselect-all" data-target="player">全解除</button>
+                            </div>
+                        </div>
+                        <div id="playerCheckboxes" class="checkbox-group"></div>
+                    </div>
+
+                    <div class="filter-section" style="margin-top: 2rem;">
+                        <div class="filter-header">
+                            <h3>球速</h3>
+                            <div class="filter-actions">
+                                <button class="action-btn select-all" data-target="speed">全選択</button>
+                                <button class="action-btn deselect-all" data-target="speed">全解除</button>
+                            </div>
+                        </div>
+                        <div id="speedCheckboxes" class="checkbox-group"></div>
+                    </div>
+                </div>
+
+                <div class="filter-section zone-section">
+                    <div class="filter-header">
+                        <h3>投球コース（右打者）</h3>
+                        <div class="filter-actions">
+                            <button class="action-btn select-all" data-target="course">全選択</button>
+                            <button class="action-btn select-strike-zone">ストライクゾーン</button>
+                            <button class="action-btn deselect-all" data-target="course">全解除</button>
+                        </div>
+                    </div>
+                    <div class="sz-wrapper">
+                        <div class="sz-grid-container">
+                            <div class="sz-strike-zone-border"></div>
+                            <div class="sz-grid" id="courseGrid"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-heading" style="margin-top: 1rem;">
+                <span id="filterStatus" class="filter-status"></span>
+            </div>
+        </section>
+
+        <div class="anova-nav" id="tabContainer">
+            <button class="anova-tab active" data-target="axisX">X軸方向の誤差</button>
+            <button class="anova-tab" data-target="axisY">Y軸方向の誤差</button>
+            <button class="anova-tab" data-target="axisZ">Z軸方向の誤差</button>
+        </div>
+
+        <div id="anovaContent"></div>
+
+        <hr style="border:none; border-top:2px dashed #ccc; margin: 4rem 0;">
+
+        <section id="interactive-comparison" class="card">
+            <h2>条件別の平均残差誤差</h2>
+
+            <p class="page-lead">
+                各棒グラフは，選択された条件における平均残差誤差を軸方向ごとに示している．
+                正の値と負の値は，それぞれ各軸方向におけるずれの向きを表す．
+            </p>
+
+            <h3 style="color: var(--primary-color);">X軸方向の平均誤差（水平方向）</h3>
+            <div class="bar-chart-container"><canvas id="meanChartX"></canvas></div>
+
+            <h3 style="color: var(--primary-color);">Y軸方向の平均誤差（垂直方向）</h3>
+            <div class="bar-chart-container"><canvas id="meanChartY"></canvas></div>
+
+            <h3 style="color: var(--primary-color);">Z軸方向の平均誤差（奥行き方向）</h3>
+            <div class="bar-chart-container"><canvas id="meanChartZ"></canvas></div>
+        </section>
+    </div>
+
+    <footer class="site-footer">
+        <p>
+            CatcherX Research Supplement<br>
+            山口 瑞悠・藤井 叙人・橋田 光代  
+            （福知山公立大学 情報学部 情報学科）
+        </p>
+        <p>
+            <a href="index.html">CatcherX概要に戻る</a>
+        </p>
+    </footer>
+
+    <script src="js/anova.js"></script>
+</body>
+</html>

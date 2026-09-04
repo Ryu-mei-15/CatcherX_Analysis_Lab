@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>発表ページへ移動します | CatcherX</title>
+</head>
+<body>
+    <p>発表ページへ移動します．移動しない場合は<a href="index.html#archive">発表アーカイブ</a>を開いてください．</p>
+    <script src="assets/js/events-data.js"></script>
+    <script>
+        (function () {
+            const id = new URLSearchParams(window.location.search).get('id') || 'ec-2026';
+            const event = (window.catcherXEvents || []).find(function (item) { return item.id === id; });
+            window.location.replace(event ? event.path : 'index.html#archive');
+        })();
+    </script>
+</body>
+</html>
