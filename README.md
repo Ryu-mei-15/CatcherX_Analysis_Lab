@@ -24,6 +24,7 @@
 - 元ログを保持した品質フラグ，除外基準，予稿掲載値との差異の公開
 - NASA-TLXおよびSystem Usability Scale（SUS）の固定ID・OTP認証付き回答収集
 - EC2026口頭発表スライド・会場掲示用ポスターのブラウザ内公開
+- WISS 2026に向けた捕手送球機能，条件付きアシスト，三次元誤差モデル，評価計画の公開
 
 ## ページ構成
 
@@ -36,6 +37,7 @@
 | [`events/ec2026/paper.html`](events/ec2026/paper.html) | EC2026公開版論文・発表スライド・発表ポスターの閲覧 |
 | [`events/ec2026/results.html`](events/ec2026/results.html) | 捕球動作の全体結果，指標定義，球速別・プレイヤ別集計 |
 | [`events/ec2026/evaluation.html`](events/ec2026/evaluation.html) | 研究参加者専用の固定ID・OTP認証付きNASA-TLX／SUS回答フォーム |
+| [`events/wiss-2026/`](events/wiss-2026/) | WISS 2026に向けた捕手送球アシストの設計，実装状況，評価計画 |
 | [`assets/js/events-data.js`](assets/js/events-data.js) | 過去・現在・将来の発表情報と発表別リンクの共通データ |
 
 ## 発表記録を追加する

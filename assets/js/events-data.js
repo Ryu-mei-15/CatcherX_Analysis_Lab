@@ -21,11 +21,15 @@ window.catcherXEvents = Object.freeze([
         shortTitle: 'WISS 2026',
         title: 'WISS 2026',
         type: 'planned',
-        status: '発表目標',
-        stage: '今後の研究',
-        description: 'CatcherXの発展的な研究成果をまとめる候補として設けた記録枠です．検証内容や資料を今後追加します．',
-        note: '現時点では発表目標を記録しており，投稿・採択・発表は未確定です．',
-        links: []
+        status: '実装中・評価準備中',
+        stage: 'WISS 2026に向けた研究',
+        description: '捕球後の持ち替えと送球動作を取得し，プレイヤの方向意図を保ちながら動作由来の三次元誤差を残す送球アシストを実装しています．',
+        note: '実装内容と今後の評価計画を公開しています．投稿・採択・発表は未確定です．',
+        links: [
+            { href: '#design', label: '送球アシストの設計', detail: '捕球から結果記録までの処理', group: '実装概要' },
+            { href: '#error-model', label: '三次元誤差モデル', detail: '左右・上下・奥行きの誤差', group: '実装概要' },
+            { href: '#evaluation', label: '現在地と評価計画', detail: '実装済みと未評価の区別', group: '研究計画' }
+        ]
     },
     {
         id: 'ec-2026',

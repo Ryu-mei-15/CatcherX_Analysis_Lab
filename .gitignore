@@ -1,3 +1,6 @@
 .DS_Store
 **/.DS_Store
 events/*/materials/*.mp4
+
+# 未発表・内部運用資料（公開サイトへ含めない）
+資料/

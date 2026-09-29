@@ -3,44 +3,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CatcherXの発表ごとの研究記録，データ，論文，発表資料を確認するページ">
-    <title>発表記録 | CatcherX Research Archive</title>
+    <meta name="description" content="WISS 2026に向けてCatcherXへ実装した，動作由来の誤差を反映するVR捕手送球アシストの設計・実装・評価計画を紹介するページ">
+    <title>WISS 2026に向けた送球実装 | CatcherX Research Archive</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>⚾</text></svg>">
     <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
-<body data-event-id="wiss-2026" data-root-prefix="../../">
-    <a class="skip-link" href="#eventPage">本文へ移動</a>
+<body class="wiss-page">
+    <a class="skip-link" href="#main">本文へ移動</a>
     <nav class="site-nav" aria-label="主要ナビゲーション">
         <a class="site-brand" href="../../index.html"><span class="brand-mark">CX</span><span>CatcherX <small>Research Archive</small></span></a>
         <div class="nav-links">
             <a href="../../index.html">ホーム</a>
-            <a href="../../index.html#archive" aria-current="page">発表アーカイブ</a>
+            <a href="../../index.html#archive">発表アーカイブ</a>
             <a href="../ec2026/">EC2026</a>
+            <a href="index.html" aria-current="page">WISS 2026</a>
         </div>
     </nav>
-    <main id="eventPage" class="event-page">
-        <header class="event-hero">
-            <div class="event-hero-inner">
+
+    <header class="wiss-hero">
+        <div class="wiss-hero-inner">
+            <div class="wiss-hero-copy">
                 <a class="event-back-link" href="../../index.html#archive">← 発表アーカイブ</a>
-                <div class="event-meta-line"><span id="eventYear">—</span><span id="eventStage">発表記録</span></div>
-                <h1 id="eventTitle">発表記録を読み込んでいます</h1>
-                <p id="eventSubtitle"></p>
-                <span id="eventStatus" class="archive-status">確認中</span>
+                <p class="wiss-eyebrow">WISS 2026 DEVELOPMENT RECORD</p>
+                <h1>動作由来の誤差を反映する<br><span>VR捕手送球アシスト</span></h1>
+                <p class="wiss-hero-lead">
+                    捕球後の持ち替えから塁への送球までをVR内で連続して扱い，
+                    送球を成立させながらも，プレイヤの動作差が結果へ残る仕組みを実装した．
+                </p>
+                <div class="wiss-hero-actions">
+                    <a class="archive-button primary" href="#design">設計を見る</a>
+                    <a class="archive-button secondary" href="#evaluation">評価計画を見る</a>
+                </div>
             </div>
-        </header>
-        <div class="container event-page-body">
-            <section class="event-overview" aria-labelledby="event-overview-title">
-                <div><p class="section-kicker">ABOUT THIS PRESENTATION</p><h2 id="event-overview-title">この発表について</h2></div>
-                <div><p id="eventDescription"></p><p id="eventNote" class="event-note"></p></div>
-            </section>
-            <div id="eventContents" class="event-contents" aria-live="polite"></div>
+            <aside class="wiss-status-panel" aria-label="研究の現在地">
+                <span class="wiss-status-label">CURRENT STATUS</span>
+                <strong>実装済み<br>評価準備中</strong>
+                <dl>
+                    <div><dt>実装基準日</dt><dd>2026.09.28</dd></div>
+                    <div><dt>対象</dt><dd>捕手の返球・塁送球</dd></div>
+                    <div><dt>公開範囲</dt><dd>設計と実装概要</dd></div>
+                </dl>
+                <p>WISS 2026への投稿・採択・発表は，現時点では未確定である．</p>
+            </aside>
         </div>
+    </header>
+
+    <main id="main">
+        <section class="wiss-context container" aria-labelledby="wiss-context-title">
+            <div class="wiss-section-heading">
+                <div>
+                    <p class="section-kicker">FROM CATCHING TO THROWING</p>
+                    <h2 id="wiss-context-title">EC2026から広げた捕手体験</h2>
+                </div>
+                <p>
+                    EC2026では配球判断と捕球動作の循環を扱った．次の段階では，捕球結果を受けた後の
+                    「持ち替え・送球先の判断・リリース・送球結果」までを体験とログへ接続する．
+                </p>
+            </div>
+            <div class="wiss-cycle" aria-label="CatcherXで扱う捕手プレーの拡張">
+                <article><span>01</span><small>EC2026</small><strong>配球を考える</strong></article>
+                <i aria-hidden="true">→</i>
+                <article><span>02</span><small>EC2026</small><strong>構えて捕る</strong></article>
+                <i aria-hidden="true">→</i>
+                <article class="new"><span>03</span><small>WISS 2026に向けた実装</small><strong>持ち替えて投げる</strong></article>
+                <i aria-hidden="true">→</i>
+                <article class="new"><span>04</span><small>WISS 2026に向けた実装</small><strong>プレー結果へつなぐ</strong></article>
+            </div>
+        </section>
+
+        <section id="overview" class="wiss-purpose">
+            <div class="container">
+                <div class="wiss-section-heading light">
+                    <div>
+                        <p class="section-kicker">RESEARCH QUESTION</p>
+                        <h2>補助しても，動作と結果の関係を失わないために</h2>
+                    </div>
+                    <p>
+                        コントローラの速度をそのままボールへ与えるだけでは，体験者やトラッキング条件によって
+                        送球が成立しにくい．一方，常に目標中心へ届かせると，プレイヤの動作差が消えてしまう．
+                    </p>
+                </div>
+                <div class="wiss-purpose-grid">
+                    <article>
+                        <span>PROBLEM 01</span>
+                        <h3>無補助では成立しにくい</h3>
+                        <p>VRコントローラの小さな速度差や方向差が，長い塁間距離では大きな送球差になる．</p>
+                    </article>
+                    <article>
+                        <span>PROBLEM 02</span>
+                        <h3>完全補正では動作差が消える</h3>
+                        <p>目標中心へ自動的に届かせるだけでは，どのように投げたかと結果の対応が失われる．</p>
+                    </article>
+                    <article class="answer">
+                        <span>OUR APPROACH</span>
+                        <h3>方向意図を保ち，誤差を残す</h3>
+                        <p>概ね正しい方向へ投げたときだけ弾道を補助し，方向・角速度・リリース位置・速度の差を三次元誤差として結果へ反映する．</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="design" class="wiss-section container" aria-labelledby="wiss-flow-title">
+            <div class="wiss-section-heading">
+                <div>
+                    <p class="section-kicker">THROWING PIPELINE</p>
+                    <h2 id="wiss-flow-title">捕球から結果記録まで</h2>
+                </div>
+                <p>一つの送球を，身体入力・方向判定・弾道計算・結果判定まで切れ目なく処理する．</p>
+            </div>
+            <ol class="wiss-flow">
+                <li><span>01</span><div><strong>捕球</strong><p>捕球したボールを左手のミット内へ保持する．</p></div></li>
+                <li><span>02</span><div><strong>持ち替え</strong><p>右手を近づけ，右トリガーでボールを保持する．</p></div></li>
+                <li><span>03</span><div><strong>動作取得</strong><p>リリース直前0.10秒の手の速度と角速度を推定する．</p></div></li>
+                <li><span>04</span><div><strong>意図判定</strong><p>入力方向と候補送球先の角度差から対象を選ぶ．</p></div></li>
+                <li><span>05</span><div><strong>弾道計算</strong><p>三次元誤差を加え，重力と空気抵抗を含む低弾道を求める．</p></div></li>
+                <li><span>06</span><div><strong>結果・記録</strong><p>到達位置から成功を判定し，動作と誤差内訳を保存する．</p></div></li>
+            </ol>
+        </section>
+
+        <section class="wiss-section wiss-assist-section">
+            <div class="container">
+                <div class="wiss-section-heading">
+                    <div>
+                        <p class="section-kicker">CONDITIONAL ASSIST</p>
+                        <h2>プレイヤの意思を上書きしない条件付きアシスト</h2>
+                    </div>
+                    <p>アシストは既定でOFFであり，ONの場合も次の条件をすべて満たす送球だけを補助する．</p>
+                </div>
+                <div class="wiss-condition-layout">
+                    <div class="wiss-condition-cards">
+                        <article><strong>35°以内</strong><span>候補送球先との方向差</span></article>
+                        <article><strong>2 m/s以上</strong><span>補正前リリース速度</span></article>
+                        <article><strong>対象あり</strong><span>投手または一・二・三塁</span></article>
+                        <article><strong>意図が明確</strong><span>複数候補の角度差が5°以上</span></article>
+                    </div>
+                    <aside class="wiss-boundary-note">
+                        <p class="section-kicker">DESIGN BOUNDARY</p>
+                        <h3>違う方向へ投げれば補正しない</h3>
+                        <p>
+                            明らかに異なる方向への送球や，ボールを手放しただけの動作は，システムが正しい送球へ書き換えない．
+                            自由送球もアシスト対象外とする．
+                        </p>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section id="error-model" class="wiss-section container" aria-labelledby="wiss-error-title">
+            <div class="wiss-section-heading">
+                <div>
+                    <p class="section-kicker">3D ERROR MODEL</p>
+                    <h2 id="wiss-error-title">成功を保証せず，三方向のズレを残す</h2>
+                </div>
+                <p>公称捕球点ではなく，動作由来の誤差を加えた照準点へ低弾道を解く．</p>
+            </div>
+            <div class="wiss-equation" aria-label="補正照準点の考え方">
+                <span>補正照準点</span><b>=</b><span>公称捕球点</span><b>+</b><span class="axis lateral">左右 L</span><b>+</b><span class="axis vertical">上下 V</span><b>+</b><span class="axis depth">奥行き D</span>
+            </div>
+            <div class="wiss-error-grid">
+                <article>
+                    <span class="wiss-axis-mark lateral">L</span>
+                    <h3>左右誤差</h3>
+                    <p>リリース方向，角速度軸，身体基準のリリース位置，決定的な乱数を反映する．</p>
+                </article>
+                <article>
+                    <span class="wiss-axis-mark vertical">V</span>
+                    <h3>上下誤差</h3>
+                    <p>上下方向，角速度の理想値との差，リリース高，決定的な乱数を反映する．</p>
+                </article>
+                <article>
+                    <span class="wiss-axis-mark depth">D</span>
+                    <h3>奥行き誤差</h3>
+                    <p>速度と身体前方のリリース位置から，野手より手前・後方へのズレを表す．</p>
+                </article>
+            </div>
+            <aside class="wiss-caution">
+                <strong>現在の係数は，現実の送球分布を再現した値ではない．</strong>
+                <p>動作確認用の調整可能な既定値であり，今後，実測データとユーザ評価に基づいて較正する必要がある．</p>
+            </aside>
+        </section>
+
+        <section class="wiss-section wiss-scenarios-section">
+            <div class="container">
+                <div class="wiss-section-heading">
+                    <div>
+                        <p class="section-kicker">PLAY CONTEXT</p>
+                        <h2>送球結果を実際のプレー状況へ接続する</h2>
+                    </div>
+                    <p>返球だけでなく，牽制・盗塁阻止・ダブルスチールで送球先とOUT／SAFEを扱う．</p>
+                </div>
+                <div class="wiss-scenario-grid">
+                    <article><span>P</span><strong>投手返球</strong><small>通常の捕球後返球</small></article>
+                    <article><span>1B</span><strong>一塁牽制</strong><small>方向からの自動判別にも対応</small></article>
+                    <article><span>2B</span><strong>二盗阻止</strong><small>二塁到達とタッチを比較</small></article>
+                    <article><span>3B</span><strong>三盗阻止</strong><small>三塁到達とタッチを比較</small></article>
+                    <article><span>DS</span><strong>ダブルスチール</strong><small>二塁・三塁から送球先を選択</small></article>
+                    <article><span>FREE</span><strong>自由送球</strong><small>アシストを使わず入力を維持</small></article>
+                </div>
+                <div class="wiss-outcomes" aria-label="送球結果の分類">
+                    <span>TargetHit</span><span>TargetMiss</span><span>WrongBase</span><span>Grounded</span><span>Collision</span><span>BelowField</span><span>Timeout</span><span>NoThrow</span>
+                </div>
+                <p class="wiss-outcome-note">失敗送球が野手に保持されなかった場合は，走者の追加進塁や本塁生還へ接続できる．</p>
+            </div>
+        </section>
+
+        <section id="logging" class="wiss-section container" aria-labelledby="wiss-log-title">
+            <div class="wiss-section-heading">
+                <div>
+                    <p class="section-kicker">RESEARCH LOGGING</p>
+                    <h2 id="wiss-log-title">動作・補助・結果を同じ試行で追跡する</h2>
+                </div>
+                <p>Trial IDとPitch Numberを使い，投球・捕球・送球・走塁の記録を対応付ける．</p>
+            </div>
+            <div class="wiss-log-layout">
+                <article class="wiss-log-primary">
+                    <span>THROW LOG</span>
+                    <strong>73<small>列</small></strong>
+                    <p>持ち替え，リリース，飛行時間，手速度，角速度，送球先，アシスト適用，三軸誤差，乱数seed，結果を送球単位で保存する．</p>
+                </article>
+                <div class="wiss-log-groups">
+                    <article><strong>動作</strong><p>手速度・角速度・身体基準リリース位置</p></article>
+                    <article><strong>時間</strong><p>持ち替え・リリース・飛行・システム内Pop Time</p></article>
+                    <article><strong>アシスト</strong><p>適用可否・方向差・誤差内訳・モデル版</p></article>
+                    <article><strong>結果</strong><p>到達座標・公称捕球点からの誤差・結果分類</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section id="evaluation" class="wiss-section wiss-evaluation-section">
+            <div class="container">
+                <div class="wiss-section-heading light">
+                    <div>
+                        <p class="section-kicker">CURRENT EVIDENCE & NEXT STEP</p>
+                        <h2>実装確認と研究評価を分けて示す</h2>
+                    </div>
+                    <p>現段階で確認できるのはシステムの動作であり，技能向上や現実妥当性ではない．</p>
+                </div>
+                <div class="wiss-evidence-grid">
+                    <article class="implemented">
+                        <span>IMPLEMENTED</span>
+                        <h3>実装済み</h3>
+                        <ul>
+                            <li>捕球・持ち替え・リリースの状態遷移</li>
+                            <li>送球先選択と条件付きアシスト</li>
+                            <li>動作由来の三次元誤差生成</li>
+                            <li>低弾道計算・到達判定・着弾表示</li>
+                            <li>送球ログと走塁ログの記録</li>
+                        </ul>
+                    </article>
+                    <article class="not-evaluated">
+                        <span>NOT YET ESTABLISHED</span>
+                        <h3>まだ評価していないこと</h3>
+                        <ul>
+                            <li>誤差係数の現実妥当性</li>
+                            <li>アシストによる課題成立率の改善</li>
+                            <li>補助の強さと失敗への納得感</li>
+                            <li>送球技能の学習・定着への効果</li>
+                            <li>実捕手と未経験者の動作差</li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="wiss-dev-check">
+                    <strong>開発時の配線確認</strong>
+                    <p>60プレー分の開発用ログで，失敗送球から追加進塁・得点までの接続を確認した．これはユーザ実験の結果や成功率の評価ではない．</p>
+                </div>
+                <div class="wiss-plan">
+                    <div><p class="section-kicker">PLANNED COMPARISON</p><h3>アシストOFF／ONを比較する</h3></div>
+                    <ol>
+                        <li><span>01</span><strong>成立性</strong><small>送球先の選択率・結果確定率</small></li>
+                        <li><span>02</span><strong>精度</strong><small>三次元誤差・方向別誤差</small></li>
+                        <li><span>03</span><strong>時間</strong><small>持ち替え・飛行・Pop Time</small></li>
+                        <li><span>04</span><strong>動作</strong><small>入力動作と到達誤差の関係</small></li>
+                        <li><span>05</span><strong>主観</strong><small>意図・補助感・納得感</small></li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section class="wiss-summary container" aria-labelledby="wiss-summary-title">
+            <p class="section-kicker">IMPLEMENTATION CONTRIBUTIONS</p>
+            <h2 id="wiss-summary-title">WISS 2026に向けて提示する3つの実装</h2>
+            <div>
+                <article><span>01</span><p>捕球から右手への持ち替え，リリース，飛行，結果確定までを連続状態として扱う送球入力機構．</p></article>
+                <article><span>02</span><p>大まかな方向意図を維持しながら，動作由来の左右・上下・奥行き誤差を残す条件付き送球アシスト．</p></article>
+                <article><span>03</span><p>動作，所要時間，アシストの適用可否，誤差内訳，到達結果を試行単位で再解析できる送球ログ．</p></article>
+            </div>
+            <p class="wiss-source-note">本ページは，2026年9月28日時点の実装ノートと現行取扱説明書をもとに公開可能な範囲を再構成した．</p>
+        </section>
     </main>
+
     <footer class="site-footer">
         <p><strong>CatcherX Research Archive</strong><br>福知山公立大学 情報学部</p>
         <p><a href="../../index.html#archive">すべての発表記録を見る</a></p>
     </footer>
-    <script src="../../assets/js/events-data.js"></script>
-    <script src="../../assets/js/event.js"></script>
 </body>
 </html>
