@@ -19,16 +19,18 @@ window.catcherXEvents = Object.freeze([
         path: 'events/wiss-2026/',
         year: '2026',
         shortTitle: 'WISS 2026',
-        title: 'WISS 2026',
+        title: 'WISS 2026 投稿予稿',
+        subtitle: 'CatcherX: 捕球に続く送球による進塁阻止を扱うVR捕手システム',
         type: 'planned',
-        status: '実装中・評価準備中',
-        stage: 'WISS 2026に向けた研究',
-        description: '捕球後の持ち替えと送球動作を取得し，プレイヤの方向意図を保ちながら動作由来の三次元誤差を残す送球アシストを実装しています．',
-        note: '実装内容と今後の評価計画を公開しています．投稿・採択・発表は未確定です．',
+        status: '予稿投稿済み',
+        stage: 'WISS 2026 投稿記録',
+        description: '走者と内野手を導入し，捕球後の持ち替え・送球から内野手の捕球・タッチ，走者到達に基づくアウト／セーフ判定までを実装しました．',
+        note: '投稿予稿と実装内容を公開しています．採択・発表は未確定です．',
         links: [
-            { href: '#design', label: '送球アシストの設計', detail: '捕球から結果記録までの処理', group: '実装概要' },
-            { href: '#error-model', label: '三次元誤差モデル', detail: '左右・上下・奥行きの誤差', group: '実装概要' },
-            { href: '#evaluation', label: '現在地と評価計画', detail: '実装済みと未評価の区別', group: '研究計画' }
+            { href: '#interaction', label: '進塁阻止の体験', detail: '走者の開始からアウト／セーフまで', group: '研究概要' },
+            { href: '#assist', label: '送球アシスト', detail: '方向意図と三次元誤差を残す設計', group: '実装概要' },
+            { href: '#future', label: '未来ビジョン', detail: '捕手視点のプレイ・ラボへの発展', group: '今後の展望' },
+            { href: 'paper.html', label: '投稿予稿', detail: 'WISS 2026投稿版・3ページ', group: '発表資料' }
         ]
     },
     {

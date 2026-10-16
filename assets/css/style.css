@@ -5926,3 +5926,276 @@ tbody tr:hover {
     .wiss-caution strong { flex-basis: auto; }
     .wiss-equation { justify-content: flex-start; }
 }
+
+/* WISS 2026 submitted manuscript update */
+
+.wiss-authors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    margin: 1.2rem 0 0;
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.wiss-authors span {
+    color: #bcd4e4;
+    font-weight: 500;
+}
+
+.wiss-timing-rule {
+    margin-top: 1.25rem;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(210px, 0.55fr);
+    gap: 0.8rem 2rem;
+    align-items: center;
+    color: #fff;
+    background: var(--primary-dark);
+    border-radius: 10px;
+}
+
+.wiss-timing-rule > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.wiss-timing-rule > div span {
+    padding: 0.55rem 0.7rem;
+    color: #d9ebf7;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 5px;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.wiss-timing-rule > div b { color: #79bfe9; }
+.wiss-timing-rule > strong { color: #9bd7ff; font-size: 0.9rem; text-align: right; }
+.wiss-timing-rule > p { grid-column: 1 / -1; margin: 0.3rem 0 0; color: #bfd4e2; font-size: 0.68rem; line-height: 1.75; }
+
+.wiss-scenario-grid-five {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.wiss-scenario-grid-five article {
+    min-height: 155px;
+    grid-template-columns: 1fr;
+    justify-items: start;
+}
+
+.wiss-scenario-grid-five span {
+    grid-row: auto;
+    margin-bottom: 0.45rem;
+}
+
+.wiss-throw-layout {
+    display: grid;
+    grid-template-columns: minmax(300px, 0.85fr) minmax(0, 1.15fr);
+    gap: 1rem;
+}
+
+.wiss-throw-input,
+.wiss-throw-branches article {
+    padding: 1.5rem;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+.wiss-throw-input {
+    min-height: 330px;
+    display: flex;
+    flex-direction: column;
+}
+
+.wiss-throw-input > span,
+.wiss-throw-branches article > span {
+    color: var(--primary-light);
+    font: 700 0.65rem Inter, sans-serif;
+    letter-spacing: 0.11em;
+}
+
+.wiss-throw-input h3,
+.wiss-throw-branches h3 {
+    margin: 1.7rem 0 0.7rem;
+    color: var(--primary-dark);
+    font-size: 1.05rem;
+    line-height: 1.55;
+}
+
+.wiss-throw-input p,
+.wiss-throw-branches p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.73rem;
+    line-height: 1.8;
+}
+
+.wiss-vector-equation {
+    margin: auto 0 0.7rem;
+    padding: 1rem;
+    color: var(--primary-dark);
+    background: #eef5fa;
+    border-radius: 7px;
+    font-family: Georgia, serif;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.wiss-throw-input > small {
+    color: #738797;
+    font-size: 0.62rem;
+    text-align: center;
+}
+
+.wiss-throw-branches {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.wiss-throw-branches article.assisted {
+    background: #eaf5fc;
+    border-color: #9bc7e3;
+}
+
+.wiss-future-section {
+    padding-bottom: 3rem;
+}
+
+.wiss-future-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.wiss-future-grid article {
+    min-height: 210px;
+    padding: 1.5rem;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: var(--shadow-sm);
+}
+
+.wiss-future-grid article > span {
+    color: #83a5bb;
+    font: 700 0.65rem Inter, sans-serif;
+}
+
+.wiss-future-grid h3 {
+    margin: 1.7rem 0 0.7rem;
+    color: var(--primary-dark);
+    font-size: 1rem;
+}
+
+.wiss-future-grid p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.73rem;
+    line-height: 1.85;
+}
+
+.wiss-role-lab {
+    margin-top: 1rem;
+    padding: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    overflow: hidden;
+    color: #fff;
+    background: #315a78;
+    border-radius: 10px;
+}
+
+.wiss-role-lab > div {
+    padding: 1rem 1.2rem;
+    background: var(--primary-dark);
+}
+
+.wiss-role-lab span {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: #87c9f2;
+    font-size: 0.65rem;
+    font-weight: 700;
+}
+
+.wiss-role-lab strong {
+    font-size: 0.75rem;
+    line-height: 1.6;
+}
+
+.wiss-manuscript {
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.2fr) auto;
+    align-items: center;
+    gap: 2rem;
+    background: #fff;
+    border: 1px solid #c9dbe8;
+    border-left: 5px solid var(--primary-color);
+    border-radius: 10px;
+    box-shadow: var(--shadow-sm);
+}
+
+.wiss-manuscript h2 {
+    margin: 0.2rem 0 0.7rem;
+    color: var(--primary-dark);
+    font-size: 1.45rem;
+}
+
+.wiss-manuscript > div > p:last-child {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    line-height: 1.75;
+}
+
+.wiss-manuscript dl { margin: 0; }
+.wiss-manuscript dl div { display: grid; grid-template-columns: 56px 1fr; gap: 0.75rem; padding: 0.35rem 0; }
+.wiss-manuscript dt { color: #778a99; font-size: 0.65rem; font-weight: 700; }
+.wiss-manuscript dd { margin: 0; color: #345064; font-size: 0.68rem; font-weight: 600; line-height: 1.6; }
+.wiss-manuscript .archive-button { white-space: nowrap; }
+
+.wiss-paper-back {
+    display: inline-block;
+    margin-bottom: 1.2rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.wiss-paper-page .paper-version-note {
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 1080px) {
+    .wiss-scenario-grid-five { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .wiss-manuscript { grid-template-columns: 1fr 1fr; }
+    .wiss-manuscript .archive-button { justify-self: start; }
+}
+
+@media (max-width: 760px) {
+    .wiss-timing-rule,
+    .wiss-throw-layout,
+    .wiss-future-grid,
+    .wiss-manuscript { grid-template-columns: 1fr; }
+    .wiss-timing-rule > strong { text-align: left; }
+    .wiss-scenario-grid-five { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .wiss-role-lab { grid-template-columns: 1fr; }
+    .wiss-throw-input { min-height: 280px; }
+}
+
+@media (max-width: 480px) {
+    .wiss-scenario-grid-five { grid-template-columns: 1fr; }
+    .wiss-manuscript { padding: 1.35rem; }
+    .wiss-manuscript .archive-button { white-space: normal; }
+}
