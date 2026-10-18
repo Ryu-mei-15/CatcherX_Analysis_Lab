@@ -14,6 +14,7 @@
         <a class="site-brand" href="index.html"><span class="brand-mark">CX</span><span>CatcherX <small>Research Archive</small></span></a>
         <div class="nav-links">
             <a href="index.html" aria-current="page">ホーム</a>
+            <a href="news.html">お知らせ</a>
             <a href="#archive">発表アーカイブ</a>
             <a href="events/ec2026/">EC2026</a>
             <a href="events/wiss-2026/">WISS 2026</a>
@@ -25,25 +26,42 @@
             <p class="archive-eyebrow">CATCHERX RESEARCH ARCHIVE</p>
             <h1>捕手の一球を，<br><span>考えることと動くこと</span>の循環から捉える．</h1>
             <p>
-                CatcherXは，配球を考え，構え，球に対応し，結果から次の配球を考える
+                CatcherXは，配球を考え，構え，捕球し，持ち替えて送球するまでの
                 捕手特有の認知-運動過程をVRで探究する研究プロジェクトです．
                 本サイトに，これまでの発表と，これから生まれるデータ・資料・分析を継続して記録します．
             </p>
             <div class="archive-hero-actions">
-                <a class="archive-button primary" href="#archive">発表の記録を見る</a>
-                <a class="archive-button secondary" href="events/ec2026/">最新の公開成果へ</a>
+                <a class="archive-button primary" href="events/wiss-2026/">現在の研究を見る</a>
+                <a class="archive-button secondary" href="events/ec2026/">公開済み成果を見る</a>
             </div>
         </div>
-        <aside class="archive-current" aria-label="現在公開中の研究成果">
-            <div class="archive-current-top"><span>NOW AVAILABLE</span><strong>2026</strong></div>
-            <p>発表済み・資料公開中</p>
-            <h2>EC2026</h2>
-            <small>論文・スライド・ポスター・実験データ</small>
-            <a href="events/ec2026/">発表ページを開く →</a>
+        <aside class="archive-current" aria-label="現在進行中の研究">
+            <div class="archive-current-top"><span>CURRENT PROJECT</span><strong>2026</strong></div>
+            <p>予稿投稿済み・採否未反映</p>
+            <h2>WISS 2026</h2>
+            <small>捕球後の持ち替え・送球と，走者の進塁阻止までを扱う研究へ拡張</small>
+            <a href="events/wiss-2026/">現在の研究を開く →</a>
+            <a class="archive-current-secondary" href="events/ec2026/">公開済み成果：EC2026 →</a>
         </aside>
     </header>
 
     <main id="main">
+        <section class="home-news container" aria-labelledby="home-news-title">
+            <div class="archive-section-heading">
+                <div>
+                    <p class="section-kicker">LATEST NEWS</p>
+                    <h2 id="home-news-title">研究のお知らせ</h2>
+                </div>
+                <p>投稿，採択，発表予定，資料公開など，CatcherXの動きを時系列でお知らせします．</p>
+            </div>
+            <div class="home-news-list" data-news-list data-news-layout="compact" data-news-limit="3"></div>
+            <noscript><p class="event-content-empty">お知らせを表示するにはJavaScriptを有効にしてください．</p></noscript>
+            <div class="home-news-actions">
+                <a href="news.html">CatcherXのお知らせをすべて見る →</a>
+                <a href="https://ryu-mei-15.github.io/HOMEPAGE/news.html" target="_blank" rel="noopener noreferrer">山口 瑞悠の個人ホームページを見る ↗</a>
+            </div>
+        </section>
+
         <section id="archive" class="archive-section container" aria-labelledby="archive-title">
             <div class="archive-section-heading">
                 <div>
@@ -53,6 +71,7 @@
                 <p>発表ごとに，当時の目的，取得データ，分析，論文，スライド，ポスターをまとめます．</p>
             </div>
             <div class="archive-legend" aria-label="公開状態の説明">
+                <span><i class="submitted"></i>予稿投稿済み</span>
                 <span><i class="published"></i>資料公開中</span>
                 <span><i class="archived"></i>発表済み・整理中</span>
                 <span><i class="planned"></i>今後の発表目標</span>
@@ -65,14 +84,18 @@
             <div class="container">
                 <div class="archive-section-heading light">
                     <div><p class="section-kicker">THE RESEARCH</p><h2>CatcherXが扱う体験</h2></div>
-                    <p>捕球だけを切り出さず，前後の判断を含む一球の循環として設計します．</p>
+                    <p>捕球だけを切り出さず，配球から送球，結果を踏まえた次の判断までを一続きの循環として設計します．</p>
                 </div>
                 <div class="archive-cycle">
                     <article><span>01</span><h3>配球を考える</h3><p>球種とコースを選び，次に来る球を自ら予測する．</p></article>
                     <div aria-hidden="true">→</div>
-                    <article><span>02</span><h3>身体で対応する</h3><p>予測と実際の軌道のズレを捉え，ミット位置を補正する．</p></article>
+                    <article><span>02</span><h3>捕球する</h3><p>予測と実際の軌道のズレを捉え，ミット位置を補正する．</p></article>
                     <div aria-hidden="true">→</div>
-                    <article><span>03</span><h3>次の判断へ戻る</h3><p>捕球結果と打者反応を受け取り，次の配球を考える．</p></article>
+                    <article><span>03</span><h3>持ち替えて送球する</h3><p>捕球後にボールを持ち替え，送球方向と強さを決める．</p></article>
+                    <div aria-hidden="true">→</div>
+                    <article><span>04</span><h3>進塁を阻止する</h3><p>内野手の捕球とタッチ，走者到達から結果を受け取る．</p></article>
+                    <div aria-hidden="true">→</div>
+                    <article><span>05</span><h3>次の判断へ戻る</h3><p>一連の結果を振り返り，次のプレイを考える．</p></article>
                 </div>
             </div>
         </section>
@@ -96,5 +119,7 @@
     </footer>
     <script src="assets/js/events-data.js"></script>
     <script src="assets/js/archive.js"></script>
+    <script src="assets/js/news-data.js"></script>
+    <script src="assets/js/news.js"></script>
 </body>
 </html>

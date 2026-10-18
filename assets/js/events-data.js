@@ -2,30 +2,17 @@
 
 window.catcherXEvents = Object.freeze([
     {
-        id: 'interaction-2027',
-        path: 'events/interaction-2027/',
-        year: '2027',
-        shortTitle: 'インタラクション2027',
-        title: 'インタラクション2027',
-        type: 'planned',
-        status: '発表目標',
-        stage: '今後の研究',
-        description: 'CatcherXの次段階の成果発表を目指す記録枠です．研究計画，取得データ，投稿資料を進展に合わせて追加します．',
-        note: '現時点では発表目標を記録しており，投稿・採択・発表は未確定です．',
-        links: []
-    },
-    {
         id: 'wiss-2026',
         path: 'events/wiss-2026/',
         year: '2026',
         shortTitle: 'WISS 2026',
         title: 'WISS 2026 投稿予稿',
         subtitle: 'CatcherX: 捕球に続く送球による進塁阻止を扱うVR捕手システム',
-        type: 'planned',
+        type: 'submitted',
         status: '予稿投稿済み',
         stage: 'WISS 2026 投稿記録',
         description: '走者と内野手を導入し，捕球後の持ち替え・送球から内野手の捕球・タッチ，走者到達に基づくアウト／セーフ判定までを実装しました．',
-        note: '投稿予稿と実装内容を公開しています．採択・発表は未確定です．',
+        note: '投稿予稿と実装内容を公開しています．本サイトでは採否と個別の発表日時をまだ反映していません．',
         links: [
             { href: '#interaction', label: '進塁阻止の体験', detail: '走者の開始からアウト／セーフまで', group: '研究概要' },
             { href: '#assist', label: '送球アシスト', detail: '方向意図と三次元誤差を残す設計', group: '実装概要' },
@@ -54,6 +41,19 @@ window.catcherXEvents = Object.freeze([
             { href: 'research.html', label: 'ミットの動きとデータ品質', detail: '方向一致度，成功率，除外基準', group: 'データを詳しく見る' },
             { href: 'paper.html', label: '論文・発表資料', detail: '公開論文，スライド，ポスター', group: '発表資料' }
         ]
+    },
+    {
+        id: 'interaction-2027',
+        path: 'events/interaction-2027/',
+        year: '2027',
+        shortTitle: 'インタラクション2027',
+        title: 'インタラクション2027',
+        type: 'planned',
+        status: '発表目標',
+        stage: '今後の研究',
+        description: 'CatcherXの次段階の成果発表を目指す記録枠です．研究計画，取得データ，投稿資料を進展に合わせて追加します．',
+        note: '現時点では発表目標を記録しており，投稿・採択・発表は未確定です．',
+        links: []
     },
     {
         id: 'winter-2025',
