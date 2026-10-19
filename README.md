@@ -34,7 +34,7 @@
 | [`index.html`](index.html) | CatcherX全体の概要，発表アーカイブ，研究の流れ，記録方針 |
 | [`news.html`](news.html) | CatcherXに関する投稿，採択，発表予定，資料公開のお知らせ |
 | [`events/`](events/) | 発表ごとのページ，データ，資料，解析コードを格納する親フォルダ |
-| [`events/ec2026/`](events/ec2026/) | EC2026の発表ページと全関連ファイル |
+| [`events/ec2026/`](events/ec2026/) | EC2026特選論文の研究概要，主要結果，公開データ・資料への入口 |
 | [`events/ec2026/summary.html`](events/ec2026/summary.html) | この研究でわかったこと，まだわからないこと，次の検証 |
 | [`events/ec2026/paper.html`](events/ec2026/paper.html) | EC2026公開版論文・発表スライド・発表ポスターの閲覧 |
 | [`events/ec2026/results.html`](events/ec2026/results.html) | 捕球動作の全体結果，指標定義，球速別・プレイヤ別集計 |

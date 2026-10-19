@@ -3,46 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CatcherXの発表ごとの研究記録，データ，論文，発表資料を確認するページ">
-    <title>発表記録 | CatcherX Research Archive</title>
+    <meta name="description" content="EC2026特選論文『CatcherX: 捕手の認知-運動過程の循環に着目したVRシミュレータ』の研究概要，実験結果，公開データ，発表資料">
+    <title>EC2026特選論文 | CatcherX Research Archive</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>⚾</text></svg>">
     <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
-<body data-event-id="ec-2026" data-root-prefix="../../">
-    <a class="skip-link" href="#eventPage">本文へ移動</a>
+<body class="ec-page">
+    <a class="skip-link" href="#main">本文へ移動</a>
     <nav class="site-nav" aria-label="主要ナビゲーション">
         <a class="site-brand" href="../../index.html"><span class="brand-mark">CX</span><span>CatcherX <small>Research Archive</small></span></a>
         <div class="nav-links">
             <a href="../../index.html">ホーム</a>
             <a href="../../news.html">お知らせ</a>
             <a href="../../index.html#archive">発表アーカイブ</a>
-            <a href="../ec2026/" aria-current="page">EC2026</a>
+            <a href="index.html" aria-current="page">EC2026</a>
             <a href="../wiss-2026/">WISS 2026</a>
         </div>
     </nav>
-    <main id="eventPage" class="event-page">
-        <header class="event-hero">
-            <div class="event-hero-inner">
+
+    <header class="ec-hero">
+        <div class="ec-hero-inner">
+            <div class="ec-hero-copy">
                 <a class="event-back-link" href="../../index.html#archive">← 発表アーカイブ</a>
-                <div class="event-meta-line"><span id="eventYear">—</span><span id="eventStage">発表記録</span></div>
-                <h1 id="eventTitle">発表記録を読み込んでいます</h1>
-                <p id="eventSubtitle"></p>
-                <span id="eventStatus" class="archive-status">確認中</span>
+                <p class="ec-eyebrow">EC2026 · PUBLISHED RESEARCH</p>
+                <h1>CatcherX:<br><span>捕手の認知-運動過程の循環</span>に着目したVRシミュレータ</h1>
+                <p class="ec-hero-lead">
+                    配球を考え，構え，球に対応し，捕球結果と打者反応から次の配球を更新する．
+                    捕手の判断と身体動作を，一球ごとに循環するVR体験として実装した．
+                </p>
+                <p class="ec-authors">山口 瑞悠・藤井 叙人・橋田 光代<span>福知山公立大学 情報学部</span></p>
+                <div class="ec-hero-actions">
+                    <a class="archive-button primary" href="summary.html">この研究でわかったこと</a>
+                    <a class="archive-button secondary" href="paper.html">論文・発表資料を見る</a>
+                </div>
             </div>
-        </header>
-        <div class="container event-page-body">
-            <section class="event-overview" aria-labelledby="event-overview-title">
-                <div><p class="section-kicker">ABOUT THIS PRESENTATION</p><h2 id="event-overview-title">この発表について</h2></div>
-                <div><p id="eventDescription"></p><p id="eventNote" class="event-note"></p></div>
-            </section>
-            <div id="eventContents" class="event-contents" aria-live="polite"></div>
+            <aside class="ec-status-panel" aria-label="EC2026の発表情報">
+                <span class="ec-status-label">RESEARCH STATUS</span>
+                <strong>発表済み・成果公開中</strong>
+                <dl>
+                    <div><dt>発表先</dt><dd>EC2026</dd></div>
+                    <div><dt>発表</dt><dd>特選セッション</dd></div>
+                    <div><dt>認定</dt><dd>レコメンデモ</dd></div>
+                    <div><dt>論文</dt><dd>特選論文・10ページ</dd></div>
+                    <div><dt>参加者</dt><dd>6名</dd></div>
+                    <div><dt>捕球ログ</dt><dd>1,974試行</dd></div>
+                    <div><dt>中心課題</dt><dd>認知と運動の循環</dd></div>
+                </dl>
+                <p>論文，発表スライド，ポスター，公開可能な実験ログと追加分析を掲載している．</p>
+                <a class="ec-official-link" href="https://ipsj.ixsq.nii.ac.jp/records/2011336" target="_blank" rel="noopener noreferrer">情報学広場の公式レコード ↗</a>
+            </aside>
         </div>
+    </header>
+
+    <main id="main">
+        <section class="ec-section container" aria-labelledby="ec-cycle-title">
+            <div class="ec-section-heading">
+                <div>
+                    <p class="section-kicker">COGNITION–ACTION LOOP</p>
+                    <h2 id="ec-cycle-title">捕手の一球を，8段階の循環として扱う</h2>
+                </div>
+                <p>捕球動作だけを切り出さず，投球前の判断から結果を踏まえた次球の更新までを一続きの体験として構成した．</p>
+            </div>
+            <ol class="ec-cycle-grid">
+                <li><span>01</span><small>判断</small><strong>配球を選ぶ</strong></li>
+                <li><span>02</span><small>予測</small><strong>構えを決める</strong></li>
+                <li><span>03</span><small>知覚</small><strong>球の軌道を見る</strong></li>
+                <li><span>04</span><small>運動</small><strong>ミットを補正する</strong></li>
+                <li><span>05</span><small>結果</small><strong>捕球する</strong></li>
+                <li><span>06</span><small>評価</small><strong>捕球結果を知る</strong></li>
+                <li><span>07</span><small>情報</small><strong>打者反応を見る</strong></li>
+                <li><span>08</span><small>更新</small><strong>次の配球へ戻る</strong></li>
+            </ol>
+        </section>
+
+        <section class="ec-contribution">
+            <div class="container">
+                <div class="ec-section-heading light">
+                    <div>
+                        <p class="section-kicker">RESEARCH CONTRIBUTION</p>
+                        <h2>考えたことと，身体が行ったことを，同じログで捉える</h2>
+                    </div>
+                    <p>認知と運動のどちらか一方ではなく，両者のつながりを試行系列として記録・分析できる研究基盤を示した．</p>
+                </div>
+                <div class="ec-contribution-grid">
+                    <article>
+                        <span>COGNITION</span>
+                        <h3>配球判断を記録</h3>
+                        <p>選んだ球種・コース，打者反応，次球の更新を同じ時系列に残す．</p>
+                    </article>
+                    <article>
+                        <span>ACTION</span>
+                        <h3>身体的補正を計測</h3>
+                        <p>構え位置，球到達位置，捕球位置から，ミットの移動と残差誤差を捉える．</p>
+                    </article>
+                    <article class="answer">
+                        <span>LOOP</span>
+                        <h3>次の判断へ接続</h3>
+                        <p>捕球と打者の反応を情報として返し，一球で終わらない捕手体験を構成する．</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="ec-section container" aria-labelledby="ec-findings-title">
+            <div class="ec-section-heading">
+                <div>
+                    <p class="section-kicker">KEY FINDINGS</p>
+                    <h2 id="ec-findings-title">実験ログから見えたこと</h2>
+                </div>
+                <p>予稿掲載値と公開ログの再分析を区別して示す．数値の定義と分析上の制約は，各詳細ページで確認できる．</p>
+            </div>
+            <div class="ec-finding-grid">
+                <article>
+                    <span>予稿掲載の観察</span>
+                    <strong>r = 0.413</strong>
+                    <h3>制球のズレと身体的介入に正の相関</h3>
+                    <p>投球位置のズレが大きいほど，予稿でミット補正量とした値も大きくなる傾向を示した．</p>
+                </article>
+                <article>
+                    <span>再分析で確認</span>
+                    <strong>0.889 <small>対</small> 0.779</strong>
+                    <h3>球へ向かう方向は捕球成否と関係</h3>
+                    <p>3次元方向一致度の中央値は，正常捕球時の方が失敗時より高かった．</p>
+                </article>
+                <article>
+                    <span>探索的な傾向</span>
+                    <strong>80.9% <small>→</small> 72.3%</strong>
+                    <h3>高球速で改善試行率が低下</h3>
+                    <p>100 km/hから158 km/hで低下したが，提示順が固定されており球速だけの効果とは断定しない．</p>
+                </article>
+                <article>
+                    <span>第3フェーズ</span>
+                    <strong><i>p</i> ≥ .321</strong>
+                    <h3>打者反応間の有意差は未確認</h3>
+                    <p>6名・59遷移の4分析では差を特定できず，影響がないことの証明とは解釈しない．</p>
+                </article>
+            </div>
+            <a class="ec-text-link" href="summary.html">結果から言えること・言えないことをまとめて読む →</a>
+        </section>
+
+        <section class="ec-boundaries">
+            <div class="container">
+                <div class="ec-section-heading light">
+                    <div>
+                        <p class="section-kicker">EVIDENCE BOUNDARIES</p>
+                        <h2>到達点と，まだ検証していないこと</h2>
+                    </div>
+                    <p>実装できたこと，観察できたこと，効果としては未検証のことを分けて公開する．</p>
+                </div>
+                <div class="ec-boundary-grid">
+                    <article class="supported">
+                        <span>SUPPORTED</span>
+                        <h3>この研究で確認したこと</h3>
+                        <ul>
+                            <li>認知-運動循環をVR体験として構成できる</li>
+                            <li>配球・予測・身体動作・結果を同じ系列に記録できる</li>
+                            <li>制球誤差に応じたミット操作を分析できる</li>
+                            <li>打者反応後の配球更新を記録できる</li>
+                        </ul>
+                    </article>
+                    <article class="future">
+                        <span>NOT YET VERIFIED</span>
+                        <h3>現時点では断定しないこと</h3>
+                        <ul>
+                            <li>循環体験による学習効率・技能定着の向上</li>
+                            <li>経験者と未経験者の差</li>
+                            <li>球速だけが生む因果効果</li>
+                            <li>NASA-TLX・SUSによる公開済み評価結果</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="ec-section container" aria-labelledby="ec-explore-title">
+            <div class="ec-section-heading">
+                <div>
+                    <p class="section-kicker">EXPLORE THE EVIDENCE</p>
+                    <h2 id="ec-explore-title">結果とデータを詳しく見る</h2>
+                </div>
+                <p>最初に結論を読み，必要に応じて集計，試行ログ，統計分析，データ品質へ進める．</p>
+            </div>
+            <div class="ec-feature-links">
+                <a href="summary.html">
+                    <span>START HERE</span><strong>この研究でわかったこと</strong>
+                    <p>主要な知見，結論の強さ，まだ言えないことを約2分で確認する．</p><i>→</i>
+                </a>
+                <a href="paper.html">
+                    <span>PAPER & MATERIALS</span><strong>論文・スライド・ポスター</strong>
+                    <p>情報処理学会公開版の特選論文と，実際に使用した発表資料を閲覧する．</p><i>→</i>
+                </a>
+            </div>
+            <div class="ec-analysis-grid">
+                <a href="results.html"><span>01</span><strong>捕球動作の主要結果</strong><p>制球誤差，ミット補正量，誤差低減率を確認する．</p></a>
+                <a href="phase3.html"><span>02</span><strong>配球選択の結果</strong><p>球種・コースの順序と反応間の比較を見る．</p></a>
+                <a href="analysis.html"><span>03</span><strong>条件を選んでログを見る</strong><p>プレイヤ，球速，コースで試行を絞り込む．</p></a>
+                <a href="anova.html"><span>04</span><strong>プレイヤ・球速を比べる</strong><p>二元配置分散分析と効果量を読み解く．</p></a>
+                <a href="research.html"><span>05</span><strong>動きとデータ品質を見る</strong><p>方向一致度，成功率，除外基準を確認する．</p></a>
+                <a href="evaluation.html"><span>06</span><strong>標準尺度へ回答する</strong><p>研究参加者向けNASA-TLX・SUS回答フォームを開く．</p></a>
+            </div>
+        </section>
+
+        <section class="ec-publication container" aria-labelledby="ec-publication-title">
+            <div>
+                <p class="section-kicker">PUBLISHED PAPER</p>
+                <h2 id="ec-publication-title">特選論文と発表資料を公開</h2>
+                <p>EC2026公開版論文，口頭発表スライド，会場掲示用ポスターをブラウザ内で閲覧できる．</p>
+            </div>
+            <dl>
+                <div><dt>題目</dt><dd>CatcherX: 捕手の認知-運動過程の循環に着目したVRシミュレータ</dd></div>
+                <div><dt>著者</dt><dd>山口 瑞悠・藤井 叙人・橋田 光代</dd></div>
+                <div><dt>書誌ID</dt><dd>IPSJ-EC2026006</dd></div>
+            </dl>
+            <a class="archive-button primary" href="paper.html">論文・発表資料を開く →</a>
+        </section>
     </main>
+
     <footer class="site-footer">
-        <p><strong>CatcherX Research Archive</strong><br>福知山公立大学 情報学部</p>
+        <p><strong>CatcherX Research Archive</strong><br>山口 瑞悠・藤井 叙人・橋田 光代<br>福知山公立大学 情報学部</p>
         <p><a href="../../index.html#archive">すべての発表記録を見る</a></p>
     </footer>
-    <script src="../../assets/js/events-data.js"></script>
-    <script src="../../assets/js/event.js"></script>
 </body>
 </html>
