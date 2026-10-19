@@ -4978,6 +4978,7 @@ tbody tr:hover {
 }
 
 .archive-legend i.published { background: #16845b; }
+.archive-legend i.accepted { background: #2563a6; }
 .archive-legend i.submitted { background: #c77b13; }
 .archive-legend i.archived { background: #3978a8; }
 .archive-legend i.planned { background: #9aa9b5; }
@@ -5006,6 +5007,7 @@ tbody tr:hover {
 }
 
 .archive-event-card.published { border-top-color: #16845b; }
+.archive-event-card.accepted { border-top-color: #2563a6; }
 .archive-event-card.submitted { border-top-color: #c77b13; }
 .archive-event-card.archived { border-top-color: #3978a8; }
 .archive-event-card.planned { border-top-color: #9aa9b5; background: #f8fafb; }
@@ -5036,6 +5038,7 @@ tbody tr:hover {
 }
 
 .archive-status.published { background: #e8f5ef; color: #116743; }
+.archive-status.accepted { background: #e7f1fb; color: #175d91; }
 .archive-status.submitted { background: #fff2dc; color: #8b570b; }
 .archive-status.archived { background: #e9f2f9; color: #245d88; }
 .archive-status.planned { background: #edf0f2; color: #62727e; }

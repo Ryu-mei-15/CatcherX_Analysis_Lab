@@ -2,6 +2,16 @@
 
 window.catcherXNews = Object.freeze([
     {
+        date: '2026-10-19',
+        displayDate: '2026.10.19',
+        category: '採択',
+        categoryType: 'accepted',
+        title: 'WISS 2026のデモ発表に採択されました',
+        summary: '捕球後の持ち替え・送球から進塁阻止までを扱うCatcherXのデモ発表です．WISS 2026の区分では審査あり・論文査読なしに該当します．',
+        href: 'events/wiss-2026/',
+        linkLabel: 'WISS 2026の研究ページを見る'
+    },
+    {
         date: '2026-10-18',
         displayDate: '2026.10.18',
         category: '資料公開',
