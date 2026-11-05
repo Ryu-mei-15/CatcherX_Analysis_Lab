@@ -7391,6 +7391,110 @@ tbody tr:hover {
 .experience-pitch-flow strong { display: block; margin-top: 0.3rem; color: #fff; font-size: 0.92rem; }
 .experience-pitch-flow p { margin: 0.5rem 0 0; color: #c8dce8; font-size: 0.74rem; line-height: 1.7; }
 
+.experience-figure {
+    margin: 2rem 0 0;
+    overflow: hidden;
+    border: 1px solid rgba(132, 180, 209, 0.38);
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 22px 60px rgba(2, 35, 59, 0.16);
+}
+
+.experience-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.experience-figure figcaption {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.55fr) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    color: #526b7a;
+    background: #fff;
+}
+
+.experience-figure figcaption strong {
+    color: var(--primary-dark);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.experience-figure figcaption span {
+    font-size: 0.75rem;
+    line-height: 1.8;
+}
+
+.experience-cycle-figure {
+    margin-top: 2.5rem;
+}
+
+.experience-visual-explanation {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.62fr);
+    gap: 1rem;
+    align-items: stretch;
+}
+
+.experience-visual-explanation .experience-figure {
+    margin: 0;
+}
+
+.experience-keypoint {
+    padding: 1.7rem;
+    border: 1px solid #b8d2e2;
+    border-radius: 16px;
+    background: #eaf4fa;
+}
+
+.experience-keypoint > span {
+    color: var(--primary-light);
+    font-family: Inter, sans-serif;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.experience-keypoint h3 {
+    margin: 1rem 0 0.7rem;
+    color: var(--primary-dark);
+    font-size: 1.15rem;
+    line-height: 1.55;
+}
+
+.experience-keypoint p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    line-height: 1.85;
+}
+
+.experience-keypoint dl {
+    display: grid;
+    gap: 0;
+    margin: 1.3rem 0 0;
+}
+
+.experience-keypoint dl div {
+    padding: 0.8rem 0;
+    border-top: 1px solid #c4dae7;
+}
+
+.experience-keypoint dt {
+    color: #145e8c;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.experience-keypoint dd {
+    margin: 0.25rem 0 0;
+    color: #607988;
+    font-size: 0.7rem;
+    line-height: 1.55;
+}
+
 .experience-version-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -7461,6 +7565,29 @@ tbody tr:hover {
     color: #d9edf8;
     font-size: 0.68rem;
     font-weight: 700;
+}
+
+.experience-wiss-figure {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+    margin-top: 2rem;
+    background: #fff;
+}
+
+.experience-wiss-figure figcaption {
+    grid-template-columns: 1fr;
+    align-content: center;
+    order: 2;
+    padding: 2rem;
+}
+
+.experience-wiss-crop {
+    min-height: 340px;
+    background-color: #d9e8f2;
+    background-image: url('../images/experience/wiss2026-scene-source.png');
+    background-repeat: no-repeat;
+    background-size: 260% auto;
+    background-position: 87% 41%;
 }
 
 .experience-purpose-grid {
@@ -7537,6 +7664,10 @@ tbody tr:hover {
     .experience-role-grid article,
     .experience-version-grid article { min-height: 0; }
     .experience-limit-note { grid-template-columns: 1fr; gap: 0.6rem; }
+    .experience-visual-explanation,
+    .experience-wiss-figure { grid-template-columns: 1fr; }
+    .experience-figure figcaption { grid-template-columns: 1fr; gap: 0.55rem; }
+    .experience-wiss-crop { min-height: 300px; background-size: 285% auto; }
 }
 
 @media (max-width: 480px) {
@@ -7546,4 +7677,5 @@ tbody tr:hover {
     .system-experience-flow,
     .experience-throw-flow { grid-template-columns: 1fr; }
     .experience-hero h1 { font-size: 2.35rem; }
+    .experience-wiss-crop { min-height: 230px; }
 }
