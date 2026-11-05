@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VR捕手システムCatcherXでできること，体験者が行う操作，一球の流れ，EC2026版とWISS 2026版の違いを紹介するページ">
+    <title>CatcherXでできること | CatcherX Research Archive</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>⚾</text></svg>">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="experience-page">
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <nav class="site-nav" aria-label="主要ナビゲーション">
+        <a class="site-brand" href="index.html"><span class="brand-mark">CX</span><span>CatcherX <small>Research Archive</small></span></a>
+        <div class="nav-links">
+            <a href="index.html">ホーム</a>
+            <a href="experience.html" aria-current="page">体験</a>
+            <a href="news.html">お知らせ</a>
+            <a href="index.html#archive">発表アーカイブ</a>
+            <a href="events/ec2026/">EC2026</a>
+            <a href="events/wiss-2026/">WISS 2026</a>
+        </div>
+    </nav>
+
+    <header class="experience-hero">
+        <div class="experience-hero-inner">
+            <p class="experience-eyebrow">WHAT IS CATCHERX?</p>
+            <h1>VRで捕手になり，<br><span>考えて，捕って，投げる．</span></h1>
+            <p>
+                CatcherXは，野球の捕手が一球ごとに行う判断と身体動作を体験するVRシステムです．
+                体験者はホームベース後方の捕手位置に入り，配球を選び，ミットを構え，飛来する球を捕ります．
+                現在の拡張版では，捕球後に持ち替えて塁へ送球し，走者の進塁阻止まで体験できます．
+            </p>
+            <div class="experience-hero-tags" aria-label="CatcherXで扱う体験">
+                <span>配球判断</span><span>投球予測</span><span>捕球</span><span>持ち替え</span><span>塁送球</span><span>進塁阻止</span>
+            </div>
+            <a class="archive-button primary" href="#one-pitch">一球の流れを見る</a>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="experience-section container" aria-labelledby="experience-overview-title">
+            <div class="experience-section-heading">
+                <div><p class="section-kicker">IN SHORT</p><h2 id="experience-overview-title">見るだけではなく，捕手として自分でプレイする</h2></div>
+                <p>体験の中心は，正解を眺めることではなく，自分で選び，身体を動かし，結果を受け取ることにあります．</p>
+            </div>
+            <div class="experience-role-grid">
+                <article>
+                    <span>YOU</span><h3>体験者が行うこと</h3>
+                    <ul><li>球種とコースを決める</li><li>捕球位置を予測して構える</li><li>球を見てミットを動かす</li><li>結果を見て次の配球を考える</li><li>拡張版では持ち替えて塁へ投げる</li></ul>
+                </article>
+                <article>
+                    <span>SYSTEM</span><h3>システムが提示すること</h3>
+                    <ul><li>選択した配球に応じた投球</li><li>狙いと実際の到着点のズレ</li><li>捕球成否と打者の反応</li><li>走者のスタートと内野手の動き</li><li>タッチと走者到達によるアウト／セーフ</li></ul>
+                </article>
+                <article>
+                    <span>LOG</span><h3>研究用に記録すること</h3>
+                    <ul><li>選んだ球種・コース</li><li>構え・球到着・捕球の位置</li><li>ミットの移動と捕球結果</li><li>打者反応後の次球選択</li><li>拡張版では送球動作と到達結果</li></ul>
+                </article>
+            </div>
+        </section>
+
+        <section id="one-pitch" class="experience-pitch-section">
+            <div class="container">
+                <div class="experience-section-heading light">
+                    <div><p class="section-kicker">ONE PITCH EXPERIENCE</p><h2>一球の中で，何が起きるのか</h2></div>
+                    <p>配球を選ぶところから，捕球後の結果を次の判断へ戻すところまでを一つの循環として扱います．</p>
+                </div>
+                <ol class="experience-pitch-flow">
+                    <li><span>01</span><div><small>配球</small><strong>投げてほしい球を選ぶ</strong><p>球種とコースを選び，投手へ要求する．</p></div></li>
+                    <li><span>02</span><div><small>構え</small><strong>捕球位置を予測する</strong><p>選んだ球が来ると考えた位置へミットを出す．</p></div></li>
+                    <li><span>03</span><div><small>投球</small><strong>飛んでくる球を見る</strong><p>投手が投げ，球速・変化・制球のズレを含む軌道が現れる．</p></div></li>
+                    <li><span>04</span><div><small>捕球</small><strong>ミットを動かして捕る</strong><p>構えから外れた球にも反応し，左手を動かして捕球する．</p></div></li>
+                    <li><span>05</span><div><small>結果</small><strong>捕球と打者反応を確認する</strong><p>捕れたか，打者がどう反応したかを受け取る．</p></div></li>
+                    <li><span>06</span><div><small>更新</small><strong>次に何を投げるか考える</strong><p>直前の結果を材料に，次の球種とコースを決める．</p></div></li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="experience-section container" aria-labelledby="versions-title">
+            <div class="experience-section-heading">
+                <div><p class="section-kicker">TWO RESEARCH STAGES</p><h2 id="versions-title">研究の進展に合わせて，体験範囲を広げている</h2></div>
+                <p>EC2026では配球から捕球・次球判断までを扱い，WISS 2026では捕球後のフィールドプレイを追加しました．</p>
+            </div>
+            <div class="experience-version-grid">
+                <article class="ec-version">
+                    <div class="experience-version-head"><span>EC2026</span><small>基本体験</small></div>
+                    <h3>配球を考え，構え，捕り，次球を考える</h3>
+                    <p>捕手の認知-運動過程を，一球ごとに循環する体験として実装した段階です．</p>
+                    <ul><li>球種・コースの選択</li><li>投球予測とミットの構え</li><li>制球誤差への身体的対応</li><li>捕球結果と打者反応</li><li>次配球への更新</li></ul>
+                    <a href="events/ec2026/">EC2026の研究と実験結果を見る →</a>
+                </article>
+                <article class="wiss-version">
+                    <div class="experience-version-head"><span>WISS 2026</span><small>現在の拡張</small></div>
+                    <h3>捕球後に持ち替え，送球して進塁を阻止する</h3>
+                    <p>一球の後半を，捕手・走者・内野手が関わるフィールドプレイへ広げた段階です．</p>
+                    <ul><li>右手へのボールの持ち替え</li><li>二塁・三塁などへの送球</li><li>走者のスタートと進塁</li><li>内野手の捕球とタッチ</li><li>アウト／セーフ判定</li></ul>
+                    <a href="events/wiss-2026/">WISS 2026の拡張を見る →</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="experience-throw-section">
+            <div class="container">
+                <div class="experience-section-heading light">
+                    <div><p class="section-kicker">AFTER THE CATCH</p><h2>拡張版では，捕った後のプレイも自分で行う</h2></div>
+                    <p>捕球後，右手へ持ち替え，走者の進塁先を判断して送球します．自動で成功するのではなく，動作の方向や速度に応じたズレが結果へ残ります．</p>
+                </div>
+                <div class="experience-throw-flow">
+                    <article><span>01</span><strong>走者がスタート</strong><p>投球と同時に盗塁などの進塁が始まる．</p></article>
+                    <i aria-hidden="true">→</i>
+                    <article><span>02</span><strong>捕球して持ち替える</strong><p>左手のミットから右手へボールを移す．</p></article>
+                    <i aria-hidden="true">→</i>
+                    <article><span>03</span><strong>進塁先へ投げる</strong><p>二塁・三塁など，守るべき塁を見て送球する．</p></article>
+                    <i aria-hidden="true">→</i>
+                    <article><span>04</span><strong>結果が決まる</strong><p>タッチ完了と走者到達の早い方で判定する．</p></article>
+                </div>
+                <div class="experience-scenarios" aria-label="体験できる送球場面">
+                    <span>二盗阻止</span><span>三盗阻止</span><span>ダブルスチール</span><span>一塁牽制</span><span>投手返球</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="experience-section container" aria-labelledby="research-use-title">
+            <div class="experience-section-heading">
+                <div><p class="section-kicker">WHY THIS EXPERIENCE?</p><h2 id="research-use-title">体験を通して，捕手の判断と動きを調べる</h2></div>
+                <p>CatcherXはゲーム体験を提供すると同時に，どのように考え，どの方向へ身体を動かしたかを分析できる研究システムです．</p>
+            </div>
+            <div class="experience-purpose-grid">
+                <article><span>01</span><h3>捕手視点を体験する</h3><p>打者の後ろから投球を受け，配球と捕球を同じ立場で経験する．</p></article>
+                <article><span>02</span><h3>判断と動作をつなげる</h3><p>何を選んだかと，実際にどう動いたかを一つの試行として扱う．</p></article>
+                <article><span>03</span><h3>条件をそろえて比べる</h3><p>球速やコースなどを設定し，体験者や条件による違いを記録する．</p></article>
+            </div>
+            <aside class="experience-limit-note">
+                <strong>現時点の位置づけ</strong>
+                <p>捕手体験と研究用ログ取得を実現したシステムです．実技能の向上や学習定着を保証するトレーニング効果は，今後の対照実験で検証する必要があります．</p>
+            </aside>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p><strong>CatcherX Research Archive</strong><br>福知山公立大学 情報学部</p>
+        <p><a href="index.html#archive">発表と研究成果を見る</a></p>
+    </footer>
+</body>
+</html>
