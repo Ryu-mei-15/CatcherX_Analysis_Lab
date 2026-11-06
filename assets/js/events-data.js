@@ -56,17 +56,20 @@ window.catcherXEvents = Object.freeze([
         links: []
     },
     {
-        id: 'winter-2025',
-        path: 'events/winter-2025/',
-        year: '2025年度',
-        shortTitle: '冬季中間発表',
-        title: '片寄研究室 2025年度冬季中間発表',
-        type: 'archived',
-        status: '発表済み・整理中',
-        stage: '研究経過',
-        description: '片寄研究室の冬季中間発表におけるCatcherXの研究記録を収める枠です．',
-        note: '当時の資料とデータを確認後，公開可能な内容から順次追加します．',
-        links: []
+        id: 'ec-special-issue',
+        path: 'events/ec-special-issue/',
+        year: '次期募集',
+        shortTitle: 'EC特集号',
+        title: 'EC特集号 投稿準備',
+        subtitle: 'CatcherXの研究成果を論文誌投稿へ発展させるための準備記録',
+        type: 'preparing',
+        status: '投稿準備中',
+        stage: '論文誌投稿',
+        description: 'EC2026で発表した成果を基盤に，論文構成の再整理，追加検証，関連研究の拡充を進めています．',
+        note: '募集開始前のため，特集号の正式名称，投稿期限，採否は未確定です．正式な募集要項の公開後に更新します．',
+        links: [
+            { href: '../ec2026/', label: '基盤となるEC2026発表', detail: '公開論文，実験結果，分析，発表資料', group: '投稿準備の基盤' }
+        ]
     },
     {
         id: 'ec-2025',
