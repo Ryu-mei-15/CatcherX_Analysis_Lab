@@ -7431,6 +7431,59 @@ tbody tr:hover {
     margin-top: 2.5rem;
 }
 
+.experience-video-figure {
+    margin-top: 1rem;
+}
+
+.experience-video-frame {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background: #031c2d;
+}
+
+.experience-video-frame iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.experience-video-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1;
+    padding: 0.38rem 0.65rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    background: rgba(3, 34, 55, 0.8);
+    color: #fff;
+    font-family: Inter, sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    pointer-events: none;
+}
+
+.experience-video-source {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0 1.5rem 1.25rem;
+    color: #718692;
+    font-size: 0.66rem;
+    line-height: 1.7;
+}
+
+.experience-video-source a {
+    color: var(--primary-color);
+    font-weight: 700;
+    text-decoration: none;
+}
+
 .experience-visual-explanation {
     display: grid;
     grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.62fr);
