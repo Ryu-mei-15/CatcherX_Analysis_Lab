@@ -90,7 +90,7 @@ Apps Scriptの「デプロイ」→「新しいデプロイ」→「ウェブア
 - 次のユーザとして実行：自分
 - アクセスできるユーザ：全員
 
-デプロイ後に表示される`/exec`で終わるURLを，`events/ec2026/js/evaluation-config.js`へ設定します．
+デプロイ後に表示される`/exec`で終わるURLを，`events/ec-special-issue/js/evaluation-config.js`へ設定します．
 
 ```js
 window.CATCHERX_EVALUATION_CONFIG = Object.freeze({

@@ -2,12 +2,12 @@ const EVALUATION_NAMESPACE = 'catcherx-evaluation-v1';
 const evaluationConfig = window.CATCHERX_EVALUATION_CONFIG || { endpoint: '' };
 
 const tlxDimensions = [
-    { key: 'mental', label: '精神的要求' },
+    { key: 'mental', label: '知的・知覚的要求' },
     { key: 'physical', label: '身体的要求' },
     { key: 'temporal', label: '時間的要求' },
     { key: 'performance', label: '作業成績' },
     { key: 'effort', label: '努力' },
-    { key: 'frustration', label: '不満' }
+    { key: 'frustration', label: 'フラストレーション' }
 ];
 
 const susItems = [
@@ -43,6 +43,7 @@ function endpointIsConfigured() {
 }
 
 function createPairwiseComparisons() {
+    if (!pairwiseContainer) return;
     const pairs = [];
     for (let first = 0; first < tlxDimensions.length; first += 1) {
         for (let second = first + 1; second < tlxDimensions.length; second += 1) {
@@ -141,7 +142,7 @@ function updateLiveScores() {
         tlxMethod.textContent = `一対比較 ${tlx.weightsCompleted} / 15`;
     } else {
         tlxScore.textContent = tlx.score.toFixed(1);
-        tlxMethod.textContent = tlx.method === 'weighted' ? '重み付きNASA-TLX' : 'Raw TLX';
+        tlxMethod.textContent = tlx.method === 'weighted' ? '重み付きNASA-TLX' : '6項目の単純平均';
     }
 
     tlxDimensions.forEach(dimension => {
@@ -158,8 +159,10 @@ function updateLiveScores() {
 
 function updateMethodVisibility() {
     const weighted = evaluationForm.elements.tlxMethod.value === 'weighted';
-    weightingPanel.open = weighted;
-    weightingPanel.classList.toggle('required-weighting', weighted);
+    if (weightingPanel) {
+        weightingPanel.open = weighted;
+        weightingPanel.classList.toggle('required-weighting', weighted);
+    }
     updateLiveScores();
 }
 
@@ -302,7 +305,7 @@ document.getElementById('logoutButton').addEventListener('click', () => {
 });
 
 evaluationForm.addEventListener('input', updateLiveScores);
-evaluationForm.elements.tlxMethod.forEach(input => input.addEventListener('change', updateMethodVisibility));
+evaluationForm.querySelectorAll('[name="tlxMethod"]').forEach(input => input.addEventListener('change', updateMethodVisibility));
 
 evaluationForm.addEventListener('submit', async event => {
     event.preventDefault();
@@ -320,8 +323,10 @@ evaluationForm.addEventListener('submit', async event => {
 
     if (tlx.method === 'weighted' && tlx.score === null) {
         message.textContent = '重み付き方式では15組すべての一対比較に回答してください．';
-        weightingPanel.open = true;
-        weightingPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (weightingPanel) {
+            weightingPanel.open = true;
+            weightingPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
         return;
     }
     if (susScore === null) {

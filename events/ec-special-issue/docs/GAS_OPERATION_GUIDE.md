@@ -5,7 +5,7 @@
 ## まず覚えておくこと
 
 - 公開サイト：<https://ryu-mei-15.github.io/CatcherX_Analysis_Lab/>
-- 回答ページ：<https://ryu-mei-15.github.io/CatcherX_Analysis_Lab/events/ec2026/evaluation.html>
+- 回答ページ：<https://ryu-mei-15.github.io/CatcherX_Analysis_Lab/events/ec-special-issue/evaluation.html>
 - 評価フォームの参加者ID：数字だけの正の整数（`1`〜`999999999`）
 - `1`，`2`，`3`，…のように，必要な人数分を登録できる．
 - 公開済みログの`Player 1`等の表記とは別に管理する．
@@ -26,7 +26,7 @@
 4. 上部メニューの「CatcherX」→「選択したIDへOTPを発行」を実行する．
 5. `OtpIssue`シートに表示されたID，8桁OTP，有効期限を確認する．
 6. ユーザへ固定IDとOTPを伝える．
-7. ユーザに<https://ryu-mei-15.github.io/CatcherX_Analysis_Lab/events/ec2026/evaluation.html>を開いてもらう．
+7. ユーザに<https://ryu-mei-15.github.io/CatcherX_Analysis_Lab/events/ec-special-issue/evaluation.html>を開いてもらう．
 8. 回答送信後，`Responses`シートに新しい行が追加されたことを確認する．
 9. OTPを配布し終えたら「CatcherX」→「OTP発行一覧を消去」を実行する．
 
@@ -41,7 +41,7 @@
 1. 回答保存用のGoogleスプレッドシートを作成する．
 2. スプレッドシートは一般公開せず，研究担当者だけに共有する．
 3. 「拡張機能」→「Apps Script」を開く．
-4. リポジトリの`events/ec2026/backend/apps-script/Code.gs`の内容をApps Script側の`Code.gs`へ貼り付けて保存する．
+4. リポジトリの`events/ec-special-issue/backend/apps-script/Code.gs`の内容をApps Script側の`Code.gs`へ貼り付けて保存する．
 5. Apps Scriptの関数一覧から`setupCatcherXEvaluation`を選び，「実行」を押す．
 6. 初回に表示されるGoogleの権限確認を許可する．
 
@@ -107,7 +107,7 @@ Apps Scriptで「デプロイ」→「新しいデプロイ」→「ウェブア
 - 次のユーザとして実行：自分
 - アクセスできるユーザ：全員
 
-デプロイ後に表示される`/exec`で終わるURLを，`events/ec2026/js/evaluation-config.js`の`endpoint`へ設定します．現在の設定値は次のURLです．
+デプロイ後に表示される`/exec`で終わるURLを，`events/ec-special-issue/js/evaluation-config.js`の`endpoint`へ設定します．現在の設定値は次のURLです．
 
 ```text
 https://script.google.com/macros/s/AKfycbzp3yPmHGnJSx-qXbPLau-kldmP8W4kuLSZA66kH9D46196BEOac4o5GUSocVeKbqvyEw/exec
@@ -145,7 +145,7 @@ CatcherX → OTP発行一覧を消去
 
 ユーザには，次の3点を伝えます．
 
-1. 回答ページ：<https://ryu-mei-15.github.io/CatcherX_Analysis_Lab/events/ec2026/evaluation.html>
+1. 回答ページ：<https://ryu-mei-15.github.io/CatcherX_Analysis_Lab/events/ec-special-issue/evaluation.html>
 2. 固定参加者ID：例 `1`
 3. 今回発行した8桁OTP
 
@@ -180,7 +180,7 @@ IDは数字だけで入力し，研究担当者から指定された値と一致
 
 ## Apps Scriptを更新するとき
 
-`events/ec2026/backend/apps-script/Code.gs`を修正しただけでは，公開中のウェブアプリへ自動反映されません．必ず次の操作を行います．
+`events/ec-special-issue/backend/apps-script/Code.gs`を修正しただけでは，公開中のウェブアプリへ自動反映されません．必ず次の操作を行います．
 
 1. リポジトリの最新`Code.gs`をApps Scriptへ貼り付けて保存する．
 2. 必要に応じて`setupCatcherXEvaluation`を実行する．
@@ -191,7 +191,7 @@ IDは数字だけで入力し，研究担当者から指定された値と一致
 7. `/exec` URLが従来と同じであることを確認する．
 8. `evaluation.html`からテスト用IDと新規OTPで認証・送信を確認する．
 
-同じデプロイを更新する限り，`/exec` URLは変わりません．「新しいデプロイ」を別に作成した場合はURLが変わるため，`events/ec2026/js/evaluation-config.js`も更新します．
+同じデプロイを更新する限り，`/exec` URLは変わりません．「新しいデプロイ」を別に作成した場合はURLが変わるため，`events/ec-special-issue/js/evaluation-config.js`も更新します．
 
 ## 旧パスワード方式からOTP方式へ移行するとき
 
@@ -230,7 +230,7 @@ IDは数字だけで入力し，研究担当者から指定された値と一致
 - ログインから30分以上経過していないか確認する．
 - 同じIDと実験条件ですでに回答していないか確認する．
 - `Participants`の`allowed_conditions`に対象条件が含まれているか確認する．
-- `events/ec2026/js/evaluation-config.js`の`endpoint`が現在のGAS `/exec` URLと一致しているか確認する．
+- `events/ec-special-issue/js/evaluation-config.js`の`endpoint`が現在のGAS `/exec` URLと一致しているか確認する．
 - Apps Scriptを変更した直後なら，既存デプロイへ新バージョンを割り当てたか確認する．
 
 ### 回答は保存されたが公開集計に出ない
@@ -249,8 +249,8 @@ IDは数字だけで入力し，研究担当者から指定された値と一致
 
 ## 関連ファイル
 
-- `events/ec2026/backend/apps-script/Code.gs`：認証，OTP発行，回答保存，公開集計の実装
-- `events/ec2026/backend/apps-script/README.md`：バックエンドの仕様と導入説明
+- `events/ec-special-issue/backend/apps-script/Code.gs`：認証，OTP発行，回答保存，公開集計の実装
+- `events/ec-special-issue/backend/apps-script/README.md`：バックエンドの仕様と導入説明
 - `evaluation.html`：ユーザが回答する画面
 - `evaluation.js`：認証と回答送信のフロントエンド処理
-- `events/ec2026/js/evaluation-config.js`：GASウェブアプリの接続先
+- `events/ec-special-issue/js/evaluation-config.js`：GASウェブアプリの接続先

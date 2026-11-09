@@ -58,9 +58,9 @@ window.catcherXEvents = Object.freeze([
     {
         id: 'ec-special-issue',
         path: 'events/ec-special-issue/',
-        year: '次期募集',
-        shortTitle: 'EC特集号',
-        title: 'EC特集号 投稿準備',
+        year: '2027',
+        shortTitle: 'EC特集号2027',
+        title: 'EC特集号2027はただいま投稿準備中です',
         subtitle: 'CatcherXの研究成果を論文誌投稿へ発展させるための準備記録',
         type: 'preparing',
         status: '投稿準備中',

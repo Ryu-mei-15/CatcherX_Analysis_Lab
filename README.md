@@ -41,7 +41,7 @@
 | [`events/ec2026/summary.html`](events/ec2026/summary.html) | この研究でわかったこと，まだわからないこと，次の検証 |
 | [`events/ec2026/paper.html`](events/ec2026/paper.html) | EC2026公開版論文・発表スライド・発表ポスターの閲覧 |
 | [`events/ec2026/results.html`](events/ec2026/results.html) | 捕球動作の全体結果，指標定義，球速別・プレイヤ別集計 |
-| [`events/ec2026/evaluation.html`](events/ec2026/evaluation.html) | 研究参加者専用の固定ID・OTP認証付きNASA-TLX／SUS回答フォーム |
+| [`events/ec-special-issue/evaluation.html`](events/ec-special-issue/evaluation.html) | EC特集号2027に向けた研究参加者専用の固定ID・OTP認証付きNASA-TLX／SUS回答フォーム |
 | [`events/wiss-2026/`](events/wiss-2026/) | WISS 2026投稿予稿と，捕球後の送球による進塁阻止を扱う研究ページ |
 | [`events/wiss-2026/paper.html`](events/wiss-2026/paper.html) | WISS 2026投稿予稿のブラウザ内閲覧 |
 | [`assets/js/events-data.js`](assets/js/events-data.js) | 過去・現在・将来の発表情報と発表別リンクの共通データ |
@@ -182,7 +182,7 @@ python3 events/ec2026/analysis/analyze_phase3.py
 
 ## NASA-TLX／SUS回答収集
 
-`events/ec2026/evaluation.html`は，固定参加者IDと研究担当者が発行した8桁OTPが一致した場合だけ回答フォームを表示します．認証・保存は`events/ec2026/backend/apps-script/Code.gs`が処理します．
+`events/ec-special-issue/evaluation.html`は，固定参加者IDと研究担当者が発行した8桁OTPが一致した場合だけ回答フォームを表示します．認証・保存は`events/ec-special-issue/backend/apps-script/Code.gs`が処理します．
 
 評価フォーム用の固定IDには数字だけの正の整数を使用し，必要な人数分を登録できます．これは公開済みログの`Player 1`，`Player 2`等の識別子とは別に管理します．
 
@@ -197,9 +197,9 @@ python3 events/ec2026/analysis/analyze_phase3.py
 - NASA-TLXとSUSの値域検証・スコア計算をサーバ側でも実施
 - 個別回答と参加者IDは公開せず，`approved = TRUE`かつ各条件3名以上の集計だけを公開
 
-NASA-TLXはRaw TLXと15対の一対比較を用いる重み付き方式に対応しています．SUSは奇数項目を「回答値 − 1」，偶数項目を「5 − 回答値」として合計し，2.5倍して0–100のスコアへ変換します．SUSの値は百分率ではありません．
+参加者向けフォームでは，NASA-TLXの6項目を0〜100で回答し，Raw TLXとして単純平均します．SUSは奇数項目を「回答値 − 1」，偶数項目を「5 − 回答値」として合計し，2.5倍して0–100のスコアへ変換します．SUSの値は百分率ではありません．
 
-実験当日の操作方法は[`events/ec2026/docs/GAS_OPERATION_GUIDE.md`](events/ec2026/docs/GAS_OPERATION_GUIDE.md)を参照してください．バックエンド仕様は[`events/ec2026/backend/apps-script/README.md`](events/ec2026/backend/apps-script/README.md)，接続先は[`events/ec2026/js/evaluation-config.js`](events/ec2026/js/evaluation-config.js)で管理します．
+実験当日の操作方法は[`events/ec-special-issue/docs/GAS_OPERATION_GUIDE.md`](events/ec-special-issue/docs/GAS_OPERATION_GUIDE.md)を参照してください．バックエンド仕様は[`events/ec-special-issue/backend/apps-script/README.md`](events/ec-special-issue/backend/apps-script/README.md)，接続先は[`events/ec-special-issue/js/evaluation-config.js`](events/ec-special-issue/js/evaluation-config.js)で管理します．
 
 平文OTP，スプレッドシートID，`OTP_PEPPER`，`SESSION_SECRET`は公開リポジトリへ追加しないでください．
 
@@ -230,16 +230,20 @@ NASA-TLXはRaw TLXと15対の一対比較を用いる重み付き方式に対応
 │   ├── winter-2025/
 │   ├── wiss-2026/
 │   ├── interaction-2027/
+│   ├── ec-special-issue/          # EC特集号2027の投稿準備・評価フォーム
+│   │   ├── evaluation.html
+│   │   ├── js/
+│   │   ├── backend/apps-script/
+│   │   └── docs/
 │   └── ec2026/
 │       ├── index.html             # EC2026の入口
-│       ├── *.html                 # 結果・分析・評価・資料ページ
+│       ├── *.html                 # 結果・分析・資料ページ
 │       ├── js/                    # EC2026専用表示処理
 │       ├── data/
 │       │   ├── raw/               # course・phase・legacyログ
 │       │   └── public/            # Web公開用JSON
 │       ├── materials/             # 論文・スライド・ポスター等
 │       ├── analysis/              # 変換・検証・統計解析
-│       ├── backend/apps-script/   # NASA-TLX／SUSバックエンド
 │       └── docs/                  # 運用手順書
 └── summary.html等                 # 旧公開URLからの転送専用
 ```
