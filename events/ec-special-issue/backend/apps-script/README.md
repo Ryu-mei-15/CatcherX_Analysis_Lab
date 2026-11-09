@@ -1,124 +1,60 @@
-# CatcherX標準尺度・回答収集バックエンド
+# CatcherX EC特集号2027 回答収集バックエンド
 
-`evaluation.html`の固定ID認証，OTP発行，回答保存，公開用集計をGoogle Apps Scriptと非公開Googleスプレッドシートで処理します．専用DBは不要です．
+固定参加者ID・OTP認証，実験回／試行ブロック割当，事前属性，本試行後アンケートをGoogle Apps Scriptと非公開スプレッドシートで管理します．EC2026の既存`Responses`は変更せず，新研究の回答は`PostTaskResponses`へ分離します．
 
-## 認証方式
+## 固定研究識別子
 
-- 参加者IDは数字だけの正の整数（`1`〜`999999999`）とし，研究期間を通して固定する．必要な人数分を連番で登録できる．公開ログの`Player 1`等の識別子とは別に管理する．
-- 研究担当者が必要なときに8桁のOTPを発行する．
-- OTPの有効時間は60分で，認証に成功すると使用済みになる．
-- 認証後は30分間有効な署名付きトークンで回答を送信する．
-- 同じ参加者IDと実験条件の組合せは1回だけ登録できる．
-
-OTPの平文は一時的に`OtpIssue`シートへ出力します．`Participants`シートにはOTPのハッシュ，有効期限，使用済み時刻だけを保存します．
-
-## 1．非公開スプレッドシートを作成する
-
-回答保存用のGoogleスプレッドシートを新規作成します．このシートは一般公開せず，研究担当者だけに共有してください．
-
-スプレッドシートの「拡張機能」→「Apps Script」を開き，このディレクトリの`Code.gs`をコピーします．マニフェストを表示する場合は`appsscript.json`も使用できます．
-
-## 2．初期設定
-
-Apps Scriptエディタから`setupCatcherXEvaluation`を1回実行し，必要な権限を許可します．次の4シートが作成されます．
-
-| シート | 内容 |
+| 項目 | 値 |
 |---|---|
-| `Participants` | 固定参加者ID，OTPハッシュ，有効期限，使用済み時刻，利用条件 |
-| `Responses` | 認証済み回答 |
-| `ParticipantImport` | 固定IDと利用条件のCSV取込 |
-| `OtpIssue` | 配布前の平文OTPと有効期限 |
+| studyId | `ec-special-issue-2027` |
+| protocolVersion | `single-assist-v1` |
+| questionnaireVersion | `post-task-v1` |
+| conditionCode | `assist_enabled` |
+| responseType | `post_task` |
 
-Apps Scriptの「プロジェクトの設定」→「スクリプト プロパティ」で次を設定します．
+`appVersion`は`StudyConfig`シートで研究者が設定します．未設定のままでは本試行後アンケートへ認証できません．Unity Editorのバージョンではなく，実験対象となるCatcherXビルドの識別子を設定してください．
 
-| プロパティ | 設定値 |
+## 作成・使用するシート
+
+| シート | 用途 |
 |---|---|
-| `ALLOWED_ORIGIN` | `https://ryu-mei-15.github.io` |
+| `Participants` | 固定ID，OTP，有効状態（既存データを保持） |
+| `ParticipantImport` | 固定IDの取込 |
+| `StudyAssignments` | IDごとの実験回・試行ブロック |
+| `AssignmentImport` | 実験割当の取込 |
+| `StudyConfig` | 固定識別子と`app_version` |
+| `ParticipantProfiles` | 実験前の経験属性 |
+| `PostTaskResponses` | 新研究の本試行後回答 |
+| `OtpIssue` | 発行直後の平文OTP（配布後に消去） |
 
-オリジンにはパスや末尾の`/`を含めません．`OTP_PEPPER`，`SESSION_SECRET`，`SPREADSHEET_ID`は初期設定時に自動生成されます．これらを公開リポジトリへ記載しないでください．
+## 初期設定
 
-## 3．固定参加者IDを登録する
+1. 非公開スプレッドシートのApps Scriptへ`Code.gs`を貼り付ける．
+2. `setupCatcherXEvaluation`を実行する．
+3. スクリプトプロパティ`ALLOWED_ORIGIN`を`https://ryu-mei-15.github.io`にする．
+4. `StudyConfig`の`app_version`を本番ビルド識別子へ更新する．
+5. Apps Scriptの既存ウェブアプリデプロイへ新しいバージョンを割り当てる．
 
-非公開環境で次の列を持つCSVを作成し，`ParticipantImport`シートの2行目以降を消去してから貼り付けまたはインポートします．見出し行は残してください．パスワードやOTPはCSVへ含めません．
+## 実験割当
+
+`AssignmentImport`へ次の形式で登録し，「CatcherX → 実験割当を取り込む」を実行します．
 
 ```csv
-participant_id,allowed_conditions,active,notes
-1,統合条件|捕球のみ|配球判断のみ|CatcherX全体,TRUE,
-2,統合条件|捕球のみ|配球判断のみ|CatcherX全体,TRUE,
-3,統合条件|捕球のみ|配球判断のみ|CatcherX全体,TRUE,
-4,統合条件|捕球のみ|配球判断のみ|CatcherX全体,TRUE,
-5,統合条件|捕球のみ|配球判断のみ|CatcherX全体,TRUE,
-6,統合条件|捕球のみ|配球判断のみ|CatcherX全体,TRUE,
-7,統合条件|捕球のみ|配球判断のみ|CatcherX全体,TRUE,
+participant_id,session_id,trial_block_id,active,notes
+1,S001,B001,TRUE,
+2,S002,B001,TRUE,
 ```
 
-8人目以降も同じ形式で必要な人数分だけ行を追加します．IDは`1`から始まる連番に限らず使用できますが，重複させないでください．
+IDには有効な実験割当を1件だけ設定します．同じ参加者の新しい実験回を`TRUE`で取り込むと，それ以前の実験回は自動的に`FALSE`になります．過去の回答行は変更されません．
 
-スプレッドシートを再読込し，「CatcherX」→「固定IDを取り込む」を実行します．既存IDを再度取り込んだ場合，IDは増やさず利用条件と有効状態を更新します．OTPの状態は維持されます．
+## 保存と検証
 
-数字以外の旧形式IDや，0，10桁以上のIDが残っている場合，その行はエラーで処理を止めず除外し，取込結果のメッセージへ表示します．
+- TLXは6項目すべてが0〜100・5刻みであることを確認し，Raw TLXをサーバで再計算する．
+- 操作感は4項目を`answered`（1〜7）または`not_experienced`（値は`null`）として保存する．
+- 自由記述は2,000文字以下とし，空欄を許可する．
+- SUSは10項目の生回答からサーバで再計算する．
+- 同一`responseId`の再送は同じ回答として扱い，行を増やさない．
+- 同一参加者・実験回・試行ブロックの別回答を自動上書きしない．
+- 事前属性は参加者IDにつき1件とし，登録済みなら重複登録を省略する．
 
-`allowed_conditions`には次のいずれかを`|`区切りで指定できます．空欄の場合は全条件を許可します．
-
-- `統合条件`
-- `捕球のみ`
-- `配球判断のみ`
-- `CatcherX全体`
-
-IDを無効化する場合は`Participants`シートの`active`を`FALSE`にします．
-
-## 4．OTPを発行する
-
-`Participants`シートで対象IDの行を選択し，次を実行します．
-
-```text
-CatcherX → 選択したIDへOTPを発行
-```
-
-有効な全IDへ一括発行する場合は「有効な全IDへOTPを発行」を使用します．発行結果は`OtpIssue`シートに次の形式で追加されます．
-
-| participant_id | otp | expires_at | issued_at |
-|---|---|---|---|
-| 1 | 12345678 | 有効期限 | 発行日時 |
-
-新しいOTPを発行すると，そのIDに以前発行した未使用OTPは無効になります．参加者へOTPを安全な方法で伝えた後，「OTP発行一覧を消去」を実行して平文OTPを削除してください．
-
-## 5．ウェブアプリとしてデプロイする
-
-Apps Scriptの「デプロイ」→「新しいデプロイ」→「ウェブアプリ」を選択します．
-
-- 次のユーザとして実行：自分
-- アクセスできるユーザ：全員
-
-デプロイ後に表示される`/exec`で終わるURLを，`events/ec-special-issue/js/evaluation-config.js`へ設定します．
-
-```js
-window.CATCHERX_EVALUATION_CONFIG = Object.freeze({
-    endpoint: 'https://script.google.com/macros/s/DEPLOYMENT_ID/exec'
-});
-```
-
-コードを更新した場合は，既存デプロイを編集して新しいバージョンを割り当てます．同じデプロイを更新すれば`/exec` URLは変わりません．
-
-## 6．保存・公開の動作
-
-- 認証成功時にOTPを使用済みに更新します．同じOTPで再ログインできません．
-- OTPはブラウザへ保存せず，認証要求後に入力欄から消去します．
-- 実施日はブラウザの入力値を使わず，Apps Scriptが受信した日本時間の日付を記録します．
-- IDごとに許可された実験条件をサーバ側で検証します．
-- NASA-TLXとSUSはサーバ側でも値域を検証し，スコアを再計算します．
-- `Responses`の`approved`が`TRUE`で，各条件3名以上集まった回答だけを，参加者IDを含まない集計値として公開します．公開から外す場合は`FALSE`へ変更します．
-- 個別回答の確認とCSV出力は非公開スプレッドシート側で行います．
-
-## 旧パスワード方式からの移行
-
-以前の`password_hash`／`password_salt`列を持つ`Participants`シートが存在する場合，更新後に`setupCatcherXEvaluation`を実行すると固定IDと利用条件を保ったままOTP形式へ移行します．旧パスワードは無効化されるため，移行後に新しいOTPを発行してください．
-
-旧`CredentialImport`シートの固定IDと利用条件は`ParticipantImport`へ移し，平文パスワード列を消去します．移行内容を確認した後，旧シートは削除できます．
-
-## 運用上の注意
-
-- `OtpIssue`シート，OTPを記載した連絡，スプレッドシートID，スクリプトプロパティを公開しないでください．
-- OTPは実験開始直前に発行し，配布後は`OtpIssue`から消去してください．
-- 認証成功後にページを閉じた場合，使用済みOTPでは再ログインできません．研究担当者が新しいOTPを再発行してください．
-- 本実装は小規模な研究実験向けです．多数の同時接続や厳格なアカウント管理が必要になった場合は，認証基盤とDBを備えた構成へ移行してください．
+接続先URLは`events/ec-special-issue/js/evaluation-config.js`で管理します．

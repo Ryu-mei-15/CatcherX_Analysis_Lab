@@ -2014,6 +2014,58 @@ tbody tr:hover {
     margin: 0;
 }
 
+.study-context-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin: 0;
+}
+
+.study-context-grid > div {
+    padding: 0.9rem 1rem;
+    background: #f4f8fb;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.study-context-grid dt {
+    color: var(--text-muted);
+    font-size: 0.66rem;
+    font-weight: 700;
+}
+
+.study-context-grid dd {
+    margin: 0.3rem 0 0;
+    color: var(--primary-dark);
+    font-size: 0.84rem;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.questionnaire-instruction {
+    margin: 0;
+    padding: 1rem 1.1rem;
+    color: #405c70;
+    background: var(--primary-pale);
+    border-left: 4px solid var(--primary-color);
+    line-height: 1.9;
+}
+
+.response-progress {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    color: #35556d;
+    background: #edf6fd;
+    border-radius: 8px;
+    font-size: 0.72rem;
+}
+
+.response-progress strong { color: var(--primary-dark); }
+
 .metadata-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -2155,6 +2207,125 @@ tbody tr:hover {
     font-style: normal;
     font-size: 0.62rem;
 }
+
+.tlx-confirm {
+    grid-column: 1;
+    width: fit-content;
+    padding: 0.48rem 0.75rem;
+    color: var(--primary-color);
+    background: white;
+    border: 1px solid #9ec4dd;
+    border-radius: 6px;
+    cursor: pointer;
+    font: 700 0.7rem 'Noto Sans JP', sans-serif;
+}
+
+.tlx-confirm:hover { background: var(--primary-fade); }
+
+.scale-slider > em {
+    grid-column: 2;
+    align-self: center;
+    color: #9a4c36;
+    font-style: normal;
+    font-size: 0.66rem;
+    font-weight: 700;
+}
+
+.scale-slider > em[data-confirmed="true"] { color: #18714c; }
+
+.operation-questions {
+    display: grid;
+    gap: 1rem;
+}
+
+.operation-item {
+    margin: 0;
+    padding: 1rem;
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.operation-item legend {
+    padding: 0 0.25rem;
+    color: #30495d;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.operation-item legend span {
+    display: inline-grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    margin-right: 0.55rem;
+    color: var(--primary-color);
+    background: var(--primary-fade);
+    border-radius: 50%;
+    font: 700 0.68rem Inter, sans-serif;
+}
+
+.operation-options {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(72px, 1fr)) minmax(125px, 1.35fr);
+    gap: 0.45rem;
+    margin-top: 0.8rem;
+}
+
+.operation-options label { cursor: pointer; }
+.operation-options input { position: absolute; opacity: 0; pointer-events: none; }
+.operation-options label > span {
+    display: grid;
+    min-height: 72px;
+    place-items: center;
+    padding: 0.45rem;
+    color: #526b7e;
+    background: white;
+    border: 1px solid #c8d5df;
+    border-radius: 7px;
+    text-align: center;
+}
+.operation-options b { color: var(--primary-color); font: 700 0.85rem Inter, sans-serif; }
+.operation-options small { font-size: 0.56rem; line-height: 1.35; }
+.operation-options input:checked + span { color: white; background: var(--primary-color); border-color: var(--primary-color); }
+.operation-options input:checked + span b { color: white; }
+.operation-options input:focus-visible + span { outline: 3px solid #69aee8; outline-offset: 2px; }
+
+.comment-field { display: grid; gap: 0.65rem; }
+.comment-field > span { color: #405c70; font-size: 0.8rem; line-height: 1.8; }
+.comment-field textarea,
+.conditional-details textarea,
+.conditional-details input {
+    width: 100%;
+    padding: 0.75rem;
+    color: var(--text-main);
+    background: white;
+    border: 1px solid #bfcfda;
+    border-radius: 7px;
+    font: 500 0.82rem 'Noto Sans JP', sans-serif;
+}
+.comment-field > small { justify-self: end; color: var(--text-muted); font-size: 0.68rem; }
+
+.completion-panel {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    color: #174d37;
+    background: #edf8f2;
+    border: 1px solid #b7dec9;
+    border-top: 4px solid #16845b;
+}
+.completion-panel h2 { margin: 0; color: #12553a; }
+.completion-panel > p:last-child { margin-bottom: 0; line-height: 1.8; }
+
+.profile-question-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.profile-question { margin: 0; padding: 1.2rem; border: 1px solid var(--border-color); border-radius: 8px; background: #f8fafc; }
+.profile-question legend { padding: 0 0.3rem; color: var(--primary-dark); font-weight: 700; }
+.profile-question > label { display: inline-flex; gap: 0.4rem; margin-right: 1rem; color: #405c70; font-size: 0.8rem; }
+.profile-question input[type="radio"] { accent-color: var(--primary-color); }
+.conditional-details { display: grid; gap: 0.8rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color); }
+.conditional-details[hidden] { display: none; }
+.conditional-details label { display: grid; gap: 0.4rem; color: #405c70; font-size: 0.76rem; font-weight: 700; }
+.conditional-details small { color: var(--text-muted); font-size: 0.62rem; font-weight: 400; }
 
 .weighting-panel {
     margin-top: 1.2rem;
@@ -3655,6 +3826,10 @@ tbody tr:hover {
     .metadata-grid {
         grid-template-columns: 1fr;
     }
+
+    .study-context-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .operation-options { grid-template-columns: repeat(4, minmax(100px, 1fr)); }
+    .profile-question-grid { grid-template-columns: 1fr; }
 
     .authentication-form {
         grid-template-columns: 1fr 1fr;
@@ -5588,6 +5763,11 @@ tbody tr:hover {
 }
 
 @media (max-width: 620px) {
+    .study-context-grid { grid-template-columns: 1fr; }
+    .response-progress { align-items: flex-start; flex-direction: column; }
+    .operation-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .operation-options label > span { min-height: 64px; }
+
     .archive-hero {
         padding: 3.7rem 1.1rem;
     }

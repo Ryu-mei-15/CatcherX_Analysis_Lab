@@ -41,7 +41,8 @@
 | [`events/ec2026/summary.html`](events/ec2026/summary.html) | この研究でわかったこと，まだわからないこと，次の検証 |
 | [`events/ec2026/paper.html`](events/ec2026/paper.html) | EC2026公開版論文・発表スライド・発表ポスターの閲覧 |
 | [`events/ec2026/results.html`](events/ec2026/results.html) | 捕球動作の全体結果，指標定義，球速別・プレイヤ別集計 |
-| [`events/ec-special-issue/evaluation.html`](events/ec-special-issue/evaluation.html) | EC特集号2027に向けた研究参加者専用の固定ID・OTP認証付きNASA-TLX／SUS回答フォーム |
+| [`events/ec-special-issue/profile.html`](events/ec-special-issue/profile.html) | EC特集号2027追加実験の事前属性登録 |
+| [`events/ec-special-issue/evaluation.html`](events/ec-special-issue/evaluation.html) | 固定ID・OTP認証付きの本試行後アンケート（TLX・操作感・自由記述・SUS） |
 | [`events/wiss-2026/`](events/wiss-2026/) | WISS 2026投稿予稿と，捕球後の送球による進塁阻止を扱う研究ページ |
 | [`events/wiss-2026/paper.html`](events/wiss-2026/paper.html) | WISS 2026投稿予稿のブラウザ内閲覧 |
 | [`assets/js/events-data.js`](assets/js/events-data.js) | 過去・現在・将来の発表情報と発表別リンクの共通データ |
@@ -192,10 +193,13 @@ python3 events/ec2026/analysis/analyze_phase3.py
 - OTPはハッシュ化して非公開シートに保存
 - 認証失敗は15分間に5回まで
 - 実施日はブラウザ入力ではなく，サーバ受信時の日本時間で確定
-- IDごとに回答可能な実験条件を指定
-- 同じ参加者ID×実験条件の重複回答を拒否
+- IDごとに実験回と本試行ログ群を事前設定
+- `appVersion`未設定では本試行後回答を開始しない
+- 同じ参加者ID×実験回×試行ブロックの重複回答を拒否
+- 同じ`responseId`の再送は重複行を作らない
 - NASA-TLXとSUSの値域検証・スコア計算をサーバ側でも実施
-- 個別回答と参加者IDは公開せず，`approved = TRUE`かつ各条件3名以上の集計だけを公開
+- 操作感の未回答と「体験できず判断できない」を区別して保存
+- EC2026回答とは別の`PostTaskResponses`へ保存し，参加者画面に得点・集計を表示しない
 
 参加者向けフォームでは，NASA-TLXの6項目を0〜100で回答し，Raw TLXとして単純平均します．SUSは奇数項目を「回答値 − 1」，偶数項目を「5 − 回答値」として合計し，2.5倍して0–100のスコアへ変換します．SUSの値は百分率ではありません．
 
@@ -231,6 +235,7 @@ python3 events/ec2026/analysis/analyze_phase3.py
 │   ├── wiss-2026/
 │   ├── interaction-2027/
 │   ├── ec-special-issue/          # EC特集号2027の投稿準備・評価フォーム
+│   │   ├── profile.html
 │   │   ├── evaluation.html
 │   │   ├── js/
 │   │   ├── backend/apps-script/

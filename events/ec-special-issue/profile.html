@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CatcherX実験の参加者事前情報登録"><title>実験前の事前情報登録 | EC特集号2027</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <nav class="site-nav" aria-label="主要ナビゲーション"><a class="site-brand" href="../../index.html"><span class="brand-mark">CX</span><span>CatcherX <small>Research Archive</small></span></a><div class="nav-links"><a href="../../index.html">ホーム</a><a href="index.html" aria-current="page">EC特集号2027</a><a href="evaluation.html">本試行後アンケート</a></div></nav>
+    <header class="main-header evaluation-hero"><p class="header-subtitle">PRE-STUDY PROFILE</p><h1>実験前の事前情報登録</h1><p class="header-lead">課題説明・練習を始める前に，野球・捕手・VR HMDの経験と利き手を登録します．本試行後アンケートとは別に保存します．</p></header>
+    <main id="main" class="container evaluation-layout">
+        <div class="empty-data-notice authenticated-data-notice"><span class="notice-icon" aria-hidden="true">i</span><div><strong>すでに登録済みの場合は重複回答を省略できます</strong><p>参加者IDで既存記録を確認し，登録済みであればその旨だけを表示します．</p></div></div>
+        <section class="card authentication-card"><div class="section-header"><div><p class="section-kicker">PARTICIPANT AUTHENTICATION</p><h2>参加者認証</h2></div></div>
+            <form id="profileAuthenticationForm" class="authentication-form"><label><span>参加者ID <b>必須</b></span><input name="participantId" type="text" required maxlength="9" pattern="[1-9][0-9]{0,8}" inputmode="numeric"></label><label><span>OTP <b>必須</b></span><input name="otp" type="text" required minlength="8" maxlength="8" pattern="[0-9]{8}" inputmode="numeric"></label><button id="profileLoginButton" class="button auth-button" type="submit" disabled>確認する</button></form>
+            <p id="profileAuthMessage" class="authentication-message" role="status" aria-live="polite"></p>
+        </section>
+        <section id="profileExistsPanel" class="card completion-panel" hidden><p class="section-kicker">ALREADY REGISTERED</p><h2>事前情報は登録済みです</h2><p>重複回答は不要です．課題説明・練習へ進んでください．</p></section>
+        <form id="profileForm" class="evaluation-form" hidden novalidate>
+            <section class="card"><div class="section-header"><div><p class="section-kicker">PARTICIPANT PROFILE</p><h2>経験属性</h2></div><p>認証済み参加者ID：<strong id="profileParticipantId">—</strong>／実験回：<strong id="profileSessionId">—</strong></p></div>
+                <div class="profile-question-grid">
+                    <fieldset class="profile-question"><legend>野球経験 <b>必須</b></legend><label><input type="radio" name="baseballExperience" value="yes"> あり</label><label><input type="radio" name="baseballExperience" value="no"> なし</label><div id="baseballDetails" class="conditional-details" hidden><label>経験年数<input type="number" name="baseballYears" min="0" max="80" step="0.5" inputmode="decimal"><small>年数が1年未満の場合は0.5などで入力できます．</small></label></div></fieldset>
+                    <fieldset class="profile-question"><legend>捕手経験 <b>必須</b></legend><label><input type="radio" name="catcherExperience" value="yes"> あり</label><label><input type="radio" name="catcherExperience" value="no"> なし</label><div id="catcherDetails" class="conditional-details" hidden><label>経験年数<input type="number" name="catcherYears" min="0" max="80" step="0.5" inputmode="decimal"></label><label>捕手としての競技歴<textarea name="competitionHistory" maxlength="1000" rows="4"></textarea></label><label>最近のプレイ状況<textarea name="recentPlayStatus" maxlength="1000" rows="4"></textarea></label></div></fieldset>
+                    <fieldset class="profile-question"><legend>VR HMDの使用経験 <b>必須</b></legend><label><input type="radio" name="vrHmdExperience" value="yes"> あり</label><label><input type="radio" name="vrHmdExperience" value="no"> なし</label></fieldset>
+                    <fieldset class="profile-question"><legend>利き手 <b>必須</b></legend><label><input type="radio" name="dominantHand" value="right"> 右</label><label><input type="radio" name="dominantHand" value="left"> 左</label><label><input type="radio" name="dominantHand" value="both"> 両方</label></fieldset>
+                </div>
+            </section>
+            <div class="form-actions"><button class="button primary save-response" type="submit">事前情報を登録する</button><p id="profileMessage" role="status" aria-live="polite"></p></div>
+        </form>
+        <section id="profileCompletion" class="card completion-panel" hidden tabindex="-1"><p class="section-kicker">PROFILE SAVED</p><h2>事前情報を登録しました</h2><p>課題説明・練習へ進んでください．</p></section>
+    </main>
+    <footer class="site-footer"><p><strong>CatcherX Research Data</strong><br>福知山公立大学 情報学部</p><p>実験前の事前情報</p></footer>
+    <iframe id="profileTransport" name="profileTransport" class="visually-hidden" title="事前情報送信用" aria-hidden="true"></iframe>
+    <script src="js/evaluation-config.js"></script><script src="js/profile.js"></script>
+</body>
+</html>

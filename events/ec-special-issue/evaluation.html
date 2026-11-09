@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="EC特集号2027に向けた実験の参加者がNASA-TLXとSUSへ回答するための専用フォーム">
-    <title>実験参加者向け評価フォーム | EC特集号2027</title>
+    <meta name="description" content="EC特集号2027に向けたCatcherX本試行後アンケート">
+    <title>本試行後アンケート | EC特集号2027</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>📋</text></svg>">
     <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
@@ -13,259 +13,98 @@
     <nav class="site-nav" aria-label="主要ナビゲーション">
         <a class="site-brand" href="../../index.html"><span class="brand-mark">CX</span><span>CatcherX <small>Research Archive</small></span></a>
         <div class="nav-links">
-            <a href="../../index.html">ホーム</a>
-            <a href="../../experience.html">体験</a>
-            <a href="../../news.html">お知らせ</a>
-            <a href="../../index.html#archive">発表アーカイブ</a>
-            <a href="index.html" aria-current="page">EC特集号2027</a>
-            <a href="../wiss-2026/">WISS 2026</a>
+            <a href="../../index.html">ホーム</a><a href="../../experience.html">体験</a><a href="../../news.html">お知らせ</a>
+            <a href="../../index.html#archive">発表アーカイブ</a><a href="index.html" aria-current="page">EC特集号2027</a>
         </div>
     </nav>
 
     <header class="main-header evaluation-hero">
-        <p class="header-subtitle">FOR STUDY PARTICIPANTS</p>
-        <h1>実験参加者向け評価フォーム</h1>
-        <p class="header-lead">
-            研究担当者から参加者IDとワンタイムパスワードを受け取った方が，
-            NASA-TLXとSystem Usability Scale（SUS）へ回答するためのページである．
-        </p>
+        <p class="header-subtitle">POST-TASK QUESTIONNAIRE</p>
+        <h1>本試行後アンケート</h1>
+        <p class="header-lead">送球アシストを有効にした現行版CatcherXについて，直前の本試行での負担・操作感と，システム全体の使いやすさを回答するページです．</p>
     </header>
 
     <main id="main" class="container evaluation-layout">
         <div class="empty-data-notice authenticated-data-notice" role="status">
             <span class="notice-icon" aria-hidden="true">✓</span>
-            <div>
-                <strong>固定参加者IDと発行済みOTPが必要です</strong>
-                <p>OTPは発行後60分以内に1回のみ使用可能です．認証された参加者の回答だけを受け付け記録します．</p>
-            </div>
+            <div><strong>研究担当者から受け取った参加者IDとOTPが必要です</strong><p>実験回と試行ブロックは研究者が事前に設定します．参加者が選択・入力する必要はありません．</p></div>
         </div>
 
-        <section class="card protocol-card" aria-labelledby="response-scope-title">
-            <div class="section-header">
-                <div>
-                    <p class="section-kicker">BEFORE YOU ANSWER</p>
-                    <h2 id="response-scope-title">直前に行った条件だけを振り返る</h2>
-                </div>
-                <p>練習や，別の条件での体験は含めないでください．</p>
-            </div>
-            <div class="protocol-note">
-                <strong>評価する範囲</strong>
-                <span>配球の選択から，捕球・持ち替え・送球を経て，プレイ結果を確認するまでの一連の課題</span>
-                <span>成功した試行と失敗した試行の両方を含む，その条件で行った課題全体</span>
-                <span>各項目は，ご自身の感覚に最も近い値を0〜100の範囲で選択</span>
-            </div>
-        </section>
-
         <section id="authentication" class="card authentication-card" aria-labelledby="authenticationTitle">
-            <div class="section-header">
-                <div>
-                    <p class="section-kicker">PARTICIPANT AUTHENTICATION</p>
-                    <h2 id="authenticationTitle">参加者認証</h2>
-                </div>
-                <p>研究担当者から発行された認証情報を入力する．</p>
-            </div>
+            <div class="section-header"><div><p class="section-kicker">PARTICIPANT AUTHENTICATION</p><h2 id="authenticationTitle">参加者認証</h2></div><p>認証期限切れ後に再認証しても，この端末上の入力内容は保持されます．</p></div>
             <form id="authenticationForm" class="authentication-form">
-                <label>
-                    <span>参加者ID <b>必須</b></span>
-                    <input id="loginParticipantId" name="participantId" type="text" required maxlength="9" pattern="[1-9][0-9]{0,8}" inputmode="numeric" autocomplete="username" placeholder="例：1，12，20">
-                </label>
-                <label>
-                    <span>ワンタイムパスワード（OTP） <b>必須</b></span>
-                    <input id="loginOtp" name="otp" type="text" required minlength="8" maxlength="8" pattern="[0-9]{8}" inputmode="numeric" autocomplete="one-time-code" placeholder="8桁の数字">
-                </label>
-                <button id="loginButton" class="button auth-button" type="submit">認証する</button>
+                <label><span>参加者ID <b>必須</b></span><input id="loginParticipantId" name="participantId" type="text" required maxlength="9" pattern="[1-9][0-9]{0,8}" inputmode="numeric" autocomplete="username" placeholder="例：1，12，20"></label>
+                <label><span>ワンタイムパスワード（OTP） <b>必須</b></span><input id="loginOtp" name="otp" type="text" required minlength="8" maxlength="8" pattern="[0-9]{8}" inputmode="numeric" autocomplete="one-time-code" placeholder="8桁の数字"></label>
+                <button id="loginButton" class="button auth-button" type="submit" disabled>認証する</button>
             </form>
             <p id="authenticationMessage" class="authentication-message" role="status" aria-live="polite"></p>
             <div id="authenticatedParticipant" class="authenticated-participant" hidden>
                 <div><span>認証済み</span><strong id="authenticatedParticipantId">—</strong><small id="authenticationExpiry">—</small></div>
-                <button id="logoutButton" class="button secondary" type="button">ログアウト</button>
+                <button id="logoutButton" class="button secondary" type="button">回答を破棄して交代</button>
             </div>
         </section>
 
-        <form id="evaluationForm" class="evaluation-form" hidden>
-            <section class="card">
-                <div class="section-header">
-                    <div>
-                        <p class="section-kicker">RESPONSE METADATA</p>
-                        <h2>回答情報</h2>
-                    </div>
-                    <p>氏名などの直接識別子は入力せず，匿名化IDを使用する．</p>
-                </div>
-                <div class="metadata-grid">
-                    <label>
-                        <span>参加者ID <b>必須</b></span>
-                        <input id="participantId" name="participantId" type="text" readonly aria-readonly="true">
-                    </label>
-                    <label>
-                        <span>実験条件 <b>必須</b></span>
-                        <select id="condition" name="condition" required>
-                            <option value="">選択してください</option>
-                        </select>
-                    </label>
-                    <label>
-                        <span>測定時点</span>
-                        <input id="sessionLabel" name="sessionLabel" type="text" maxlength="32" placeholder="例：各条件直後">
-                    </label>
-                    <label>
-                        <span>実施日</span>
-                        <input id="recordedDate" name="recordedDate" type="date" readonly aria-readonly="true">
-                        <small>送信時にサーバ側で日本時間の日付を確定する．</small>
-                    </label>
-                </div>
+        <form id="evaluationForm" class="evaluation-form" hidden novalidate>
+            <section class="card response-context" aria-labelledby="response-context-title">
+                <div class="section-header"><div><p class="section-kicker">RESPONSE CONTEXT</p><h2 id="response-context-title">回答対象</h2></div><p>表示内容が直前の本試行と一致しているか確認してください．</p></div>
+                <dl class="study-context-grid">
+                    <div><dt>回答対象</dt><dd>本試行後アンケート</dd></div><div><dt>参加者ID</dt><dd id="participantIdDisplay">—</dd></div>
+                    <div><dt>実験回</dt><dd id="sessionIdDisplay">—</dd></div><div><dt>試行ブロック</dt><dd id="trialBlockIdDisplay">—</dd></div>
+                    <div><dt>実験条件</dt><dd>送球アシスト有効</dd></div><div><dt>CatcherXビルド</dt><dd id="appVersionDisplay">—</dd></div>
+                </dl>
             </section>
 
-            <section class="card scale-section" id="nasaTlx">
-                <div class="section-header">
-                    <div>
-                        <p class="section-kicker">NASA TASK LOAD INDEX</p>
-                        <h2>NASA-TLX</h2>
-                    </div>
-                    <p>直前に行った条件について，6項目を0〜100の範囲で評価してください．</p>
-                </div>
+            <section class="card protocol-card" aria-labelledby="response-scope-title">
+                <div class="section-header"><div><p class="section-kicker">BEFORE YOU ANSWER</p><h2 id="response-scope-title">直前の本試行を振り返ってください</h2></div><p>練習は含めないでください．</p></div>
+                <p class="questionnaire-instruction">配球の選択から，捕球・持ち替え・送球を経て，プレイ結果を確認するまでの一連の課題を振り返ってください．成功した試行と失敗した試行の両方を含め，本試行全体を評価してください．</p>
+            </section>
 
+            <section class="card scale-section" id="nasaTlx" aria-labelledby="tlx-title">
+                <div class="section-header"><div><p class="section-kicker">NASA TASK LOAD INDEX</p><h2 id="tlx-title">NASA-TLX</h2></div><p>値を選んだ後，各項目の「この値で回答する」を押してください．50のまま回答することもできます．</p></div>
+                <div class="response-progress"><strong id="tlxProgress">TLX 0 / 6回答</strong><span>6項目すべての確定が必要です</span></div>
                 <input type="hidden" name="tlxMethod" value="raw">
-
                 <div class="tlx-grid">
-                    <label class="scale-slider">
-                        <span><strong>1．知的・知覚的要求</strong><small>課題を行うために，考える，判断する，見る，覚えるなどの知的・知覚的な活動は，どの程度必要でしたか．</small></span>
-                        <input type="range" name="mental" min="0" max="100" step="5" value="50">
-                        <output for="mental">50</output>
-                        <i><span>非常に小さい</span><span>非常に大きい</span></i>
-                    </label>
-                    <label class="scale-slider">
-                        <span><strong>2．身体的要求</strong><small>課題を行うために，身体を動かす，姿勢を保つなどの身体的な活動は，どの程度必要でしたか．</small></span>
-                        <input type="range" name="physical" min="0" max="100" step="5" value="50">
-                        <output for="physical">50</output>
-                        <i><span>非常に小さい</span><span>非常に大きい</span></i>
-                    </label>
-                    <label class="scale-slider">
-                        <span><strong>3．時間的要求</strong><small>課題が進む速さやペースによって，どの程度，時間的に急かされていると感じましたか．</small></span>
-                        <input type="range" name="temporal" min="0" max="100" step="5" value="50">
-                        <output for="temporal">50</output>
-                        <i><span>非常に小さい</span><span>非常に大きい</span></i>
-                    </label>
-                    <label class="scale-slider performance-slider">
-                        <span><strong>4．作業成績</strong><small>指示された課題の目標を，どの程度達成できたと感じましたか．</small></span>
-                        <input type="range" name="performance" min="0" max="100" step="5" value="50">
-                        <output for="performance">50</output>
-                        <i><span>完全に達成できた</span><span>全く達成できなかった</span></i>
-                    </label>
-                    <label class="scale-slider">
-                        <span><strong>5．努力</strong><small>ご自身が達成した成績を得るために，精神的・身体的にどの程度努力しましたか．</small></span>
-                        <input type="range" name="effort" min="0" max="100" step="5" value="50">
-                        <output for="effort">50</output>
-                        <i><span>非常に小さい</span><span>非常に大きい</span></i>
-                    </label>
-                    <label class="scale-slider">
-                        <span><strong>6．フラストレーション</strong><small>課題中に，不安，落胆，いらだち，ストレスなどを，どの程度感じましたか．</small></span>
-                        <input type="range" name="frustration" min="0" max="100" step="5" value="50">
-                        <output for="frustration">50</output>
-                        <i><span>非常に小さい</span><span>非常に大きい</span></i>
-                    </label>
-                </div>
-
-                <div class="live-score">
-                    <span>現在のNASA-TLX</span>
-                    <strong id="tlxLiveScore">50.0</strong>
-                    <small id="tlxScoreMethod">6項目の単純平均</small>
+                    <article class="scale-slider" data-tlx-item="mental"><span><strong>1．知的・知覚的要求</strong><small>課題を行うために，考える，判断する，見る，覚えるなどの知的・知覚的な活動は，どの程度必要でしたか．</small></span><input aria-label="知的・知覚的要求" type="range" name="mental" min="0" max="100" step="5" value="50"><output for="mental">50</output><i><span>非常に小さい</span><span>非常に大きい</span></i><button type="button" class="tlx-confirm" data-tlx-confirm="mental">この値で回答する</button><em data-tlx-status="mental">未回答</em></article>
+                    <article class="scale-slider" data-tlx-item="physical"><span><strong>2．身体的要求</strong><small>課題を行うために，身体を動かす，姿勢を保つなどの身体的な活動は，どの程度必要でしたか．</small></span><input aria-label="身体的要求" type="range" name="physical" min="0" max="100" step="5" value="50"><output for="physical">50</output><i><span>非常に小さい</span><span>非常に大きい</span></i><button type="button" class="tlx-confirm" data-tlx-confirm="physical">この値で回答する</button><em data-tlx-status="physical">未回答</em></article>
+                    <article class="scale-slider" data-tlx-item="temporal"><span><strong>3．時間的要求</strong><small>課題が進む速さやペースによって，どの程度，時間的に急かされていると感じましたか．</small></span><input aria-label="時間的要求" type="range" name="temporal" min="0" max="100" step="5" value="50"><output for="temporal">50</output><i><span>非常に小さい</span><span>非常に大きい</span></i><button type="button" class="tlx-confirm" data-tlx-confirm="temporal">この値で回答する</button><em data-tlx-status="temporal">未回答</em></article>
+                    <article class="scale-slider performance-slider" data-tlx-item="performance"><span><strong>4．作業成績</strong><small>指示された課題の目標を，どの程度達成できたと感じましたか．</small></span><input aria-label="作業成績" type="range" name="performance" min="0" max="100" step="5" value="50"><output for="performance">50</output><i><span>完全に達成できた</span><span>全く達成できなかった</span></i><button type="button" class="tlx-confirm" data-tlx-confirm="performance">この値で回答する</button><em data-tlx-status="performance">未回答</em></article>
+                    <article class="scale-slider" data-tlx-item="effort"><span><strong>5．努力</strong><small>ご自身が達成した成績を得るために，精神的・身体的にどの程度努力しましたか．</small></span><input aria-label="努力" type="range" name="effort" min="0" max="100" step="5" value="50"><output for="effort">50</output><i><span>非常に小さい</span><span>非常に大きい</span></i><button type="button" class="tlx-confirm" data-tlx-confirm="effort">この値で回答する</button><em data-tlx-status="effort">未回答</em></article>
+                    <article class="scale-slider" data-tlx-item="frustration"><span><strong>6．フラストレーション</strong><small>課題中に，不安，落胆，いらだち，ストレスなどを，どの程度感じましたか．</small></span><input aria-label="フラストレーション" type="range" name="frustration" min="0" max="100" step="5" value="50"><output for="frustration">50</output><i><span>非常に小さい</span><span>非常に大きい</span></i><button type="button" class="tlx-confirm" data-tlx-confirm="frustration">この値で回答する</button><em data-tlx-status="frustration">未回答</em></article>
                 </div>
             </section>
 
-            <section class="card scale-section" id="sus">
-                <div class="section-header">
-                    <div>
-                        <p class="section-kicker">SYSTEM USABILITY SCALE</p>
-                        <h2>System Usability Scale（SUS）</h2>
-                    </div>
-                    <p>10項目を5件法で回答する．スコアは0–100だが，百分率ではない．</p>
-                </div>
-                <div class="sus-scale-legend" aria-hidden="true">
-                    <span>1<br><small>まったく<br>そう思わない</small></span>
-                    <span>2</span><span>3</span><span>4</span>
-                    <span>5<br><small>強く<br>そう思う</small></span>
-                </div>
+            <section class="card scale-section" id="operationSection" aria-labelledby="operation-title">
+                <div class="section-header"><div><p class="section-kicker">OPERATION EXPERIENCE</p><h2 id="operation-title">直前の本試行での操作感</h2></div><p>該当する操作を体験できなかった場合は「体験できず判断できない」を選んでください．</p></div>
+                <div class="response-progress"><strong id="operationProgress">操作感 0 / 4回答</strong><span>判断不能も有効な回答です</span></div>
+                <div id="operationQuestions" class="operation-questions"></div>
+            </section>
+
+            <section class="card scale-section" aria-labelledby="difficulty-title">
+                <div class="section-header"><div><p class="section-kicker">OPTIONAL COMMENT</p><h2 id="difficulty-title">負担・困難を感じた場面</h2></div><p>任意回答です．空欄でも送信できます．</p></div>
+                <label class="comment-field" for="difficultyComment"><span>直前の本試行で，負担や困難を感じた場面があれば，その場面と理由を教えてください．複数ある場合は，複数記入して構いません．特になかった場合は，「特になし」と記入してください．</span><textarea id="difficultyComment" name="difficultyComment" maxlength="2000" rows="7"></textarea><small><span id="difficultyCount">0</span> / 2,000文字</small></label>
+            </section>
+
+            <section class="card scale-section" id="sus" aria-labelledby="sus-title">
+                <div class="section-header"><div><p class="section-kicker">SYSTEM USABILITY SCALE</p><h2 id="sus-title">System Usability Scale（SUS）</h2></div><p>最後に，今回使用したCatcherX全体について回答してください．個々のプレイの成功・失敗だけでなく，システム全体の使いやすさを振り返ってください．</p></div>
+                <div class="response-progress"><strong id="susProgress">SUS 0 / 10回答</strong><span>10項目すべての回答が必要です</span></div>
+                <div class="sus-scale-legend" aria-hidden="true"><span>1<br><small>まったく<br>そう思わない</small></span><span>2</span><span>3</span><span>4</span><span>5<br><small>強く<br>そう思う</small></span></div>
                 <div id="susQuestions" class="sus-questions"></div>
-                <p class="translation-note">
-                    表示文はCatcherX向けの実施用文案である．正式な研究実施時は，
-                    <a href="https://doi.org/10.7876/jmvr.23.1" target="_blank" rel="noopener">言語的妥当性が検討された日本語版SUS</a>
-                    の採用版・文言・出典を研究計画内で固定すること．
-                </p>
-                <div class="live-score">
-                    <span>現在のSUS</span>
-                    <strong id="susLiveScore">—</strong>
-                    <small id="susCompletion">0 / 10項目回答</small>
-                </div>
             </section>
 
             <div class="form-actions">
-                <button class="button primary save-response" type="submit">回答を送信</button>
-                <button class="button secondary reset-response" type="reset">入力をリセット</button>
+                <button class="button primary save-response" type="submit">回答を送信する</button>
+                <button id="resetResponseButton" class="button secondary reset-response" type="button">入力をリセット</button>
                 <p id="formMessage" role="status" aria-live="polite"></p>
             </div>
         </form>
 
-        <section class="card comparison-section" id="comparison">
-            <div class="section-header">
-                <div>
-                    <p class="section-kicker">CONDITION COMPARISON</p>
-                    <h2>条件別の比較結果</h2>
-                </div>
-                <p>認証後に送信された回答の集計値を表示する．各条件3名以上で，平均値と標本標準偏差を公開する．</p>
-            </div>
-            <div id="comparisonEmpty" class="comparison-empty">
-                公開対象の回答データはまだありません．
-            </div>
-            <div id="comparisonContent" hidden>
-                <div class="comparison-legend">
-                    <span class="tlx-key">NASA-TLX（低いほど負荷が小さい）</span>
-                    <span class="sus-key">SUS（高いほどユーザビリティ評価が高い）</span>
-                </div>
-                <div id="conditionComparison" class="condition-comparison"></div>
-                <div class="table-scroll evaluation-table-wrap">
-                    <table id="summaryTable">
-                        <caption class="visually-hidden">条件別のNASA-TLXおよびSUS集計</caption>
-                    </table>
-                </div>
-                <p class="aggregate-privacy-note">参加者IDおよび個別回答は公開しない．管理・出力は研究担当者用の非公開スプレッドシートで行う．</p>
-            </div>
-        </section>
-
-        <section class="card methodology-card">
-            <div class="section-header">
-                <div>
-                    <p class="section-kicker">INTERPRETATION</p>
-                    <h2>結果の扱い方</h2>
-                </div>
-            </div>
-            <div class="methodology-grid">
-                <article>
-                    <h3>NASA-TLX</h3>
-                    <p>課題間の相対比較に用いる．分野横断で適用できるが，普遍的な合否基準は設定しない．6下位尺度も併記する．</p>
-                </article>
-                <article>
-                    <h3>SUS</h3>
-                    <p>システム全体の知覚されたユーザビリティを示す．0–100は百分率ではなく，個別項目を単独で解釈しない．</p>
-                </article>
-                <article>
-                    <h3>対照実験</h3>
-                    <p>標準尺度だけで循環構造の効果を証明せず，捕球成績，判断時間，配球変更，インタビューを合わせて解釈する．</p>
-                </article>
-            </div>
-            <div class="source-links">
-                <span>尺度資料：</span>
-                <a href="https://www.nasa.gov/human-systems-integration-division/nasa-task-load-index-tlx/" target="_blank" rel="noopener">NASA公式 TLX</a>
-                <a href="https://ntrs.nasa.gov/citations/20000021488" target="_blank" rel="noopener">NASA-TLXマニュアル</a>
-                <a href="https://doi.org/10.7876/jmvr.23.1" target="_blank" rel="noopener">日本語版SUS研究</a>
-            </div>
+        <section id="completionPanel" class="card completion-panel" hidden tabindex="-1">
+            <p class="section-kicker">RESPONSE ACCEPTED</p><h2>回答を受け付けました</h2><p id="completionMessage">送信完了をサーバで確認しました．</p>
         </section>
     </main>
 
-    <footer class="site-footer">
-        <p><strong>CatcherX Research Data</strong><br>山口 瑞悠・藤井 叙人・橋田 光代<br>福知山公立大学 情報学部</p>
-        <p>認証済み回答のみを集計</p>
-    </footer>
+    <footer class="site-footer"><p><strong>CatcherX Research Data</strong><br>山口 瑞悠・藤井 叙人・橋田 光代<br>福知山公立大学 情報学部</p><p>認証済み回答のみを記録</p></footer>
     <iframe id="evaluationTransport" name="evaluationTransport" class="visually-hidden" title="回答送信用" aria-hidden="true"></iframe>
-    <script src="js/evaluation-config.js"></script>
-    <script src="js/evaluation.js"></script>
+    <script src="js/evaluation-config.js"></script><script src="js/evaluation.js"></script>
 </body>
 </html>
