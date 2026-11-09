@@ -6,8 +6,9 @@
     if (!container || !Array.isArray(events)) return;
 
     events.forEach(function (event) {
-        const article = document.createElement('article');
-        article.className = 'archive-event-card ' + event.type;
+        const card = document.createElement('a');
+        card.className = 'archive-event-card ' + event.type;
+        card.href = event.path;
 
         const top = document.createElement('div');
         top.className = 'archive-event-top';
@@ -27,12 +28,11 @@
         const description = document.createElement('p');
         description.className = 'archive-event-description';
         description.textContent = event.description;
-        const link = document.createElement('a');
-        link.href = event.path;
-        link.textContent = event.links.length ? '発表ページを見る →' : '記録枠を見る →';
-        link.setAttribute('aria-label', event.title + 'の発表ページを見る');
+        const linkLabel = document.createElement('span');
+        linkLabel.className = 'archive-event-link-label';
+        linkLabel.textContent = event.links.length ? '発表ページを見る →' : '記録枠を見る →';
 
-        article.append(top, stage, title, description, link);
-        container.appendChild(article);
+        card.append(top, stage, title, description, linkLabel);
+        container.appendChild(card);
     });
 })();

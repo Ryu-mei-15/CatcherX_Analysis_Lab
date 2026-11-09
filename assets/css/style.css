@@ -5001,6 +5001,22 @@ tbody tr:hover {
     border-radius: 12px;
     background: white;
     box-shadow: var(--shadow-sm);
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.archive-event-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(8, 49, 82, 0.14);
+}
+
+.archive-event-card:focus-visible {
+    outline: 3px solid #2c85c5;
+    outline-offset: 4px;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(8, 49, 82, 0.18);
 }
 
 .archive-event-card:nth-child(-n+2) {
@@ -5067,12 +5083,23 @@ tbody tr:hover {
     line-height: 1.8;
 }
 
-.archive-event-card > a {
+.archive-event-link-label {
     margin-top: auto;
     color: var(--primary-color);
     font-size: 0.82rem;
     font-weight: 700;
-    text-decoration: none;
+}
+
+.archive-event-card:hover .archive-event-link-label,
+.archive-event-card:focus-visible .archive-event-link-label {
+    text-decoration: underline;
+    text-underline-offset: 0.22em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .archive-event-card { transition: none; }
+    .archive-event-card:hover,
+    .archive-event-card:focus-visible { transform: none; }
 }
 
 .archive-about {
