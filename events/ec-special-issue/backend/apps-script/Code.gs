@@ -75,7 +75,11 @@ function setupCatcherXEvaluation() {
   ensureSheet_(spreadsheet, CATCHERX_CONFIG.profileSheet, PROFILE_HEADERS);
   ensureSheet_(spreadsheet, CATCHERX_CONFIG.otpIssueSheet, OTP_ISSUE_HEADERS);
   migrateLegacyImportSheet_(spreadsheet);
-  SpreadsheetApp.getUi().alert('初期設定が完了しました．StudyConfigのapp_versionとAssignmentImportの実験割当を確認してください．');
+  spreadsheet.toast(
+    'StudyConfigのapp_versionとAssignmentImportの実験割当を確認してください．',
+    '初期設定が完了しました',
+    10
+  );
 }
 
 function importParticipantsFromSheet() {

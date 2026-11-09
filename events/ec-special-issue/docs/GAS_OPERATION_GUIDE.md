@@ -8,7 +8,7 @@
 ## 運用開始前に必ず行うこと
 
 1. 最新の`backend/apps-script/Code.gs`をApps Scriptへ貼り付ける．
-2. `setupCatcherXEvaluation`を実行する．
+2. `setupCatcherXEvaluation`を実行し，実行ログの「実行完了」を確認する．完了通知はスプレッドシート右下に表示される．
 3. `StudyConfig`の固定識別子が仕様書と一致していることを確認する．
 4. `app_version`へ実験で使用するCatcherXビルド識別子を設定する．未設定では本試行後アンケートを開始できない．
 5. Apps Scriptの「デプロイを管理」から既存ウェブアプリを編集し，新しいバージョンを割り当てる．

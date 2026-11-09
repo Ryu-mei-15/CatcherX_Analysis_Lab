@@ -30,7 +30,7 @@
 ## 初期設定
 
 1. 非公開スプレッドシートのApps Scriptへ`Code.gs`を貼り付ける．
-2. `setupCatcherXEvaluation`を実行する．
+2. `setupCatcherXEvaluation`を実行し，実行ログの「実行完了」を確認する．完了通知はスプレッドシート右下に表示される．
 3. スクリプトプロパティ`ALLOWED_ORIGIN`を`https://ryu-mei-15.github.io`にする．
 4. `StudyConfig`の`app_version`を本番ビルド識別子へ更新する．
 5. Apps Scriptの既存ウェブアプリデプロイへ新しいバージョンを割り当てる．
