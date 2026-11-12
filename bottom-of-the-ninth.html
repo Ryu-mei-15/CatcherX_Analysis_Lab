@@ -27,10 +27,10 @@
             </p>
             <a class="ninth-scroll-link" href="#question">試合の続きを読む <span aria-hidden="true">↓</span></a>
         </div>
-        <div class="ninth-scoreboard" aria-label="9回裏，試合はまだ続いていることを示すスコアボード風の図">
+        <div class="ninth-scoreboard" aria-label="捕手側が1点リードした9回裏，2死満塁を示すスコアボード風の図">
             <div class="ninth-scoreboard-top"><span>INNING</span><strong>9</strong><em>BOTTOM</em></div>
-            <div class="ninth-scoreboard-state"><span>B</span><i></i><i></i><i></i><span>S</span><i></i><i></i><span>O</span><i></i><i></i></div>
-            <div class="ninth-diamond" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
+            <div class="ninth-scoreboard-state"><span>B</span><i></i><i></i><i></i><span>S</span><i></i><i></i><span>O</span><i class="active"></i><i class="active"></i></div>
+            <div class="ninth-diamond" aria-hidden="true"><i class="base-second"></i><i class="base-first"></i><i class="base-third"></i><b class="home-plate"></b></div>
             <p>THE NEXT PLAY<br>HAS NOT BEEN CALLED.</p>
         </div>
     </header>
@@ -51,6 +51,26 @@
                     実際の野球を置き換えるのではなく，実地では準備しにくい状況を同じ条件で繰り返し，
                     体験した判断と動作をあとから振り返れる場所をつくります．
                 </p>
+                <aside class="ninth-scenario" aria-labelledby="ninth-scenario-title">
+                    <div class="ninth-scenario-copy">
+                        <p class="section-kicker">THE MINIMUM SCENARIO</p>
+                        <h3 id="ninth-scenario-title">捕手側が1点リード．<br>9回裏，2死満塁．</h3>
+                        <p>
+                            次の一球で試合を終えられる一方，四球，捕逸，安打は同点や逆転につながります．
+                            捕手は球種とコースを選び，投球を受け，走者と結果を確認し，必要なら次のプレイへ移らなければなりません．
+                        </p>
+                        <p>
+                            この状況は，配球判断，捕球，走者への注意，勝敗の意味を短時間に集約できるため，
+                            「9回裏モード」の最小の検証単位として提案しています．現時点では効果が実証された完成モードではなく，今後検証する設計仮説です．
+                        </p>
+                    </div>
+                    <dl class="ninth-scenario-facts">
+                        <div><dt>INNING</dt><dd>9回裏</dd></div>
+                        <div><dt>SCORE</dt><dd>捕手側が1点リード</dd></div>
+                        <div><dt>OUT</dt><dd>2死</dd></div>
+                        <div><dt>RUNNERS</dt><dd>満塁</dd></div>
+                    </dl>
+                </aside>
             </div>
         </section>
 
