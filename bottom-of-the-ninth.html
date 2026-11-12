@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CatcherXが研究室の外へ出たとき，どのような体験・学習・対話の場をつくり得るかを考える社会実装構想">
+    <meta name="robots" content="noindex,follow">
+    <title>CatcherXは9回裏の夢を見るのか | CatcherX Research Archive</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>⚾</text></svg>">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="ninth-page">
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <nav class="site-nav ninth-nav" aria-label="主要ナビゲーション">
+        <a class="site-brand" href="index.html"><span class="brand-mark">CX</span><span>CatcherX <small>Research Archive</small></span></a>
+        <div class="nav-links"><a href="experience.html">← 体験ページへ戻る</a></div>
+    </nav>
+
+    <header class="ninth-hero">
+        <div class="ninth-hero-copy">
+            <p class="ninth-overline">BEYOND THE PROTOTYPE / A SOCIAL IMPLEMENTATION STORY</p>
+            <h1>CatcherXは<br><span>9回裏の夢を見るのか</span></h1>
+            <p class="ninth-lead">
+                捕手の一球をVRで再現できたとして，その体験は研究室の外で何になれるのだろう．
+                トレーニング機器なのか，捕手を知る入口なのか，それとも判断と身体を語るための新しい記録装置なのか．
+                ここでは，完成を宣言するのではなく，CatcherXを社会へつなぐための問いと道筋を描きます．
+            </p>
+            <a class="ninth-scroll-link" href="#question">試合の続きを読む <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="ninth-scoreboard" aria-label="9回裏，試合はまだ続いていることを示すスコアボード風の図">
+            <div class="ninth-scoreboard-top"><span>INNING</span><strong>9</strong><em>BOTTOM</em></div>
+            <div class="ninth-scoreboard-state"><span>B</span><i></i><i></i><i></i><span>S</span><i></i><i></i><span>O</span><i></i><i></i></div>
+            <div class="ninth-diamond" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
+            <p>THE NEXT PLAY<br>HAS NOT BEEN CALLED.</p>
+        </div>
+    </header>
+
+    <main id="main">
+        <section id="question" class="ninth-section container ninth-opening" aria-labelledby="ninth-question-title">
+            <div class="ninth-index">01 / THE QUESTION</div>
+            <div class="ninth-opening-copy">
+                <p class="section-kicker">WHAT HAPPENS AFTER “IT WORKS”?</p>
+                <h2 id="ninth-question-title">動くシステムを，<br>意味のある場所へ置く．</h2>
+                <p class="ninth-large-copy">
+                    捕手は，球を捕るだけの役割ではありません．打者を読み，投手と意図を共有し，
+                    走者を警戒し，一球の結果から次の一球を組み立てます．けれど，その複雑さを丸ごと体験するには，
+                    投手，打者，走者，守備者，球場，安全管理が必要です．
+                </p>
+                <p>
+                    CatcherXがまず埋めようとしているのは，この「捕手になって考え，動く機会」の不足です．
+                    実際の野球を置き換えるのではなく，実地では準備しにくい状況を同じ条件で繰り返し，
+                    体験した判断と動作をあとから振り返れる場所をつくります．
+                </p>
+            </div>
+        </section>
+
+        <section class="ninth-dark-section">
+            <div class="container">
+                <div class="ninth-section-heading">
+                    <div><p class="section-kicker">POSSIBLE PLACES</p><h2>社会実装は，一つの正解ではなく，置かれる場所ごとに姿を変える．</h2></div>
+                    <p>現段階では用途を断定しません．各現場で価値があるかを，利用者とともに検証すべき仮説として整理します．</p>
+                </div>
+                <div class="ninth-place-grid">
+                    <article><span>01</span><small>TEAM / TRAINING</small><h3>チームの振り返り</h3><p>同じ走者状況・配球条件を体験し，捕手本人と指導者が「何を見て，なぜそのプレイを選んだか」をログと一緒に話す．</p><strong>仮説：感覚だけでは残りにくい判断を，共有できる言葉へ変えられるか．</strong></article>
+                    <article><span>02</span><small>EDUCATION / INTRODUCTION</small><h3>捕手という役割への入口</h3><p>野球経験が少ない人も，打者後方の視点から配球・捕球・送球を一続きで体験し，捕手が扱う情報の多さを知る．</p><strong>仮説：観戦だけでは見えにくい役割理解を，身体を通して深められるか．</strong></article>
+                    <article><span>03</span><small>EXHIBITION / EXPERIENCE</small><h3>展示・イベントでの体験</h3><p>科学館，スポーツイベント，大学展示などで，スポーツの判断と身体動作を短時間で体験できるコンテンツとして届ける．</p><strong>仮説：競技の魅力と研究の問いを，同じ体験の中で伝えられるか．</strong></article>
+                    <article><span>04</span><small>RESEARCH / EVALUATION</small><h3>条件をそろえた研究基盤</h3><p>球速，コース，走者状況，送球支援を制御し，経験や支援条件による判断・動作・負担の違いを比較する．</p><strong>仮説：実地で統制しにくい捕手のプレイを，再現可能な実験へ近づけられるか．</strong></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="ninth-section container" aria-labelledby="session-title">
+            <div class="ninth-index">02 / THE SESSION</div>
+            <div class="ninth-section-heading compact">
+                <div><p class="section-kicker">ONE REAL-WORLD SESSION</p><h2 id="session-title">社会の中で使うなら，VRを被る前と外した後までが体験になる．</h2></div>
+                <p>機器を渡して終わりにはしません．説明，安全確認，体験，振り返り，記録の扱いまでを一つの運用として設計します．</p>
+            </div>
+            <ol class="ninth-session-flow">
+                <li><span>BEFORE</span><div><strong>目的と状況を共有する</strong><p>今日は何を体験・確認するのかを決め，健康状態，プレイエリア，HMD装着を確認する．経験属性は課題説明と練習の前に登録する．</p></div></li>
+                <li><span>CALIBRATE</span><div><strong>身体と仮想空間を合わせる</strong><p>捕手位置，利き手，床面，手の届く範囲を調整し，捕球・持ち替え・送球の練習で操作を確かめる．</p></div></li>
+                <li><span>PLAY</span><div><strong>一連のプレイを行う</strong><p>配球を選び，構え，捕球し，持ち替えて送球する．成功と失敗の両方を含め，設定した本試行を最後まで行う．</p></div></li>
+                <li><span>REFLECT</span><div><strong>直後の感覚を残す</strong><p>課題負担，操作の接続感，使いやすさを回答し，難しかった場面を言葉にする．プレイログと主観評価を別々に保存する．</p></div></li>
+                <li><span>DISCUSS</span><div><strong>ログを対話の材料にする</strong><p>映像や軌跡，選択履歴を見ながら，結果だけではなく判断の根拠と動作の変化を振り返る．</p></div></li>
+            </ol>
+        </section>
+
+        <section class="ninth-blue-section">
+            <div class="container ninth-stakeholder-layout">
+                <div class="ninth-stakeholder-copy">
+                    <p class="section-kicker">ONE PLAY, FOUR VIEWS</p>
+                    <h2>同じ一球でも，持ち帰るものは人によって違う．</h2>
+                    <p>社会実装で重要なのは，システムができることを増やすだけではなく，誰にどの情報を返すかを設計することです．</p>
+                </div>
+                <div class="ninth-stakeholder-grid">
+                    <article><span>PLAYER</span><h3>体験者</h3><p>自分の選択，反応，負担を振り返る．他者との順位づけより，自分の試行の変化を中心に見る．</p></article>
+                    <article><span>COACH</span><h3>指導者</h3><p>成否だけでなく，構えから捕球・送球までの過程を確認し，問いかけの材料として使う．</p></article>
+                    <article><span>RESEARCHER</span><h3>研究者</h3><p>条件と版を管理し，行動ログと主観評価を対応づけ，限界を明記したうえで分析する．</p></article>
+                    <article><span>VISITOR</span><h3>初めて触れる人</h3><p>捕手が一球の間に扱う情報と時間制約を知り，野球を見る新しい視点を持ち帰る．</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="ninth-section container" aria-labelledby="conditions-title">
+            <div class="ninth-index">03 / CONDITIONS</div>
+            <div class="ninth-section-heading compact">
+                <div><p class="section-kicker">BEFORE CALLING IT IMPLEMENTED</p><h2 id="conditions-title">「使える」と言うために，越えなければならない条件がある．</h2></div>
+                <p>技術デモとして動くことと，現場で継続して使えることは同じではありません．</p>
+            </div>
+            <div class="ninth-condition-list">
+                <article><span>01</span><div><h3>安全性と疲労</h3><p>HMD装着時の視界，送球動作の範囲，周囲との衝突，VR酔い，連続体験時間を管理する．</p></div><small>SAFETY</small></article>
+                <article><span>02</span><div><h3>プレイの妥当性</h3><p>球速，軌道，捕球・送球判定が，目的とする体験や評価に十分な水準かを経験者と検証する．</p></div><small>VALIDITY</small></article>
+                <article><span>03</span><div><h3>効果の証拠</h3><p>面白さや没入感と，技能学習・理解促進の効果を分け，対照条件と継続計測で確かめる．</p></div><small>EVIDENCE</small></article>
+                <article><span>04</span><div><h3>データと同意</h3><p>参加者ID，身体動作，主観回答の利用目的，保存期間，公開範囲を説明し，必要以上に収集しない．</p></div><small>DATA</small></article>
+                <article><span>05</span><div><h3>現場での運用</h3><p>準備時間，必要人数，機器故障，衛生管理，説明手順を含め，研究者がいなくても再現できる形へ整える．</p></div><small>OPERATION</small></article>
+            </div>
+        </section>
+
+        <section class="ninth-roadmap-section">
+            <div class="container">
+                <div class="ninth-section-heading light">
+                    <div><p class="section-kicker">ROAD TO THE BOTTOM OF THE NINTH</p><h2>夢を，検証できる順番へ分解する．</h2></div>
+                    <p>「いつか使われる」ではなく，次の判断に必要な証拠を一段ずつ積み上げます．</p>
+                </div>
+                <div class="ninth-roadmap">
+                    <article class="done"><span>COMPLETED</span><h3>体験を成立させる</h3><p>配球，構え，捕球，次球判断，持ち替え，送球，進塁阻止を一続きのVR体験として実装する．</p></article>
+                    <article class="current"><span>NOW</span><h3>測り方を整える</h3><p>動作ログ，NASA-TLX，SUS，操作感を同じ実験回・ビルドへ対応づけ，送球支援の影響を検証する．</p></article>
+                    <article><span>NEXT</span><h3>現場に近い条件で試す</h3><p>経験者を含む参加者，複数セッション，対照条件を用いて，学習・理解・継続利用の可能性を確かめる．</p></article>
+                    <article><span>THEN</span><h3>利用者と運用をつくる</h3><p>チーム，教育，展示など対象を絞り，導入手順とフィードバック画面を現場の人と共同設計する．</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="ninth-final">
+            <div class="container ninth-final-inner">
+                <p class="section-kicker">THE LAST AT-BAT IS NOT THE END</p>
+                <h2>9回裏に見たいのは，<br>技術が勝つ夢ではない．</h2>
+                <p>
+                    誰かが初めて捕手の難しさに気づくこと．経験者が自分の判断を言葉にできること．
+                    指導者と選手が，一球を同じ記録を見ながら話せること．研究で得た知見が，次の体験を少しだけ良くすること．
+                    CatcherXの社会実装は，そのような小さな変化を，確かめながら積み重ねるところから始まります．
+                </p>
+                <div class="ninth-final-links"><a href="experience.html">体験の仕組みへ戻る</a><a href="events/wiss-2026/">現在の研究を見る</a></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer ninth-footer"><p><strong>CatcherX Research Archive</strong><br>福知山公立大学 情報学部</p><p>このページは社会実装に向けた構想であり，効果を保証するものではありません．</p></footer>
+</body>
+</html>

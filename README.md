@@ -35,6 +35,7 @@
 |---|---|
 | [`index.html`](index.html) | CatcherX全体の概要，発表アーカイブ，研究の流れ，記録方針 |
 | [`experience.html`](experience.html) | CatcherXでできること，体験者とシステムの役割，一球の流れ，研究段階ごとの違い |
+| [`bottom-of-the-ninth.html`](bottom-of-the-ninth.html) | 体験ページを読んだ先に置く，CatcherXの社会実装構想 |
 | [`news.html`](news.html) | CatcherXに関する投稿，採択，発表予定，資料公開のお知らせ |
 | [`events/`](events/) | 発表ごとのページ，データ，資料，解析コードを格納する親フォルダ |
 | [`events/ec2026/`](events/ec2026/) | EC2026特選論文の研究概要，主要結果，公開データ・資料への入口 |
